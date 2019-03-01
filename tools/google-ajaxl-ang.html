@@ -1,0 +1,211 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="翻訳 by Google">
+<meta name="keywords" content="翻訳,Ajax,Google">
+<title>翻訳 by Google AJAX Language API</title>
+<style type="text/css">
+<!--
+* {margin: 0px; padding: 0px; }
+form { margin: 0px; }
+img { border: 0px; }
+body {
+	background-color: #ffffff;
+	margin: 5px;
+	padding: 0px;
+	text-align: left;
+}
+body { font-size: 84%; color: #101020; }
+body,td,a,p,.h {font-family:arial,sans-serif; }
+h1 { font-size: 130%; }
+h2 { font-size: 120%; }
+h3 { font-size: 108%; }
+h4 { font-size: 100%; }
+a { text-decoration: underline; font-weight: normal; }
+a:link { color: #0000ff; font-weight: normal; }
+a:visited { color: #0000ff; font-weight: normal; }
+a:hover { color: #ff0000; font-weight: normal; }
+a:active { color: #ff0000; font-weight: normal; }
+textarea { height: 100px; width: 500px; }
+#sourceText { background-color: #e0ffff; }
+#result { background-color: #ffffe0; }
+#retrans { background-color: #fff0e0; }
+-->
+</style>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+<!--
+google.load("language", "1");
+function init() {
+	var langList = document.getElementById("target-language");
+	for (var lang in google.language.Languages) {
+		//if (lang == "FRENCH" || lang == "GERMAN" || lang == "ITALIAN" || lang == "SPANISH") {
+			var langOpt = new Option(lang, google.language.Languages[lang]);
+			langList.options[langList.options.length] = langOpt;
+		//}
+	}
+}
+google.setOnLoadCallback(init);
+function sourceclear() {
+	document.getElementById("source").value = "";
+}
+function translate(mode) {
+	var source = document.getElementById("source").value;
+	document.getElementById("sourceText").innerHTML = source;
+	document.getElementById("result").innerHTML = "";
+	document.getElementById("retrans").innerHTML = "";
+	// 入力された文字列から、言語を自動的に判別する
+	google.language.detect(source, function(detectResult) {
+		if (detectResult.error) {
+			// alert("言語判別エラー:" + error.message);
+			document.getElementById("result").innerHTML = "（言語判別エラー）";
+			return;
+		}
+		if (mode == "other") {
+			if (document.getElementById("tr_en").checked) {
+				if (detectResult.language == "en") {
+					var sorceLang = "en";
+					var langList = document.getElementById("target-language");
+					var targetLang = langList.options[langList.selectedIndex].value;
+					var reTransLang = "ja";
+					document.getElementById("lang1").innerHTML = "("+langList.options[langList.selectedIndex].text+")";
+					document.getElementById("lang2").innerHTML = "(日本語)";
+				} else {
+					var sorceLang = detectResult.language;
+					var targetLang = "en";
+					var langList = document.getElementById("target-language");
+					var reTransLang = langList.options[langList.selectedIndex].value;
+					document.getElementById("lang1").innerHTML = "(英語)";
+					document.getElementById("lang2").innerHTML = "("+langList.options[langList.selectedIndex].text+")";
+				}
+			} else {
+				var sorceLang = detectResult.language;
+				var langList = document.getElementById("target-language");
+				var targetLang = langList.options[langList.selectedIndex].value;
+				var reTransLang = "ja";
+				document.getElementById("lang1").innerHTML = "("+langList.options[langList.selectedIndex].text+")";
+				document.getElementById("lang2").innerHTML = "(日本語)";
+			}
+		} else {
+			if (detectResult.language == "en") {
+				var sorceLang = "en";
+				var targetLang = "ja";
+				var reTransLang = "en";
+				document.getElementById("lang1").innerHTML = "(日本語)";
+				document.getElementById("lang2").innerHTML = "(英語)";
+			} else {
+				var sorceLang = detectResult.language;
+				var targetLang = "en";
+				var reTransLang = "ja";
+				document.getElementById("lang1").innerHTML = "(英語)";
+				document.getElementById("lang2").innerHTML = "(日本語)";
+			}
+		}
+		google.language.translate(
+			source,
+			sorceLang,
+			targetLang,
+			function(result) {
+				if (result.error) {
+					// alert("翻訳エラー:" + result.message);
+					document.getElementById("result").innerHTML = "（翻訳エラー）" + result.message;
+					return;
+				}
+				document.getElementById("result").innerHTML = result.translation;
+				google.language.translate(
+					result.translation,
+					targetLang,
+					reTransLang,
+					function(result) {
+						if (result.error) {
+							// alert("再翻訳エラー:" + result.message);
+							document.getElementById("retrans").innerHTML = "（再翻訳エラー）" + result.message;
+							return;
+						}
+						document.getElementById("retrans").innerHTML = result.translation;
+					});
+			});
+	});
+}
+-->
+</script>
+</head>
+<body>
+<h2>翻訳 by Google AJAX Language API</h2>
+(長文対応はしていません。<a href="http://ok2nd.blog87.fc2.com/blog-entry-229.html" target="_blank">長文対応版</a>は、Myhome Portalに含まれています)<br>
+	<textarea id="source"></textarea><button onclick="sourceclear()">クリア</button><br>
+	<button onclick="translate('')">日⇔英翻訳</button>
+	翻訳後、元の言語に再翻訳します。日英以外の言語を入力すると英語に翻訳後、日本語に翻訳します。<br/>
+	<select id="target-language">
+		<option value="ja">日本語</option>
+		<option value="en">英語</option>
+		<option value="fr">フランス語</option>
+		<option value="de">ドイツ語</option>
+		<option value="it">イタリア語</option>
+		<option value="es">スペイン語</option>
+		<option value="ko">韓国語</option>
+		<option value="zh-CN">中国語(簡体)</option>
+		<option value="zh-TW">中国語(繁体)</option>
+		<option value="ar">アラビア語</option>
+		<option value="id">インドネシア語</option>
+		<option value="uk">ウクライナ語</option>
+		<option value="nl">オランダ語</option>
+		<option value="ca">カタロニア語</option>
+		<option value="el">ギリシャ語</option>
+		<option value="hr">クロアチア語</option>
+		<option value="sv">スウェーデン語</option>
+		<option value="sk">スロバキア語</option>
+		<option value="sl">スロベニア語</option>
+		<option value="sr">セルビア語</option>
+		<option value="tl">タガログ語</option>
+		<option value="cs">チェコ語</option>
+		<option value="da">デンマーク語</option>
+		<option value="no">ノルウェー語</option>
+		<option value="hi">ヒンディー語</option>
+		<option value="fi">フィンランド語</option>
+		<option value="bg">ブルガリア語</option>
+		<option value="vi">ベトナム語</option>
+		<option value="iw">ヘブライ語</option>
+		<option value="pl">ポーランド語</option>
+		<option value="pt">ポルトガル語</option>
+		<option value="lv">ラトビア語</option>
+		<option value="lt">リトアニア語</option>
+		<option value="ro">ルーマニア語</option>
+		<option value="ru">ロシア語</option>
+	</select>
+	<button onclick="translate('other')">←に翻訳する</button>
+	<input type="checkbox" id="tr_en" value="yes">英語を経由して指定外国語に翻訳
+<br/><br/>
+<table width=100%>
+<tr>
+<td width=33% valign=top>原文↓</td>
+<td width=34% valign=top>翻訳↓&nbsp;<span id="lang1"></span></td>
+<td width=33% valign=top>再翻訳↓&nbsp;<span id="lang2"></span></td>
+</tr>
+<tr>
+<td id="sourceText" width=33% valign=top></td>
+<td id="result" width=34% valign=top></td>
+<td id="retrans" width=33% valign=top></td>
+</tr>
+</table>
+<br/>
+Powered by <a href="http://code.google.com/apis/ajaxlanguage/" target="_blank">Google AJAX Language API</a>
+<br/><br/>
+<div id="page_footer">
+<a href="http://ok2nd.web.fc2.com/" target="_blank" style="color:#8080ff;">Powered by ok.2nd</a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

@@ -1,0 +1,875 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン2.75以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download7.html">最新(2.76以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.75&nbsp;&nbsp;(2010/06/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>アルバムの「ギャラリ1」で、オートプレイが出来るようにしました。キーボードの[A]キーでオートプレイのON/OFFができます。</li>
+<li>アルバムの「全画面スライドショー」「全画面(Ajax)スライドショー」「ギャラリ1」で、オートプレイの時間間隔を変更できるようにしました。キーボードの数字キー[1]～[9]を押すと時間間隔が変更されます。</li>
+<li>動画のサムネイル画像を、該当フォルダの下の「___thumb___」フォルダに保存するようにしました。これにより、動画のサムネイル表示が高速になりました。「動画時間分割」のサムネイル画像も同様に保存しますので、2回目からは高速に表示できます。</li>
+	<li>変更モジュール<br>
+		・photo/index.php, slide.php, gallery1.php, gallery2.php<br>
+		・photo/video-jpeg.php<br>
+		・photo/scripts/jquery.gallery.js<br>
+		・photo/css/gallery-style.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.74&nbsp;&nbsp;(2010/06/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>アルバムにJavaScriptを利用したイメージ・ギャラリーを4種類追加しました。アルバムの任意のカレント・ディレクトリの画像でスムーズなスライドショーができます。<br>
+ギャラリー表示開始時に、カレント・ディレクトリのすべてのサムネイル画像をブラウザに取り込みますので、カレント・ディレクトリに画像が多いと最初の表示まで時間がかかります。<br>
+1つ目は、「Fresh Sliding Thumbnails Gallery with jQuery and PHP」を利用しています。IE6では正常動作しません<br>
+<a href="http://tympanus.net/codrops/2010/05/23/fresh-sliding-thumbnails-gallery-with-jquery-php/" target="_blank">http://tympanus.net/codrops/2010/05/23/fresh-sliding-thumbnails-gallery-with-jquery-php/</a><br>
+<img src="images/00000254-gallery1.jpg" style="margin:2px 20px"><br>
+2つ目は、「Sliding Panel Photo Wall Gallery with jQuery」を利用しています。IE6では正常動作しません<br>
+<a href="http://tympanus.net/codrops/2010/05/14/sliding-panel-photo-wall-gallery-with-jquery/" target="_blank">http://tympanus.net/codrops/2010/05/14/sliding-panel-photo-wall-gallery-with-jquery/</a><br>
+<img src="images/00000254-gallery2.jpg" style="margin:2px 20px">
+</li>
+<li>3つ目と4つ目は、ライブラリ「Galleria」を利用した画像ギャラリーです。IEでは正常動作しません。
+<a href="http://galleria.aino.se/" target="_blank">http://galleria.aino.se/</a><br>
+<img src="images/00000255-gallery3.jpg" style="margin:2px 20px">
+<img src="images/00000255-gallery4.jpg" style="margin:2px 20px">
+<img src="images/00000255-gallery4-2.jpg" style="margin:2px 20px"></li>
+<li>ツールに「Google Chart API」を使った「Excel to グラフ by Google」を追加。ワンクリックで、「Excel to グラフ by Bluff」、「Excel to グラフ by HTML5」とグラフを切り替えできます。<br>
+<a href="http://code.google.com/intl/ja/apis/charttools/index.html" target="_blank">http://code.google.com/intl/ja/apis/charttools/index.html</a><br>
+<img src="images/00000197-excel-google.jpg" style="margin:2px 20px">
+</li>
+<li>ツール「Excel to グラフ by HTML5」で、データ系列（行・列）を選択できるようにしました。円グラフは行・列の合計値で生成するようにしました。</li>
+	<li>変更モジュール<br>
+		・photo/index.php<br>
+		・tools/index.php, excel-graph-bluff.php, excel-graph-html5.php</li>
+	<li>追加モジュール<br>
+		・photo/gallery1.php, gallery-thumbs.php, gallery2.php<br>
+		・photo/scripts/jquery.gallery.js<br>
+		・photo/css/gallery-style.css, gallery2-style.css<br>
+		・photo/icons/*<br>
+		・photo/gallery3.php, gallery4.php<br>
+		・photo/galleria/*<br>
+		・tools/excel-graph-google.php, __include-common-excel-graph.php<br>
+		・style/original/tools-excel-graph.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.73&nbsp;&nbsp;(2010/05/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>実運用定義ファイルで、
+<pre class="command" style="font-size: 11px;">
+define("PAGE_BODY_STYLE", "max-width: 100%;")
+</pre>
+を指定した時にレイアウトが崩れる問題の対処。<br>
+＊1：INDEXトップページの右サイドのブログパーツが縦に並ばないことがある場合の対処。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;index.cssの「div.side_parts」に、「clear: both;」を追加。<br>
+＊2：付箋ボードが左揃えにならないことの対処。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;sticky/index-body.phpの&lt;div id="board"&gt;に、 「float:left;」を追加。<br>
+＊3：カレンダーの天気出現地図が、ブラウザによっては、横に拡がってしまうことに対処。<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;map-japan-weather.cssの「table#clickable_map」に「width:900px;」を追加。</li>
+	<li>変更モジュール<br>
+		・sticky/index-body.php<br>
+		・style/original/index.css, map-japan-weather.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.72&nbsp;&nbsp;(2010/05/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>ツールに「Google Maps API V3版 (Earthなし)」を追加。<br>
+<a href="http://code.google.com/intl/ja/apis/maps/documentation/javascript/" target="_blank">Google Maps Javascript API V3</a>では、Google Earth APIがサポートされていないため、Earth機能は付いていません。Googleマップのサイト自体にはEarth機能が追加されているのに、なぜ、API(V3)ではサポートされないのか？Earth機能がサポートされないと、Google Maps APIを使ったMyHome PortalのコンテンツをV3対応に出来ない。<br>
+<a href="http://code.google.com/intl/ja/apis/maps/documentation/javascript/" target="_blank">Google Maps Javascript API V3</a>ではAPI Keyが不要になったため、家庭内LANで別PCからのアクセスも問題なくできます。(http://localhost以外でも正常に動作。)<br>
+
+＜補足＞Google Maps API V3で、<br>
+<pre class="command" style="font-size: 11px;">
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"&gt;
+</pre>
+を指定してストリートビューを使う(streetViewControl: trueにする)とIEでは画面が崩れて誤動作するため、<br>
+<pre class="command" style="font-size: 11px;">
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"&gt;
+</pre>
+に変更。
+</li>
+<li>アルバムのサムネイルの画像クリックで画像をポップアップで拡大表示するように仕様変更。<br>
+JavaScriptは以下のものを使わせていただきました。<br>
+<a href="http://rgrg.blog61.fc2.com/blog-entry-593.html" target="_blank">http://rgrg.blog61.fc2.com/blog-entry-593.html</a><br>
+＜補足＞
+IEではポップアップ画像のheight指定をする場合、widthも指定しないと縦横比が崩れるため、静止画はサーバー側(PHP)で、動画はクライアント側(JavaScript)で画像のサイズを取得して処理。</li>
+<li>アルバムのサムネイル(B)の画像クリックでスライドモードにページ遷移するように仕様変更。</li>
+<li>アルバムのスライドからサムネイルにページ遷移する時に、カレントの表示画像が表示されるページに遷移しない不具合を修正。</li>
+<li>各コンテンツの一覧形式の一括修正/追加/削除画面のinput type="text"枠とtextarea枠の横幅を、それぞれsize×5、cols×5のpxでwidth設定するように変更しました。ブラウザ間の差異を減らすためです。とくにSafari対応です。</li>
+<li>faviconアイコンを実運用定義ファイルで設定できるようにしました。
+<pre class="command" style="font-size: 11px;">
+define("FAVICON_ICON", "../images/favicon/house_red.ico");
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-html.php, include-common-mp-list.php<br>
+		・index/__html-my-header.php<br>
+		・photo/index.php<br>
+		・tools/index.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・tools/google-maps-earth-v3.php<br>
+		・images/favicon/*.ico</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.71&nbsp;&nbsp;(2010/05/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>最新のバージョンのGoogle Chromeで、CSSのデフォルト値リセットのため
+<pre class="command" style="font-size: 11px;">
+* { margin: 0px; padding: 0px; }
+</pre>
+を設定していると、ボタンが小さく表示されてしまう問題に対処。<br>
+Google Chromeでは、なぜかボタンにbackground-colorを指定しないとline-heightが有効にならない(?)ので、全ブラウザでのボタンイメージを統一するため、background-colorを指定。<font color=red>(IE6では有効になりません。)</font>
+<pre class="command" style="font-size: 11px;">
+input[type="submit"] { background-color: #e0e0e0; }
+input[type="reset"] { background-color: #e0e0e0; }
+input[type="button"] { background-color: #e0e0e0; }
+button { background-color: #e0e0e0; }
+</pre>
+<img src="images/button-01.jpg" style="margin:2px 20px">
+</li>
+<li>
+なお、Google Chromeだけ、selectボックスの高さが狭くなってしまいます。<br>
+Google Chrome用CSSハックと言われているbody:nth-of-type(1)を使ってselectのline-heightを指定しても有効にならず。以下のようにpaddingを指定すると有効になるが、今後Google ChromeのCSS仕様変更があるとおかしくなりそうなので、止めました。
+<pre class="command" style="font-size: 11px;">
+body:nth-of-type(1) select { padding: 2px 0; }
+</pre>
+<img src="images/button-02.jpg" style="margin:2px 20px">
+</li>
+	<li>アルバムにフォルダ検索機能を追加。<br>
+カレントフォルダ以下のフォルダ名を検索します。指定フォルダ内のファイルやフォルダが多いと時間がかかります。検索するフォルダ階層を制限してください。<br>
+<img src="images/00000253-photo-search.jpg" style="margin:2px 20px">
+</li>
+	<li>変更モジュール<br>
+		・style/original/common.css, tools_common.css, todo.css, chat.css<br>
+		・その他CSSを直接記述しているphp</li>
+	<li>追加モジュール<br>
+		・photo/search.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.70&nbsp;&nbsp;(2010/04/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページの検索ボタンのうち、「乗換(駅探)」が駅探サイトがUTF-8をサポートしなくなった(?)ようで乗車駅、下車駅が文字化けしてしまう問題を修正。</li>
+	<li>INDEXトップページの「鉄道・乗換」の中にサンプルとして入れている「乗換(駅探)」検索フォームでも、同じ原因で不具合が生じていたため、修正。
+<br><img src="images/ekitan.jpg" style="margin:2px 20px"><br>
+既に実運用の場合は、修正画面でHTML(ブログパーツ)を、以下に置き換えてください。function Norikae_Ekitan()のencodeURLをEscapeSJISに修正するだけでもOKです。<br>
+<pre class="command" style="font-size: 11px;">
+&lt;form name="norikae_form" target="_self" style="border:1px solid #808080;background-color:#F0E68C;margin:5px;padding:3px;"&gt;
+乗車：&lt;input type="text" name="SF" size="12"&gt;&lt;br&gt;
+下車：&lt;input type="text" name="ST" size="12"&gt;&lt;br&gt;
+&lt;input type="button" value="乗換(駅探)" onClick="Norikae_Ekitan()"&gt;&lt;br&gt;
+&lt;input type="button" value="乗換(Google)" onClick="Norikae_Google()"&gt;&lt;br&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;
+function Norikae_Google() {
+url = "http://maps.google.co.jp/maps?ie=UTF8&f=d&ttype=dep&dirflg=r";
+url = url + "&saddr=" + encodeURL(document.norikae_form.SF.value);
+url = url + "&daddr=" + encodeURL(document.norikae_form.ST.value);
+top.location.href = url;
+}
+function Norikae_Ekitan() {
+url = "http://transit.ekitan.com/norikae/NorikaeSearch";
+url = url + "?SFNAME=" + EscapeSJIS(document.norikae_form.SF.value);
+url = url + "&STNAME=" + EscapeSJIS(document.norikae_form.ST.value);
+top.location.href = url;
+}
+&lt;/script&gt;
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.69&nbsp;&nbsp;(2010/04/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページに、ピックアップURL機能を追加しました。良く使うホームページを通常のインデックスとは別に、ページ上段にタイル形式で表示します。<br><img src="images/00000153-115.jpg" style="margin:2px 20px"><br><img src="images/00000252-oftenuse2.jpg" style="margin:2px 20px"></li>
+	<li>既に前のバージョンで実運用中の場合は、ピックアップURL用のテーブル「m_oftenuse」を、データベース「_db_index/_mydb_index」に追加してください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_index < _db_index_add_m_oftenuse.txt
+mysql -u root -pkanri789 _mydb_index < _db_index_add_m_oftenuse.txt
+</pre>
+</li>
+	<li>旅行記、掲示板、メモで、動画の自動再生をしないようにしました。</li>
+	<li>Ver.2.68で追加したJavaScript時計「blog-parts/myhome-clock.inc」が、月日が2桁になると横幅が広がってしまうので、微調整しました。</li>
+	<li>メモ等の検索文字をハイライトする処理の不備を修正。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-html.php, include-common-all.php<br>
+		・index/__define.php, __html-my-header.php, _contents-header.php, index.php<br>
+		・style/original/index.css<br>
+		・blog-parts/myhome-clock.inc<br>
+		・scripts/JWPlayer/movie_preview.js<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・index/oftenuse.php<br>
+		・z_db_backup/_db_index_add_m_oftenuse.txt</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.68&nbsp;&nbsp;(2010/04/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページ右上のFlashの時計を、オリジナルのシンプルなJavaScriptの時計にしました。<br><img src="images/clock.jpg" style="margin:2px 20px"><br>
+	既に前のバージョンで実運用中の場合は、「myhome-clock.inc」を実運用環境のディレクトリにコピーして下さい。インストールドライブが「D:」の場合の例は以下です。<br>
+<pre class="command" style="font-size: 11px;">
+copy D:\xampp\htdocs\_myhome\blog-parts\myhome-clock.inc D:\xampp\htdocs\_blog-parts
+</pre>
+	前のFlashの時計に戻したい場合は、実運用定義ファイルで以下の指定をしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("BLOG_PARTS_SCRIPT_RIGHT1_index", "clock-simple-blue.inc")
+</pre></li>
+	<li>メモ等で、検索文字をハイライトする場合、英字の小文字/大文字が一致していないとハイライトされなかった問題を修正。<br><img src="images/select.jpg" style="border:1px #8080ff solid; margin:2px 20px"></li>
+	<li>カレンダーの検索で、HTMLタグ内文字も検索対象になっていたのを、検索対象から外すようにしました。</li>
+	<li>カレンダーの検索で、HTMLタグ内文字を検索しないようにするために、カレンダーのデータベース「_db_calendar」/「_mydb_calendar」のテーブル「m_schedule」に列「c_memo_strip_tags」を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。</li><br>
+	【列「c_memo_strip_tags」の追加】<br>
+	データベース「_db_calendar」/「_mydb_calendar」のテーブル「m_schedule」に列「c_memo_strip_tags」の追加をします。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+&nbsp;&nbsp;&nbsp;《サンプルDBの場合》
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_calendar;
+ALTER TABLE m_schedule ADD c_memo_strip_tags longtext NOT NULL AFTER c_memo;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_calendar < create_view_db_calendar.txt
+</pre>
+&nbsp;&nbsp;&nbsp;《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_calendar;
+ALTER TABLE m_schedule ADD c_memo_strip_tags longtext NOT NULL AFTER c_memo;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_calendar < create_view_mydb_calendar.txt
+</pre>
+【列「c_memo_strip_tags」データ更新】<br>
+データベース「_db_calendar」/「_mydb_calendar」のテーブル「m_schedule」に列「c_memo_strip_tags」のデータ更新をするには、
+次を実行してください。<br>
+■カレンダーのm_schedule「c_memo_strip_tags」データ更新(登録)<br>
+<a href="http://localhost/_myhome/tools/calendar-memo-strip-tags-268.php" target="_blank">http://localhost/_myhome/tools/calendar-memo-strip-tags-268.php</a></li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-common-mp-list.php, __define_common.php<br>
+		・calendar/_my_calendar.php, input.php, list.php, maps.php, maps-alone.php<br>
+		・diary/view.php, list-marker-template.php, __include-maps.php<br>
+		・z_db_backup/create_view_db_calendar.txt, create_view_mydb_calendar.txt<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・blog-parts/myhome-clock.inc<br>
+		・tools/calendar-memo-strip-tags-268.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.67&nbsp;&nbsp;(2010/04/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>INDEX、カレンダー、旅行記、メモ、学習、住所録、ID管理、預貯金管理、利用ガイド、ユーザー一覧のそれぞれの検索機能で、検索キーにAND,ORおよび()を使った複合検索ができるようにしました。ANDは「&」または「*」、ORは「|」「+」を使います。<br>
+	[例] ( 赤坂 | 六本木 ) & イタリアン<br>
+	[例] ( 赤坂 + 六本木 ) * イタリアン<br>
+	スペース(空白)は入れても入れなくても構いません。&|*+()は、全角も可です。<br>
+	&|*+()を正しく入れないとSQL構文エラーになります。</li>
+	<li>実運用定義ファイルで、<br><pre class="command" style="font-size: 11px;">define("_DEBUG_ERROR_MSG", "YES");</pre>を指定している場合、上記、検索機能でSQL構文エラーが発生するとSQL文を表示します。</li>
+	<li>上記、検索機能の検索キー入力テキスト枠を、文字数に応じて幅を広げるようにしました。
+<br><img src="images/key1.jpg">
+<br><img src="images/key2.jpg"</li>
+	<li>Google Maps & Earth (ストリートビュー付)にも、マーカーを付けるようにしました。</li>
+	<li>INDEXトップの「●」ボタンの検索を、<br>
+Google Maps & Earth (複数地点)[google-maps-earth-marker.php]から、<br>
+Google Maps & Earth (ストリートビュー付)[google-maps-earth.php]に変更。</li>
+	<li>「(簡易) 預貯金管理」で、並び替えに「利率順」「満期額順」を追加。</li>
+	<li>住所録一覧の都道府県選択のプルダウンで「jquery.cs.js」を使うのを止めました。jqueryのバージョンに依存するため。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-common-mp-list.php<br>
+		・abook/list.php, __html-my-header.php<br>
+		・bbs/list.php<br>
+		・calendar/_my_calendar.php, month.php, year.php, week.php, list-my-template.php<br>
+		・index/__define_index_search.php<br>
+		・kakeibo/list.php, list-my-template.php<br>
+		・study/mycheck.php<br>
+		・tools/index.php, google-maps-earth.php<br>
+		・style/original/mp-list.css<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.66&nbsp;&nbsp;(2010/03/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>「INDEX」の「ブックマーク」、「ツール」の「（簡易）ファイルマネージャー」、「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」で、上位階層のディレクトリに、フォルダ名をクリックするだけでパス移動できるようにしました。
+<br><img src="images/fdirect.jpg"></li>
+	<li>「ツール」の「Photoshop-like JavaScript Color Picker」を「HTML カラーチャート ＋ Photoshop-like JavaScript Color Picker」として、カラーピッカーとカラーチャートを1ページで表示するようにしました。
+<br><img src="images/ColorPicker.jpg"></li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-color-chart.php<br>
+		・index/list-url.php<br>
+		・tools/file-manager.php, code-file-view.php, colorpicker.php, index.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.65&nbsp;&nbsp;(2010/03/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>「INDEX」に「ブックマーク」機能追加。任意のフォルダのインターネットショートカットファイル(拡張子：urlのファイル)(IEのお気に入りのファイル)を、INDEXの一覧と同様の形式で表示します。キャプチャ画像付きやキャプチャ画像のサムネイル表示も出来ます。</li>
+	<li>「ブックマーク」で表示するのは、サーバーローカルのディレクトリです。PC1台での利用の場合は、そのPCのディレクトリになります。</li>
+	<li>「ブックマーク」のデフォルトディレクトリは、実運用定義ファイルで設定できます。
+<pre class="command" style="font-size: 11px;">define("LIST_URL_DEFAULT_FOLDER_index", "C:/Users/Public/Favorites");</pre></li>
+	<li>「ブックマーク」はシステム管理者のみが利用できます。</li>
+	<li>「ブックマーク」では、ファイル名に「≫」等の特殊文字が含まれている場合は、エラーになります。この場合、リンク表示できません。
+<br><img src="images/bm1.jpg">
+<br><img src="images/00000250-bm2.jpg">
+<br><img src="images/bm3.jpg">
+</li>
+
+
+	<li>ツール「（簡易）ファイルマネージャー」で、ファイル名に「≫」等の特殊文字が含まれているとエラーが出るため、エラーを出ないようにしました。ただし、エラーが出ないだけで、リネーム等のファイル操作は出来ません。</li>
+	<li>ツール「（簡易）ファイルマネージャー」「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」のファイル名の表示順を英小文字/大文字の区別なく並び替えるように変更しました。</li>
+	<li>「アルバム」「（簡易）ファイルマネージャー」「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」の英小文字/大文字の区別なしの並び替えは、array_map("mb_strtolower",)との組み合わせでは、array_multisort()で日本語の順番が乱れるため、natcasesort()の順番を使って、array_multisort()をするようにしました。</li>
+	<li>変更モジュール<br>
+		・index/list.php, list-my-template.php, list-my-template-thumbnail.php<br>
+		・index/__html-my-header.php, _contents-header.php<br>
+		・index/icon/folder.gif<br>
+		・tools/file-manager.php, code-file-view.php<br>
+		・photo/index.php<br>
+		・style/original/index.css, tools_common.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・index/list-url.php, _add_header-list-url.php<br>
+		・index/file-delete.php, file-rename.php<br>
+		・index/folder-copy.php, folder-delete.php, folder-rename.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.64&nbsp;&nbsp;(2010/03/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>右上の「利用ガイド」「ユーザ一覧」などのメニューを隠せるようにしました。
+<br><img src="images/hide1.jpg">
+<br><img src="images/hide2.jpg"></li>
+	<li>上記の機能追加に伴い、外部コンテンツを組み込む方法に一部変更があります。既に外部コンテンツを組み込んで運用している場合、次の修正を加えてください。<br>
+
+「D:\XAMPP\htdocs\_myhome\実運用サンプル\icon」フォルダ一式を「D:\XAMPP\htdocs\_myhome_myset」の下にコピーします。<br>
+<pre class="command" style="font-size: 11px;">mkdir D:\xampp\htdocs\_myhome_myset\icon
+copy D:\XAMPP\htdocs\_myhome\実運用サンプル\icon D:\xampp\htdocs\_myhome_myset\icon</pre>
+実運用サンプルのYouTube組み込みの場合、<br>
+「D:\xampp\htdocs\_myhome_myset\youtube\__html-my-header.php」に、次の1行を追加してください。<br>
+<pre class="command" style="font-size: 11px;">&lt;script language="javascript" src="../../_myhome/scripts/cookie.js" type="text/javascript"&gt;&lt;/script&gt;</pre>
+</li>
+	<li>scripts/cookie.jsのCookie処理に不具合があったので、修正しました。<br>IE以外のブラウザでは、ユーザーの一括切り替え処理ができていませんでした。MyHome Portalを既に運用済みの場合は、誤動作を防ぐため使用ブラウザのCookieを一旦削除してください。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・photo/index.php<br>
+		・sticky/category.php<br>
+		・tools/__html-my-header.php<br>
+		・scripts/cookie.js<br>
+		・実運用サンプル/youtube/__html-my-header.php</li>
+	<li>追加モジュール<br>
+		・__common__/in-block-color-chart-pale.php<br>
+		・実運用サンプル/icon/arrow_left.png, arrow_right.png/</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.63&nbsp;&nbsp;(2010/03/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>付箋ボードがIE6では大きく誤動作する不具合がありましたので、修正しました。</li>
+	<li>Ver.2.62で適用した「ID管理のコピー＆ペーストで文字列の最後にスペースが付いてしまう問題の回避策」によりFirefoxではコピーそのものがされなくなってしまうことが判明。また、Safariには効果が無いことも分かりました。ということで、Chrome以外ではoncopy処理を適用しない様にしました。</li>
+	<li>ID管理のコピー＆ペースト処理でコピー先の文字列の後ろにタブコードが付いてしまう場合があることも判明。回避策として、&lt;/td&gtの前に&lt;br /&gt;を入れました。</li>
+	<li>変更モジュール<br>
+		・sticky/index.php, index-body.php, index-ie6-iframe.php<br>
+		・sticky/form-add.php, category.php<br>
+		・id-manager/list-my-template.php, view-idpass.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.62&nbsp;&nbsp;(2010/03/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>新しいコンテンツ「付箋」を追加。ポスト・イットのような感じでメモを貼り付けられます。ドラッグによる移動ができます。
+<br><img src="images/00000249-sticky.jpg"><br>
+以下の「sticky-notes-ajax-php-jquery」を使用しています。<br>
+	● AJAX-enabled Sticky Notes With PHP & jQuery<br>
+<a href="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/" target="_blank">http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/</a><br>
+	● Fancybox(sticky-notesで使用)<br>
+<a href="http://fancybox.net/" target="_blank">http://fancybox.net/</a><br>
+	&nbsp;&nbsp;&nbsp;&nbsp;sticky-notesで使われていたVer.1.2.6を使っています。</li>
+	<li>このサイトのデモ版をカスタマイズしてMyHome Portalに組み込んでいます。デモ版と違って、修正と削除ができるようにしています。デモ版と違って、一定時間経過で消えることはありません。URLを入力すると付箋上では 表示を短くしたリンクで表示します。その他、細かい点でいくつも修正を加えています。</li>
+
+	<li>参照権限のみのユーザーの付箋ボードは閲覧はできますが編集はできません。ドラッグによる一時的な移動はできますが、再表示すると元に戻ります。</li>
+	<li>複数のユーザーに書き込み権限がついているアカウントの付箋ボードを複数のユーザーが同時に編集した場合、他ユーザーの追加・編集はリアルタイムには反映されません。再表示して初めて反映されます。</li>
+
+	<li>新規追加後の付箋の編集ボタンは2度クリックしないと反応しません。(実は最初の1回目のクリックでは一旦画面全体をリフレッシュします。Ajaxで全てコントルールがうまくいかなかったので、こうなっています。)</li>
+	<li>新規付箋の文字サイズやURLリンク表示はすぐに反映されません。再表示して初めて反映されます。 </li>
+	<li>付箋貼り付けボードは個人単位で複数設定できます。貼り付けボード単位に背景色や文字サイズを設定できます。</li>
+	<li>IE6では、付箋を貼りつけるボード部分が&lt;iframe&gt;にしています。IE6では、ブラウザのウインドウを小さくしてMyHome Portalのヘッダー部分が2段になる状態(利用ガイド..以下のメニューが下にずれる状態)で、「付箋」の新規や編集のフォームを表示しようとすると、ブラウザがフリーズしてしまう不具合が発生するため、その回避策として&lt;iframe&gt;を使うことにしました。(Fancyboxを最新の1.3.0にしたら問題を回避できるかと思ってテストしましたが、sticky-notes全体が更に大きく誤動作します。)
+</li>
+	<li>ID管理で、Google ChromeでIDやパスワードをトリプルクリックでコピー＆ペーストでサイトのログイン画面に貼り付けると、文字列の最後にスペースが付いてしまう問題の回避策を施しました。<br>
+Livedoor KnowledgeにてBLUEPIXYさんからいただいた解決策を適用しています。BLUEPIXYさんありがとうございました。<br>
+<a href="http://ok2nd.blog87.fc2.com/blog-entry-198.html" target="_blank">http://ok2nd.blog87.fc2.com/blog-entry-198.html</a>
+</li>
+	<li>jQueryを1.3.2から1.4.2にバージョンアップしました。<br>
+ただし、IE6では.html()で一部不具合が出るため、旅行記ではブラウザを判定して、IE6の場合1.3.2を使用します。<br>
+jQueryのバージョン変更に伴う誤動作などMyHome Portalの不具合に気づかれた方はお知らせください。</li>
+
+	<li><font color=red>既に前のバージョンで実運用中の場合は、「付箋」を追加するために、以下の手順により環境設定してください。</font><br>
+	<font color=green>【サンプルモード】</font><br>
+	まず、サンプルモード用データベース「<font color=blue>_db_sticky</font>」を登録します。<br>
+	コマンドプロンプトから以下を実行してください。<font color=red>以下、MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。また、インストールディレクトリをDドライブとして説明します。</font><br>
+	<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+create database _db_sticky;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_sticky < _db_sticky.bk.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_sticky.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+	<font color=green>【実運用モード】</font><br>
+	コンテンツ定義ファイル__define_contents_my.phpに、コンテンツの追加をしてください。<br>
+	__define_contents_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">$navi_item[] = array("href"=>"sticky/", "query"=>"arg=session", "name"=>"付箋");</pre>
+	実運用定義ファイル__define_common_my.phpに、実運用データベースの定義を追加してください。<br>
+	__define_common_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_sticky", _mydb_sticky);</pre>
+	データベース「_db_sticky」をコピーして、実運用データベース「<font color=blue>_mydb_sticky</font>」を作成します。<br>
+	MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+	<pre class="command" style="font-size: 11px;">mkdir D:\xampp\mysql\data\_mydb_sticky
+copy D:\xampp\mysql\data\_db_sticky\* D:\xampp\mysql\data\_mydb_sticky</pre>
+	MySQLを再起動します。XAMPPコントロールパネルで「開始」を押してください。<br>
+ビューの登録をします。コマンドプロンプトから以下を実行してください。<br>
+	<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_sticky.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+サンプルデータベースからコピーされた付箋をクリアします。<br>
+<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+use _mydb_sticky;
+truncate table m_notes;
+truncate table m_category;
+exit;</pre>
+
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, __define_contents.php, include-common-mp-list.php<br>
+		・diary/__include-maps.php<br>
+		・db_tool/backup-mydb.php<br>
+		・id-manager/list-my-template.php, view-idpass.php<br>
+		・scripts/jquery.js<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・setup-sample.php<br>
+		・db_backup.txt.php, db_restore.txt.php<br>
+		・style/original/common.css</li>
+
+	<li>追加モジュール<br>
+		・sticky/一式<br>
+		・scripts/jquery-ui.min.js<br>
+		・z_db_backup/_db_sticky.bk.txt</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.61&nbsp;&nbsp;(2010/02/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>旅行記、掲示板、メモで、日本語ファイル名のFLV,MP4をアップロードした場合、動画再生できなかった問題を解消しました。</li>
+	<li>アルバム動画再生で、WMVファイルパスに日本語が含まれていると再生できない不具合を修正。</li>
+	<li>アルバムのスライドモードで、ディレクトリ表示位置を左側にした場合、IE6ではスライド背景色が消えてしまう不具合を解消。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・bbs/view.php, input.php<br>
+		・diary/item-input.php<br>
+		・memo/input.php<br>
+		・photo/video-view.php, index.php</li>
+	<li>追加モジュール<br>
+		・__common__/flv-view.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.60&nbsp;&nbsp;(2010/02/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>アルバムの上位ディレクトリ表示位置を、上段または左側に切り替えできるようにしました。
+<br><img src="images/00000168-220.jpg">
+<br><img src="images/00000168-220-l.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, __html-my-header.php</li>
+	<li>追加モジュール<br>
+		・style/original/photo-top.css, photo-left.css<br>
+		・icon/arrow_left.png, arrow_right.png</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.59&nbsp;&nbsp;(2010/02/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>アルバムに「全画面(Ajax)」を追加。Ajaxを利用して、ページ遷移なしのスムーズな全画面スライドショーができます。画像切り替えはフェードアウト＋フェードインで切り替えます。オートプレイ&オートリピート固定です。マウス操作はできません。元のアルバム画面に戻るには[Esc]キーで戻ります。通常の全画面モード・スライドショーで使える[Esc]キー以外のキー操作はできません。<br>フェードアウトおよびフェードインの時間は実運用定義ファイルで変更できます。<br>
+<pre class="command" style="font-size: 11px;">define("photo_SLIDE_AJAX_FADEOUT_TIME", 800);	// 全画面Ajax フェードアウト ミリ秒
+define("photo_SLIDE_AJAX_FADEIN_TIME", 800);	// 全画面Ajax フェードイン ミリ秒</pre>
+</li>
+	<li>旅行記マップのルート表示を、チェックボックスでページ遷移なしでオン/オフできるようにしました。</li>
+	<li>旅行記マップの全画面表示では、ルート表示を車と徒歩から選択できるようにしました。
+<br><img src="images/route1.jpg">
+<br><img src="images/route2.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/__define.php, index.php, slide.php<br>
+		・diary/__include-maps.php<br>
+		・calendar/maps-include.php, month.php, year.php, week.php<br>
+		・tools/google-maps-earth.php<br>
+		・__common__/include-common-mp-list.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・photo/img-get.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.58&nbsp;&nbsp;(2010/02/13)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>旅行記本文ページに、元ページ（一覧/地点一覧/月間カレンダー/年間カレンダー）に戻るリンクを追加。</li>
+	<li>旅行記、カレンダーで、頁行数がリセットされてしまうことがある不具合を修正。</li>
+	<li>変更モジュール<br>
+		・diary/view.php, list.php, item-input.php<br>
+		・diary/list-marker.php, list-marker-template.php<br>
+		・calendar/month.php, year.php, week.php<br>
+		・calendar/maps.php, maps-alone.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.57&nbsp;&nbsp;(2010/02/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>旅行記の地点一覧に、該当の旅行記ページリンクや地点修正リンクを追加。</li>
+	<li>旅行記の地点一覧に、添付ファイルがあれば、アイコン表示するようにしました。</li>
+	<li>旅行記のマップに「全ルート」ボタンを追加。全マーカー地点を経由するルートを表示します。全画面モードでは、ルートのナビゲーションも表示します。ルートは車と徒歩によるルートです。一覧からの複数日選択による一括マップでも同じ機能が使えます。マーカー数は25個を超えると表示できません(多分？)。</li>
+	<li>旅行記マップのマーカーに、「Googleマップ」「前(次)地点からの経路」リンクを追加。実際のGoogleマップにジャンプします。
+<br><img src="images/00000243-diary31.jpg"></li>
+	<li>INDEX、カレンダー、旅行記のミニカレンダーの今日の背景色と文字色を実運用定義ファイルで設定できるようにしました。<br>
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_TODAY_MINI_BACKGROUND_COLOR", "#00ced1"); //ミニカレンダー今日 背景色
+define("CALENDAR_TODAY_MINI_LINK_COLOR", "#ffffff"); //ミニカレンダー今日 文字色</pre></li>
+	<li>カレンダー、旅行記、掲示板、メモのフォームによる登録ページのメモリサイズと最大実行時間を実運用定義ファイルで指定できるようにしました。<br>
+	  アップロードファイルの制限を変更する場合、設定してください。<br>
+<pre class="command" style="font-size: 11px;">define("FILE_UPLOAD_MEMORY_LIMIT", "32M");
+define("FILE_UPLOAD_MAX_EXECUTION_TIME", "60");</pre>
+	  アップロードファイルの制限を変更する場合、php.iniの以下の2項目も修正する必要があります。<br>
+<font color=red>※ php.inを修正する時は、必ずバックアップファイルを作成してから、行なってください。</font><br>
+<pre class="command" style="font-size: 11px;">upload_max_filesize	32M
+post_max_size		16M</pre>
+	  php.iniは、D:\xampp\apache\bin\php.ini(Dドライブインストールの例)を修正してください。D:\xampp\php\php.iniではありません。<br>
+	  修正後は、Apacheを一旦停止/開始をしてください。設定値は、<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a><br>
+で確認できます。</li>
+	<li>おもな変更モジュール<br>
+		・diary/多数<br>
+		・bbs/__define.php, input.php<br>
+		・calendar/__define.php, input.php<br>
+		・memo/__define.php, input.php<br>
+		・style/original/diary.css, calendar.css<br>
+		・__common__/__define_common.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.56&nbsp;&nbsp;(2010/02/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>新しいコンテンツ「旅行記」を追加しました。<br>
+	旅行の行き先の地点をGoogleマップでマーカー表示できます。</li>
+	<li>全画面タイプのGoogleマップ表示もできます。<br>
+	全画面タイプのGoogleマップでは、ストリートビュー表示もできます。</li>
+	<li>一覧表で、複数の日付を選択して、一括マップを作成できます。<br>
+	複数日の行き先地点全てのマーカーを1枚の地図に表示します。</li>
+	<li>登録・修正画面で、マーカーの登録や修正ができます。マーカーは移動もできます。<br>
+	登録・修正画面でのマーカーの修正や移動、地図の拡大・縮小はAjaxを使って、画面遷移なしに、リアルタイムでデータベースに記録します。</li>
+	<li>複数日のマーカー地点情報を一覧表示、一括修正もできます。</li>
+
+	<li><font color=red>既に前のバージョンで実運用中の場合は、「旅行記」を追加するために、以下の手順により環境設定してください。</font><br>
+	<font color=green>【サンプルモード】</font><br>
+	まず、サンプルモード用データベース「<font color=blue>_db_diary</font>」を登録します。<br>
+	コマンドプロンプトから以下を実行してください。<font color=red>以下、MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。また、インストールディレクトリをDドライブとして説明します。</font><br>
+	<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+create database _db_diary;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_diary < _db_diary.bk.txt
+mysql -u root -pkanri789 _db_diary < create_view_db_diary.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_diary.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+	<font color=green>【実運用モード】</font><br>
+	コンテンツ定義ファイル__define_contents_my.phpに、コンテンツの追加をしてください。<br>
+	__define_contents_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">$navi_item[] = array("href"=>"diary/", "query"=>"", "name"=>"旅行記");</pre>
+
+	実運用定義ファイル__define_common_my.phpに、実運用データベースの定義を追加してください。<br>
+	__define_common_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_diary", _mydb_diary);</pre>
+
+
+実運用定義ファイル__define_common_my.phpに以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">define("ATTACH_FILE_FOLDER_diary", "../../_attach/diary/");
+define("ATTACH_FILE_FOLDER_diary_marker", "../../_attach/diary_marker/");</pre>
+
+添付ファイル用ディレクトリを作成します。<br>
+
+<pre class="command" style="font-size: 11px;">mkdir D:\xampp\htdocs\_attach\diary
+mkdir D:\xampp\htdocs\_attach\diary_marker</pre>
+
+	データベース「_db_diary」をコピーして、実運用データベース「<font color=blue>_mydb_diary</font>」を作成します。<br>
+	MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+	<pre class="command" style="font-size: 11px;">mkdir D:\xampp\mysql\data\_mydb_diary
+copy D:\xampp\mysql\data\_db_diary\* D:\xampp\mysql\data\_mydb_diary</pre>
+	MySQLを再起動します。XAMPPコントロールパネルで「開始」を押してください。<br>
+ビューの登録をします。コマンドプロンプトから以下を実行してください。<br>
+	<pre class="command" style="font-size: 11px;">d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_diary < create_view_mydb_diary.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_diary.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+サンプルデータベースからコピーされた旅行記をクリアします。<br>
+<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+use _mydb_diary;
+truncate table m_category;
+truncate table m_schedule;
+truncate table m_marker;
+exit;</pre>
+
+Googleマップのマーカーアイコンを追加したい場合は、アイコンフォルダを、_myhomeの外にアイコンフォルダを移動して、実運用定義ファイルでフォルダ指定をしてください。例として、<br>
+<pre class="command" style="font-size: 11px;">D:\xampp\htdocs\_myhome_myset\_my_maps_icon</pre>
+にした場合は、実運用定義ファイルで以下のように指定します。<br>
+<pre class="command" style="font-size: 11px;">define("DIARY_MAPS_ICON_FOLDER", "../../_myhome_myset/_my_maps_icon")</pre>
+Googleマップのマーカー用アイコンは、<br>
+<a href="http://code.google.com/p/google-maps-icons/" target="_blank">http://code.google.com/p/google-maps-icons/</a>
+にたくさんのアイコンがあります。<br>
+<br><img src="images/00000241-diary2.jpg">
+<br><img src="images/00000243-diary5.jpg">
+<br><img src="images/00000240-diary1.jpg">
+<br><img src="images/00000245-diary6.jpg">
+<br><img src="images/00000242-diary3.jpg">
+<br><img src="images/00000244-diary4.jpg">
+</li>
+
+	<li>カレンダー・マップ機能で、地図の右側にマーカー名一覧を表示するようにしました。</li>
+	<li>カレンダー・マップ機能(別窓)に、ストリートビュー機能を追加しました。</li>
+	<li>ツール・Google Maps & Earthに、ストリートビュー機能を追加しました。
+		<br><img src="images/00000212-street.jpg"></li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-html.php, include-common-mp-list.php<br>
+		・calendar/maps-alone.php, maps-include.php<br>
+		・tools/google-maps-earth.php<br>
+		・db_tool/backup-mydb.php<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・setup-sample.php</li>
+	<li>追加モジュール<br>
+		・diary/以下一式</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.55&nbsp;&nbsp;(2010/02/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li><font color=red>IEで、Google Maps APIを使ったページを表示した後で、INDEXトップページを表示すると異常に時間がかかりハングアップしたようになる問題点を解消。</font><br>
+	原因は、トップページの各種インターネット検索サイトボタンで、Shift-JISやEUCコードへの変換を行うために使っていたJavaScript「ecl.js」によるものでした。IEでしか発生しないため、IEとGoogle Maps APIの相性の問題かと思っていたのですが、全く別のところに原因があったようです。<br>
+	ネットを検索したところ、<a href="http://www.drk7.jp/MT/" target="_blank">Drk7jp</a>さんが、「ecl.js」の改善版「ecl_new.js」を作成されていることが分かり、これに置き換えることで、問題点が解消されました。<a href="http://www.drk7.jp/MT/" target="_blank">Drk7jp</a>さん、ありがとうございます。<br>
+	《 参考：ecl.js (Escape Codec Library) と Sleipnir の相性が悪い件について 》<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.drk7.jp/MT/archives/001324.html" target="_blank">http://www.drk7.jp/MT/archives/001324.html</a><br></li>
+
+	<li>変更モジュール<br>
+		・index/__html-my-header.php</li>
+	<li>追加モジュール<br>
+		・scripts/ecl_new.js</li>
+	<li>使用停止モジュール<br>
+		・scripts/ecl.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.54&nbsp;&nbsp;(2010/01/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・全画面スライドで、動画ファイル削除時に、削除動画を「___trash___」に移動するのと同時に、「___flv___/」以下の同名ファイルを削除するようにしました。 </li>
+	<li>アルバム・全画面スライドで、実運用定義ファイルで廃止した定数photo_JPEG_ROTATEが"YES"になっていないと縦位置画像の上下が切れて表示されてしまう不具合を修正。</li>
+	<li>住所録・マップ機能で、地図の右側にマーカー名一覧を表示するようにしました。マーカー名をクリックすると該当のマーカー吹き出しが表示されます。<br>
+<img src="images/map0.jpg"><br>
+<img src="images/00000228-m1.jpg"><br>
+<img src="images/00000229-wh2.jpg"></li>
+	<li>変更モジュール<br>
+		・abook/maps-abook.php, do-proc.php<br>
+		・photo/slide.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.53&nbsp;&nbsp;(2010/01/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録一覧で、チェック項目見出しの表示位置変更。</li>
+	<li>アルバム・全画面スライドで、画像ファイル削除時に、削除画像を「___trash___」に移動するのと同時に、「___small___」と「___thumb___」以下の同名ファイルを削除するようにしました。</li></li>
+	<li>アルバムのオートプレイ指定を、スライドモードと全画面スライドショーで個別の設定としました。設定はそれぞれに引き継がれません。</li>
+	<li>アルバムのオートプレイ指定とリピート指定をCookie保存し、次回も自動的にオートプレイ/リピートするようにしました。</li>
+	<li>アルバム・全画面スライドのオートプレイで、動画の場合、指定時間間隔でなく、動画再生時間後に動画を切り替えるようにしました。</li>
+(FFMPEGがインストールされていて、実運用定義ファイルでphoto_VIDEO_FFMPEGが"YES"に設定されている場合)</li>
+	<li>アルバム・全画面スライドで、無変換キーでも前画像に戻るようにしました。</li>
+	<li>アルバム・全画面スライドで、フェードインをIE、FirefoxともjQueryで行うように変更しました。</li>
+	<li>変更モジュール<br>
+		・abook/list-my-add-filter.php, list-my-template.php<br>
+		・photo/index.php, slide.php<br>
+		・style/original/photo.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.52&nbsp;&nbsp;(2009/12/31)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページ右側の月間カレンダーの表示月がまちがって表示される不具合を修正。</li>
+	<li>変更モジュール<br>
+		・index/top.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.51&nbsp;&nbsp;(2009/12/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・スライドモードで、ルーペ(画像部分拡大)機能On/Offの切り替えで先頭ページに戻ってしまっていた不具合を修正。</li>
+	<li>変更モジュール<br>
+		・photo/index.php</li>
+	</div>
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download5.html">
+		<span style="font-size: 120%;">→→→　バージョン2.50以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

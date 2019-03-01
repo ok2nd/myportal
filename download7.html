@@ -1,0 +1,778 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン3.14以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download8.html">最新(3.15以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.14&nbsp;&nbsp;(2011/01/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+<li>ツール「ファイルマネージャ」に、ファイルアップロード機能を追加。
+複数ファイルの一括アップロードもできます。<span style="color:red;">Chromeでは、アップロードファイルのファイルパスに日本語が含まれていると、エラーになります。(環境(?)によっては、正常動作する模様です。)</span><br>
+一括アップロードは、以下のライブラリを利用しています。<br>
+「Multiple File Upload With Progress Bar Using jQuery」<br>
+<a href="http://webdeveloperplus.com/jquery/multiple-file-upload-with-progress-bar-using-jquery/" target="_blank">http://webdeveloperplus.com/jquery/multiple-file-upload-with-progress-bar-using-jquery/</a><br>
+「SWFUpload jQuery Plugin」<br>
+<a href="http://blogs.bigfish.tv/adam/2009/06/14/swfupload-jquery-plugin/" target="_blank">http://blogs.bigfish.tv/adam/2009/06/14/swfupload-jquery-plugin/</a></li>
+<br><img src="images/00000206-upload.jpg" style="margin:2px 20px">
+<li>「ファイルマネージャ」に、フォルダ作成機能を追加。</li>
+<li>「ファイルマネージャ」で、ファイル・サイズ、ファイル・タイプ別の並び替えもできるようにしました。</li>
+<li>「ファイルマネージャ」で、ファイル並び替えやファイル操作時になるべくスクロールアップしないように改善。</li>
+<br><img src="images/00000206-encode.jpg" style="margin:2px 20px">
+<li>メモ、掲示板、旅行記で、アタッチファイルをアイコン表示していたのを、ファイル名表示に変更。</li>
+<li>INDEXトップページに「百度」検索ボタンを追加。
+<li>include-common-all.phpのfile_upload()がファイルディレクトリが日本語対応になっていなかったのを修正。</li>
+<li>「住所録」で、分類フィルタで「百名山」選択時も専用の一覧形式にしました。標高順に並び替えもできます。
+実運用定義ファイルで、百名山のカテゴリid_category番号を設定してください。
+<pre class="command" style="font-size: 11px;">
+例）define("HYAKUMEIZAN_CATEGORY_ID", 3);
+</pre>
+<span style="color:red;">実運用データベースに、百名山を入れていない場合は、HYAKUMEIZAN_CATEGORY_IDを-1で設定してください。</span><br>
+<pre class="command" style="font-size: 11px;">
+define("HYAKUMEIZAN_CATEGORY_ID", -1);
+</pre></li>
+
+	<li>変更モジュール<br>
+	・__common__/include-common-all.php<br>
+	・index/__define_index_search.php<br>
+	・tools/file-manager.php, その他<br>
+	・bbs/view.php<br>
+	・diary/view.php, __include-view.php, list-marker-template.php<br>
+	・memo/list-my-template.php<br>
+	・abook/list.php, __define.php<br>
+	・calendar/_my_calendar.php<br>
+	・style/original/tools_common.css, abook.css<br>
+	・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+	・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+	・tools/file-upload.php, file-upload-do.php, folder-create.php<br>
+	・abook/list-my-template-hyakumeizan.php<br>
+	・scripts/jquery.swfupload.js<br>
+	・scripts/swfupload/*</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.13&nbsp;&nbsp;(2011/01/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「住所録」のサンプルデータとして、ユーザー「共通」に「鉄道駅」を追加しました。<br>
+分類フィルタで、鉄道駅を選択すると鉄道駅専用の一覧形式に変わります。<br>
+路線名や駅名で検索できます。駅名よみは、一部登録されていません。<br>
+検索欄に路線名を入れて検索し、並び替え順を「路線・駅順」にして「マップ」を作成するとGoogleマップで路線駅をマーカー表示した地図が出来ます。</li>
+<br><img src="images/00000262-tetsudo1.jpg" style="margin:2px 20px">
+<br><img src="images/00000262-tetsudo2.jpg" style="margin:2px 20px"><br>
+
+	<li>「実運用サンプル」フォルダに「鉄道駅.csv」を追加しています。<br>
+実運用データベースに、鉄道駅データを追加登録する場合、まず、「分類編集」で分類を「鉄道駅」等の名前で登録してください。<br>
+その上で、ツール「MySQL管理ツール」で、このCSVファイルをアップロードしてください。CSVファイルをアップロードする際は、id_account、id_categoryを環境に合わせて変更した上でアップロードしてください。</li>
+	<li>鉄道駅のデータは、以下のページのものを使わせていただきました。2010/10/15版を使っています。<br>
+＜駅データ＞<br>
+<a href="http://www.ekidata.jp/" target="_blank">http://www.ekidata.jp/</a><br>
+都道府県コード(pref_cd)は、テーブル「m_kenmei」に合わせたc_kenidに変更しています。<br>
+駅名(station_name)の英数字は半角に統一しています。<br>
+駅並び順(station_sort)を、c_phone1として取り込みます。<br>
+表示フラグ(f_flag)=1のデータのみにしています。<br>
+以下の「全国駅一覧ポイントデータ」と駅名でマッチングしてマッチしたものについては、駅名よみを追加しています。<br>
+<a href="http://www.vector.co.jp/soft/data/home/se441833.html" target="_blank">http://www.vector.co.jp/soft/data/home/se441833.html</a></li>
+	<li>鉄道駅データを実運用データベースに登録した場合、鉄道駅のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+例）define("TETSUDO_EKI_CATEGORY_ID", 5);
+</pre>
+	<span style="color:red;">鉄道駅データを実運用データベースに登録しない場合、TETSUDO_EKI_CATEGORY_IDを-1で設定してください。</span><br>
+<pre class="command" style="font-size: 11px;">
+define("TETSUDO_EKI_CATEGORY_ID", -1);
+</pre></li>
+	<li>変更モジュール<br>
+	・abook/__define.php, list.php<br>
+	・style/original/abook.css</li>
+	<li>追加モジュール<br>
+	・abook/list-my-template-tetsudo-eki.php<br>
+	・実運用サンプル/鉄道駅_20101015.csv<br>
+	・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.12&nbsp;&nbsp;(2011/01/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「預貯金管理」に「クロス集計」を追加。名義別×金融機関別の元金、現在額、満期額のクロス集計が出来ます。
+<br><img src="images/00000200-chokin-cross.jpg" style="margin:2px 20px"></li>
+	<li>「住所録」一覧で、チェック有無プルダウンとチェック項目見出しを合わせて表示するようにレイアウトを変更しました。</li>
+	<li>「旅行記」の「地点一覧」に、総合評価、コスト、施設、雰囲気、料理、風呂それぞれの評価順ソート機能を追加しました。</li>
+	<li>「旅行記」の「一覧」で年間表示の場合、右側ミニカレンダーを1年分表示するようにしました。</li>
+	<li>「旅行記」の「マーカータイプ編集」修正画面に、フォルダ「../icon/maps/」のアイコン一覧を表示するようにしました。</li>
+	<li>変更モジュール<br>
+	・abook/list.php, list-my-add-filter.php, list-my-template.php<br>
+	・diary/list.php, markertype.php, list-marker.php<br>
+	・kakeibo/list.php, list-my-template.php, _contents-header.php<br>
+	・style/original/kakeibo.css</li>
+	<li>追加モジュール<br>
+	・diary/in-block-image.php<br>
+	・kakeibo/cross.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.11&nbsp;&nbsp;(2010/12/20)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」のスケジュール入力画面で、textarea本文へのタグやアイコンの挿入時に、カーソル(キャレット)を挿入位置の後ろに表示するようにしました。<br>
+getRange_in_textarea.jsを修正して、encloseTextArea.jsとしました。</li>
+	<li>変更モジュール<br>
+	・scripts/encloseTextArea.js (getRange_in_textarea.jsの修正版)<br>
+	・calendar/input.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.10&nbsp;&nbsp;(2010/12/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「利用ガイド」で、文字列を{{と}}で囲むと、赤色表示するようにしました。</li>
+	<li>「アルバム」に、ImageMagickを使った画像処理機能を追加しました。
+<br><img src="images/00000260-cnv-1.jpg" style="margin:2px 20px">
+<br><img src="images/00000260-cnv-2.jpg" style="margin:2px 20px">
+<br><img src="images/00000260-cnv-3.jpg" style="margin:2px 20px"><br>
+	PHPには、ImageMagickのPECL拡張モジュールがありますが、それを使わずに、コマンドconvertをexec()でコールする方法を取っています。<br>
+	この画像処理機能を使う場合、ImageMagickをインストールして下さい。<br>
+	<a href="http://www.imagemagick.org/script/index.php" target="_blank">http://www.imagemagick.org/script/index.php</a><br>
+	から、環境にあったパッケージをダウンロードしてインストールしてください。<br>
+<pre class="command" style="font-size: 11px;">
+例：ImageMagick-6.6.6-1-Q16-windows-dll.exe
+</pre>
+	この画像処理機能を使う場合、実運用定義ファイルで、<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_IMAGEMAGIC", "YES");
+</pre>
+	を定義してください。
+	この画像処理機能をシステム管理者以外にも許可する場合、実運用定義ファイルで、<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_IMAGEMAGIC_ALLUSER", "YES");
+</pre>
+	を定義してください。この定義をしても、「画像処理オプション」の編集と、任意のconvertオプション指定による画像処理は、システム管理者以外は出来ません。<br>
+	</li>
+	<li>画像処理された結果は、オリジナル画像フォルダの下の「___cnv___」フォルダに格納されます。</li>
+	<li>この画像処理は、画像ファイルのパス(ディレクトリやファイル名)に、日本語が含まれていると処理できません。(ImageMagickの制約)</li>
+	<li>画像ファイルのサイズが大きいと、オプションによって処理時間が大きくかかります。</li>
+	<li>IEでは処理が正常に処理されていても、処理後の画像が正常に表示できない場合があるようです。</li>
+	<li>既に前のバージョンで実運用中の場合は、以下の手順によりデータベースを作成してください。<br>
+	  以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	【サンプルDB】<br>
+		・まず、サンプルモード用データベース「_db_photo」を登録します。コマンドプロンプトから以下を実行してください。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_photo;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_photo < _db_photo.bk.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_photo.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+	【実運用DB】<br>
+		・実運用定義ファイル__define_common_my.phpに、実運用データベースの定義を追加してください。<br>
+		  __define_common_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_photo", "_mydb_photo");
+</pre>
+		・MySQLを一旦停止します。<br>
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+</pre>
+		・データベース「_db_photo」をコピーして、実運用データベース「_mydb_photo」を作成します。<br>
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_photo
+copy D:\xampp\mysql\data\_db_photo\* D:\xampp\mysql\data\_mydb_photo
+</pre>
+		・MySQLを再起動します。<br>
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+		・データベースのアクセス権を設定します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_photo.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>	</li>
+	<li>ImageMagick/convertコマンドのオプションについては、以下が参考になります。<br>
+<a href="http://mechanics.civil.tohoku.ac.jp/soft/node43.html" target="_blank">http://mechanics.civil.tohoku.ac.jp/soft/node43.html</a><br>
+<a href="http://kyle-in-jp.blogspot.com/search/label/Convert%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89" target="_blank">http://kyle-in-jp.blogspot.com/search/label/Convert%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89</a>
+	</li>
+	<li>変更モジュール<br>
+	・photo/__define.php, index.php, slide.php, img-view.php, _contents-header.php<br>
+	・guide/list-my-template.php, input.php<br>
+	・__common__/__define_common.php<br>
+	・__define_common_my_sample.php<br>
+	・setup-sample.php, db_backup.txt.php, db_restore.txt.php</li>
+	<li>追加モジュール<br>
+	・photo/img-convert.php, img-imagemagic.php, img-view-include.php<br>
+	・photo/convert-opt.php, __html-my-header-convert-opt.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.09&nbsp;&nbsp;(2010/11/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「住所録」に「チェック項目繰上」機能を追加しました。チェック項目を見出しとデータを含めて、1つずらします。<br>
+	   《例》<br>
+<pre class="command" style="font-size: 11px;">
+Ｉ: 08年賀受 II: 08年賀出 III: 09年賀受 IV: 09年賀出 Ｖ: 10年賀受 VI: 10年賀出
+      ↓↓↓↓↓
+            Ｉ: 08年賀出 II: 09年賀受 III: 09年賀出 IV: 10年賀受 Ｖ: 10年賀出 VI: (ブランク)
+</pre><img src="images/00000259-abook-moveup.jpg" style="margin:2px 20px"></li>
+	<li>「住所録」の「チェック項目」を1つ追加し、最大6項目としました。</li>
+	<li>データベース「_db_abook」/「_mydb_abook」のテーブル「m_abook」に列「c_check6」、テーブル「m_check_caption」に列「c_caption6」を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_abook;
+ALTER TABLE m_abook ADD c_check6 int(10) unsigned NOT NULL default '0' AFTER c_check5;
+ALTER TABLE m_check_caption ADD c_caption6 varchar(50) NOT NULL AFTER c_caption5;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_abook < create_view_db_abook.txt
+</pre>
+	   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+ALTER TABLE m_abook ADD c_check6 int(10) unsigned NOT NULL default '0' AFTER c_check5;
+ALTER TABLE m_check_caption ADD c_caption6 varchar(50) NOT NULL AFTER c_caption5;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_abook < create_view_mydb_abook.txt
+</pre>
+	</li>
+	<li>変更モジュール<br>
+	・abook/list-my-add-filter.php, edit-caption.php 他<br>
+	・style/original/abook.css<br>
+	・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+	・abook/check_item_moveup.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.08&nbsp;&nbsp;(2010/11/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>INDEXトップページの「乗換(駅探)」ボタンの乗車駅のデフォルトを設定できるようにしました。「My設定」の「アカウント情報修正」で、「最寄駅」を登録しておくと、最寄駅を乗車駅と見なします。検索用テキストボックスに駅名を1つだけ入れて「乗換(駅探)」ボタンを押すと、下車駅のみを指定したと判断して検索します。</li>
+	<li>上記「最寄駅」が登録されている場合、検索用テキストボックスに何も入れずに、INDEXトップページの「時刻表」ボタンを押すと、最寄駅の時刻表を検索します。</li>
+	<li>データベース「_db_account」/「_mydb_account」のテーブル「m_account」に列「c_home_station」を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_account;
+ALTER TABLE m_account ADD c_home_station varchar(50) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+</pre>
+	   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_account;
+ALTER TABLE m_account ADD c_home_station varchar(50) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre></li>
+	<li>「旅行記」のGoogleマップの高さを変更できるようにしました。</li>
+	<li>データベース「_db_diary」/「_mydb_diary」のテーブル「m_schedule」に列「c_mapHeight」を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_diary;
+ALTER TABLE m_schedule ADD c_mapHeight varchar(10) NOT NULL AFTER c_mapZoomLevel;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_diary < create_view_db_diary.txt
+</pre>
+	   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_diary;
+ALTER TABLE m_schedule ADD c_mapHeight varchar(10) NOT NULL AFTER c_mapZoomLevel;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_diary < create_view_mydb_diary.txt
+</pre></li>
+	<li>「カレンダー」「旅行記」「住所録」のマップ機能の<a href="http://code.google.com/intl/ja/apis/maps/documentation/javascript/basics.html" target="_blank">Google Maps JavaScript API V3</a>版を作成しました。</li>
+	<li>「カレンダー」「旅行記」では、実運用定義ファイルで、以下を指定するとマップ機能がV3版仕様になります。<br>
+<pre class="command" style="font-size: 11px;">
+define("GOOGLE_MAPS_API_VERSION", "V3");
+</pre>
+	  V3版の場合、Google Maps API キーが不要になり、localhost以外でのアクセスが利用可能になります。<br>
+	  V3版の場合、Google Earth APIによる3D表示ができません。</li>
+	<li>「住所録」では、「マップ(V3)」ボタンで、V3版仕様マップが表示されます。</li>
+	<li>ツール「Google Maps (複数地点)」のGoogle Maps JavaScript API V3版を作成しました。<br>V3版では、ルート表示、ストリートビューもできるようにしました。<br><img src="images/map-v3.jpg" style="margin:2px 20px"></li>
+	<li>実運用定義ファイルで、上記「define("GOOGLE_MAPS_API_VERSION", "V3");」を指定した場合、INDEXトップページの「●」ボタン検索を「Google Maps (複数地点)」での検索となるようにしました。</li>
+	<li>変更モジュール<br>
+	・index/__define_index_search.php<br>
+	・account/__include-login.php, myprofile.php, edit-myprofile.php<br>
+	・calendar/maps.php, maps-alone.php, __html-my-header-maps.php<br>
+	・diary/__include-maps.php, view.php, input.php, __define.php 他<br>
+	・abook/do-proc.php, list-my-template.php, list-my-template-sekaiisan.php<br>
+	・style/original/common.css<br>
+	・__define_common_my_sample.php<br>
+	・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	<li>追加モジュール<br>
+	・calendar/maps-include-v3.php<br>
+	・diary/__include-maps-v3.php, __include-view.php<br>
+	・abook/maps-abook-v3.php<br>
+	・tools/google-maps-earth-multi-v3.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.07&nbsp;&nbsp;(2010/11/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Ver.3.06の修正で、INDEXトップページ検索ボタンのうち「Naver、Bing、Fresh、ブログ」が、IE以外では動作しなくなってしまった不具合を修正。</li>
+	<li>INDEXトップページのTwitter検索ボタン(<a href="http://www.google.com/realtime" target="_blank">Googleリアルタイム検索</a>による検索)の検索結果表示行数を100行に設定。</li>
+	<li>変更モジュール<br>
+	・index/__define_index_search.php<br>
+	・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.06&nbsp;&nbsp;(2010/10/31)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>INDEXトップページに<a href="http://www.google.co.jp/products" target="_blank">Googleショッピング</a>検索ボタン「価格(G)」を追加。</li>
+	<li>INDEXトップページのTwitter検索ボタンを、<a href="http://search.twitter.com/" target="_blank">search.twitter.com</a>から、<a href="http://www.google.com/realtime" target="_blank">Googleリアルタイム検索</a>に変更。</li>
+	<li>INDEXトップページ検索ボタンをIEでも他のブラウザ同様の横幅になるようにwidth設定しました。</li>
+	<li>INDEXトップページ検索ボタンを色分けしました。<br>色分けやボタンの配置等を自分の好みに合わせて変更する場合は、カスタマイズ用の検索ボタンモジュール(__define_index_search_my_google.php, __define_index_search_my_yahoo.php)を修正して、実運用環境ディレクトリ(/htdocs/_myhome_myset/)に入れてください。<br>カスタマイズ方法の詳細は、<a href="install.html" target="_blank">「MyHome Portal インストールガイド」</a><br>
+	の<a href="install.html#customize_top_button" target="_blank">「MyHome Portal 実運用環境 カスタマイズ」=> Ⅱ.トップページ検索ボタンのカスタマイズ</a><br>
+	を参考にしてください。<br><img src="images/index-button.jpg" style="margin:2px 20px"></li>
+	<li>変更モジュール<br>
+	・index/__define_index_search.php<br>
+	・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.05&nbsp;&nbsp;(2010/10/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>アルバムのサムネイルモードに、フォルダ画像表示機能を追加しました。下位フォルダ内の画像を1枚表示させることができます。
+<br><img src="images/00000258-folder-img.jpg" style="margin:2px 20px"><br>
+この機能を使いたくない場合は、実運用定義ファイルで以下を定義してください。
+<pre class="command" style="font-size: 11px;">
+define("photo_FOLDER_IMAGE_VIEW", "NO");
+</pre></li>
+	<li>変更モジュール<br>
+	・photo/index.php<br>
+	・style/original/photo.css, center.css</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.04&nbsp;&nbsp;(2010/10/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「アルバム」の「全画面」に、傾きモードを追加しました。写真を縁ありにして傾けてスライドショー表示します。「全画面」で、[L]キーを押してください。傾きモードは「全画面(Ajax)」にも引き継がれます。CSS3を利用しているため、IEでは傾きません。
+	<br><img src="images/00000215-slide-lean.jpg" style="margin:2px 20px"></li>
+	<li>「ログアウト/管理」の「MyHome Portal ログイン履歴表示」に、古いログインログの削除機能を追加しました。
+	<br><img src="images/00000257-log-clean.jpg" style="margin:2px 20px"></li>
+	<li>Ver.3.01の修正ミスによるjquery.jsのインクルード漏れが、まだあったので修正。</li>
+	<li>変更モジュール<br>
+	・photo/slide.php<br>
+	・account/list-loginlog.php, __html-my-header.php<br>
+	・guide/__html-my-header.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.03&nbsp;&nbsp;(2010/10/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>Ver.3.01で「ＩＤ管理」「(簡易) 預貯金管理」でも一部修正ミスがあったので、修正しました。</li>
+
+	<li>変更モジュール<br>
+	・kakeibo/__html-my-header<br>
+	・id-manager/__html-my-header</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.02&nbsp;&nbsp;(2010/10/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+<li>Ver.3.01でphoto/slide.phpを誤って修正したために、「アルバム」の「全画面」「全画面(Ajax)」が正常動作しなくなった不具合を修正。</li>
+
+	<li>変更モジュール<br>
+	・photo/slide.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.01&nbsp;&nbsp;(2010/10/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+
+<li>Ver.2.67で利用を停止した「jquery.cs.js」を、jQuery-1.3.2対応の「<a href="http://www.jextend.com/sample/cs.html" target="_blank">jquery.cs.js</a>」を使って、利用を復活。「住所録」と「カレンダー」の都道府県プルダウンメニューで利用。
+<br><img src="images/sel-menu1.jpg" style="margin:2px 20px"></li>
+<li>「住所録」で、五十音プルダウンメニューで頭読み検索ができるようにしました。姓、名いずれかの頭1文字で検索します。濁点、半濁点もマッチします。プルダウンメニューには「jquery.cs.js」を使っています。
+<br><img src="images/sel-menu2.jpg" style="margin:2px 20px"></li>
+<li>「jquery.cs.js」は、onChange代わりにonClickを使えるように一部修正した「jquery.cs.ok2nd.js」を使っています。無名関数への引数の渡し方がよく分からなかったので、グルーバル変数を使うなど、あまり美しくない強引な手法をとっています。</li>
+<li>jquery.js, jquery.cookie.jsのインクルード場所を、基本的に__html-my-header.phpに統一。</li>
+<li>「学習」の初期画面を、「メニュー」でなく「Myチェック」に変更しました。index.phpをmenu.phpにリネームし、別途index.phpを作成しました。既に実運用中の場合は「__define_contents_my.php」の2行を以下のように変更してください。<br>
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"study/", "query"=>"arg=session", "name"=>"学習");
+$navi_item[] = array("href"=>"abook/", "query"=>"arg=session", "name"=>"住所録");
+</pre>
+</li>
+<li>「カレンダー」で天気出現率や平均気温表示モードにした状態で、「旅行記」の「月間」「年間」ページで不具合が出る問題を修正。</li>
+<li>実運用定義ファイルで、define("DB_TOOL_ID_PASSWORD_USE", "YES");になっている場合、「ユーザー一覧」の「一括修正/追加/削除」「一括追加」画面は、ID管理ログイン状態をチェックし、ID管理パスワードを要求するようにしました。</li>
+
+	<li>変更モジュール<br>
+	・__common__/__define_contents.php, include-common-html.php, include-common-mp-list.php<br>
+	・abook/__html-my-header.php, list.php, list-my-add-filter.php<br>
+	・account/list-user.php<br>
+	・bbs/__html-my-header.php<br>
+	・calendar/__html-my-header.php, _my_calendar.php, month.php, year.php, weather-graph.php<br>
+	・diary/__html-my-header.php, __include-maps.php, maps-diary.php<br>
+	・index/__html-my-header.php, list.php, list-url.php<br>
+	・memo/__html-my-header.php<br>
+	・photo/__html-my-header.php, index.php, slide.php<br>
+	・study/_contents-header.php, menu.php(index.phpをリネーム), index.php(追加)<br>
+	・scripts/jquery.cs.ok2nd.js<br>
+	・__define_contents_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.00&nbsp;&nbsp;(2010/09/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+<li>Ver.1.00リリースから約2年経過で3年目に入ったということで、Ver.3.00としました。</li>
+<li>トップメニュー（コンテンツ・ナビ）の色をユーザーが任意に設定できるようにしました。
+<br>「My設定：アカウント情報修正」で、設定してください。
+<br><img src="images/top-menu.jpg" style="margin:2px 20px">
+<br><img src="images/top-menu2.jpg" style="margin:2px 20px">
+</li>
+<li>「My設定：アカウント情報修正」で、ログインパスワードを3分間保持するようにしました。連続再修正の利便性を考慮しました。</li>
+<li>「アルバム」で、フォルダの前後移動機能を追加しました。画面右上の|← ← → →| をクリックしてください。
+<br><img src="images/photo-dir-move.jpg" style="margin:2px 20px"></li>
+<li>Ver.2.80で追加した「アルバム」のディレクトリの自動スクロールのスクロール量を微修正しました。</li>
+<li>データベース「_db_account」/「_mydb_account」のテーブル「m_account」に以下の列を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加を行ってください。<br>
+<pre class="command" style="font-size: 11px;">
+c_page_navi_link_color
+c_page_navi_link_bg
+c_page_navi_current_color
+c_page_navi_current_bg
+c_page_navi_hover_color
+c_page_navi_hover_bg
+c_page_navi_active_color
+c_page_navi_active_bg
+</pre>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_account;
+ALTER TABLE m_account ADD c_page_navi_link_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_link_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_current_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_current_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_hover_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_hover_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_active_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_active_bg varchar(20) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+</pre>
+   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_account;
+ALTER TABLE m_account ADD c_page_navi_link_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_link_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_current_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_current_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_hover_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_hover_bg varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_active_color varchar(20) NOT NULL;
+ALTER TABLE m_account ADD c_page_navi_active_bg varchar(20) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre>
+</li>
+	<li>変更モジュール<br>
+	・account/__include-login.php, myprofile.php, edit-myprofile.php<br>
+	・photo/index.php<br>
+	・style/original/common.css, photo.css<br>
+	・__common__/__define_common.php, include-common-html.php<br>
+	・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.82&nbsp;&nbsp;(2010/09/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>「アルバム」の並び替え(ファイル名順、更新日時順)で昇順/降順を切り替えできるようにしました。<br>
+<img src="images/photo-asc.jpg" style="margin:2px 20px"><br><img src="images/photo-desc.jpg" style="margin:2px 20px"></li>
+<li>「ツール：MySQL管理ツール」の「テーブル データ表示」で、降順ソートも可能に。列名クリック毎に昇順/降順を切り替えます。</li>
+<li>MyHome Portal上段のコンテンツメニューをブラウザの表示文字サイズを変更しても改行されないように、cssに「white-space:nowrap」を追加。<br>
+<img src="images/small-menu.jpg" style="margin:2px 20px"></li>
+<li>「MyHome Portal サンプルDB自動セットアップ」<br>
+<a href="http://localhost/_myhome/setup-sample.php" target="_blank">http://localhost/_myhome/setup-sample.php</a><br>
+で、実行状況が順次確認できるように、「ob_implicit_flush()」を追加。</li>
+	<li>変更モジュール<br>
+	・setup-sample.php<br>
+	・photo/index.php<br>
+	・db_tool/mysql-table-list.php<br>
+	・tools/index.php<br>
+	・style/original/common.css, photo.css, db_tools.css</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.81&nbsp;&nbsp;(2010/09/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>「ツール：翻訳 by Google AJAX Language API」を、長文対応にしました。Google AJAX Language API では、翻訳できる文字数に制限があって長文を一度に翻訳できませんが、この「翻訳 by Google AJAX Language API」では、長文の場合、センテンス単位に分割して全文を翻訳します。<br>
+また、原文、翻訳文とも、センテンス単位に改行を入れて見やすく表示するようにしました。<br>
+&nbsp;&nbsp;【補足】<br>
+		<ul style="margin-left:50px;">
+		<li>原文の言語は自動判別します。</li><li>日本語、英語では、翻訳後、元の言語に再翻訳します。翻訳の精度の確認になります。</li><li>日本語、英語以外の言語を入力すると英語に翻訳後、日本語に翻訳します。</li><li>日本語、英語以外の言語への翻訳もできます。直接翻訳ができない場合は、英語経由で翻訳することも出来ます。</li></ul>
+</li>
+
+<img src="images/00000256-AJAXLanguage.jpg" style="margin:2px 20px"><br>
+<img src="images/AJAXLanguage2.jpg" style="margin:2px 20px"><br>
+
+	<li>変更モジュール<br>
+	・tools/google-ajax-lang.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.80&nbsp;&nbsp;(2010/09/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>「アルバム」のディレクトリ表示位置を左側にした場合、同じ階層のディレクトリ数が多くて、現在選択しているディレクトリが下の場合でも、隠れてしまわないように、自動スクロールするようにしました。
+<img src="images/2801.jpg" style="margin:2px 20px"></li>
+<li>「アルバム」で、現在開いているディレクトリを、「ツール：（簡易）ファイルマネージャー」で開くリンクを追加。(システム管理者のみ)</li>
+<li>「ツール：実運用環境バックアップ 」で、バックアップ先ディレクトリを、「ツール：（簡易）ファイルマネージャー」で開くリンクを追加。</li>
+<li>ログアウトで、「ID管理のみログアウト」機能を追加。
+<img src="images/2802.jpg" style="margin:2px 20px"></li>
+<li>「My設定」の「アカウント情報修正」「パスワード修正」「ID管理パスワード修正」で現在のログインパスワードの入力を必要とするよう変更。</li>
+<li>「ツール：MySQL管理ツール」を、ID管理ログインが必要とするように設定可能にしました。<br>
+実運用定義ファイルで、以下を定義してください。
+<pre class="command" style="font-size: 11px;">
+define("DB_TOOL_ID_PASSWORD_USE", "YES");
+</pre></li>
+<li>「ツール：預貯金管理」をメインコンテンツに組み込めるようにしました。
+<img src="images/2803.jpg" style="margin:2px 20px"><br>
+実運用定義ファイルで、以下を定義してください。
+<pre class="command" style="font-size: 11px;">
+define("kakeibo_PAGE_HEADER", "YES");
+</pre>
+「__define_contents_my.php」に、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"kakeibo/", "query"=>"", "name"=>"預貯金");
+</pre>
+</li>
+<li>「ID管理」で、Ver.2.62、Ver.2.63で適用した「ChromeでID管理のコピー＆ペーストで文字列の最後にスペースが付いてしまう問題の回避策(oncopy処理)」の廃止。正常動作せず、Chromeでコピー＆ペーストできなくなるため。</li>
+
+	<li>変更モジュール<br>
+	・photo/index.php, img-resize.php, video-convert.php<br>
+	・db_tool/mysql-database.php, mysql-table-list.php, excel-import.php, csv-import.php, backup-mydb.php<br>
+	・account/logout.php, edit-mypass.php, edit-id-mgr-pass.php<br>
+	・id-manager/im-login.php, im-logincheck.php,list-my-template.php view-idpass.php<br>
+	・kakeibo/list.php, ginkou.php, list-my-template.php<br>
+	・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.79&nbsp;&nbsp;(2010/06/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>「住所録」のチェック項目のチェックボックスが表示されなくなっていた(Ver2.53から)不具合を修正。<br>
+<img src="images/00000219-a01.jpg" style="margin:2px 20px"><br>
+<img src="images/00000229-wh1.jpg" style="margin:2px 20px"></li>
+<li>「住所録」の「全てチェック」「チェッククリア」がjQuery1.2依存の記述のためエラーになっていた(Ver2.67から)不具合を修正。<br>
+<a href="http://blog.mochivation.com/?eid=173" target="_blank">http://blog.mochivation.com/?eid=173</a><br>を参考にさせていただきました。
+<pre class="command" style="font-size: 11px;">
+$(".proc_check input[@type='checkbox']").attr('checked', true);
+</pre>
+<span style="margin-left:100px;">↓↓↓</span>
+<pre class="command" style="font-size: 11px;">
+$("input:checkbox[name^='check']").attr('checked', true);
+</pre>
+</li>
+<li>「旅行記」の「全てチェック」「チェッククリア」も同じくjQuery1.2依存になっていたのを修正。</li>
+	<li>変更モジュール<br>
+	・abook/list-my-template.php, list-my-template-sekaiisan.php, list-my-add-filter.php<br>
+	・diary/list-my-template.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.78&nbsp;&nbsp;(2010/06/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>アルバムの動画時間分割のサムネイルをクリックした時に、動画のダウンロードでなく、サムネイル画像の表示に仕様変更。</li>
+<li>アルバムのスライドモードで動画のプレビュー画像クリック時の動画ダウンロードが 、ファイル名の文字コード違いでエラーになる不具合を修正。</li>
+<li>カレンダー、旅行記、メモ、利用ガイドの修正フォームのtextareaの高さを、テキストの行数分拡げた状態で表示するようにしました。ただし、最大30行。</li>
+<li>INDEXトップページにGoogleレシピ検索ボタン追加。</li>
+	<li>変更モジュール<br>
+	・photo/index.php, video-view.php<br>
+	・calendar/input.php<br>
+	・diary/input.php, item-input.php<br>
+	・memo/input.php<br>
+	・guide/input.php<br>
+	・__common__/include-common-all.php<br>
+	・index/__define_index_search.php<br>
+	・__define_index_search_my_google.php<br>
+	・__define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.77&nbsp;&nbsp;(2010/06/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>アルバムの「動画一括変換」で、「既にflvがある場合、再変換してflvを上書きする。」を指定しても上書きされない不具合を修正。ffmpegに「-y」オプションを付けていませんでした。</li>
+	<li>変更モジュール<br>
+		・photo/video-convert.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.76&nbsp;&nbsp;(2010/06/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>アルバムの動画開始秒をフォルダ単位に記憶するようにしました。該当フォルダの下の「___thumb___」フォルダ以下に「___video_start_sec」という名前のテキストファイルを作成します。</li>
+	<li>変更モジュール<br>
+		・photo/index.php, __define.php</li>
+	</div>
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download6.html">
+		<span style="font-size: 120%;">→→→　バージョン2.75以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

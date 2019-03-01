@@ -1,0 +1,839 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン1.50以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download3.html">最新(1.51以降)の履歴に戻る</a>
+		</p>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.50&nbsp;&nbsp;(2009/03/30)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「アルバム」のサムネイル表示、スライドショー表示の画像表示サイズを、横幅(width)一定でなく高さ(height)一定に仕様変更しました。</li>
+	<li>「アルバム」のスライドショー表示に、おまけ機能として、画像のジグソーパズル化ツールを追加しました。任意の画像をジグソーパズルに出来ます。Snapfitを使っています。IEでは正常動作しません。不要な場合は、定義ファイルで機能を除くこともできます。
+	<br>参考：<a href="http://phpspot.org/blog/archives/2009/03/javascriptsnapf.html" target="_blank">http://phpspot.org/blog/archives/2009/03/javascriptsnapf.html</a>
+	<br>Powered by <a href="http://www.netzgesta.de/snapfit/" target="_blank">http://www.netzgesta.de/snapfit/</a>
+	<li>IE7でiframeのheight="100%"ではフレームの縦が縮んでしまう対策としてheight="1000px"に変更。外部コンテンツ組み込みサンプル(実運用サンプル/youtube/index.php)、ホームページのモノトーン表示、ホームページの拡大縮小表示をそれぞれ修正。
+<pre>&lt;iframe src="" width="100%" height="100%"&gt;&lt;/iframe&gt;</pre>
+↓↓↓
+<pre>&lt;iframe src="" width="100%" height="1000px"&gt;&lt;/iframe&gt;</pre>
+	<br><img src="images/00000169-220.jpg"><br><img src="images/jp-1.jpg"><br><img src="images/jp-2.jpg"></li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・photo/index.php, __define.php<br>
+		・tools/monotone.php, zoom.php, zoom-page.php<br>
+		・実運用サンプル/youtube/index.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・photo/jigsaw.php
+		・scripts/snapfit/一式</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.49&nbsp;&nbsp;(2009/03/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>IE7でサムネイル等の画質が汚いのを高画質化しました。以下のページを参考にしました。IE6では効果が無いようです。<br>
+		<a href="http://phpspot.org/blog/archives/2009/03/css_81.html" target="_blank">http://phpspot.org/blog/archives/2009/03/css_81.html</a><br>
+		<a href="http://devthought.com/tumble/2009/03/tip-high-quality-css-thumbnails-in-ie7/" target="_blank">http://devthought.com/tumble/2009/03/tip-high-quality-css-thumbnails-in-ie7/</a></li>
+	<li>フォーム入力・修正ページを開いた状態で、別ウインドウで別ユーザーで再ログインすると、 誤ったユーザーアカウントでデータ登録・更新される可能性がある問題を修正。 (POST前のログインID、カレントIDを&lt;input type="hidden"&gt;で渡し、POST後のセッション変数のログインID、カレントIDと一致しているかチェックするようにしました。)</li>
+	<li>ユーザー自身によるユーザー登録(newaccount.php)ができない設定を、定義ファイルで設定できるようにしました。</li>
+	<li>「My設定 」の「My参照メンバ修正」「公開先メンバ修正」を、一覧からの選択式に変更。<br>
+		<img src="images/00000176-340.jpg"><br><img src="images/00000177-350.jpg"></li>
+	<li>PHPソースのprintをechoに変更。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-all.php, include-common-mp-list.php<br>
+		・account/edit-friends.php, edit-public.php<br>
+		・フォーム入力・修正関連モジュール全て<br>
+		・画像表示関連モジュール全て</li>
+	<li>追加モジュール<br>
+		・account/list-my-template-edit-friends.php, list-my-template-edit-public.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.48&nbsp;&nbsp;(2009/03/15)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>メインコンテンツとして「RSSリーダー」を追加しました。タイル形式で記事を5件ずつ一覧表示します。↑クリックでポップアップウィンドウで全件表示します。<br>
+		RSSパーサーは、<b><font color=red>MagpieRSS</font></b>を使用。<br>
+		<a href="http://magpierss.sourceforge.net/" target="_blank">http://magpierss.sourceforge.net/</a><br>
+		RSSのカテゴリ・ナビは、<b><font color=red>Nifty Corners</font></b>を使って角丸タグにしました。<br>
+		<a href="http://www.html.it/articoli/nifty/index.html" target="_blank">http://www.html.it/articoli/nifty/index.html</a><br>
+		</li>
+	<li>トップページのブローグパーツ表示機能でRSS記事表示を設定できます。<br>
+		サンプルファイルblog-parts/rss-google-news.inc, rss-ameba-news.incを入れています。</li>
+	<li>トップページの一覧形式のレイアウトを変更。</li>
+	<li>ログイン画面や入力画面で、テキストボックスに入力フォーカスを設定。</li>
+	<li>メイン・ナビメニューの「INDEX」選択で、常にタイル型トップページを表示するように仕様変更。</li>
+	<li>ユーザー切り替えをコンテンツ毎の他に、全コンテンツ一括切り替えもできるようにしました。<br>
+				<img src="images/148.jpg"><br><img src="images/148-1.jpg"></li>
+	<li>≪サンプルデータベース作成≫<br>
+	Ver.1.47以前で既にテスト環境を構築済みの場合は、以下の手順でRSSリーダーのサンプルデータベースを追加してください。<br>
+	コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pパスワード
+create database _db_rss;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pパスワード _db_rss < _db_rss.bk.txt
+mysql -u root -pパスワード _db_rss < create_view_db_rss.txt
+
+mysql -u root -pパスワード
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_rss.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre></li>
+	<li>≪実運用環境設定≫<br>
+	Ver.1.47以前で既に実運用環境を構築済みの場合は、以下の手順でRSSリーダーの実運用環境を追加してください。<br>
+	＊実運用データベース作成<br>
+		・MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+		・サンプルデータベースを名前を変えてコピーすることで実運用DBを作成します。
+			データベース名を「_db_rss」をコピーして「_mydb_rss」とします。
+			コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_rss
+copy D:\xampp\mysql\data\_db_rss\* D:\xampp\mysql\data\_mydb_rss
+</pre>
+		・MySQLを開始<br>
+		・データベースのビューを作成します。コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pパスワード _mydb_rss < create_view_mydb_rss.txt
+</pre>
+		・ユーザーアカウントのアクセス権を設定します。サンプルデータと同じユーザー名の例です。<br>
+		&nbsp;&nbsp;コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pパスワード
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_rss.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+	＊定義ファイル D:\xampp\htdocs\_myhome_myset\__define_contents_my.phpに、以下を追加。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"rss/", "query"=>"arg=session", "name"=>"ＲＳＳ");
+</pre>
+	＊定義ファイル D:\xampp\htdocs\_myhome_myset\__define_common_my.phpに、以下を追加。
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_rss", "_mydb_rss");
+</pre>
+</li>
+	<li>≪RSSリーダー用プロキシ設定≫<br>
+		企業内イントラなど、プロキシ経由の環境では、定義ファイルで、RSSリーダー用のプロキシサーバの設定をしてください。</li>
+<pre class="command">
+define("MAGPIE_PROXY_HOST", "xxx");	// RSSリーダー用 プロキシサーバ アドレス
+define("MAGPIE_PROXY_PORT", "xxx");	// RSSリーダー用 プロキシサーバ ポート
+</pre>
+	</li>
+	<li>主な変更モジュール<br>
+		・__common__/include-common-all.php, include-common-html.php, include-common-mp-list.php<br>
+		・__common__/__define_common.php, __define_contents.php<br>
+		・account/change-account.php, login.php<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・index/list.php<br>
+		・style/original/common.css</li>
+	<li>追加モジュール<br>
+		・rss/ 一式<br>
+		・rss/magpiers/ 一式<br>
+		・scripts/nifty/ 一式<br>
+		・blog-parts/rss-google-news.inc, rss-ameba-news.inc<br>
+		・index/list-my-template.php<br>
+		・style/original/rss.css</li>
+	<li>修正ファイル<br>
+		・db_backup.txt.php, db_restore.txt.php</li>
+	<li>追加ファイル<br>
+		・z_db_backup/_db_rss.bk.txt, create_view_db_rss.txt, create_view_mydb_rss.txt</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.47&nbsp;&nbsp;(2009/03/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップページに掲示板の最新の投稿を数件分表示できるようにしました。</li>
+	<li>トップページ、カレンダー、ID管理等のページデザインの微調整。<br>
+	  Chrome、Safariでも、デザインの差異がなるべく出ないようにしました。<br>
+				<img src="images/147-0.jpg"></li>
+	<li>掲示板のスレッド一覧を、デフォルトでは削除済みは表示しない仕様に変更。フィルタ「削除済み投稿を表示」で表示可能に。</li>
+	<li>掲示板のWYSIWYGエディタ<font color=blue><b>openWYSIWYG</b></font>を<font color=red><b>Google Chrome</b></font>でも動作するようにしました。<font color=red><b>Safari 4</b></font>でも動作します。
+	  ネットで以下のページが見つかったので、これを参考にscripts/openwysiwyg/scripts/wysiwyg-ja.jsを修正。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;＜Support for Google Chrome＞<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.openwebware.com/forum/viewtopic.php?f=4&t=2138" target="_blank">http://www.openwebware.com/forum/viewtopic.php?f=4&t=2138</a></li>
+	<li>カレンダー、掲示板、メモの添付ファイル格納フォルダをユーザーID毎に分ける方式に変更。<br>
+	  __common__/include-common-html.php内のattach_file_view()の仕様変更。引数の先頭に$user_idを追加。<br>
+	  この仕様変更に伴い、登録済みの添付ファイル移動ツール(tools/upload-file-move-147.php)を追加。<br>
+		Ver.1.46以前で運用開始済みの場合は、以下を、サンプルデータモード、実運用モードそれぞれで実行してください。<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost/_myhome/tools/upload-file-move-147.php" target="_blank">http://localhost/_myhome/tools/upload-file-move-147.php</a><br>
+		<a href="images/147-1b.jpg" target="_blank"><img src="images/147-1.jpg"></a><br>
+		<a href="images/147-2b.jpg" target="_blank"><img src="images/147-2.jpg"></a></li>
+	<li>ツールの「MySQL データベース/テーブル一覧」(tools/mysql-database.php)用に、<br>
+	  ビューのスキーマ表示の権限があるMySQLユーザーを定義できるようにしました。<br>
+		/htdocs/_myhome_myset/__define_mysql_admin.phpで定義。<br>(サンプルとして__define_mysql_admin_sample.phpを用意)</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-html.php, include-common-all.php<br>
+		・index/top.php, __define.php<br>
+		・calendar/year.php, input.php, _my_calendar.php, list-my-template.php<br>
+		・memo/input.php, list-my-template.php<br>
+		・bbs/input.php, view.php, list.php, list-my-add-filter.php<br>
+		・id-manager/list-my-template.php<br>
+		・guide/input.php, list-my-template.php<br>
+		・tools/mysql-database.php<br>
+		・style/original/index.css, calendar.css, id-manager.css<br>
+		・scripts/openwysiwyg/scripts/wysiwyg-ja.js</li>
+	<li>追加モジュール<br>
+		・tools/upload_file_move.php<br>
+		・__define_mysql_admin_sample.php(_myhome_myset/__define_mysql_admin.phpサンプル)</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.46&nbsp;&nbsp;(2009/02/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>掲示板とメモで、動画(FLV)ファイルをアップロードした場合、プレビュー表示するようにしました。<br>
+	  プレビュー表示には、<font color=red><b>JW FLV Player</b></font>を使用。動画(FLV)のファイル名が日本語の場合、プレビューされません。<br>
+		<a href="http://www.longtailvideo.com/" target="_blank">http://www.longtailvideo.com/</a><br>
+		<img src="images/145-5.jpg"></li>
+
+	<li>アップロードファイルのサイズ制限を変える場合は、<br>
+		<b>D:\xampp\apache\bin\php.ini</b>の以下の設定を変更してApacheを再起動してください。<br>
+		<b>D:\xampp\php\php.ini</b>ではありません。</li>
+<pre class="command" style="font-size: 11px;">
+post_max_size = 16M
+upload_max_filesize = 32M
+</pre>
+	<li>掲示板で、YUI:Rich Text Editorを使った時に、一部スタイルが崩れる問題を解消。<br>
+		(yui/build/fonts/fonts-min.cssを指定していたのが原因)</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-mp-list.php, __define_common.php, __define_contents.php<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・bbs/view.php, __define.php, _add_input_header_YUI.php<br>
+		・memo/list-my-template.php, __define.php</li>
+	<li>追加モジュール<br>
+		・bbs/player.swf, yt.swf (phpと同じパスにないと動作しないよう(?)なのでここに置きました。)<br>
+		・memo/player.swf, yt.swf (phpと同じパスにないと動作しないよう(?)なのでここに置きました。)<br>
+		・scripts/JWPlayer/swfobject.js<br>
+		・scripts/JWPlayer/movie_preview.js</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.45&nbsp;&nbsp;(2009/02/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>メインコンテンツとして「掲示板」を追加しました。MyHome Portal全ユーザー共通の掲示板機能です。<br>
+	ファイルや写真の添付もできます。投稿の修正、削除、および復活ができます。<br>
+	投稿の検索ができます。スレッド単位でページ送りしながら投稿を閲覧できます。<br>
+	カテゴリはシステム管理者のみが追加、修正できます。<br>
+	投稿表示の角丸ボックスは、<font color=red><b>Snazzy Borders</b></font>を使いました。<br>
+	<a href="http://f32.aaa.livedoor.jp/~azusa/index.php?t=css&p=kadomaru" target="_blank">http://f32.aaa.livedoor.jp/~azusa/index.php?t=css&p=kadomaru</a><br>
+	<a href="http://www.cssplay.co.uk/boxes/snazzy.html" target="_blank">http://www.cssplay.co.uk/boxes/snazzy.html</a><br>
+
+	投稿はWYSIWYGでHTMLタグも使えます。WYSIWYGエディタは<font color=red><b>openWYSIWYG</b></font>と<font color=red><b>Yahoo! UI Library(YUI):Rich Text Editor</b></font>のいずれかを使えます。(定義ファイルで設定します。)<br>
+	<strike><b>openWYSIWYG</b>は、Google Chromeでは使えません。</strike>（Ver.1.47で解決）<br>
+	MyHome Portalでは、いずれのエディタも入力時と入力結果が必ずしも一致しません。一部、動作も不安定です。MyHome PortalのCSSとの相性の問題かもしれません。<br>
+	文字に色を付けたり、文字サイズを変える程度の利用に留めた方が無難です。
+	<a href="http://www.openwebware.com/" target="_blank">http://www.openwebware.com/</a><br>
+	<a href="http://developer.yahoo.com/yui/editor/" target="_blank">http://developer.yahoo.com/yui/editor/</a><br>
+	<img src="images/145-1.jpg" border=0 /><br>
+	<img src="images/145-2.jpg" border=0 /><br>
+	<img src="images/145-3-1.jpg" border=0 /><br>
+	<img src="images/145-3-2.jpg" border=0 /></li>
+	<li>≪サンプルデータベース作成≫<br>
+	Ver.1.44以前で既にテスト環境を構築済みの場合は、以下の手順で掲示板のサンプルデータベースを追加してください。<br>
+	コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pパスワード
+create database _db_bbs;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pパスワード _db_bbs < _db_bbs.bk.txt
+mysql -u root -pパスワード _db_bbs < create_view_db_bbs.txt
+
+mysql -u root -pパスワード
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_bbs.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre></li>
+	<li>≪実運用環境追加≫<br>
+	Ver.1.44以前で既に実運用環境を構築済みの場合は、以下の手順で掲示板機能の実運用環境を追加してください。<br>
+	＊実運用データベース作成<br>
+		・MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+		・サンプルデータベースを名前を変えてコピーすることで実運用DBを作成します。
+			データベース名を「_db_bbs」をコピーして「_mydb_bbs」とします。
+			コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_bbs
+copy D:\xampp\mysql\data\_db_bbs\* D:\xampp\mysql\data\_mydb_bbs
+</pre>
+		・MySQLを開始<br>
+		・データベースのビューを作成します。コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pパスワード _mydb_bbs < create_view_mydb_bbs.txt
+</pre>
+		・ユーザーアカウントのアクセス権を設定します。サンプルデータと同じユーザー名の例です。<br>
+		&nbsp;&nbsp;コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pパスワード
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_bbs.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+	＊サンプルデータの削除<br>
+	&nbsp;&nbsp;コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pパスワード
+use _mydb_bbs;
+truncate table m_bbs;
+exit;
+</pre>
+	＊定義ファイル D:\xampp\htdocs\_myhome_myset\__define_contents_my.phpに、以下を追加。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"bbs/", "query"=>"arg=session", "name"=>"掲示板");
+</pre>
+	＊定義ファイル D:\xampp\htdocs\_myhome_myset\__define_common_my.phpに、以下を追加。
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_bbs", "_mydb_bbs");
+define("ATTACH_FILE_FOLDER_bbs", "../../_attach/bbs/");
+</pre>
+	＊添付ファイル用ディレクトリ作成<br>
+<pre class="command" style="font-size: 11px;">
+D:\xampp\htdocs\_attach\bbs
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-mp-list.php, __define_common.php, __define_contents.php<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・style/original/common.css</li>
+	<li>追加モジュール<br>
+		・bbs/一式<br>
+		・scripts/openwysiwyg一式, scripts/yui一式<br>
+		・style/original/bbs.css, Snazzy.css</li>
+	<li>修正ファイル<br>
+		・db_backup.txt.php, db_restore.txt.php</li>
+	<li>追加ファイル<br>
+		・z_db_backup/_db_bbs.bk.txt, create_view_db_bbs.txt, create_view_mydb_bbs.txt</li>
+	<li>追加フォルダ<br>
+		・_attach/bbs/</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.44&nbsp;&nbsp;(2009/02/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「ツール」に「Excel to グラフ by Bluff 」を追加しました。<br>
+	Excelシートをアップロードして<a href="http://bluff.jcoglan.com/" target="_blank"><b>Bluff</b></a>を使ってグラフ作成をします。<br>
+	ボタンでグラフ種類やスタイルを変更できます。<br>
+	アップロードしたExcelシートはMyHomePortalユーザー毎に保存されます。<br>
+	Excelシートの取り込みには、<a href="http://sourceforge.net/projects/phpexcelreader" target="_blank"><b>Spreadsheet_Excel_Reader</b></a>を使っています。<br>
+	「実運用サンプル/Excel_to_グラフ_サンプル」フォルダにサンプルのExcelを入れています。<br>
+	<img src="images/144-1.jpg"><br><img src="images/144-2.jpg"><br><br></li>
+	<li>「ツール」に「Excel to グラフ by HTML5 」を追加しました。<br>
+	Excelシートをアップロードして<a href="http://www.html5.jp/library/index.html" target="_blank"><b>HTML5</b></a>を使ってグラフ作成をします。<br>
+	ボタンでグラフ種類やスタイルを変更できます。<br>
+	アップロードしたExcelシートはMyHomePortalユーザー毎に保存されます。<br>
+	Excelシートの取り込みには、<a href="http://sourceforge.net/projects/phpexcelreader" target="_blank"><b>Spreadsheet_Excel_Reader</b></a>を使っています。<br>
+	「実運用サンプル/Excel_to_グラフ_サンプル」フォルダにサンプルのExcelを入れています。<br>
+	<img src="images/144-3.jpg"><br><img src="images/144-4.jpg"><br><br></li>
+	<li>「ツール」の「PHP/JavaScriptソースコード編集」のテキストエリアの行数を拡げました。また、定義ファイルで変更可能にしました。</li>
+	<li>tools/tategaki.phpのmb_convert_encodingの「SJIS」を「SJIS-win」に変更。</li>
+	<li>_mobileのmb_convert_encodingの「SJIS」を「SJIS-win」に変更。</li>
+	<li>変更モジュール<br>
+		・tools/code-file-edit.php, index.php<br>
+		・__common__/include-common-all.php, __define_common.php<br>
+		・__define_common_my_sample.php<br>
+		・/_mobile/__common__/include-common-mobile.php</li>
+	<li>追加モジュール<br>
+		・tools/excel-graph-bluff.php, excel-graph-html5.php<br>
+		・tools/__define_excel-graph.php, __include-common-excel-graph.php<br>
+		・tools/phpExcelReader一式<br>
+		・tools/scripts/Bluff一式<br>
+		・tools/scripts/html5jp一式<br>
+		・tools/scripts/excanvas一式<br>
+		・実運用サンプル/Excel_to_グラフ_サンプル/sample1.xls, sample2.xls</li>
+	<li>追加フォルダ<br>
+		・_attach/excel-graph</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.43&nbsp;&nbsp;(2009/01/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「ツール」にシステム管理者用機能として「<b>PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー</b>」を追加しました。</li>
+	<li>ソースコード整形表示(シンタックスハイライト)ツール「<a href="http://code.google.com/p/syntaxhighlighter/" target="_blank"><b>Syntaxhig Hlighter</b></a>」と、ソースコードエディタ「<a href="http://www.cdolivet.net/editarea/" target="_blank"><b>Edit Area</b></a>」と、オリジナルのシンプルなファイルマネージャー機能を足して、一つのツールとしてまとめてみました。</li>
+	<li>最低限のテストは行っていますが、なんらかの要因により、ファイルが破損するリスクもありますので、自己責任においてお使いください。</li>
+	<li>サーバーのローカルディスクの任意のフォルダのHTML/PHP/JavaScript/CSS/TXTのソースファイルを整形表示＆編集ができます。</li>
+	<li>ソースファイルの文字コードは<b>UTF-8</b>および<b>Shift-JIS</b>をサポートしています。<b>Shift-JIS</b>はmb_convert_encodingで<b>UTF-8</b>に変換して表示します。</li>
+	<li>MyHome Portalシステム管理者でログインしている場合のみ使えるようにしています。</li>
+	<li><b><font color=red>ファイルマネージャー</font></b>では、下位フォルダおよびソースファイル(拡張子：html、htm、php、inc、js、css、txt、sql、xml)の一覧を表示します。</li>
+	<li>フォルダ名のクリックや「↑」ボタンでフォルダの移動ができます。</li>
+	<li>ソースファイル内の文字検索もできます。該当のファイル名を赤色で表示します。</li>
+	<li>ファイル名または、ファイル更新日付で昇順/降順のソートができます。</li>
+	<li>ソースファイル名をクリックするとソースコード整形表示画面になります。</li>
+	<li>「編集」でソースコード編集画面になります。</li>
+	<li>「Ｃ」ボタンでファイルのコピーができます。コピーされるファイル名は元のファイル名＋"-COPY(n)"＋拡張子です。</li>
+	<li>「Ｒ」ボタンでファイルのリネームができます。<br>
+	<img src="images/143-1.jpg"><br><br></li>
+	<li><b><font color=red>Syntaxhig Hlighter</font></b>による<b>ソースコード整形表示画面</b>です。</li>
+	<li><font color=red>IE6ではサイズの大きいファイルのコード表示で実行速度の警告が出ます。</font></li>
+	<li>整形表示形式をボタンで変えることができます。</li>
+	<li>「コード編集」ボタンを押すとソースコード編集画面になります。<br>
+	<img src="images/143-2.jpg"><br><br></li>
+	<li><b><font color=red>Edit Area</font></b>による<b>ソースコード編集画面</b>です。</li>
+	<li>行番号表示やシンタックスハイライト表示してくれます。</li>
+	<li>表示形式をプルダウンで変えることができます。</li>
+	<li>日本語にも対応しています。</li>
+	<li>全画面表示や、ソース内の文字列検索や文字列置換ができます。</li>
+	<li>タブコードも挿入できます。複数行選択でのタブ挿入もできます。</li>
+	<li>「{」などを選択すると対応する「}」をハイライトしてくれます。</li>
+	<li>「保存」ボタンを押すとファイルに書き込みます。ファイルマネージャーまたはソースコード整形表示に戻ります。<br>
+	<img src="images/143-3.jpg"><br><br></li>
+	<li>「ツール」の前のバージョンの「PHP/JavaScript 整形表示」は削除しました。</li>
+	<li>「アルバム」のフォルダ移動で不具合があったので修正しました。</li>
+	<li><b>mb_convert_encoding</b>で、「SJIS」では文字化けが発生するようなので、すべてのモジュールで「SJIS-win」に変更しました。</li>
+	<li>変更モジュール<br>
+		・tools/index.php<br>
+		・__common__/include-common-all.php, __define_common.php<br>
+		・photo/index.php<br>
+		・__define_common_my_sample.php<br>
+		・mb_convert_encodingを使っている全てのモジュール</li>
+	<li>追加モジュール<br>
+		・tools/code-file-view.php, code-file-edit.php, code-file-copy.php, code-file-rename.php<br>
+		・tools/__define_code-file.php, __include-common-code-file.php<br>
+		・tools/scripts/editarea/(一式)</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.42&nbsp;&nbsp;(2009/01/20)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムのスライド表示にオートプレイ機能を追加しました。オートプレイの時間間隔も指定できます。繰り返しの指定もできます。オートプレイの時は、メイン画像の下のサムネイルは表示しません。オートプレイ機能ではAjax/JavaScriptは使っていません。シンプルに&lt;meta http-equiv="refresh"&gt;を使っています。<font color=red>(Ver.2.59で追加した全画面(Ajax)スライドショーは、Ajaxを利用して画像切り替えをしています。)</font><br>
+	<li>アルバムのスライド表示で画像サイズを変更できるようにしました。<br><img src="images/142.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, __define.php<br>
+		・__common__/include-common-html.php, __define_common.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.41&nbsp;&nbsp;(2009/01/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムの動画サムネイル表示で、サムネイル画像を生成する動画開始時間(秒)を指定できるようにしました。<br><img src="images/141-1.jpg"><br><img src="images/141-2.jpg"></li>
+
+	<li>変更モジュール<br>
+		・photo/index.php, video-jpeg.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.40&nbsp;&nbsp;(2009/01/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムで動画のサムネイル表示ができるようにしました。<br><img src="images/140-1.jpg"><br><img src="images/140-2.jpg"></li>
+	<li>対象の動画は、静止画と同様にサーバのローカルディスクの任意のフォルダが対象です。システム管理者以外は静止画と同様にディレクトリを限定できます。</li>
+	<li><a href="http://ja.wikipedia.org/wiki/Ffmpeg" target="_blank">ffmpeg</a>がインストールされている必要があります。<br>
+ffmpegは、「お気に入りの動画を携帯で見よう(<a href="http://blog.k-tai-douga.com/" target="_blank">http://blog.k-tai-douga.com/</a>)」から、Windows用バイナリをダウンロードしてインストールするのが手っ取り早いです。<br>
+Windowsのシステム環境変数Pathにffmpegのインストールディレクトリを追加してください。(例:「;C:\Program Files\ffmpeg」)<br>
+環境変数追加後に、Apacheを再起動する必要があります。(Windowsを再起動する必要があるかも)</li>
+	<li>サムネイルをダブルクリックまたはクリックで動画再生または動画ダウンロードできます。<br>ただし、動画の種類によって、エラーになるなど、動画再生が出来ない場合もあります。とくにIEが再生できない場合が多いようです。</li>
+	<li>定義ファイルに以下の行を追加しました。以前のバージョンで既に実運用環境設定されている方は、定義ファイルに以下の行を追加してください。<br><pre class="command">
+define("photo_VIDEO_FFMPEG", "YES"); //動画をサムネイル表示する場合:"YES"
+define("IS_VIDEO_EXT", "avi,flv,mpg,mov,swf,wmv");
+define("IS_VIDEO_MIME","video/x-msvideo,video/x-flv,video/mpeg,
+video/quicktime,application/x-shockwave-flash,video/x-ms-wmv");
+define("IS_IMG_EXT", "jpeg,jpg,gif,png");
+</pre>
+動画をサムネイル表示する場合は、photo_VIDEO_FFMPEGを"YES"にしてください。サンプルの定義ファイル「__define_common_my_sample.php」では、photo_VIDEO_FFMPEGは""（オフ）になっています。<br>サムネイル表示対象の動画種類はIS_VIDEO_EXTで拡張子を指定します。デフォルトでは「avi,flv,mpg,mov,swf,wmv」を定義しています。拡張子を追加する場合は、IS_VIDEO_MIMEに、IS_VIDEO_EXTと同じ順番でMIMEを定義してください。</li>
+	<li>動画のサムネイルにはオレンジ色のボーダーを付けて静止画と区別できるようにしました。</li>
+	<li>サムネイルのimgタグにalt属性およびtitle属性でファイル名を表示するようにしました。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-all.php<br>
+		・photo/index.php, __define.php, __html-my-header.php, img-view.php<br>
+		・style/original/photo.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・photo/video-jpeg.php, video-view.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.39&nbsp;&nbsp;(2009/01/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページのユーザー毎のHTML(ブログパーツ)登録機能で、HTMLに&lt;br&gt;タグが入ってしまう問題を修正。
+	このHTMLパーツ登録機能を使って、オリジナルの乗換案内をサンプルDBに追加。
+		<br><img src="images/139-1.jpg"><br>
+＜乗換案内HTMLパーツ＞
+<pre class="command" style="font-size: 11px;">
+&lt;form name="norikae_form" target="_self" style="border:1px solid #808080;
+background-color:#F0E68C;margin:5px;padding:3px;"&gt;
+乗車：&lt;input type="text" name="SF" size="12"&gt;&lt;br&gt;
+下車：&lt;input type="text" name="ST" size="12"&gt;&lt;br&gt;
+&lt;input type="button" value="乗換(駅探)" onClick="Norikae_Ekitan()"&gt;&lt;br&gt;
+&lt;input type="button" value="乗換(Google)" onClick="Norikae_Google()"&gt;&lt;br&gt;
+&lt;/form&gt;
+&lt;script language="JavaScript"&gt;
+&lt;!--
+function Norikae_Google() {
+url = "http://maps.google.co.jp/maps?ie=UTF8&f=d&ttype=dep&dirflg=r";
+url = url + "&saddr=" + encodeURL(document.norikae_form.SF.value);
+url = url + "&daddr=" + encodeURL(document.norikae_form.ST.value);
+top.location.href = url;
+}
+function Norikae_Ekitan() {
+url = "http://search.ekitan.com/norikae/Norikae2Servlet?AN=0&FN=0&ETYPE=0&CHAR=UTF8&submit=%8C%9F%8D%F5";
+url = url + "&SF=" + encodeURL(document.norikae_form.SF.value);
+url = url + "&ST=" + encodeURL(document.norikae_form.ST.value);
+top.location.href = url;
+}
+--&gt;
+&lt;/script&gt;</pre></li>
+	<li>アルバムのサムネイルBタイプに、ボタンによる画像一括拡大縮小機能を追加。
+		<br><img src="images/139-2.jpg"><br><img src="images/139-3.jpg"></li>
+	<li>include-common-all.phpの一部関数の無駄な処理を修正。</li>
+	<li>変更モジュール<br>
+		・index/top.php<br>
+		・photo/index.php<br>
+		・__common__/include-common-all.php, include-common-mp-list.php<br>
+		・z_db_backup/_db_index.bk.txt (INDEXのデータベース:乗換案内HTMLパーツ追加)</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.38&nbsp;&nbsp;(2009/01/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムのサムネイル表示で画像のダブルクリックで原画像を別ウインドウで表示するようにしました。
+		<br><img src="images/138-1.jpg"></li>
+	<li>アルバムのサムネイル表示に「Bタイプ」を追加しました。正方形のフレームに縦横混在の画像を納める形式のサムネイルです。
+	フレーム内の画像のセンタリングについては、CSS-EBLOG(<a href="http://css-eblog.com/csstechnique/img-center.html" target="_blank">http://css-eblog.com/csstechnique/img-center.html</a>)を参考にしました。<br>
+	画像のシングルクリックで原画像を別ウインドウで表示します。
+		<br><img src="images/138-2.jpg"></li>
+	<li>アルバムのスライド表示に、10枚単位のスキップ機能を追加しました。
+		<br><img src="images/138-3.jpg"></li>
+	<li>Ver.1.36、1.37のカレンダーのアルバム連携表示のロールオーバーの不具合を修正しました。原因はHTML内に余分の&lt;/p&gt;タグがあったためでした。CSSのIEハックなどは不要でした。</li>
+	<li>変更モジュール<br>
+		・calendar/_my_calendar.php<br>
+		・photo/index.php, __html-my-header.php<br>
+		・style/original/calendar.css, photo.css</li>
+	<li>追加モジュール<br>
+		・style/original/center.css, center_ie.css</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.37&nbsp;&nbsp;(2008/12/30)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>Ver.1.36のカレンダーのアルバム連携表示のロールオーバーによる画像拡大CSSの修正で、ロールオーバー時にカレンダー日付枠が拡大画像サイズに従って拡がってしまう問題を修正。ただし、修正はIEのみ有効で、Firefox、Google Chromeは未対応。<font color=red>(Ver.1.38で修正しました。)</font></li>
+	<li>変更モジュール<br>
+		・style/original/calendar.css</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.36&nbsp;&nbsp;(2008/12/30)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>Ver.1.24でアルバムの画像データ表示をscripts/php/img-size-change.phpを使わない方法に変更したが、カレンダーのアルバム連携表示ではそのままになっていたのを、同様の方法に修正。</li>
+	<li>カレンダーのアルバム連携表示のロールオーバーによる画像拡大(CSSによる)がIE以外で動作しなかったのをFirefox、Google Chromeでも動作するように修正。<font color=red>(不具合がありましたが、Ver.1.38で修正しました。)</font></li>
+	<li>変更モジュール<br>
+		・calendar/_my_calendar.php<br>
+		・style/original/calendar.css</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.35&nbsp;&nbsp;(2008/12/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>実運用設定で、アルバムの表示ディレクトリを制限できるようにしました。実運用定義ファイル_define_common_my.phpで設定します。これを指定すると、指定ディレクトリおよびその下以外には移動できなくなります。システム管理者のみ、この制限をはずすこともできます。<br>
+	実運用定義ファイルサンプル__define_common_my_sample.phpを参考にしてください。</li>
+<pre class="command">
+define("photo_LIMITED_IMAGES_FOLDER", "D:/デジカメ写真");
+define("photo_LIMITED_ADMIN_NOLIMIT", "YES");
+</pre>
+	<li>これを指定するとカレンダー連携のアルバムフォルダは、このディレクトリからの相対アドレス指定となります。<br>
+		<img src="images/135.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, img-view.php<br>
+		・account/__include-login.php, myprofile.php, edit-myprofile.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.34&nbsp;&nbsp;(2008/12/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>実運用設定で、コンテンツ定義ファイル__define_contents.phpを別ファイル指定できるようにしました。別定義ファイルでメインコンテンツの使用/不使用、追加を設定できます。<br>
+		コンテンツ定義ファイルサンプル__define_contents_my_sample.phpを用意しました。</li>
+	<li>_myhomeディレクトリの外に、コンテンツフォルダを置いても良いようにinclude-common-html.php、__logincheck.phpを修正。<br>
+		↓標準コンテンツのアルバムを外し、YouTubeを組み込んだ例。外部コンテンツを&lt;iframe&gt;で組み込んでいます。
+		YouTube組み込みサンプルを「実運用サンプル」フォルダにいれました。<br>
+		<img src="images/134-1.jpg"></li>
+	<li>カレンダースケジュール入力画面のアイコン一覧表示で、拡張子.zzzのダミーファイルがあると改行するようにしました。<br>
+		拡張子.zzzのダミーファイルを含めたカレンダーイメージファイルサンプルを「実運用サンプル」フォルダにいれました。
+		↓それを使ったサンプルです。アイコン名も変えて種類別に並ぶようにしています。<br>
+		<img src="images/134-2.jpg"></li>
+	<li>カレンダーでアイコン読み取り関数をreaddirからscandirに変更。</li>
+	<li>__define_common_my_sample.phpのイメージファイルフォルダ名指定がcalnedarになっていたのをcalendarに変更。</li>
+	<li>カレンダーの時間表示で分が00の時も表示するように仕様変更。</li>
+	<li>account/__include-account-check.phpにあった未使用関数sql_and_or、sql_and_or_col2を__common__/include-common-all.phpに移動。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・__common__/__define_contents.php<br>
+		・__common__/include-common-html.php<br>
+		・__common__/include-common-all.php<br>
+		・account/__logincheck.php, __include-account-check.php<br>
+		・calendar/_my_calendar.php, input.php<br>
+		・style/original/common.css</li>
+	<li>追加モジュール<br>
+		・__define_contents_my_sample.php<br>
+		・実運用サンプル/youtube一式<br>
+		・実運用サンプル/_my_calendar_images一式</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.33&nbsp;&nbsp;(2008/12/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>MyHomePortalコンテンツの定義ファイル(__define_contents.php)を独自に設定できるようにしました。<br>
+	  MyHomePortalコンテンツの一部を使わない(例:アルバムを使わない)設定とか、独自コンテンツをコンテンツメニューに追加するなどが出来ます。</li>
+	<li>アルバムを、ブラウザのウインドウを複数開いて別々のフォトディレクトリを表示できるように修正。 </li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-html.php<br>
+		・__define_common_my_sample.php<br>
+		・photo/index.php, __define.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.32&nbsp;&nbsp;(2008/12/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>利用ガイドを少し修正しました。</li>
+	<li>z_db_backupフォルダ内に、実運用データベースのビュー作成スクリプトファイルを追加。</li>
+	<li>プログラムモジュールの変更はありません。</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.31&nbsp;&nbsp;(2008/12/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムの内部ロジックを修正。ディレクトリのファイル一覧をSESSION変数に保存し、同一パスの間は、ディスクスキャンをしないようにしました。</li>
+	<li>アルバムで、スライドショー表示もできるようにしました。<br>
+				<img src="images/131-1.jpg"><br><img src="images/131-2.jpg"></li>
+
+	<li>変更モジュール<br>
+		・photo/index.php, __define.php<br>
+		・style/original/photo.css<br>
+		・__common__/__define_common.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.30&nbsp;&nbsp;(2008/12/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップページ検索キー入力テキストボックスでEnterキーでGoogle検索できるようにしました。<br>
+	JavaScriptでonKeypressを使って実現しようとしましたが、うまく動作しないのでFORMのPOSTで実現しました。自宅用 HTML版 Webポータル「MyIndex」も同じように修正しました。
+<pre>	【うまくいかなかった方法】
+	&lt;script&gt;
+	function keywordEnter() {
+		if(window.event.keyCode == 13){
+			GoogleSch();
+		}
+	}
+	&lt;script&gt;
+	&lt;input type="text" ... onKeypress="keywordEnter()"&gt;
+</pre>
+</li>
+	<li>アルバムをぺージングできるように修正。<br>
+				<img src="images/130.jpg"></li>
+	<li>ReadMe-original.txt.phpの【実運用ディレクトリ構成例】の間違いを修正。<br>
+	/htdocs/__define_common_my.php → /htdocs/_myhome_myset/__define_common_my.php</li>
+	<li>変更モジュール<br>
+		・index/top.php<br>
+		・photo/index.php<br>
+		・style/original/photo.css<br>
+		・__common__/__define_common.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.29&nbsp;&nbsp;(2008/12/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダースケジュール入力画面の日付のポップアップ入力を、YUI Calendarの代わりに、<br>
+	「ホームページの素」(<a href="http://www.kanaya440.com/" target="_blank">http://www.kanaya440.com/</a>)の日付入力補助(calendar.js)を使用するように変更。
+	calendar.jsは、祝日をJavaScriptロジックで表示。<br>
+	MyHome Portal定義ファイル(__define_common.php)で、YUI Calendarの選択も可能。<br>
+	<font color=red>
+	calendar.jsはオリジナルを一部修正しています。<br>
+	・文字コードをUTF-8に変更。<br>
+	・日付入力欄のSELECTプルダウンに対応。(ちょっと強引に修正しています。)<br>
+	・ポップアップカレンダーのCSSを修正(font:→font-size:)。CSSを別ファイル化。
+	</font></li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・calendar/__define.php, input.php, _add_input_header.php</li>
+	<li>追加モジュール<br>
+		・calendar/_add_input_header_YUI.php<br>
+		・scripts/calendar.js, setValue.js<br>
+		・scripts/style/calendar.js.css, calendar.js-Firefox.css</li>
+	<p>			<img src="images/129-1.gif">
+				<img src="images/129-2.gif"></p>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.28&nbsp;&nbsp;(2008/12/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>MySQLサンプルデータベース作成スクリプト「db_backup_restore.txt.php」の変更。<br>
+	データベース作成ユーザーをrootアカウントに変更し、PHP実行用のユーザーアカウント作成スクリプトを追加。<br>
+	PHP実行用のユーザーアカウントのデータベースアクセス権限を、SELECT,INSERT,UPDATE,DELETEのみとしました。<br>
+	restoreとbackupのサンプルスクリプトファイルを分割。<br>
+	<font color=red>プログラム本体に変更はありません。</font></li>
+	<li>修正ファイル<br>
+		・db_restore.txt.php, db_backup.txt.php</li>
+	<li>削除ファイル<br>
+		・db_backup_restore.txt.php</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.27&nbsp;&nbsp;(2008/12/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップページ(index/top.php)の不具合修正。<br>
+	  Ver.1.26で、ホームページ登録なしのカテゴリ抽出に不具合があることがわかり、修正したつもりが間違った修正をしていました。
+	  改めて修正しました。</li>
+	<li>変更モジュール<br>
+		・index/top.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.26&nbsp;&nbsp;(2008/12/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップページ右側に任意のブログパーツを貼れるようにしました。最大で縦2列で8個まで貼れます。<br>
+		全ユーザー共通でトップページに表示されます。サンプルではYahoo天気予報と時計を貼っています。<br>
+		<font color=red>ただ、たくさん貼り付けるとページ表示やページ遷移が遅くなります。</font><br>
+		<font color=Royalblue>【<b>ブログパーツの設定方法：サンプルデータの例</b>】</font><br>
+		<font color=Royalblue>ブログパーツHTML(Script)を、/_myhome/blog-parts/フォルダの下にテキストファイルで置いてください。<br>
+		HTML(Script)ファイルの文字コードはUTF-8にしてください。<br>
+		HTML(Script)ファイル名を、定義ファイル/_myhome/__common__/__define_common.phpで指定します。(定義ファイルサンプルを参考にしてください。)</font></li>
+	<li>トップページ右上に表示していたlivedoor(Ajax)天気予報はサンプルのデフォルトでは表示しないようにしました。</li>
+	<li>トップページのホームページインデックス枠内に、ユーザー毎に任意のブログパーツを貼れるようにしました。
+		ホームページの登録画面で、HTML(ブログパーツ)を登録してください。
+		ブログパーツ以外の任意のHTMLを入れることも可能です。
+		ブログパーツによっては、正しく表示されない可能性があります。<br>
+		サンプルデータベースではユーザー「共通」に4個、ユーザー「花子」に1個登録しています。</li>
+	<li>MySQLデータベース_db_indexのテーブル「m_homepage」に、列「c_html」を追加しました。<br>
+	<font color=red>既存のデータベースに列を追加する場合は、コマンドプロンプトから以下を実行してください。<br>
+		実運用のデータベース名を変えている場合は、注意してください。<br>
+		「create_view_db_index.txt」の中のデータベース名も変える必要があります。</font></li>
+	<pre>	mysql -u myhome -ppass123
+	use _db_index;
+	ALTER TABLE m_homepage ADD c_html LONGTEXT NOT NULL;
+	exit;
+	d:
+	cd "D:\xampp\htdocs\_myhome\z_db_backup"
+	mysql -u myhome -ppass123 _db_index < create_view_db_index.txt</pre>
+	<li>トップページに「Googleマップルート・乗換案内」検索ボタンを追加。<br>
+		乗車駅、降車駅をスペースで区切って（例：「東京 大阪」）検索してください。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-mp-list.php<br>
+		・index/top.php, list.php, __define.php, __html-my-header.php<br>
+		・style/original/index.css<br>
+		・z_db_backup/create_view_db_index.txt, _db_index.bk.txt</li>
+	<li>追加モジュール<br>
+		・blog-partsフォルダと、ブログパーツサンプルファイル<br></li>
+	<li>データベース変更<br>
+		・データベース「_db_index」：テーブル「m_homepage」に、列「c_html」を追加。<br></li>
+				<img src="images/126-1.jpg"><br>
+				<img src="images/126-2.jpg"><br>
+				<img src="images/126-3.jpg"><br>
+				<img src="images/126-4.jpg"></li>
+	</div>
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download1.html">
+		<span style="font-size: 120%;">→→→　バージョン1.25以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

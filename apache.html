@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<style>
+pre.cmd {
+	margin: 5px 0 5px 20px;
+	padding: 2px;
+	border: solid 1px #7f9db9;
+	width: 150px;
+	line-height: 13px;
+}
+</style>
+<title>Apacheの再起動方法</title>
+</head>
+<body style="margin:10px;">
+<h3>Apacheの再起動方法</h3>
+<div style="margin:10px;">
+Windowsの場合、コマンドプロンプトで以下を実行してください。<br>
+Apacheのバージョンによって、Apache2.xの数字は変わります。<br>
+Apacheのバージョンは、<br>
+<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a><br>
+で確認できます。<br>
+<pre class="cmd">
+net stop Apache2.2
+net start Apache2.2
+</pre>
+<pre class="cmd">
+net stop Apache2.3
+net start Apache2.3
+</pre>
+<pre class="cmd">
+net stop Apache2.4
+net start Apache2.4
+</pre>
+</div>
+</body>
+</html>

@@ -1,0 +1,2360 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 利用ガイド（機能概要）</title>
+</head>
+<body >
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 利用ガイド（機能概要）</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html" id="page_navi_current">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+
+<div class="paragraph">
+<p id="message">
+<span style="font-weight: bold;">「MyHome Portal」</span>の利用ガイド（機能概要）です。
+</p>
+</div>
+
+<!--
+../_attach/guide
+
+images
+-->
+
+<!-- ************************************************************************************** -->
+
+
+
+
+
+<div id="mp_list_main">
+	<table id="guide_list_table">
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>はじめに</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．このシステムについて</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_body" colspan=2>
+		<ol>
+		<li>個人または家族で使える自宅用のWebポータルシステムです。</li><li>システムを利用するには、ユーザー登録と認証が必要です。ユーザー登録は、システム管理者が一括登録することも可能です。</li><li>ユーザー単位で他のユーザーに対して参照・書込の権限設定ができます。</li>		</ol>
+	<a name="id_151"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ユーザー登録</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ユーザー登録</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000151-101.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>最初にユーザー登録をしてください。</li><li>アカウント名とハンドル名は、登録済みのものは使えません。チェックボタンで使用可能かどうか確認できます。</li>		</ol>
+	<a name="id_159"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．確認画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000159-102.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ユーザー登録画面で確認ボタンを押すと、確認画面が表示されます。</li><li>絵文字コードを入れてください。絵文字が見づらい場合は、絵文字変更ボタンを押すと、絵文字が変わります。</li>		</ol>
+	<a name="id_152"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ログイン</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．ログイン</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000152-110.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ユーザー登録ができたら、ログインしてください。</li><li>ログイン情報は、クッキーに保存されます。</li><li>ログオフをしないでブラウザを閉じてもログイン状態は保持されます。</li>		</ol>
+	<a name="id_251"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>検索機能</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．コンテンツ検索機能</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000251-keyinput.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>INDEX、カレンダー、旅行記、メモ、学習、住所録、ID管理、預貯金管理、利用ガイド、ユーザー一覧のそれぞれの検索機能では、検索キーにAND,ORおよび()を使った複合検索ができます。</li><li>ANDは「&amp;」または「*」、ORは「|」「+」を使います。</li><li>[例] ( 赤坂 | 六本木 ) &amp; イタリアン<br>[例] ( 赤坂 + 六本木 ) * イタリアン<br>スペース(空白)は入れても入れなくても構いません。&amp;|*+()は、全角も可です。</li><li>&amp;|*+()を正しく入れないとSQL構文エラーになります。 </li><li>実運用定義ファイルで、<br>define(&quot;_DEBUG_ERROR_MSG&quot;, &quot;YES&quot;);<br>を指定している場合、上記、検索機能でSQL構文エラーが発生するとSQL文を表示します。</li><li>&amp;|*+()を使わない場合は、スペース(空白)で文字列を区切るとAND検索になります。</li>		</ol>
+	<a name="id_153"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>INDEX</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．トップページ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000153-115.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000153-116.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>MyHome Portalのトップページです。</li><li>各検索ボタンで、Googleなどのインターネット検索やMyHomeのカレンダーやメモの検索ができます。</li><li>検索キー入力ボックスでは、Google Suggest APIを使った予測変換(単語補完)が利用できます。予測変換(単語補完)機能は、検索キー入力ボックスの左の●をクリックすることでオフにも出来ます。</li><li>乗換(駅探)、経路(Google)検索では、乗車駅(出発地)、下車駅(目的地)をスペースで区切って入力してください。乗換(駅探)は、My設定で最寄駅を登録しておくと、下車駅のみを入れて、乗換検索ができます。経路(Google)検索は、My設定で住所（経路起点）を登録しておくと、目的地のみを入れて、起点からのGoogleルート検索ができます。</li><li>ユーザー単位に、良く使うホームページを登録して、自分のポータルとして使えます。任意のブログパーツは貼ることもできます。</li><li>とくに良く使うホームページをピックアップして、上段にタイル型で表示できます。</li><li>カテゴリボックスのカテゴリ名をクリックするとカテゴリ単位の一覧形式表示（２．）になります。</li><li>掲示板の最新記事数件分を右側に表示します。</li><li>3日分のスケジュールを右側に表示します。ここから直接スケジュール入力・修正画面に入れます。</li><li>当月の前後3か月分のカレンダーも表示されます。スケジュール有の日付は色が変わります。日付をクリックすると、該当日のスケジュール一覧表示になります。</li><li>画面右側に、全ユーザー共通に、livedoor天気Webサービスや、任意のブログパーツを貼り付けることができます。</li>		</ol>
+	<a name="id_154"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．一覧形式表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000154-117.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ホームページ（ブックマーク）の一覧形式の表示画面です。</li>		</ol>
+	<a name="id_227"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．サムネイル形式表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000227-index-thumb.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ホームページの画面イメージをサムネイル形式で表示します。</li>		</ol>
+	<a name="id_160"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．ホームページの登録</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000160-index-input.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000160-117.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一覧形式の表示画面の「新規登録」ボタンで「新規登録」画面が表示されます。</li><li>一覧形式の表示画面で、「一括修正/追加/削除」ボタンを押すと、一覧形式でホームページの登録、修正ができます。</li>		</ol>
+	<a name="id_155"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">５．カテゴリ編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000155-123.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カテゴリの編集画面です。</li><li>カテゴリはユーザー単位です。</li>		</ol>
+	<a name="id_156"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">６．カテゴリの追加</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000156-125.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カテゴリ編集画面で、「一括修正/追加/削除」ボタンを押すと、カテゴリの追加や修正ができます。</li><li>INDEXトップページでは、4列に分けて表示します。表示列と表示順を指定してください。</li><li>カテゴリに色を付けてください。</li>		</ol>
+	<a name="id_252"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">７．ピックアップ編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000252-oftenuse2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>とくに良く使うホームページをピックアップして、上段にタイル型で表示します。</li><li>ピックアップの編集画面です。</li><li>タイルの背景色や表示順序を設定できます。</li><li>表示順序の入れ替えは、マウスのドラッグ＆ドロップでも出来ます。</li>		</ol>
+	<a name="id_250"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">８．ブックマーク</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000250-bm2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>任意のフォルダのインターネットショートカットファイル(拡張子：urlのファイル/IEのお気に入りのファイル)を、INDEXの一覧と同様の形式で表示します。キャプチャ画像付きやキャプチャ画像のサムネイル表示もできます。</li><li>ブックマークで表示するのは、サーバーローカルのディレクトリです。PC1台での利用の場合は、そのPCのディレクトリになります。デフォルトディレクトリは、実運用定義ファイルで設定できます。</li><li>検索は、サブディレクトリ検索もできます。</li><li>検索文字列は、スペース区切りで複数キーワードAND検索もできます。</li><li>システム管理者のみが利用できます。</li><li>ファイル名に「≫」等の特殊文字が含まれている場合は、エラー表示します。この場合、リンク表示できません。</li>		</ol>
+	<a name="id_287"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">９．Myニュース</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000287-mynews.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ニュース検索用キーワードを登録して、ボタンクリックでGoogleニュース検索が出来ます。</li><li>キーワードは、AND/ORの指定ができます。</li><li>検索対象は、「記事見出し＋記事本文」「記事見出しのみ」が選択できます。通常のGoogle検索やGoogleブログ検索の24時間以内、1週間以内検索もできます。Yahooリアルタイム(Twitter)検索もできます。</li>		</ol>
+	<a name="id_201"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ToDo</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ToDo管理</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000201-todo-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000201-todo-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000201-todo-3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>シンプルなToDo管理です。</li><li>INDEXトップページと、月間カレンダーの右にToDoが表示されます。</li><li>INDEXトップページでは、優先度の高いもの3件を表示します。「△▽」ボタン」で全件表示と3件表示が切り替わります。月間カレンダーでは、全件表示します。</li><li>INDEXトップページまたは月間カレンダーの「ToDo」をクリックすると、ToDo追加、編集用の子ウインドウが開きます。</li><li>文字に色を付けられます。色選択プルダウンを選択した時点で、テキスト枠内文字も色が変わります。</li><li>↑、↓ボタンで、優先順位を変更できます。新規追加分は、一番上に追加されます。</li><li>優先順位の入れ替えは、マウスのドラッグ＆ドロップでも出来ます。 </li><li>修正ボタンを押すと、その行の下に修正用枠が表示されます。</li><li>INDEXトップページおよび月間カレンダーのToDo表示はAjaxを利用していますが、一定時間間隔のポーリングはしていません。</li><li>ToDo追加、編集用の子ウインドウを閉じると、元の親画面のToDoに反映されます。</li>		</ol>
+	<a name="id_249"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>付箋ボード</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">付箋ボード</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000249-sticky.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ポスト・イットのような感じで付箋メモを貼り付けられます。</li><li>付箋はマウス・ドラッグで貼り付け場所を移動できます。</li><li>付箋ボードは、ユーザー単位に複数設定できます。</li><li>新規追加後の付箋の編集ボタンは2度クリックしないと反応しません。(実は最初の1回目のクリックでは一旦画面全体をリフレッシュします。Ajaxで全てコントルールがうまくいかなかったので、こうなっています。)</li><li>新規付箋の文字サイズやURLリンク表示はすぐに反映されません。再表示して初めて反映されます。</li><li>IE6では、付箋を貼りつけるボード部分が&lt;iframe&gt;になっています。</li><li>参照権限のみのユーザーの付箋ボードは閲覧はできますが編集はできません。ドラッグによる一時的な移動はできますが、再表示すると元に戻ります。</li><li>複数のユーザーに書き込み権限がついているアカウントの付箋ボードを複数のユーザーが同時に編集した場合、他ユーザーの追加・編集はリアルタイムには反映されません。再表示して初めて反映されます。</li>		</ol>
+	<a name="id_157"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>カレンダー</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．月間表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000157-131.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カレンダー（スケジューラー）のトップページです。</li><li>日付または、日付欄の空白部分をダブルクリックすると、新規入力画面が開きます。</li><li>アイコンを付けたり、スケジュールに色を付けたりできます。</li><li>詳細表示にすると、スケジュール本文全てが表示されます。</li><li>添付ファイルが画像の場合、合わせて表示します。</li><li>カテゴリやキーワードで検索ができます。検索されたスケジュールのみが表示されます。</li><li>↑印をクリックすると、詳細スケジュールがポップアップ表示されます。</li><li>入力画面で、件名右のチェックボックス「地図」にチェックすると、月間スケジュールに「→地図」が表示され、これをクリックすると、Google地図が別ウインドウで開きます。My設定で「住所 (経路起点)」を登録しておくと「→経路」も表示されます。これをクリックすると、Googleルートマップが別ウインドウで開きます。</li><li>本文入力で、駅名や住所を「地」ボタンで囲むと、スケジュール詳細表示で「→地図」および「→経路」が表示され、件名と同様にGoogle地図検索、経路検索ができます。</li>		</ol>
+	<a name="id_179"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．月間アルバム表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000179-132.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>アルバム表示にすると、アルバムフォルダに写真がある日付に写真を1枚表示します。（アルバムフォルダは、My設定で各自設定します。）</li><li>＜アルバムフォルダのフォルダ階層例＞<br>/2009/<br>/2009/2009-01-11-京都<br>/2009/2009-02-15-伊豆</li><li>写真をクリックすると、アルバムフォルダに移動します。</li>		</ol>
+	<a name="id_158"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．年間表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000158-133.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>年間表示にすると、2年分のカレンダーを表示します。</li><li>スケジュールモードでは、スケジュール有の日付は色表示されます。</li><li>アルバムモードでは、アルバムフォルダに写真がある日付は色表示されます。</li><li>アルバムモードでは、日付をクリックすると、アルバムが表示されます。</li>		</ol>
+	<a name="id_161"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０４．一覧表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000161-136.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一覧表示の画面です。</li><li>今月、今週などのスケジュールを一覧表示できます。</li><li>一覧形式で、一括修正もできます。</li>		</ol>
+	<a name="id_162"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０５．週間（全員）表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000162-138.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>週間表示画面です。</li><li>My参照メンバ全員のスケジュールを一括表示します。</li>		</ol>
+	<a name="id_232"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０６．天気出現率</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000232-weather1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000232-weather2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000232-weather3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カレンダーで、天気出現率を表示します。天気出現率とは、過去30年間の大気現象や日降水量、日平均雲量から割り出したものです。</li><li>月間、年間カレンダーで、各日の都道府県別の天気出現率を基にした出現率の高い天気を表示します。主に都道府県庁所在地の天気出現率を基にしています。北海道は主な支庁の都市を表示します。佐渡、伊豆大島、輪島の天気出現率も表示します。</li><li>日付別の天気出現率の日本地図表示もできます。指定日の日本全体の天気の傾向が読み取れます。</li><li>天気マークと色分けの説明は、年間カレンダーの右側に表示しています。色分け区分の比率は、定義ファイルで変更することもできます。</li><li>注釈は、晴れ/曇り/雨/雪の天気出現率のパーセント(%)を表示しています。</li>		</ol>
+	<a name="id_233"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０７．最高気温、平均気温、最低気温</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000233-weather4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>月間、年間カレンダーで、各日の都道府県別の最高気温、平均気温、最低気温を表示します。30年間の気象データを基にした気温です。</li><li>日付別の最高気温、平均気温、最低気温の日本地図表示もできます。</li>		</ol>
+	<a name="id_235"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０８．天気グラフ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000235-wg1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000235-wg2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>都道府県別の月平均天気出現率と月平均気温をグラフ表示できます。</li>		</ol>
+	<a name="id_163"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０９．マップ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000163-map1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カレンダーに登録されている場所をGoogleマップでマーカー表示します。</li><li>件名に地図チェックが付いているスケジュールが対象です。</li><li>検索条件にあった地点全てを表示します。去年旅行で行ったところの一覧地図といった感じで使えます。</li><li>同じ場所が複数ある場合、マーカーは１つにまとめます。</li><li>マーカーをクリックすると、スケジュールの日付とスケジュール内容を表示します。</li><li>Google Earth 表示もできます。（実運用定義ファイルでGoogle Maps API V3を指定している場合は、Google Earth 表示はできません。）</li><li>※ 表示地点が多いと時間がかかります。</li><li>※ 表示地点が多いと全てを表示できない場合があります。その場合、表示できなかった地名を下に表示します。</li><li>※ この機能を使った後、他のページに移動しても、ブラウザの動作が遅いままとなります。いったんブラウザを閉じて再度開いてください。</li>		</ol>
+	<a name="id_218"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１０．マップ（別窓）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000218-map12.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000218-map111.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>マップの全画面タイプです。</li><li>別ウインドウで開きます。</li><li>ストリートビュー表示もできます。</li><li>※ 表示地点が多いと時間がかかります。</li><li>※ 表示地点が多いと全てを表示できない場合があります。その場合、表示できなかった地名を下に表示します。</li><li>※ この機能を使った後、他のページに移動しても、ブラウザの動作が遅いままとなります。いったんブラウザを閉じて再度開いてください。</li>		</ol>
+	<a name="id_164"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１１．カテゴリ編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000164-140.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000164-142.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カテゴリの編集画面です。</li><li>カテゴリはユーザー単位です。</li><li>カテゴリにアイコンと背景色を指定できます。</li><li>カテゴリの背景色は、月間スケジュールに適用されます。</li>		</ol>
+	<a name="id_165"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１２．スケジュール入力</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000165-150.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>スケジュール入力画面です。</li><li>HTMLタグが使えます。アイコン挿入ボタンや色タグ挿入ボタンが使えます。</li><li>Ｌボタンを押すとURLを入力して、タグ&lt;a href=...&gt;&lt;/a&gt;を挿入できます。</li><li>添付ファイルも付けられます。</li><li>カレンダーで件名を使わずにスケジュール本文のみを使う設定ができます。MY設定で、設定してください。この設定をすると入力画面に件名欄が表示されません。</li>		</ol>
+	<a name="id_193"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１３．スケジュール入力（２）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000193-152-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>件名右のチェックボックス「地図」にチェックすると、月間スケジュールに「→地図」が表示され、これをクリックすると、Google地図が別ウインドウで開きます。</li><li>My設定で「住所 (経路起点)」を登録しておくと「→経路」も表示されます。これをクリックすると、Googleルートマップが別ウインドウで開きます。</li><li>本文の駅名や住所を「地」ボタンで囲む(タグ&lt;m&gt;&lt;/m&gt;で囲まれます。)と、スケジュール詳細表示で、「→地図」および「→経路」が表示され、件名と同様にGoogle地図検索、経路検索ができます。</li>		</ol>
+	<a name="id_202"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１４．メール送信</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000202-smail.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ToDoおよびスケジュールを電子メールで送信できます。</li><li>システム管理者によるメール環境設定が必要です。</li><li>ユーザー各自が事前にMy設定で「スケジュール送信先」メールアドレスを登録しておく必要があります。</li>		</ol>
+	<a name="id_285"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１５．伝言</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000285-dengon.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>伝言機能です。</li><li>電子メールで伝言を送信することもできます。</li><li>伝言と同時にスケジュールを宛先メンバのカレンダーに追加するができます。複数ユーザーにスケジュールを一括登録できます。</li><li>伝言機能によるスケジュール登録では、宛先ユーザーが「書込許可」設定していないユーザーにも書き込みできます。</li><li>伝言は、伝言ページを本人が開いた時点で、既読扱いとなります。</li><li>未読伝言がある場合、「INDEX」トップページ、カレンダー月間表示ページに「未読伝言あり」と表示します。</li>		</ol>
+	<a name="id_241"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>旅行記</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．表示画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000241-diary2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>旅行記の表示画面です。</li><li>Googleマップで、登録地点をマーカー表示できます。</li><li>実運用定義ファイルでGoogle Maps API のV3利用を指定して出来ます。V3版の場合、Google Maps API キーが不要になり、localhost以外でのアクセスが利用可能になります。V3版の場合、Google Earth APIによる3D表示ができません。</li><li>表示画面のGoogleマップの拡大・縮小、移動などはデータベースには記録されません。リセットや再表示をすると元にもどります。</li><li>マーカーをクリックすると、吹き出しが表示されます。</li><li>「Googleマップ」「前(次)地点からの経路」をクリックすると、実際のGoogleマップにジャンプします。</li>		</ol>
+	<a name="id_243"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．全画面マップ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000243-diary5.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000243-diary31.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>全画面タイプのGoogleマップ表示画面です。</li><li>ストリートビュー表示もできます。</li><li>全マーカー地点のルート表示もできます。左側にルートのナビゲーションもでます。ルートは車または徒歩によるものです。電車ルートは表示されません。</li>		</ol>
+	<a name="id_240"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000240-diary1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>旅行記の一覧です。</li><li>日付や記事内容で検索できます。</li>		</ol>
+	<a name="id_245"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．一括マップ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000245-diary6.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一覧で、複数の日付を選択して、一括マップを作成できます。</li><li>複数日の行き先地点全てのマーカーを1枚の地図に表示します。</li><li>ストリートビュー表示もできます。</li><li>複数日に跨る全マーカー地点のルート表示もできます。</li>		</ol>
+	<a name="id_242"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">５．登録・修正画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000242-diary3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>登録・修正画面です。</li><li>マーカーの登録や修正ができます。</li><li>マーカーは移動もできます。</li><li>マーカーの修正や移動、地図の拡大・縮小はAjaxを使って、画面遷移なしに、リアルタイムでデータベースに記録します。</li><li>マーカー地点の追加は、この登録・修正画面でしかできません。</li><li>地図上で、マウスクリックすると、新しいマーカーを表示できます。</li><li>地名を入れて「場所を検索」することでも、新しいマーカーを表示できます。</li><li>「マーカー全て表示」で、全マーカーを表示できるように、地図のズームと移動を行ないます。</li>		</ol>
+	<a name="id_244"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">６．地点一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000244-diary4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>マーカー地点情報の一覧画面です。</li><li>複数日のマーカー地点情報を一括して修正できます。</li>		</ol>
+	<a name="id_247"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">７．マーカータイプ、通貨種類、評価項目編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000247-diary12.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>マーカータイプは、全ユーザー共通です。</li><li>マーカータイプ編集は、システム管理者のみが行なえます。</li><li>アイコンファイルは、フォルダ「../icon/maps/」を使います。</li><li>通貨種類の追加は、実運用定義ファイルで指定してください。<br>define(&quot;PRICE_UNIT_SELECT&quot;, &quot;円,ドル,ユーロ&quot;);</li><li>地点の評価項目は、実運用定義ファイルで指定してください。総合評価を含めて最大9個までです。<br>define(&quot;DIARY_RATING_CAPTION&quot;, &quot;総合評価,コスト,施設,雰囲気,料理,風呂&quot;);</li>		</ol>
+	<a name="id_186"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>掲示板</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．投稿タイトル一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000186-145-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>MyHome Portal全ユーザー共通の掲示板です。</li><li>投稿の検索やフィルタリングができます。</li>		</ol>
+	<a name="id_188"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．投稿内容表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000188-145-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>スレッド単位の表示です。</li><li>スレッド単位でページ送りで投稿を閲覧できます。</li><li>投稿の修正、削除、復活ができます。</li>		</ol>
+	<a name="id_190"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．FLV、MP4、WMV動画再生</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000190-145-5.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>FLV、MP4、WMV動画を添付した場合は、掲示板スレッド表示画面内で動画再生ができます。</li>		</ol>
+	<a name="id_187"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．新規投稿画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000187-145-3-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000187-145-3-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>WYSIWYGでHTMLタグが使えます。</li><li>WYSIWYGエディタは左の２種類のうち、いずれかが使えます。</li><li>ファイルや写真の添付もできます。</li>		</ol>
+	<a name="id_196"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">５．お絵かき</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000196-156-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000196-156.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>掲示板では、お絵かきもできます。「お絵かき」ボタンを押すと、お絵かき欄が表示されます。</li><li>お絵かきした絵をそのまま投稿できます。投稿後、修正もできます。</li>		</ol>
+	<a name="id_191"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ＲＳＳリーダー</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ＲＳＳ記事一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000191-148g.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000191-FeedEk.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>RSSの記事一覧です。</li><li>カテゴリ別に、タイル形式で記事を5件ずつ一覧表示します。</li><li>↑クリックでポップアップウィンドウで全件表示します。</li><li>右側の↑では、本文も表示します。クライアントサイドで、都度RSSフィードを取得して表示します。</li><li>表示順序は、マウスのドラッグ＆ドロップで変更できます。</li>		</ol>
+	<a name="id_192"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．ＲＳＳ追加/削除</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000192-148g2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>RSSの追加/修正/削除画面です。</li><li>一覧形式で編集できます。</li>		</ol>
+	<a name="id_275"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>メモ</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．メモ入力画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000275-memo-input.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>メモ入力画面です。</li><li>タブの入力もできます。複数行選択して、インデントをすることもできます。</li>		</ol>
+	<a name="id_166"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．メモ一覧表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000166-200.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>メモ一覧画面です。</li><li>カテゴリ別表示やキーワード検索ができます。</li>		</ol>
+	<a name="id_167"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．一括修正/追加/削除</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000167-210.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一覧形式で、一括修正/追加/削除ができます。</li>		</ol>
+	<a name="id_292"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．Simple Memo</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000292-simple-memo.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>MyHome Portalページヘッダー右上のペンシル・アイコンをクリックすると開きます。</li><li>基本コンテンツの「メモ」とは違って、ブラウザ画面一杯の&lt;textarea&gt;だけのシンプルなメモ帳です。</li><li>ログイン・ユーザー毎に1ページです。保存ボタンで、MySQLデータベースに保存されます。</li><li>保存ボタンを押しても、ページ遷移はせずに&lt;textarea&gt;のフォーム状態のままです。</li><li>フォント種類とフォントサイズを変更できます。タブ入力機能と複数行選択によるタブ一括挿入によるインデントもできます。</li><li>それ以外は通常の&lt;textarea&gt;によるシンプルな入力画面です。</li>		</ol>
+	<a name="id_169"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>アルバム</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．フォトアルバム</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000169-220.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000169-video1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>サーバーローカルのディレクトリ指定で、イメージデータのサムネイル表示またはスライドショー表示ができます。</li><li>サムネイルの画像サイズの拡大縮小ができます。</li><li>画像の表示順は、ファイル名順、更新日時順、それぞれ昇順、降順が選択できます。</li><li>動画のサムネイル表示もできます。（事前に、システム管理者が、環境設定をしている必要があります。）</li><li>動画のサムネイル画像の開始秒の指定もできます。</li><li>サムネイル画像をクリックするとポップアップで拡大表示します。</li><li>キーボード操作によるフォルダ移動やページ移動もできます。<br>・[Tab]：次フォルダ<br>・[Caps Lock]：前フォルダ<br>・[→]：次ページ<br>・[←]：前ページ<br>・10キーの[+]：サムネイル画像サイズ大きく<br>・10キーの[-]：サムネイル画像サイズ小さく<br>・[A]：モード切替→サムネイル<br>・[B]：モード切替→サムネイル(B)<br>・[S]：モード切替→スライド<br>・[Space]：モード切替→全画面スライド</li><li>※ キーボード操作機能を使わない場合、実運用定義ファイルで以下を指定してください。<br>define(&quot;photo_FOLDER_MOVE_BY_KEYBOARD&quot;, &quot;NO&quot;);</li><li>※ キーボード操作によるモード切替を使わない場合、実運用定義ファイルで以下を指定してください。<br>define(&quot;photo_MODE_CHANGE_BY_KEYBOARD&quot;, &quot;NO&quot;);</li>		</ol>
+	<a name="id_213"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．サムネイル（Ｂ）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000213-230.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>サムネイル（Ｂ）タイプ表示です。</li><li>サムネイル画像をクリックすると、スライドタイプ画面にページ遷移します。</li>		</ol>
+	<a name="id_214"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．スライド</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000214-240.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000214-jigsaw.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000214-swinging.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>スライドタイプの表示です。</li><li>下には、続く10枚の画像を表示します。下の画像をクリックすると、その画像に移動します。</li><li>全画面モードにすると、オートプレイのスライドショーもできます。オートプレイは繰り返しもできます。</li><li>オプションとして、ImageFilters、CSSフィルタ、deviantARTなどの画像加工機能もあります。</li><li>さざ波、点描アニメ、揺れる、拡大縮小、チルトシフト、雨降り等の画像効果や、ジグソーパズルなどのオプション機能もあります。これらは、IEでは動作しません。Chromeのみで機能するものもあります。</li><li>さざ波は、画像の上にマウスを重ねると、さざ波のような効果が出ます。</li><li>チルトシフトは、マウスクリックで、チルトシフト効果をON/OFF出来ます。</li><li>雨降りでは、写真の上に窓ガラスに水滴が付くようなイメージを付けたします。IEでは機能しません。<br>キーボードで、1～3の数字キーを押すと、水滴のイメージが変わります。<br>キーボードの[↑]でガラスの透明度を上げます。[↓]でガラスの透明度を下げます。</li><li>揺れる、拡大縮小、チルトシフト、雨降り、CSSフィルタは、キーボードによるページ移動も可能です。ページ移動では、画像効果の設定情報は引き継がれます。<br>・[ESC]：ウインドウを閉じる<br>・[→], [Page Down], [Enter], [Space]：次画像<br>・[←], [Page Up],[無変換]：前画像<br>・[Tab]：10画像スキップ<br>・[Caps Lock]：10画像前へスキップ<br>・[Home]：先頭画像へスキップ<br>・[End]：最後画像へスキップ</li>		</ol>
+	<a name="id_216"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０４．動画再生</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000216-ffmpeg.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000216-convert.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>FLV、MP4、WMV動画をスライドショーの中で再生できます。</li><li>MPG、MOV、M2TS(AVCHD)の動画も再生できます。<br>ffmpegを使って、FLVに変換して表示します。変換したFLVファイルは、各フォルダの下にサブディレクトリ「/___flv___/」を作成して、その下に格納します。 変換後の動画の画質は劣化する可能性する可能があります。動画の再生時間が長い場合、ブラウザがフリーズする可能性があります。</li><li>MPG、MOV、M2TS(AVCHD)動画のFLV一括変換もできます。システム管理者のみ利用できます。 変換する動画の再生時間が長い場合、ブラウザがフリーズする可能性があります。</li><li>※ 動画再生機能は、事前に、システム管理者が、環境設定をしている場合のみ利用できます。</li>		</ol>
+	<a name="id_234"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０５．動画時間分割</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000234-timeline.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>動画を時間分割して、サムネイル表示をすることもできます。</li>		</ol>
+	<a name="id_215"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０６．全画面スライドショー</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000215-slide.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000215-wallpaper.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000215-slide-lean.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>全画面表示のスライドショーもできます。</li><li>F11キーと組み合わせると、パソコン画面一杯でスライドショーができます。</li><li>左右の＜＞キーで前後の画像に移動できます。</li><li>画面下の×クリックで通常のスライド画面に戻ります。</li><li>Auto Onにすると、オートプレイもできます。オートプレイの時間間隔は、キーボードで変更することもできます。</li><li>動画のFLV/WMV動画再生モードの場合は、指定時間でなく、動画再生時間後に次の動画に移動します。</li><li>Repeat Onで、オートプレイの繰り返しもできます。</li><li>Lキーを押すと、写真を縁ありにして傾けて表示します。ただし、IEでは機能しません。</li><li>全画面表示のスライドショーでは壁紙タイプもあります。タイル形式で画像を並べます。</li><li>キーボードによる操作も可能です。<br>  ・[ESC]：全画面モード終了<br>  ・[→], [Page Down], [Enter], [Space]：次画像<br>  ・[←], [Page Up],[無変換]：前画像<br>  ・[Tab]：10画像後へスキップ(リピートは無効)<br>  ・[Caps Lock]：10画像前へスキップ(リピートは無効)<br>  ・[Home]：先頭画像へスキップ<br>  ・[End]：最後画像へスキップ<br>  ・[A]：全画面オートプレイ On/Off<br>  ・[R]：リピート On/Off<br>  ・[F]：フェードイン On/Off<br>  ・[L]：傾きモード On/Off<br>  ・[W]：壁紙モード On/Off<br>  ・[1]～[9]：オートプレイ時間間隔変更</li><li>全画面モードでは、画像ファイルの削除機能もあります。<br>[Delete]キーを押すと、表示されている画像ファイルを該当フォルダから削除します。削除したファイルは該当フォルダの下に「___trash___」フォルダを作成し、そこに保管します。<br>「___small___」と「___thumb___」以下の同名ファイルは完全削除します。<br>ファイル削除機能は、システム管理者のみ使えます。</li>		</ol>
+	<a name="id_248"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０７．全画面(Ajax)スライドショー</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000248-slide-ajax.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Ajaxを利用して、ページ遷移なしのスムーズな全画面スライドショーができます。画像切り替えはフェードアウト＋フェードインで切り替えます。</li><li>オートプレイ&amp;オートリピート固定です。</li><li>マウス操作はできません。元のアルバム画面に戻るには[Esc]キーを押してください。</li><li>キーボードの数字キー[1]～[9]で、オートプレイの時間間隔を変更できます。</li><li>通常の全画面モード・スライドショーで使える[Esc][1]～[9]キー以外のキー操作はできません。</li><li>フェードアウトおよびフェードインの時間は実運用定義ファイルで変更できます。</li>		</ol>
+	<a name="id_254"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０８．ギャラリー１・２</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000254-gallery1n.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000254-gallery2n.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ギャラリー1は、JavaScriptライブラリ「Fotorama」を利用した画像ギャラリーです。<br><a href="http://fotorama.io/" target="_blank">http://fotorama.io/</a></li><li>ギャラリー2は、JavaScriptライブラリ「jQuery CollagePlus」を利用した画像ギャラリーです。<br><a href="http://collageplus.edlea.com/" target="_blank">http://collageplus.edlea.com/</a></li><li>カレント・ディレクトリのすべての画像をブラウザに取り込みますので、カレント・ディレクトリに画像が多いとすべてのサムネイル画像表示まで時間がかかります。</li><li>[Esc]キーで元のページに戻ります。</li>		</ol>
+	<a name="id_255"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０９．ギャラリー３・４・５</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000255-3dwall.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000255-gallery4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000255-Supersized.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ギャラリー3は、JavaScriptライブラリ「3D Wall Gallery」を利用した画像ギャラリーです。<br><a href="http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/" target="_blank">http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/</a></li><li>ギャラリー4は、JavaScriptライブラリ「Galleria」を利用した画像ギャラリーです。<br><a href="http://galleria.aino.se/" target="_blank">http://galleria.aino.se/</a></li><li>ギャラリー5は、JavaScriptライブラリ「Supersized」を利用した画像ギャラリーです。<br><a href="http://www.buildinternet.com/project/supersized/" target="_blank">http://www.buildinternet.com/project/supersized/</a></li><li>カレント・ディレクトリのすべての画像をブラウザに取り込みますので、カレント・ディレクトリに画像が多いとすべてのサムネイル画像表示まで時間がかかります。</li><li>[Esc]キーで元のページに戻ります。</li><li>IEでは正常動作しません。</li>		</ol>
+	<a name="id_260"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１０．画像処理</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000260-cnv-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000260-cnv-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000260-cnv-3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ImageMagickを使った画像処理機能です。</li><li>画像処理オプションに登録された処理を行ないます。</li><li>任意のオプションを入力して処理を行なうこともできます。</li><li>画像処理された結果は、オリジナル画像フォルダの下の「___cnv___」フォルダに格納されます。</li><li>各オプション処理結果を一覧表示することもできます。</li><li><span style="color:red;">ImageMagickのバージョンが古いと、この画像処理は、画像ファイルのパス(ディレクトリやファイル名)に、日本語が含まれていると処理できません。</span></li><li><span style="color:red;">画像ファイルのサイズが大きいと、オプションによって処理時間が大きくかかります。</span></li><li>システム管理者以外は、実運用定義ファイルで許可されていないと利用できません。その場合も、任意オプション処理はできません。</li>		</ol>
+	<a name="id_261"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１１．画像処理オプション</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000261-cnv-opt.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>画像処理のオプション登録画面です。</li><li>システム管理者のみが登録・編集可能です。</li><li>複数のオプションを組み合わせたオプションを登録することも可能です。</li><li>複雑なオプション指定では、処理時間が大きくかかります。</li>		</ol>
+	<a name="id_168"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１２．フォルダ(ディレクトリ)移動</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000168-220.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000168-220-l.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>サーバーローカルの任意のフォルダ(ディレクトリ)に移動できます。</li><li>上位フォルダ表示位置を、上段または左側に切り替えできます。上位フォルダを非表示にもできます。</li><li>フォルダ名をクリックするか、↑ボタンで移動できます。</li><li>右上の|← ← → →|をクリックすると、前後のフォルダに移動が出来ます。 </li><li>絶対パスを入力することで、移動もできます。</li><li><span style="color:red;">※ この機能は、サーバ上の全てのディレクトリやイメージデータを表示できてしまいますので、セキュリティ上のリスクを十分ご理解の上、利用願います。</span></li><li>※ 定義ファイルの環境設定で、システム管理者以外は、特定のフォルダ以外には移動できないようにすることもできます。</li>		</ol>
+	<a name="id_258"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１３．フォルダ画像表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000258-folder-img.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>サムネイルモードでは、下位フォルダ内の画像を1枚表示させることもできます。</li>		</ol>
+	<a name="id_238"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１４．JPEG画像一括縮小</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000238-shukusho.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>JPEG画像のアルバム表示用縮小画像を一括生成します。</li><li>EXIF縦位置画像回転もできます。<br>EXIF対応デジカメで縦位置した画像を、WindowsエクスプローラやEXIF未対応ソフトでも縦位置表示できるようになります。ただ、Windowsエクスプローラのサムネイルは縦位置表示にならない場合もあります。</li><li>この回転処理はロスレス(無劣化)で行われますが、画像以外の何らかの属性情報が失われる可能性があります。ファイル更新日は保存されます。</li><li>システム管理者のみ利用できます。</li>		</ol>
+	<a name="id_239"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１５．EXIF情報表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000239-exif.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>JPEG画像のEXIF情報を読み取って、表示します。</li><li>EXIFデータにGPSデータが含まれている場合、緯度、経度を表示し、Googleマップとツール「Google Maps API V3版」リンクも表示します。</li>		</ol>
+	<a name="id_253"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１６．フォルダ検索</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000253-photo-search.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カレントフォルダ以下のフォルダ名を検索します。</li><li>指定フォルダ内のファイルやフォルダが多いと時間がかかります。</li><li>検索するフォルダ階層を制限してください。</li>		</ol>
+	<a name="id_211"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>学習</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．自学習ツール</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000211-study1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>任意の問題集を登録して、自学習に使えます。</li><li>英会話の英文と日本文を登録するなどして、ご利用ください。</li>		</ol>
+	<a name="id_207"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．Myチェック</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000207-study2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000207-study3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000207-study4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>チェック欄を使って、ユーザー各自の理解度を記録できます。レベルの意味合いは各自で決めてください。<br>(例：1=まだまだ、2=だいたい理解、3=完璧)</li><li>チェック欄はAjaxを使っていますので、マウスでクリックした時点でデータベースに記録されます。</li><li>質問や解答をそれぞれ隠すこともできます。</li><li>質問や解答の上にマウスを重ねると、それぞれ解答と質問がツールチップで表示されます。</li><li>質問や解答をクリックすると、Googleでその文章や言葉を検索できます。</li><li>並び替え順序をランダムにすることもできます。</li><li>他のユーザーのチェック状況を閲覧することもできます。</li>		</ol>
+	<a name="id_277"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．ポップアップ・ウインドウ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000277-study-pop.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>小さなポップアップ・ウインドウ内で、1件ずつ質問と解答を表示します。</li><li>「質問を隠す」/「解答を隠す」機能もあります。「●」ボタンで隠れている方を表示します。</li><li>「Auto」ボタンにすると、自動的に順次表示します。例えば、「解答を隠す」状態で「Auto」にすると、質問を表示して一定時間後に解答を表示します。「ランダム」ボタンを押した後に「Auto」ボタンをクリックするとランダムに自動表示します。</li><li>キーボードで操作もできます。<br>・[Enter][Space]：解答/質問表示 &amp; 次<br>・[→]：次<br>・[←]：前<br>・[Tab]：Skip(10) Next<br>・[Caps Lock]：Skip(10) Back<br>・[Home]：先頭<br>・[End]：最後<br>・[R]：ランダム<br>・[A]：Auto<br>・[H]：メニュー On/off</li>		</ol>
+	<a name="id_208"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．問題集編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000208-study5.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>問題集の質問＆解答を編集できます。</li><li>問題集の編集権限を、ユーザー全員に付けるか、システム管理者のみにするかを、定義ファイルで設定できます。</li>		</ol>
+	<a name="id_209"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">５．カテゴリ編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000209-study6.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000209-study7.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>カテゴリおよびサブカテゴリは、システム管理者だけが編集できます。</li><li>カテゴリを追加した場合、サブカテゴリも合わせて追加しないと有効になりません。</li>		</ol>
+	<a name="id_210"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">６．問題集のExcelまたはCSVからのアップロード</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000210-study21.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>問題集を、MySQL管理ツールを使って、Excelシートまたは、CSVファイルから一括アップロードすることもできます。</li><li>データベース「_mydb_study」のテーブル「m_study」にアップロードします。<br>項目(列)で必須なのは、id_category2、c_question、c_answerの3項目です。</li><li>登録日c_registtimeも登録したい場合、Excelの該当列は必ず文字型にしてください。</li><li>事前にカテゴリおよびサブカテゴリの登録を行ってください。</li><li>id_category2は、必ずテーブル「m_category2」のid_category2に合わせてください。</li>		</ol>
+	<a name="id_219"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>住所録</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．住所録</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000219-a01.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録です。電話番号、EMailアドレス、住所などを管理できます。</li><li>5項目のチェック項目を管理できます。Ajaxによりチェックした時点で直接データベースに記録されます。「チェック項目見出し編集」で見出しを登録できます。</li><li>「都道府県」や「読み」でフィルタリングできます。「読み」では、姓、名いずれかの頭1文字で検索します。濁点、半濁点もマッチします。</li><li>任意のチェック項目を設けてのフィルタリングもできます。</li><li>住所のGoogleマップ地図表示や自分の住所からの経路検索ができます。</li><li>リスト左のチェックボックスにチェックを入れて、「OneToOneメール」「マップ」「葉書宛名書き」ボタンを押すと、それぞれの一括処理ができます。</li>		</ol>
+	<a name="id_263"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．入力画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000263-zip-in.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>1件単位の入力画面です。</li><li>郵便番号を入力して「住所取得」ボタンを押すと、住所欄に住所が入ります。</li><li>修正の場合、「住所取得」ボタンでは、住所を上書きしてしまいますので、「Check」ボタンを押してください。住所欄の上に、検索された住所を表示します。</li><li>住所欄右の「住所検索」をクリックすることで、住所の一部（カナ読みも可）入力による郵便番号と住所の検索ができます。</li>		</ol>
+	<a name="id_225"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．日本地図</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000225-map.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>日本地図です。</li><li>都道府県をクリックすると、該当の都道府県の住所録一覧が表示されます。</li>		</ol>
+	<a name="id_228"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０４．マップ（日本百名山）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000228-m1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000228-m3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>「マップ」は、Google Maps で選択した住所全てのマーカー付きの地図を表示します。</li><li>マーカーには、氏名、住所、メモを表示します。</li><li>Google Earth 表示もできます。（マップ(V3)では、Google Earth 表示はできません。）</li><li>サンプルデータのような日本百名山などのデータを登録すると、百名山のマーカー付きの日本地図などが表示できます。日本百名山など、住所入力が難しい場合は、緯度、経度を住所欄に入れるとGoogle Maps で正しい位置にマーカー表示できます。緯度と経度は、カンマで結んでください。<br>（例：35.361,138.729）<br>ただし、地点が多すぎると表示できない場合があります。</li><li>百名山データは、「日本百選と座標値」のデータを使わせていただいています。二百名山、三百名山も合わせて登録しています。<br><a href="http://100sen.cyber-ninja.jp/" target="_blank">http://100sen.cyber-ninja.jp/</a></li><li>＜管理者の方へ＞<br>百名山データを実運用データベースに登録した場合、百名山のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>例）define(&quot;HYAKUMEIZAN_CATEGORY_ID&quot;, 3);<br>百名山データを実運用データベースに登録していない場合HYAKUMEIZAN_CATEGORY_IDを-1で設定してください。<br>define(&quot;HYAKUMEIZAN_CATEGORY_ID&quot;, -1);</li>		</ol>
+	<a name="id_220"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０５．OneToOneメール</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000220-onetoone.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000220-mailfrom-input.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>「OneToOneメール」は、住所録一覧で、チェックした相手宛てにOneToOneでメール送信できます。</li><li>メール本文に、「%% TO %%」を入れておくと、送信時に宛先人名(住所録の姓・名)で置き換えて送信します。</li><li>「OneToOneメール送信者」で、「OneToOneメール」送信者を複数登録できます。「OneToOneメール」送信時に、送信者を選択できます。</li>		</ol>
+	<a name="id_221"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０６．葉書宛名書き</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000221-a03.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>「葉書宛名書き」は、選択した名簿の宛名書きをしたPDFの葉書を作成します。</li><li>差出人印刷をチェックすると、自分の名前、住所を差出人欄に印刷します。</li><li>自分の名前、住所は、My設定の「アカウント情報修正」で登録してください。</li><li>差出人名欄に入力すると、My設定の名前でなく、ここに入力した名前を使います。</li><li>宛名や住所の位置とフォントサイズを調整したい場合は、<br>住所録定義ファイル「__define_abook_pdf_my_sample.php」を、<br>htdocs/_myhome_myset/の下に、<br>ファイル名「__define_abook_pdf_my.php」として置き、中の設定値を編集してください。</li><li>住所録定義ファイルで、印刷フォントをゴシックから明朝体に変更することもできます。</li>		</ol>
+	<a name="id_222"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０７．ExcelまたはCSVからのアップロード</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000222-a04.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録を、「MySQL管理ツール」を使って、Excelシートまたは、CSVファイルから一括アップロードすることもできます。</li><li>データベース「_mydb_study」のテーブル「m_abook」にアップロードします。<br>項目(列)で必須なのは、id_account、id_categoryです。</li><li>事前に分類（カテゴリ）の登録を行ってください。</li><li>id_categoryは、必ずテーブル「m_category」のid_categoryに合わせてください。</li>		</ol>
+	<a name="id_226"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０８．都道府県名セット</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000226-kemei.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>郵便番号から判断して都道府県名をセットします。</li><li>郵便番号が入力されていないデータは処理されません。</li><li>都道府県名が既に登録済みのデータは処理されません。</li><li>99%以上は正しくセットされますが、一部、隣の都道府県名がセットされる可能性があります。</li>		</ol>
+	<a name="id_229"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０９．世界遺産</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000229-wh1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000229-wh2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000229-wh3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録にサンプルデータとして世界遺産を登録しています。共通ユーザーに登録しています。</li><li>世界遺産のデータは、「google maps による世界遺産めぐり」のデータを使わせていただいています。<br><a href="http://www.geocities.jp/heritages001/heritages.html" target="_blank">http://www.geocities.jp/heritages001/heritages.html</a></li><li>分類フィルタで、世界遺産を選択すると世界遺産専用の一覧形式に変わります。国別、UNESCOのRef番号順に並び替えもできます。</li><li>世界遺産名をクリックすると、UNESCOの解説ページが開きます。「→日本語」をクリックすると、UNESCOの解説ページをGoogleで翻訳表示します。</li><li>「マップ」で、世界遺産をGoogleマップでマーカー表示することもできます。Google Earthモード表示もできます。</li><li>Googleマップのマーカーから、UNESCOの解説ページに飛ぶこともできます。</li><li>＜管理者の方へ＞<br>世界遺産データを実運用データベースに登録した場合、世界遺産のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>例）define(&quot;SEKAI_ISAN_CATEGORY_ID&quot;, 4);<br>世界遺産データを実運用データベースに登録していない場合SEKAI_ISAN_CATEGORY_IDを-1で設定してください。<br>define(&quot;SEKAI_ISAN_CATEGORY_ID&quot;, -1);</li>		</ol>
+	<a name="id_262"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１０．鉄道駅</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000262-tetsudo1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000262-tetsudo2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録にサンプルデータとして鉄道駅を登録しています。共通ユーザーに登録しています。</li><li>鉄道駅のデータは、「駅データ」のデータを使わせていただいています。<br><a href="http://www.ekidata.jp/" target="_blank">http://www.ekidata.jp/</a></li><li>分類フィルタで、鉄道駅を選択すると鉄道駅専用の一覧形式に変わります。</li><li>路線名や駅名で検索できます。駅名よみは、一部登録されていません。</li><li>検索欄に路線名を入れて検索し、並び替え順を「路線・駅順」にして「マップ」を作成するとGoogleマップで路線駅をマーカー表示した地図が出来ます。</li><li>＜管理者の方へ＞<br>鉄道駅データを実運用データベースに登録した場合、鉄道駅のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>例）define(&quot;TETSUDO_EKI_CATEGORY_ID&quot;, 5);<br>鉄道駅データを実運用データベースに登録していない場合TETSUDO_EKI_CATEGORY_IDを-1で設定してください。<br>define(&quot;TETSUDO_EKI_CATEGORY_ID&quot;, -1);</li>		</ol>
+	<a name="id_280"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１１．桜名木</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000280-sakura1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000280-sakura2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録にサンプルデータとして桜名木を登録しています。共通ユーザーに登録しています。</li><li>分類フィルタで、桜名木を選択すると桜名木専用の一覧形式に変わります。</li><li>桜の名称や住所で検索できます。都道府県フィルタや住所で検索してGoogleマップの作成等ができます。例えば、「群馬県田村郡三春町」の桜マップの作成ができます。</li><li>桜名称と品種について、MeCabで読み変換したものを登録しています。正しい読みになっていないものも多くあります。</li><li>＜管理者の方へ＞<br>桜名木データを実運用データベースに登録した場合、桜名木のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>例）define(&quot;SAKURA_MEISHO_CATEGORY_ID&quot;, 5);<br>桜名木データを実運用データベースに登録していない場合SAKURA_MEISHO_CATEGORY_IDを-1で設定してください。<br>define(&quot;SAKURA_MEISHO_CATEGORY_ID&quot;, -1);</li>		</ol>
+	<a name="id_284"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１２．日本百選</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000284-hyakusen1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000284-hyakusen2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録にサンプルデータとして日本百選を登録しています。共通ユーザーに登録しています。<br>「日本百選と座標値」のデータを使わせていただいています。<br><a href="http://100sen.cyber-ninja.jp/" target="_blank">http://100sen.cyber-ninja.jp/</a></li><li>かおり風景100選、にほんの里100選、名水百選、日本のさくら名所100選、日本の棚田百選、日本百名城、日本百名橋、残したい日本の音風景100選、車窓絶景100選、農村景観百選など数多くの日本百選のデータが入っています。</li><li>分類フィルタで、日本百選を選択すると日本百選専用の一覧形式に変わります。</li><li>＜管理者の方へ＞<br>日本百選データを実運用データベースに登録した場合、日本百選のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>例）define(&quot;HYAKUSEN_CATEGORY_ID&quot;, 7);<br>日本百選データを実運用データベースに登録していない場合TETSUDO_EKI_CATEGORY_IDを-1で設定してください。<br>define(&quot;HYAKUSEN_CATEGORY_ID&quot;, -1);</li>		</ol>
+	<a name="id_259"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１３．チェック項目繰上</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000259-abook-moveup.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>住所録チェック項目を、見出しとチェックデータを、1つずらします。</li><li>年賀状の出受管理の年度繰越等にご利用ください。</li><li><span style="color:red;">処理実行後、元に戻すことはできませんので、注意してください。</span></li>		</ol>
+	<a name="id_288"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>電子メール</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．メール受信</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000288-email1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000288-email2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>SMTP/POP3メールの受信ができます。Gmail等SMTP/POP3対応のメールも受信できます。</li><li>複数のメールアカウントのメールを同時に一括して受信ができます。最新の受信メールから最大10件を一覧表示します。</li><li>メールBOX名をクリックすると、最新の受信メールから最大50件を一覧表示します。</li><li>一覧リストのメール件名をクリックすると、本文を別ウインドウで表示します。本文表示は、HTML有効/無効を選択できます。添付ファイルは読み込みません。</li><li>この「メール」機能でメールを受信しても、メールサーバーにメールは残ります。通常使用しているメールクライアントソフトでの受信に支障は出ません。</li>		</ol>
+	<a name="id_289"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．メールBOX登録</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000289-email3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>メールBOXを登録します。</li><li>Gmailのメール受信は、SSL対応で受信する必要があります。</li><li>SSLを使う場合は、POP3ホスト名の頭に「ssl://」を付けてください。(例：ssl://pop.gmail.com)</li><li>SSLを使う場合は、POP3ポート番号は995になります。</li><li>PHPがSSL対応になっていない場合は、SSL対応にする必要があります。SSL対応になっているかの確認は、phpinfoで「Registered Stream Socket Transports」に「ssl」が含まれているかを確認します。<br><a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a></li><li>含まれていない場合は、「xampp/php/php.ini」を修正します。「xampp/php/php.ini」の<br>;extension=php_openssl.dll<br>のコメントアウトを外した上で、Apacheを再起動します。Windowsの場合、コマンドプロンプトで以下を実行してください。<br>net stop Apache2.2<br>net start Apache2.2</li><li>Gmailの場合は、ユーザー名の頭に「recent:」を付けてください。</li><li><span style="color:red;">※ この「メール」機能を使うと、他のユーザーから、メールやメールアカウントのパスワードを参照される可能性がありますので、MyHome Portalを個人で利用されている場合を除いては利用しないことをお勧めします。</span></li>		</ol>
+	<a name="id_264"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>お絵かき</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．SVG画像編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000264-svg-edit.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>svg-editを使って、SVG画像データを作成・編集できます。</li><li>「画像を保存」で、作成したSVG画像データをデータベースに保存できます。</li><li>IE6, 7, 8では、通常、svg-editは動作しません。Chrome Frame pluginをインストールすると、IE6, 7, 8でもsvg-editが動作するようになります。</li>		</ol>
+	<a name="id_266"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．SVG画像表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000266-svg-view.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存したSVG画像の表示画面です。</li><li>コメントを入れられます。</li><li>保存した画像は、修正、削除ができます。</li><li>保存した画像は、他ユーザーのものを含めて自分のデータとしてコピーして再利用できます。</li>		</ol>
+	<a name="id_265"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．サムネイル一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000265-svg-list.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存した画像はサムネイル一覧表示できます。</li><li>サムネイルは、画像の縦横比を3:4として縮小して表示します。</li>		</ol>
+	<a name="id_271"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ペン画</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ペン画編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000271-draw-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000271-draw-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>万年筆、マーカーペン、スプレーガンタッチの絵が描けます。</li><li>カレーパレットを切り替えできます。</li><li>背景の紙のテクスチャを変更できます。</li><li>描いた画像データを、Base64エンコーデイングしたPNG画像として保存できます。</li><li>Chrome、Firefoxで、動作を確認しています。</li>		</ol>
+	<a name="id_269"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．ペン画表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000269-draw-3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存した画像の表示画面です。</li><li>コメントを入れられます。</li><li>保存した画像は、修正、削除ができます。</li><li>保存した画像は、他ユーザーのものを含めて自分のデータとしてコピーして再利用できます。</li>		</ol>
+	<a name="id_270"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．サムネイル一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000270-draw-4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存した画像はサムネイル一覧表示できます。</li>		</ol>
+	<a name="id_200"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>預貯金管理</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．(簡易) 預貯金管理</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000200-chokin.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000200-chokin2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>簡易的な預貯金管理です。</li><li>定期と月額積立のみを対象としています。ボーナス加算機能はありません。月額に1/6を加算するなどしてカバーしてください。</li><li>金額の単位は、千円を想定していますが、限定はしていません。</li><li>利息計算は簡易的な近似値計算で正確ではありません。満期額、現在額は、あくまでも概算目安と考えてください。</li><li>月額積立の場合、元金は月額x今日までの月数を表示します。</li><li>満期日は、満期を過ぎている場合と、満期まで3ヶ月の場合、それぞれ色付きで表示します。</li><li>期間は、満期までの月数。経過は、今日までの月数です。</li><li>入力項目の継続は、それぞれ、「継続＝満期時自動継続。解約＝満期時自動解約。解約済＝過去分の記録用です。合計金額に足されません。」です。</li><li>名義別、種類別、継続などでフィルタリングできます。</li><li>一覧テーブルの列名をクリックすると、その項目で並び替えができます。</li><li>小計計算も出来ます。小計計算モードでは、並び替えのキーに合わせて小計を表示します。並び替えキーを契約日と満期日にした場合は、それぞれ年単位で小計します。</li>		</ol>
+	<a name="id_279"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．クロス集計</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000279-chokin-cross.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>クロス集計で、名義別×金融機関別の元金、現在額、満期額のクロス集計が出来ます。</li>		</ol>
+	<a name="id_278"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．ライフプラン</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000278-lifeplan.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>年単位の簡易資産運用シミュレーションができます。<br>初期資産と、毎年の収入・支出を入力して、毎年の資産残高を計算し、グラフ化します。<br>「預貯金管理」のデータとは連動しません。<br>最大9個まで、データを保存できます。データは、MySQLデータベースに保存されます。</li>		</ol>
+	<a name="id_281"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>Google Maps</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．Google Maps API V3版</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000281-map-001.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000281-map-002.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000281-map-003.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Google Maps API V3を使った地図ツールです。</li><li>地名等を入れて検索してください。ウインドウ一杯に地図を表示します。マーカーを残したまま、新しい地名の検索も出来ます。</li><li>レストランやコンビニ等の場所検索もできます。</li><li>マーカーが複数ある場合、ルート表示もできます。</li><li>地図の任意の地点をクリックすると、その地点の緯度・経度、住所、標高を表示できます。クリックした任意の地点にマーカー作成もできます。</li><li>任意の地点間の距離を測定することもできます。</li><li>Panoramioの写真を表示することも出来ます。写真をタグで絞り込むことも出来ます。例えば「桜」で絞り込むなど。<span style="color:red;">Panoramio機能は廃止されましたので、使えません。</span></li><li>ストリートビュー表示もできます。</li><li>プルダウン「探す」で、「世界遺産、日本百名山、日本百選、桜名木、鉄道駅」のいずれかを選択すると、「住所録」と連動して、現在表示している地図範囲の該当の場所をマーカーで表示します。 </li><li>url引数に、場所とズーム倍率を指定できるようにもしています。<br><a href="http://localhost/_myhome/tools/google-maps-earth-v3.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&amp;zoom=18" target="_blank">http://localhost/_myhome/tools/google-maps-earth-v3.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&amp;zoom=18</a></li><li>印刷をする場合は、Firefoxをお使いください。</li>		</ol>
+	<a name="id_282"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．Google Maps (複数地点) API V3版</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000282-map-101.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000282-map-102.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Google Maps API V3の複数地点タイプです。</li><li>複数地点の地名をスペースで区切って検索出来ます。複数地点をそれぞれマーカー表示します。</li><li>url引数で、場所指定もできるようにもしています。url引数の場合は、複数地点を「+」で区切って指定してください。<br><a href="http://localhost/_myhome/tools/google-maps-earth-multi-v3.php?addr=%E6%9D%B1%E4%BA%AC+%E5%90%8D%E5%8F%A4%E5%B1%8B+%E5%A4%A7%E9%98%AA" target="_blank">http://localhost/_myhome/tools/google-maps-earth-multi-v3.php?addr=%E6%9D%B1%E4%BA%AC+%E5%90%8D%E5%8F%A4%E5%B1%8B+%E5%A4%A7%E9%98%AA</a></li><li>サイドバーに検索地点名の一覧を表示します。</li><li>検索した地点のルート表示もできます。</li><li>地図の任意の地点をクリックすると、その地点の緯度・経度と住所を表示できます。</li><li>任意の地点間の距離を測定することもできます。</li><li>ストリートビュー表示もできます。</li><li>Panoramioの写真を表示することも出来ます。<span style="color:red;">Panoramio機能は廃止されましたので、使えません。</span></li>		</ol>
+	<a name="id_212"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．Google Maps &amp; Earth API V2版</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000212-maps1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000212-earth1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Google Maps API V2 とGoogle Earth APIを組み合わせたツールです。</li><li>ストリートビュー表示もできます。</li><li>検索した地図を、Google Earth APIを使って3D立体表示にできます。<br>Earthモードで、Shiftキーを押しながら、地図をクリックしたままマウスを上下に動かすと地図を見る角度が変わります。</li><li>3D地図を表示するためには、Google Earth プラグインをインストールする必要があります。<br><a href="http://code.google.com/intl/ja/apis/earth/" target="_blank">http://code.google.com/intl/ja/apis/earth/</a></li><li>url引数に、場所とズーム倍率を指定できるようにもしています。<br><a href="http://localhost/_myhome/tools/google-maps-earth.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&amp;zoom=18" target="_blank">http://localhost/_myhome/tools/google-maps-earth.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&amp;zoom=18</a></li>		</ol>
+	<a name="id_217"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０４．Google Maps &amp; Earth (複数地点) API V2版</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000217-map2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000217-map3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Google Maps &amp; Earth API V2の複数地点タイプです。</li><li>複数地点をスペースで区切って入力できます。</li><li>検索した地図を、Google Earth APIを使って3D立体表示にできます。</li><li>url引数で、場所指定もできるようにもしています。url引数の場合は、複数地点を,(カンマ)で区切って指定してください。<br><a href="http://localhost/_myhome/tools/google-maps-earth-multi.php?addr=%E6%9D%B1%E4%BA%AC,%E5%90%8D%E5%8F%A4%E5%B1%8B,%E5%A4%A7%E9%98%AA" target="_blank">http://localhost/_myhome/tools/google-maps-earth-multi.php?addr=%E6%9D%B1%E4%BA%AC,%E5%90%8D%E5%8F%A4%E5%B1%8B,%E5%A4%A7%E9%98%AA</a></li>		</ol>
+	<a name="id_290"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>GPSログ View</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">GPSログ View</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000290-gpslog.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000290-gpslog-chart.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000290-gpslog-photo.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>GPXファイルをアップロードすると、Google Mapsを使って、ルート表示できます。</li><li>ルート全体の距離、出発時間、到着時間、所要時間、平均速度、最高速度、最高地点、最低地点も表示します。</li><li>時間間隔指定で、ルートの途中にマーカーを表示できます。最高速度は、マーカー間速度の最高速度です。</li><li>マーカーをクリックすると、その地点の標高、前マーカーからの距離、前マーカーからの平均速度、出発地点からの距離、出発地点からの平均速度を表示します。</li><li>「ルート再生」ボタンで、ルートを順に人間マークのマーカーが移動します。マーカーをクリックすると、ルート再生の開始地点が、そのマーカーの場所となります。</li><li>アップロードしたGPSログデータは、データベースに登録されます。GPXの&lt;name&gt;と&lt;desc&gt;を名前、補足説明として登録します。</li><li>ルートの標高と速度をグラフ化したものを、Googleマップの下に表示します。</li><li>写真をルートマップの中に表示することも出来ます。JPEGに書き込まれているGPS情報を使う方法と、写真の撮影時間から撮影場所を特定する方法を選択できます。表示する写真は、フォルダで指定します。</li>		</ol>
+	<a name="id_291"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">地点一覧マップ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000291-gpslog-maps.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>GPSログ一覧で選択した任意の地点のスタート地点一覧を、Googleマップで表示します。</li>		</ol>
+	<a name="id_194"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>チャット</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．INDEXトップページ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000194-155-1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>MyHome Portalユーザー全員参加型のチャット(Chat)です。</li><li>INDEXトップページにチャットの最新(30分以内)の投稿3件分が表示されます。</li><li>Ajax利用していますので、Webページを開いたままでも、新しい投稿があれば、更新されます。</li><li>「チャット」をクリックすると、チャット入力ページを別ウインドウで表示します。</li>		</ol>
+	<a name="id_195"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．チャット(Chat)入力ページ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000195-155-2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>チャット(Chat)入力ページです。</li><li>表示件数や、投稿の経過時間を指定できます。</li><li>チャット表示エリアは、Ajax利用していますので、Webページを開いたままでも、新しい投稿があれば、更新されます。</li>		</ol>
+	<a name="id_294"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>タイマーアラート</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">タイマーアラート</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000294-alarm-alert.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000294-alarm-set.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000294-alarm-alert-tooltip.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>設定した時間になると、JavaScriptのalertによるアラートが出ます。</li><li>MyHome Portalページヘッダー右上の時計アイコンをクリックすると「タイマーアラート設定」ページが開きます。 </li><li>10個まで設定できます。時間とメッセージを設定してください。</li><li>日や曜日を設定すると、毎月または毎週、その時間になるとアラートが表示されます。</li><li>日や曜日を設定しない場合、毎日その時間になるとアラートが表示されます。</li><li>このアラート機能が実行されるためには、下にフッター表示のあるMyHome Portalの主要コンテンツ・ページをブラウザで開いている必要があります。</li><li>ブラウザのタブの一つにMyHome Portalの主要コンテンツが開いていれば機能します。</li><li>タイマーアラート機能が有効になるページのフッター部分には、当日のその時点以降実行されるアラート時間が表示されます。</li><li>アラート時間の上にカーソルを載せるとアラートメッセージがツールチップで表示されます。</li>		</ol>
+	<a name="id_296"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>週間天気予報</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">週間天気予報</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000296-tenki.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>全国の任意の複数地点の週間天気予報を一覧形式で確認できます。</li><li>MyHome Portalページヘッダー右上の天気アイコンをクリックすると「週間天気予報」ページが開きます。</li><li>livedoor天気情報の「Weather Hacks」を使っています。</li><li>表示地点の設定はブラウザのCookieに保存します。</li><li>表示順序はドラッグ＆ドロップで変更できます。表示地点を設定し直すと、表示順序はリセットされ北から順に並びます。</li>		</ol>
+	<a name="id_272"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>physicSketch</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．physicSketch編集</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000272-physicSketch1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>物理エンジンを使った物体落下シミュレーションゲームです。<br>JavaScriptライブラリ「physicsketch.js」「box2d.js」を使っています。</li><li>画面上に図形を描くと、その図形が物理法則に従って落下します。図形同士がぶつかると反発します。</li><li>図形の一部を選択し、図形を固定することができます。図形と図形を連結することもできます。操作は、Helpボタンで確認してください。</li><li>描いた図形データは、データベースにJSON化して保存できます。</li><li>Chromeで、動作を確認しています。</li>		</ol>
+	<a name="id_273"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．physicSketch表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000273-physicSketch2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000273-physicSketch3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000273-physicSketch4.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存した図形データの表示画面です。</li><li>Startボタンで落下開始できます。</li><li>落下スピードを変えることもできます。</li><li>Addボタンで図形全体をセットで追加できます。物体同士が絡み合い、複雑な動きをします。</li><li>全画面での表示も出来ます。</li><li>保存した図形データは、修正、削除ができます。</li><li>保存した図形データは、他ユーザーのものを含めて自分のデータとしてコピーして再利用できます。</li>		</ol>
+	<a name="id_274"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．physicSketchサムネイル一覧</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000274-physicSketch9.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>保存したデータはPNG画像としてサムネイル一覧表示できます。</li>		</ol>
+	<a name="id_199"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>MySQL管理</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．MySQL管理ツール</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000199-sql1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000199-sql2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000199-sql3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>MySQLのデータベース管理ツールです。</li><li>データベース一覧、テーブル一覧、フィールド一覧、ビューのスキーマ表示、テーブルデータ一覧表示ができます。</li><li>テーブルデータ一覧では、列名クリックで並び替えもできます。列名2回クリックで降順になります。</li><li>カラムid_accountとid_categoryの検索フィルタもあります。</li><li>「c_delete=999 完全削除」で、削除フラグ付きデータを完全削除します。</li><li>テーブルデータを、CSVファイルでダウンロードが出来ます。ダウンロードの文字コードは、Shift-JISに変換もできます。</li><li>Excelシートをアップロードして、データベーステーブルにインポートもできます。拡張子.xlsのみ対応しています。日付型のデータは正常に取り込めませんので、文字型にしてください。</li><li>CSVファイルをアップロードして、データベーステーブルにインポートもできます。デリミッタ(区切り文字)はカンマ( , )、文字列の囲みはダブルクォーテーション(&quot;)のみサポート。文字コードは、Shift-JIS、UTF-8、EUCなど自動判別します。 </li><li>システム管理者用です。</li>		</ol>
+	<a name="id_203"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ツール</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０１．HTMLテキスト抽出 &amp; メール送信</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000203-textmail.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ホームページのURLを入れてボタンを押すと、HTMLからテキストのみを抽出します。</li><li>抽出したテキストから編集で必要な部分のみを抜き出してメール送信できます。</li><li>メール送信先は、My設定でスケジュール送信先として登録してある電子メールアドレスです。</li><li>料理レシピサイトなどから料理の材料部分のみを抜き出して自分の携帯メールに送信するなどの使い方ができます。</li>		</ol>
+	<a name="id_231"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０２．HTMLテキスト抽出 複数一括</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000231-gethtml.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>複数のURLから一括してテキスト抽出します。</li><li>テーブルデータ出力時のセパレータ（区切り文字）を指定できます。デフォルトはスペースです。カンマ(,)にすることで、CSVとしての利用が容易になります。</li><li>テーブルデータ出力時に、行単位に先頭に文字を付加することもできます。CSV利用時に、共通のキーを付加したい場合に使えます。</li><li>テーブルのみに限定して抽出もできます。（ただし、階層構造には未対応です。）</li><li>テーブルサイズを指定サイズ以上のものに限定することもできます。</li>		</ol>
+	<a name="id_276"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０３．HTMLテキスト抽出 複数一括 (タグ指定)</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000276-gethtml2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>複数のURLから一括してテキスト抽出します。</li><li>任意の抽出タグを指定して、テキストを抽出します。抽出タグは、元のHTML内の順序にあわせて、必要個数分指定します。</li><li>セパレータとしてカンマ(,)を指定することで、CSV形式にできます。</li><li>抽出文字列を&quot;で囲む(括る)ことも出来ます。</li><li>CSVファイルとしてダウンロードすることも出来ます。Shift-JISコードに変換します。</li>		</ol>
+	<a name="id_204"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０４．HTML URL抽出 &amp; ファイルダウンロード</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000204-url-img.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ホームページのHTMLからAタグのURLを抽出します。</li><li>階層指定もできます。</li><li>リンク先の他サイトも含めてサーチできます。</li><li>AタグやIMGタグの画像や動画等のファイルをダウンロードすることもできます。</li><li>ダウンロードファイルの保存先は、サーバーローカルディスクの任意のディレクトリを指定できます。ダウンロードファイルは、ホームページサイト名のフォルダ単位に保存します。ファイル名の頭に「上位フォルダ名_」が付きます。</li><li>ダウンロードファイルのサイズ指定もできます。</li><li>抽出およびダウンロードのロジックは完璧ではありません。すべてのファイルをダウンロードできる保障はありません。</li><li>システム管理者用です。</li>		</ol>
+	<a name="id_197"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０５．Excel to グラフ生成</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000197-excel-bluff.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000197-excel-html5.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000197-excel-google.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>Excelシートをアップロードして、グラフを生成します。</li><li>ワンクリックでグラフの種類やスタイルを変更できます。</li><li>グラフ生成には、以下のJavaScript ライブラリーを利用しています。<br>＜Bluff＞<br><a href="http://bluff.jcoglan.com/" target="_blank">http://bluff.jcoglan.com/</a><br>＜HTML5.jp JavaScript ライブラリー＞<br><a href="http://www.html5.jp/library/index.html" target="_blank">http://www.html5.jp/library/index.html</a><br>＜Google Chart API＞<br><a href="http://code.google.com/intl/ja/apis/charttools/index.html" target="_blank">http://code.google.com/intl/ja/apis/charttools/index.html</a></li>		</ol>
+	<a name="id_223"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０６．縦計だけの表計算</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000223-calc.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>縦計だけのシンプルな表計算シートです。</li><li>各セルには、()付きの数式の入力もできます。</li><li>セルに数字や数式を入れると、自動的に縦計を計算します。</li><li>Enterキーでセルが縦に移動します。</li><li>数式の計算はJavaScriptのeval()を使っていますので、JavaScriptの数学関数(Math)も使えます。</li>		</ol>
+	<a name="id_205"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０７．実運用環境バックアップ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000205-backup.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>実運用定義ファイル「__define_common_my.php」と実運用データベースのバックアップをします。</li><li>MySQLデータベースをmysqldumpでバックアップします。</li><li>実運用定義ファイル「__define_common_my.php」と、MySQLデータベースバックアップファイルを、ZIPファイルに圧縮します。</li><li>バックアップ先ディレクトリ「../../_myhome_backup」を作成し、ZIPファイルを3つに分けて生成します。3つのファイルを別々の媒体に保管することで、ID管理のID、パスワード情報を盗まれにくくなります。</li><li>実運用定義ファイルで、「FILE_MANAGER_CIPHER_SEED」が定義されている場合、MySQLデータベースバックアップの暗号化ファイル(拡張子：.encode3)も作成します。</li><li>バックアップ処理中にMyHome Portalの他のページを開かないでください。他のページを開くとハングアップします。ハングアップした場合は、XAMPPコントロールパネルでApacheを一旦停止し再起動してください。</li><li>システム管理者用です。</li>		</ol>
+	<a name="id_206"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０８．ファイルマネージャー(暗号化/復号化付き)</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000206-encode.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000206-upload-drag.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000206-upload.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>簡易的なファイルマネージャーです。</li><li>サーバーローカルのファイルをブラウザ経由で確認できます。</li><li>ファイルやフォルダのコピー、リネーーム、削除ができます。<span style="color:red;">削除はゴミ箱に入るわけではなく、直接削除されますので、注意してください。</span></li><li>フォルダ作成もできます。</li><li>ファイルアップロードもできます。</li><li>複数ファイルの一括アップロードもできます。<br>Chrome、Firefoxでは、Windowsデスクトップからファイルをドラッグ&amp;ドロップでアップロードできます。</li><li><span style="color:red;">アップロードは、同一ファイル名のファイルがある場合、上書きします。</span></li><li>ファイル名をクリックすると、ダウンロードします。</li><li>ZIPファイルの解凍もできます。</li><li>ファイルの暗号化および復号化もできます。</li><li>暗号化/復号化用のキーコードは、実運用定義ファイルの「FILE_MANAGER_CIPHER_SEED」で事前に設定しておきます。</li><li><span style="color:red;">利用開始後、「FILE_MANAGER_CIPHER_SEED」を変更すると、それ以前に暗号化したファイルは復元できなくなります。</span></li><li>暗号化は、すでに暗号化ファイルがあった場合、上書き処理します。</li><li>復号化は、元ファイルがある場合、エラーとします。 </li><li><span style="color:red;">50MB以上のファイルは暗号化できません。「XORで暗号化」を選択するとと、ファイルサイズの制限はなくなりますが、暗号化キーコードが推測されるリスクがあります。</span></li><li>システム管理者用です。</li>		</ol>
+	<a name="id_198"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">０９．ソースコード表示&amp;ソースコードエディタ</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000198-code-edit1.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000198-code-edit2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000198-code-edit3.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>PHP、Python、JavaScript等のソースコードを整形表示と編集ができます。</li><li>ファイルマネージャー機能もついています。ファイルやフォルダのコピー、リネーム、削除ができます。<span style="color:red;">削除はゴミ箱に入るわけではなく、直接削除されますので、注意してください。</span></li><li>ファイル名、更新日時、サイズで昇順/降順の並び替えもできます。</li><li>システム管理者用です。</li>		</ol>
+	<a name="id_268"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１０．テキスト縦書き表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000268-tategaki.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>文章を縦書きで表示します。</li><li>Chrome、IE6～8で、動作します。</li><li>フォントサイズなどを指定できます。</li><li>印刷は、Chromeの「システムダイアログを使用して印刷」を使って印刷してください。Chromeの通常のPDF Viewerによる印刷プレビュー付きの印刷では正しく印刷できません。</li><li>IE9では、ページ分割ができないため、正しく印刷できません。</li>		</ol>
+	<a name="id_283"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１１．MeCab：漢字読み変換(CSVファイル一括)</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000283-mecab.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>CSVファイルをアップロードし、指定列の漢字を読み変換した列を追加したCSVファイルをダウンロードできます。</li><li>形態素解析エンジンMeCabを使って漢字の読みを変換します。すべてが正しい読みになる保障はありません。</li><li>処理時間はかなり遅いです。</li><li>この機能を使うためには、MeCabをインストールする必要があります。MeCabでインストールする辞書は「SHIFT-JIS」を前提にしています。</li><li>実運用定義ファイルで、MeCabのインストールパスを設定しておく必要があります。<br>例：define(&quot;MECAB_EXE_PATH&quot;, &quot;C:\Program Files\MeCab\bin\mecab.exe&quot;);</li>		</ol>
+	<a name="id_236"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１２．jSnow</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000236-snow.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+		<img src="images/00000236-opt.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ページ内に雪を降らせられるjQueryプラグイン「jSnow」を使ったページ。</li><li>降らせる文字や色などを変えられる「お好み」ページもあります。</li>		</ol>
+	<a name="id_293"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１３．横2段 テキストエリア</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000293-pane2.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>横2段にテキストエリアがあるだけのページです。</li><li>ログイン・ユーザー毎に1ページです。</li><li>保存ボタンで、MySQLデータベースに保存されます。画面遷移はしません。</li><li>フォントサイズとフォント種類は変更できます。</li><li>文章の修正や、2つの文章(例えば、英文と日本語)を比較しながら読みたい場合等にお使いください。</li>		</ol>
+	<a name="id_295"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１４．はてなキーワード自動リンク &amp; Yahoo!キーフレーズ → Weblio</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000295-hatena-autolink.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>文章を入れると、はてなキーワード自動リンクAPIを使って、キーワードを抽出し、キーワード部分をリンクにしたHTMLを生成します。</li><li>リンク先をWeblioにしたHTMLもあわせて生成します。</li><li>Yahoo!キーフレーズ抽出APIを使って、キーフレーズ抽出も行います。</li><li>Yahoo!キーフレーズ抽出を使う場合、Yahoo! JAPANでアプリケーションIDを取得し、実運用定義ファイルで「YAHOO_JAPAN_APPLICATION_ID_KEYPHRASE」を設定してください。</li>		</ol>
+	<a name="id_297"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１５．Yahoo ホームページ対訳</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000297-yahoo-translate.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>指定したURLのホームページとYahooウェブ翻訳で翻訳したページを左右に並べて表示します。</li><li>左右のフレームは同時にスクロールできます。</li>		</ol>
+	<a name="id_180"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ＩＤ管理</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．パスワード入力</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000180-250.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ID管理では、専用のパスワード入力が必要です。</li>		</ol>
+	<a name="id_171"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．一覧表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000171-260.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一覧表示画面です。</li><li>パスワードなどのID情報を管理します。</li><li>パスワードは独自の方式で暗号化して保存します。</li><li>値入力欄に-および半角スペースが含まれる場合、-で区切ったボックス表示と-抜きのボックス表示もします。氏名、住所、クレジットカード番号等の入力にご利用ください。</li><li>[C]ボタンを押すと、クリップボードにコピーします。サイトのログイン画面等にそのままペーストできます。</li><li>W↑をクリックすると、ID&amp;パスワードの小ウインドウと該当ホームページのウインドウ2つが同時に開きます。ID&amp;パスワードのコピー&amp;ペーストがし易くなります。</li>		</ol>
+	<a name="id_172"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．ID情報登録画面</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000172-270.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>IDやパスワードの登録画面です。</li>		</ol>
+	<a name="id_173"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ユーザー一覧</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ユーザー一覧（システム管理者用）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000173-280.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>システム管理者のユーザー一覧画面です。</li><li>一般ユーザーでは、アカウント名や電子メールアドレスなどは表示されません。</li><li>一括修正/追加/削除で、一部のユーザー情報を修正できます。</li><li>管理者権限を付ける場合は、権限に「admin」と入れてください。</li>		</ol>
+	<a name="id_183"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．ユーザー一覧（一般ユーザー）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000183-290.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一般ユーザーのユーザー一覧画面です。</li>		</ol>
+	<a name="id_174"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>Ｍｙ設定</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．アカウント情報表示</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000174-300.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>自分のアカウント情報の表示画面です。</li>		</ol>
+	<a name="id_175"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．アカウント情報修正</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000175-310.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>自分のアカウント情報を修正できます。</li><li>スケジュール送信先電子メールアドレスを登録しておくと、携帯メール等にToDoやスケジュールを送信することができます。</li><li>カレンダーアルバムフォルダのフォルダ階層を以下のようにして、写真を登録すれば、カレンダーの「アルバム」表示で該当の日付に写真表示します。<br>	/2008/<br>	/2008/2008-09-16-xxx/<br>	/2008/2008-09-23-yyy/</li><li>ページ背景色を設定できます。</li><li>住所（経路起点）を登録すると、INDEXトップページ「経路(Google)」で、目的地のみを入れて、起点からのGoogle経路検索ができます。また、カレンダー本文の駅名や住所を「地」ボタンで囲むと、カレンダー詳細表示で経路起点からのGoogle経路表示リンクが表示されます。</li><li>最寄駅(乗換乗車駅)を登録しておくと、INDEXトップページ「乗換(駅探)」で、下車駅のみを入れて乗換検索が出来ます。</li><li>カレンダーで件名を使わずにスケジュール本文のみを使う設定ができます。この設定をすると入力画面に件名欄が表示されません。</li><li>トップメニュー(コンテンツ・ナビ)の色を変えられます。</li><li>修正には、ログインパスワードが必要です。連続再修正の利便性のため、ログインパスワードは3分間保持されます。</li>		</ol>
+	<a name="id_181"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．パスワード修正</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000181-320.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>パスワード修正画面です。</li>		</ol>
+	<a name="id_182"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">４．ID管理パスワード修正</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000182-330.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ID管理のパスワード修正画面です。</li><li>ID管理画面を開くためには、通常パスワード以外に、このID管理パスワードの認証が必要です。</li>		</ol>
+	<a name="id_176"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">５．My参照メンバ修正</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000176-340.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>My参照メンバを設定できます。</li><li>表示順を0にするとデフォルトユーザーになります。0は1個のみが有効です。共有アカウントをデフォルトにしたい場合に、お使いください。</li><li>表示順0指定が無い場合は、本人がデフォルトユーザーになります。</li>		</ol>
+	<a name="id_177"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">６．公開先メンバ修正</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000177-350.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>公開先メンバを、設定できます。</li><li>ユーザー単位に、参照許可、書込許可の設定ができます。</li><li>カレンダーの伝言機能によるスケジュール登録では、書込許可設定されていないユーザーにも新規スケジュールの登録が可能です。</li>		</ol>
+	<a name="id_184"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_category">
+		<h3>ログアウト/管理</h3>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">１．ログアウト（一般ユーザー）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000184-400.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>一般ユーザーのログアウト画面です。</li>		</ol>
+	<a name="id_178"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">２．ログアウト/管理（管理者用）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000178-401.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>システム管理者用画面です。</li><li>一般ユーザーでは、管理用メニューは表示されません。</li>		</ol>
+	<a name="id_257"></a>
+	</td>
+	</tr>
+	<tr class="guide_list_table_data">
+	<td colspan=2 class="guide_list_subject">
+		<span class="guide_list_subject_h">３．ログイン履歴表示（管理者用）</span>
+			</td>
+	</tr>
+	<tr>
+	<td class="guide_list_pict">
+			<img src="images/00000257-log-clean.jpg" class="bicubic" border=0 style="max-width:400px;"><br>
+	</td>
+	<td class="guide_list_body">
+		<ol>
+		<li>ログインログデータを一覧表示します。</li><li>古いログを一括削除することもできます。</li>		</ol>
+	</td>
+	</tr>
+	</table>
+</div><!-- id="mp_list_main" -->
+
+
+
+
+
+
+
+<!-- ************************************************************************************** -->
+
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

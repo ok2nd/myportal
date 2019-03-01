@@ -1,0 +1,381 @@
+* {margin: 0px; padding: 0px; }
+form { margin: 0px; }
+img { border: 0px; }
+body {
+	background-color: #ffffff;
+	margin: 0px;
+	padding: 0px;
+	text-align: left;
+/*
+	overflow: auto;		// visible, scroll
+	_overflow: auto;
+*/
+}
+	/*	body, caption, td, th, a, font, input, textarea, ul, li { font-size: 84%; color: #101020; } */
+	/*	form, select { font-size: 100%; color: #101020; }*/
+	/*	↑<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"> */
+/* body { font-size: 84%; color: #101020; } */
+/* body,td,a,p,.h {font-family: arial,sans-serif; } */
+	/*	↑<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http: //www.w3.org/TR/html4/loose.dtd"> */
+body {
+	font-size: 84%;
+	font-family: "ＭＳ Ｐゴシック",arial,helvetica,clean,sans-serif;
+}
+textarea,input,select {
+	font-family: "ＭＳ Ｐゴシック",arial,helvetica,clean,sans-serif;
+	line-height: 1.2;
+	*line-height: 1.0;
+	font-size: 100%;
+}
+textarea {
+	padding: 2px;
+	_padding: 0px;
+	/padding: 0px;
+}
+input.text {
+	margin: 0px;
+	padding: 1px 0 1px 0;
+}
+input.password {
+	margin: 0px;
+	padding: 1px 0 1px 0;
+}
+h1 { font-size: 130%; }
+h2 { font-size: 120%; }
+h3 { font-size: 108%; }
+h4 { font-size: 100%; }
+td { text-align: left; vertical-align: top; }
+a { text-decoration: underline; font-weight: normal; }
+
+a:link { color: #2128e0; font-weight: normal; }
+a:visited { color: #2128e0; font-weight: normal; }
+a:hover { color: #f43316; font-weight: normal; background-color: #ffffc0; }
+a:active { color: #f43316; font-weight: normal; background-color: #ffffc0; }
+
+.alarm_text { color: red; margin: 0; padding: 0 0 0 5px; }
+.normal_text { color: black; }
+.error_msg { color: red; margin: 20px; padding: 0; }
+.noramal_msg { color: #000000; margin: 20px; padding: 0; }
+/* -------------------- 全体構造 -------------------- */
+/*
+	[index]
+		page_body
+			page_header
+				page_navi
+				page_login_account
+			page_contents
+				contents_header
+					contents_navi
+					contents_change_account
+				search_body
+				index_body
+			page_footer
+	[mp_list]
+		page_body
+			page_header
+				page_navi
+				page_login_account
+			page_contents
+				contents_header
+					contents_navi
+					contents_change_account
+				mp_list_body
+					mp_list_filter		フィルタ
+					mp_list_sort_menu	ソート
+					mp_list_edit_new_button	編集/新規ボタン
+					mp_list_main
+						.mp_list_page_control
+						.mp_list_page_control
+			page_footer
+*/
+#page_body {
+	width: auto;
+/*	max-width: 980px; */
+}
+/* -------------------- page_header -------------------- */
+#page_header {
+	clear: both;
+	width: 100%;
+	background-color: #e0e0e0;
+	margin: 0;
+	padding: 0;
+}
+#page_header:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+#page_navi {
+	float:left;
+}
+#page_navi ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	font-size: 86%;
+}
+#page_navi li {
+	display: inline;
+	float: left;
+	line-height: 24px;
+	margin: 0;
+	padding: 0;
+}
+#page_navi a {
+	text-decoration: none;
+	display: block;
+	width: 54px;
+	border-right: 1px solid #ffffff;
+	color: #ffffff;
+	background-color: #404020;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#page_navi_current a {
+	text-decoration: none;
+	display: block;
+	width: 54px;
+	border-right: 1px solid #ffffff;
+	color: yellow;
+	background-color: #9090ff;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+#page_navi a:link { color: #ffffff; font-weight: normal; }
+#page_navi a:visited { color: #ffffff; font-weight: normal; }
+#page_navi a:hover { color: #ffffff; font-weight: normal; background-color: orange; }
+#page_navi a:active { color: #ffffff; font-weight: normal; background-color: gold; }
+#page_login_account {
+	float: right;
+	text-align: right;
+	padding: 0;
+	font-size: 74%;
+}
+	#page_login_account ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#page_login_account li {
+		display: inline;
+		float: left;
+		line-height: 20px;
+		padding: 0 5px 0 0;
+	}
+	#page_login_account td {
+		line-height: 20px;
+		padding: 0 5px 0 0;
+	}
+	#login_account_handle {
+		font-size: 100%;
+		color: #00c0c0;
+	}
+a.return_index { text-decoration: none; font-weight: normal; }
+a.return_index:link { color: #e0e0e0; }
+a.return_index:visited { color: #e0e0e0; }
+a.return_index:hover { color: #ffc080; }
+a.return_index:active { color: #ffc080; }
+/* -------------------- page_contents -------------------- */
+#page_contents {
+	clear: both;
+	float: left;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+#contents_header {
+	clear: both;
+	width: 100%;
+	background-color: #fffff0;
+	margin: 0;
+	padding: 2px 0 2px 0;
+}
+#contents_header:after {
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+#contents_navi {
+	float: left;
+	padding: 3px 0;
+}
+	#contents_navi ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#contents_navi li {
+		display: inline;
+		margin: 0;
+		padding: 0 0 0 10px;
+	}
+	#contents_navi a {
+		color: #606060;
+	}
+	#contents_navi a:hover { color: #ff0000; font-weight: normal; }
+	#contents_navi a:active { color: #ff0000; font-weight: normal; }
+	#contents_navi_current a {
+		color: #ff6347;
+		background-color: #ffff80;
+	}
+#contents_change_account {
+	float: right;
+	text-align: right;
+	padding: 0;
+	margin-right: -4px;
+	_margin-right: 4px;
+	/margin-right: 4px;
+}
+	#contents_change_account ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	#contents_change_account li {
+		display: inline;
+		margin: 0 8px 0 0;
+		padding: 0 1px;
+	}
+	#contents_change_account_current {
+		color: #ffffff;
+		background-color: #ffa500;
+	}
+#contents_change_account_select {
+	float: right;
+	text-align: right;
+	padding: 0;
+	margin: 0 10px 0 0;
+}
+/* -------------------- page_footer -------------------- */
+#page_footer {
+	clear: both;
+	float: left;
+	width: 100%;
+	background-color: #e0e0e0;
+	margin: 20px 0 20px 0;
+	padding: 0;
+	text-align: center;
+}
+/* -------------------- mp_list -------------------- */
+.find_string {
+	color: #ff0000;
+	font-weight: bold;
+	background-color: #ffe0c0;
+}
+/* -------------------- input フォーム -------------------- */
+.input_form {
+	clear: both;
+	margin: 20px 20px 20px 20px;
+	padding: 0;
+}
+.input_form h3 {
+	font-size: 110%;
+	margin: 5px 0 5px 0;
+	padding: 0;
+}
+.input_form_button { margin: 10px 10px 0 0; }
+.input_form table {
+	border-collapse: separate;	/* collapse */
+	empty-cells: show;
+	background-color: #e0e0e0;
+	border: 0px solid #e0e0e0;
+}
+.input_form td {
+	background-color: #ffffff;
+	padding: 1px;
+	border-width: 5px 0 0 0;
+	text-align: left; vertical-align: top;
+}
+a.a_cancel_back {
+	text-decoration: underline;
+	text-align: center;
+	font-size: 84%;
+	margin: 0 0 0 20px;
+	padding: 0;
+}
+a.a_cancel_back:link { color: #ff8000; font-weight: normal; }
+a.a_cancel_back:visited { color: #ff8000; font-weight: normal; }
+a.a_cancel_back:hover { color: #ff0000; font-weight: normal; }
+a.a_cancel_back:active { color: #ff0000; font-weight: normal; }
+a.a_edit_buton  {
+	text-decoration: underline;
+	margin: 0 0 0 5px;
+	padding: 0;
+}
+a.a_edit_buton:link { color: #ff8000; font-weight: normal; }
+a.a_edit_buton:visited { color: #ff8000; font-weight: normal; }
+a.a_edit_buton:hover { color: #ff0000; font-weight: normal; }
+a.a_edit_buton:active { color: #ff0000; font-weight: normal; }
+a.a_update_form  {
+	text-decoration: underline;
+	text-align: center;
+	/* font-size: 84%; */
+	margin: 0 0 0 10px;
+	padding: 0;
+}
+a.a_update_form:link { color: #ff8000; font-weight: normal; }
+a.a_update_form:visited { color: #ff8000; font-weight: normal; }
+a.a_update_form:hover { color: #ff0000; font-weight: normal; }
+a.a_update_form:active { color: #ff0000; font-weight: normal; }
+.block {
+	clear: both;
+}
+.block_left {
+	float: left;
+	text-align: left;
+	padding: 0;
+}
+.left_mini_margin {
+	margin: 0 0 0 5px;
+}
+.left_margin {
+	margin: 0 0 0 20px;
+}
+.block_right {
+	float: right;
+	text-align: left;
+	padding: 0;
+}
+strong {
+	font-weight: bold;
+}
+/* -------------------- link メニュー 横型 -------------------- */
+.menu_standard ul {
+	list-style: none;
+	margin: 5px 0 5px 0;
+	padding: 0;
+}
+.menu_standard li {
+	display: inline;
+	margin: 0 10px 0 0;
+	padding: 0;
+}
+/* -------------------- 日付曜日 -------------------- */
+.dayweek_sunday {
+	color: #ff0000;
+	padding: 0 0 0 2px;
+	text-decoration: none;
+}
+.dayweek_saturday {
+	color: #ff0000;
+	padding: 0 0 0 2px;
+	text-decoration: none;
+}
+.dayweek_weekday {
+	color: #202020;
+	padding: 0 0 0 2px;
+	text-decoration: none;
+}
+/* -------------------- カテゴリ表示 -------------------- */
+.category {
+	margin: 0 0 0 2px;
+}
+img.bicubic {
+	-ms-interpolation-mode: bicubic;
+}

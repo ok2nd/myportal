@@ -1,0 +1,738 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal ダウンロード / 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal ダウンロード / 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン5.19以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download.html">最新(6.00以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.19&nbsp;&nbsp;(2013/08/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>セッションとクッキー(Cookie)のスコープ(範囲)を、"/"から、アプリケーション範囲(標準では"/_myhome/")に変更。
+		アプリケーション名は、explode('/', $_SERVER['SCRIPT_NAME'], 3)で取得。
+<pre class="command" style="font-size: 11px;">
+PHPセッション：session_set_cookie_params(0, '/'.アプリケーション名.'/');
+PHPクッキー：setcookie('****', '', time() + LOGIN_COOKIE_EXPIRE, '/'.アプリケーション名.'/');
+jQueryクッキー：$.cookie("****","***",{ path: '/'+アプリケーション名+'/', expires: 365 });
+</pre></li>
+	<li style="color:red;text-decoration:underline;">MyHome Portalを前のバージョンからバージョンアップして利用する場合、ブラウザのクッキーを一旦すべて削除してから利用願います。クッキーを一旦削除しないとログオフできないなどの不具合が発生します。</li>
+	<li>include-common-html.phpのhtml_header()で、$add_header_fileをの読み込みを単純にrequire()に変更。
+<pre class="command" style="font-size: 11px;">
+$array = file($add_header_file);
+$add_header = join("",$array);
+echo $add_header;
+	↓↓↓
+require($add_header_file);
+</pre></li>
+	<li>「メモ」の一覧で登録日を表示するようにした。</li>
+	<li>一部で、ホスト名を「http://localhost/」と定義していた部分を、「http://&lt;?= $_SERVER['HTTP_HOST'] ?&gt;/」に修正。</li>
+	<li>「INDEX」の背景に画像/写真を指定できるようにしました。My設定で設定してください。</li>
+	<li>データベース「_db_account」/「_mydb_account」のテーブル「m_account」に列「c_index_bg_image」を追加しました。
+	  既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。
+<pre class="command" style="font-size: 11px;">
+《サンプルDBの場合》
+	mysql -u root -pkanri789
+	use _db_account;
+	ALTER TABLE m_account ADD c_index_bg_image varchar(100) NOT NULL;
+	exit;
+	D:
+	cd "D:\xampp\htdocs\_myhome\z_db_backup"
+	mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+《実運用DBの場合》
+	mysql -u root -pkanri789
+	use _mydb_account;
+	ALTER TABLE m_account ADD c_index_bg_image varchar(100) NOT NULL;
+	exit;
+	D:
+	cd "D:\xampp\htdocs\_myhome\z_db_backup"
+	mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre></li>
+	<li>「ユーザー一覧」リスト表示の不具合修正。</li>
+	<li>ツール「HTML カラーチャート ＋ Photoshop-like JavaScript Color Picker」が、 Linuxでは大文字・小文字が区別されるため、動作しなかった問題を修正。</li>
+	<li>ツール「HTML テーブル CSSスタイル シミュレーション」の「cellspacing=1」をCSSの「border-spacing:1px;」に変更。</li>
+	<li>スマートフォン用(/_mobile/)RSSリーダーとして、「RSS(FeedEk版)」追加</li>
+	<li>スマートフォン用(/_mobile/)「ツイッター」をAPI変更のため廃止。</li>
+	<li>スマートフォン用HTMLに、以下を追加。スマートフォンでデバイスのサイズにあったフォントサイズで表示されるようにするため。
+<pre class="command" style="font-size: 11px;">
+&lt;meta name="viewport" content="width=device-width,initial-scale=1"&gt;
+</pre></li>
+	<li>スマートフォン用HTMLに、data-urlを追加。jQuery MobileでリダイレクトするとURLが変わらない問題に対応。
+<pre class="command" style="font-size: 11px;">
+&lt;div data-role="page" data-url="&lt;?= $_SERVER['REQUEST_URI'] ?&gt;"&gt;
+</pre></li>
+	<li>スマートフォン用「チャット」で、投稿後にページが表示されない問題を修正。
+	  jQuery MobileではAjaxでページ遷移しているようで、それが原因のようなので、以下を指定して対処。
+<pre class="command" style="font-size: 11px;">
+&lt;script&gt;
+$.mobile.ajaxEnabled = false;
+&lt;/script&gt;</pre></li>
+	<li>おもな変更モジュール<br>
+		・__common__/__define_common.php, include-common-all.php, include-common-html.php, include-common-mp-list.php<br>
+		・index/index.php, input.php, oftenuse.php<br>
+		・memo/list-my-template.php, input.php<br>
+		・account/__include-login.php, list-user.php, myprofile.php, edit-myprofile.php<br>
+		・setup-sample.php<br>
+		・tools/colorpicker.php, table-layout.php<br>
+		・/_mobile/__common__/include-common-mobile.php<br>
+		・/_mobile/index/index.php<br>
+		・/_mobile/rss/rss.php<br>
+		・/_mobile/chat/post.php<br>
+		・その他多数</li>
+	<li>追加モジュール<br>
+		・/_mobile/feed/*<br>
+		・/_mobile/js/ok2nd.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.18&nbsp;&nbsp;(2013/07/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>JavaScriptの一部関数を、scripts/ok2nd.jsにまとめました。</li>
+	<li>各コンテンツの検索フィルタJavaScript関数を、なるべく統一しました。</li>
+	<li>「RSSリーダー」の↑クリックで表示されるポップアップウィンドウのタイトルに、マウスオーバーで本文の1行目を表示するようにしました。<br>
+NHK「ニュースで英会話」のRSSフィードを登録して、本文表示しないで、マウスオーバーで日本語表示するなどして使えます。<br>
+<a href="http://gogakuru.com/rss/program_156_feed.xml" target="_blank">http://gogakuru.com/rss/program_156_feed.xml</a>
+<br><img src="images/rss-feed.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「メモ」「ID管理」で、個別修正後の一覧表示で、元のスクロール位置までスクロールするようにしました。<br>修正データ行までURLの#でスクロールしていたのを、JavaScriptで一覧表示画面のscrollTopを覚えておいて、window.scroll()でスクロールする方式に変更。</li>
+	<li>ツール「ファイルマネージャ」で、ファイル名にUTFで扱えない特殊文字が含まれている場合、エラー表示するようにしました。</li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-all.php, include-common-mp-list.php<br>
+		・calendar/_my_calendar.php, month.php, year.php, week.php<br>
+		・index.php/index.php, list-url.php<br>
+		・rss/feed.php, rss/feed/FeedEk-ok2nd.js<br>
+		・tools/file-manager.php, file-manager-ajax.php, code-file-view.php<br>
+		・memo/list.php, list-my-template.php, input.php<br>
+		・id-manager/list.php, list-my-template.php, input.php<br>
+		・その他多数</li>
+	<li>追加モジュール<br>
+		・scripts/ok2nd.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.17&nbsp;&nbsp;(2013/06/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>サンプルDB自動セットアップツール「setup-sample.php」をLinuxでも動作するように修正。</li>
+	<li>mysqlの実行パスを、URLパラメーターで指定できるようにしました。<br>
+Linuxで使う場合は、mysqlのディレクトリ・パスを以下のように指定してください。<br>
+		例）http://localhost/_myhome/setup-sample.php?mysql=/opt/lampp/bin</li>
+	<li>「カレンダ」のカテゴリselectプルダウンにアイコンを表示するようにしました。<br>
+jquery-ms-Dropdownを使っています。<br>
+		<a href="https://github.com/marghoobsuleman/ms-Dropdown" target="_blank">https://github.com/marghoobsuleman/ms-Dropdown</a>
+<br><img src="images/calendar-select.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・calendar/_my_calendar.php, __html-my-header.php, list.php, list-my-add-filter.php 他<br>
+		・__common__/include-common-mp-list.php<br>
+		・setup-sample.php</li>
+	<li>追加モジュール<br>
+		・scripts/msdropdown/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.16&nbsp;&nbsp;(2013/05/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>トップページ「INDEX」に表示される3日分のカレンダー・スケジュールを、詳細表示する/しないの選択が出来るようにしました。
+<br><img src="images/index-calendar.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「カレンダ」のカテゴリの必須項目を、カテゴリ名からアイコンに変更。カテゴリ名なしのアイコンだけも可能に。
+<br><img src="images/calendar-cat-edit.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「カレンダ」の入力画面で、カテゴリアイコン選択時に、件名の前にアイコンをプレビュー表示するようにしました。</li>
+	<li>「カレンダ」のスタイルシートを少し修正。</li>
+	<li>カレンダのスケジュール間のボーダー値を変更。（実運用定義ファイル）<br>
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_SCHEDULE_BORDER_STYLE", "border:1px dotted #d0d0d0;margin-top:-1px;");
+	↓
+define("CALENDAR_SCHEDULE_BORDER_STYLE", "border-top:1px dotted #b0b0b0;margin-top:-1px;");
+<pre></li>
+	<li>「住所録」で、日本百名山のマップ表示の時に、百名山、二百名山、三百名山の名前の頭に◎○△マークを付けるようにしました。</li>
+
+	<li>おもな変更モジュール<br>
+		・index/index.php<br>
+		・calendar/category.php, input.php, input-include.php, _my_calendar.php<br>
+		・abook/maps-abook-v3.php<br>
+		・style/original/calendar.css, mp-list.css<br>
+		・__common__/__define_common.php, include-common-mp-list.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.15&nbsp;&nbsp;(2013/05/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「Google Maps API V3版」の「探す」選択肢に「住所録」連動の「世界遺産、日本百名山、日本百選、桜名木、鉄道駅」を追加。現在表示している地図範囲の該当の場所を別ウインドウでGoogleマップ表示します。
+<br><img src="images/maps-area-sel1.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/maps-area1.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/maps-area2.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「Simple Memo」に、Google Suggest APIを使った予測変換テキストボックスを追加。</li>
+	<li>Google Suggest APIを使った予測変換テキストボックスだけのポップアップページを追加。<br>
+	  「Simple Memo」の↑をクリックするとポップアップ表示されます。
+<br><img src="images/popup-suggest.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「アルバム」のスライドモードのオプションに、「deviantART」を追加。<br>
+	  「deviantART muro」を使って、ブラウザ上で画像編集が出来ます。<br>
+		<a href="https://github.com/deviantART/embedded-deviantART-muro/n" target="_blank">https://github.com/deviantART/embedded-deviantART-muro/</a><br>
+	  ただし、あくまでも「deviantART muro」にデータを渡しているだけで、deviantART muroサイトに依存した編集機能となります。
+<br><img src="images/deviantART.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「MeCab：漢字読み変換 (CSVファイル一括) 」に、オプション「読みをひらがなにする」を追加しました。</li>
+	<li>ツール「MeCab：漢字読み変換 (CSVファイル一括) 」で、オプション「半角カナを全角カナに変換する」が機能していないのを修正しました。</li>
+	<li>「住所録」の鉄道駅データで、駅名の読みが入っていなかったものについて、MeCabで読み変換したのを入れました。MeCabで変換した読みは、正しい保障はありません。MeCabで読み変換したデータの列「c_yomi2」に▲を入れています。▲で検索できます。<br>
+	  既に以前のバージョンで実運用中の場合、Ver.5.14の説明に従って、「鉄道駅」のデータを差し替えてください。</li>
+
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php, mecab-csv.php<br>
+		・index/memo.php<br>
+		・photo/ajax-photo-view.php<br>
+		・実運用サンプル/鉄道駅_20130404.csv</li>
+	<li>追加モジュール<br>
+		・abook/maps-area.php<br>
+		・index/popup-suggest.php<br>
+		・photo/deviantart.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.14&nbsp;&nbsp;(2013/04/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「アルバム」のサムネイル(B)のCSSを少し修正。IEはIE9に合わせて調整。</li>
+	<li>「住所録」で個別の修正画面を開いた後、「戻る」で都道府県フィルタがリセットされる不具合を修正。</li>
+	<li>「住所録」の鉄道駅データを、「駅データ.jp」(<a href="http://www.ekidata.jp/" target="_blank">http://www.ekidata.jp/</a>)の最新データ(2013.04.04付データ)で置き換えました。運用中の路線、駅のみを取り込んでいます。項目として、鉄道会社名(事業者名)と駅の住所も取り込んで、一覧表示＆検索ができるようにしました。
+<br><img src="images/00000262-tetsudo1.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>既に以前のバージョンで実運用中で、「鉄道駅」のデータを差し替える場合は、次の手順で行ってください。<br>
+	  <span style="color:red;">※ データを差し替えると、チェック項目のチェックデータ(サンプルでは制覇のデータ)が失われますので、ご注意ください。</span><br>
+<div style="margin-left:20px;">
+<p style="text-indent:-1em;padding-left:1em;">
+		1.データベースのバックアップを取る。<br>
+		  ツール「実運用環境バックアップ」を使ってバックを取ってください。<br>
+			<a href="http://localhost/_myhome/db_tool/backup-mydb.php" target="_blank">http://localhost/_myhome/db_tool/backup-mydb.php</a>
+</p>
+<p style="text-indent:-1em;padding-left:1em;">
+		2.既存のデータベース「_mydb_abook」のテーブル「m_abook」から鉄道駅データを削除する。<br>
+		  コマンドプロンプトで、以下を実行する。(rootのパスワードがkanri789の場合)<br>
+		  <span style="color:red;">※ id_categoryの番号は実運用データベースの鉄道駅の分類IDと同じものを指定してください。</span><br>
+		      住所録の「分類編集」でid_categoryの番号を確認できます。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+delete from m_abook where id_category = 5;
+OPTIMIZE TABLE m_abook;
+exit;
+mysqlcheck -o -uroot -pkanri789 _mydb_abook
+</pre>
+</p>
+<p style="text-indent:-1em;padding-left:1em;">
+		3.ツール「MySQL管理ツール」で、データベース「_mydb_abook」のテーブル「m_abook」に、鉄道駅_20130404.csvをアップロードしてください。<br>
+		  <span style="color:red;">※ CSVファイルをアップロードする際は、id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</span><br>
+		  環境によっては、アップロードでタイムアウトが発生する場合があります。<br>
+		  その場合は、実運用定義ファイルの以下の実行時間を大きくしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("MAX_EXECUTION_TIME_INI_SET", "240");
+</pre>
+</p>
+</div></li>
+	<li>おもな変更モジュール<br>
+		・photo/ajax-photo-view.php<br>
+		・style/original/photo.css<br>
+		・abook/list-my-template***.php<br>
+		・実運用サンプル/鉄道駅_20130404.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.13&nbsp;&nbsp;(2013/04/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>一覧形式の「一括修正/追加/削除」で、シングルクォートが含まれているとエラーになる不具合修正。<br>
+	修正対象チェックのためのSQLのwhereで対象データ文字列にmysql_real_escape_stringをかけていなかったため。ただし、なぜか、XAMPP(PHP)のバージョンが古いとエラーにはならず、正常処理される。</li>
+	<li>「ファイルマネージャー」に、PDF、Excel等のアイコン追加。
+<br><img src="images/filemgr-icon.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「住所録」のcheckboxのCSSを少し修正。背景色の枠が、Chrome、Firefox、IEでなるべく同じイメージで表示されるようにしました。<br>
+背景色は、IEでは、checkboxに直接、Chrome、Firefoxでは、spanで囲んで設定しています。
+<br><img src="images/abook-check.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・tools/file-manager.php, __include-common-code-file.php<br>
+		・abook/list-my-template*.php<br>
+		・style/original/abook.css<br>
+		・__common__/include-common-mp-list.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.12&nbsp;&nbsp;(2013/03/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「メモ」で、連続する半角スペース・タブをそのまま表示するようにしました。<br>
+	  CSSの「white-space: pre-wrap;」を使っています。</li>
+	<li>Chromeの場合、一覧形式の「一括修正/追加/削除」の月日選択&lt;select&gt;プルダウンを、HTML5の&lt;input type="number"&gt;に変更。</li>
+	<li>ツール「横2段 テキストエリア」を追加。横2段にテキストエリアがあるだけのページです。<br>
+	  ログイン・ユーザー毎に1ページです。保存ボタンで、MySQLデータベースに保存されます。画面遷移はしません。フォントサイズとフォント種類は変更できます。<br>
+	  文章の修正や、2つの文章(例えば、英文と日本語)を比較しながら読みたい場合等にお使いください。
+<br><img src="images/00000293-pane2.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>タイマーアラート機能を追加しました。設定した時間になると、JavaScriptのalertによるアラートが出ます。
+<br><img src="images/00000294-alarm-alert.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>
+ページヘッダー右上の時計アイコンをクリックすると「タイマーアラート設定」ページが開きます。
+<br><img src="images/header-right2.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>
+	  10個まで設定できます。時間とメッセージを設定してください。<br>
+	  日や曜日を設定すると、毎月または毎週、その時間になるとアラートが表示されます。<br>
+	  日や曜日を設定しない場合、毎日その時間になるとアラートが表示されます。<br>
+	  このアラート機能が実行されるためには、下にフッター表示のあるMyHome Portalの主要コンテンツ・ページをブラウザで開いている必要があります。<br>
+	  ブラウザのタブの一つにMyHome Portalの主要コンテンツが開いていれば機能します。
+
+<br><img src="images/00000294-alarm-set.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>タイマーアラート機能が有効になるページのフッター部分には、当日のその時点以降実行されるアラート時間が表示されます。<br>
+	  アラート時間の上にカーソルを載せるとアラートメッセージがツールチップで表示されます。<br>
+	  ツールチップの表示には「TipTip jQuery Plugin」を使っています。<br>
+<a href="http://code.drewwilson.com/entry/tiptip-jquery-plugin" target="_blank">http://code.drewwilson.com/entry/tiptip-jquery-plugin</a>
+<br><img src="images/00000294-alarm-alert-tooltip.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>実運用定義ファイルで以下を設定すると、jQuery Alert Dialogsを使ったアラート表示になります。
+<br>
+<pre class="command" style="font-size: 11px;">
+define("TIMER_ALARM_JALERT_USE", "YES");
+</pre>
+<img src="images/alarm-jalert.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>
+	  jQuery Alert Dialogsの場合、同時刻に複数のアラートを設定していても1つしか表示されません。<br>
+また、jQuery Alert Dialogsの場合、ブラウザの前面タブにMyHome Portalの主要コンテンツが表示されていないと裏でアラート表示され、アラートに気付かない可能性があります。</li>
+	<li>既に前のバージョンで実運用中の場合は、データベース「_db_index/_mydb_index」に、テーブル「m_alarm」「m_pane2」を追加してください。<br>
+	  追加は、コマンドプロンプトで、以下を実行してください。<br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_index;
+CREATE TABLE `m_alarm` (
+  `id_account` int(10) unsigned NOT NULL,
+  `id_num` int(10) unsigned NOT NULL,
+  `c_valid` varchar(5) NOT NULL,
+  `c_hour` int(10) NOT NULL,
+  `c_min` int(10) NOT NULL,
+  `c_day` int(10) NOT NULL,
+  `c_week` int(10) NOT NULL DEFAULT '-1',
+  `c_done` varchar(10) NOT NULL,
+  `c_message` varchar(255) NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`, `id_num`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `m_pane2` (
+  `id_account` int(10) unsigned NOT NULL,
+  `c_text1` longtext NOT NULL,
+  `c_text2` longtext NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+exit;
+</pre>
+	【実運用モードDB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_index;
+CREATE TABLE `m_alarm` (
+  `id_account` int(10) unsigned NOT NULL,
+  `id_num` int(10) unsigned NOT NULL,
+  `c_valid` varchar(5) NOT NULL,
+  `c_hour` int(10) NOT NULL,
+  `c_min` int(10) NOT NULL,
+  `c_day` int(10) NOT NULL,
+  `c_week` int(10) NOT NULL DEFAULT '-1',
+  `c_done` varchar(10) NOT NULL,
+  `c_message` varchar(255) NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`, `id_num`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `m_pane2` (
+  `id_account` int(10) unsigned NOT NULL,
+  `c_text1` longtext NOT NULL,
+  `c_text2` longtext NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+exit;
+</pre></li>
+	<li>追加モジュール<br>
+		・index/alarm.php, alarm-update.php, alarm-done.php<br>
+		・tools/pane2.php, pane2-update.php<br>
+		・scripts/jquery.alerts.js, jquery.alerts.css, jquery.ui.draggable.js<br>
+		・scripts/tipTip/*<br>
+		・icon/clock.png</li>
+	<li>おもな変更モジュール<br>
+		・memo/list-my-template.php<br>
+		・index/index.php<br>
+		・__common__/include-common-html.php, include-common-all.php, include-common-mp-list.php<br>
+		・style/original/common.css, memo.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.11&nbsp;&nbsp;(2013/03/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>シンプルな1ページのみの「Simple Memo」機能を追加しました。<br>
+	  MyHome Portalページヘッダー右上のペンシル・アイコンをクリックすると開きます。
+<br><img src="images/header-right.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>MyHome Portal基本コンテンツ「メモ」とは違って、ブラウザ画面一杯の&lt;textarea&gt;だけのシンプルなメモ帳です。ログイン・ユーザー毎に1ページです。保存ボタンで、MySQLデータベースに保存されます。<br>保存ボタンを押しても、画面遷移はせずに&lt;textarea&gt;のフォーム状態のままです。<br>フォント種類とフォントサイズを変更できます。タブ入力機能と複数行選択によるタブ一括挿入によるインデントもできます。<br>それ以外は通常の&lt;textarea&gt;によるシンプルな入力画面です。
+<br><img src="images/00000292-simple-memo.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>既に前のバージョンで実運用中の場合は、データベース「_db_index/_mydb_index」に、テーブル「m_memo」を追加してください。<br>
+	  追加は、コマンドプロンプトで、以下を実行してください。MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br>
+	【サンプルモードDB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_index;
+CREATE TABLE `m_memo` (
+  `id_account` int(10) unsigned NOT NULL,
+  `c_memo` longtext NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+exit;
+</pre>
+	【実運用モードDB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_index;
+CREATE TABLE `m_memo` (
+  `id_account` int(10) unsigned NOT NULL,
+  `c_memo` longtext NOT NULL,
+  `c_updatetime` datetime NOT NULL,
+  PRIMARY KEY  (`id_account`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+exit;
+</pre></li>
+	<li>追加モジュール<br>
+		・index/memo.php, memo-update.php<br>
+		・scripts/ExpandingTextareas/expanding.js</li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・style/original/common.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.10&nbsp;&nbsp;(2013/02/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Chrome以外のブラウザの場合、カレンダー入力画面その他の「年」選択&lt;select&gt;プルダウンを、&lt;input type="text"&gt;に変更し、▲▼ボタンで年を上下するようにしました。
+<br><img src="images/input-year.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「GPSログ View」の写真表示機能で、EXIF情報のGPSデータの測地系が日本系(EXIF['GPS']['GPSMapDatum']='TOKYO')の場合、世界系に変換するようにしました。(実際のデータで検証はしていません。)</li>
+	<li>ツール「GPSログ View」の写真表示機能と「アルバム:GPSマップ」で、表示した写真を地図上で移動可能にしました。地図上で一時的に移動するだけで、JPEGファイルのEXIF情報を書き換えるわけではありません。</li>
+	<li>ツール「GPSログ View」の写真表示機能で、写真の撮影時間とGPSログの時間から撮影場所を特定して、その位置に写真を表示する機能を追加しました。写真自体にはEXIF/GPS情報が無くても表示できます。チェックボックス「撮影時間から場所を特定」にチェックを付けると、そのモードになります。写真の撮影時間(EXIF['DateTimeOriginal'])が、GPSログデータの時間範囲内のものだけを表示します。
+<br><img src="images/gpslog-photo-time.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・calendar/input-include.php, list-my-add-filter.php<br>
+		・gpslog/view.php, edit.php, input.php, list.php<br>
+		・diary/input.php<br>
+		・photo/maps-photo-v3.php<br>
+		・__common__/include-common-mp-list.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.09&nbsp;&nbsp;(2013/02/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Chromeの場合、カレンダー入力画面その他の「年」選択&lt;select&gt;プルダウンを、HTML5の&lt;input type="number"&gt;に変更。
+<br><img src="images/html5-number.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「GPSログ View」にGPSデータ付き写真表示機能を追加。<br>
+	  指定フォルダ内のJPEG画像ファイルのEXIF情報にGPSデータが含まれている場合、その地点に写真を表示します。<br>
+	  指定フォルダは、「カレンダーアルバムフォルダ」からの相対パスで指定します。<br>
+	  (カレンダーアルバムフォルダは、「My設定」で設定します。)
+<br><img src="images/00000290-gpslog-photo.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>既に前のバージョンで実運用中の場合は、データベース「_db_gpslog/_mydb_gpslog」のテーブル「m_gpslog」に列の追加をしてください。<br>
+	  追加は、コマンドプロンプトで、以下を実行してください。<br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  ≪サンプルデータベース≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_gpslog;
+ALTER TABLE m_gpslog ADD c_photo_folder varchar(255) NOT NULL AFTER c_attachFile1;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_gpslog < create_view_db_gpslog.txt
+</pre>
+	  ≪実運用データベース≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_gpslog;
+ALTER TABLE m_gpslog ADD c_photo_folder varchar(255) NOT NULL AFTER c_attachFile1;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_gpslog < create_view_mydb_gpslog.txt
+</pre></li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-mp-list.php<br>
+		・calendar/input-include.php, list-my-add-filter.php<br>
+		・diary/input.php<br>
+		・gpslog/view.php, edit.php, list.php, list-my-template.php<br>
+		・gpslog/js/googlemaps.js<br>
+		・photo/exif-read.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.08&nbsp;&nbsp;(2013/01/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「GPSログ View」一覧に、日付フィルタ追加。</li>
+	<li>ツール「GPSログ View」一覧で選択したGPSログのスタート地点の場所一覧をGoogleマップで表示する機能を追加しました。
+<br><img src="images/00000291-gpslog-maps.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「GPSログ View」で、ルートの標高と速度をグラフ化したものを、Googleマップの下に表示するようにしました。<br>
+	  グラフは、グラフ作成JavaScriptライブラリ「Highcharts」を使っています。<br>
+<a href="http://www.highcharts.com/" target="_blank">http://www.highcharts.com/</a>
+<br><img src="images/00000290-gpslog-chart.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/gpslog-map-chart.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>グラフ作成ライブラリHighchartsのバージョンを2.3.5にしました。</li>
+	<li>追加モジュール<br>
+		・gpslog/maps-gpslog-v3.php</li>
+	<li>おもな変更モジュール<br>
+		・gpslog/list.php, list-my-template.php, view.php<br>
+		・scripts/Highcharts/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.07&nbsp;&nbsp;(2013/01/14)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツールに「GPSログ View」を追加しました。<br>
+	  GPXファイルをアップロードすると、Google Mapsを使って、ルート表示できます。<br>
+	  ルート全体の距離、出発時間、到着時間、所要時間、平均速度、最高速度、最高地点、最低地点も表示します。<br>
+	  時間間隔指定で、ルートの途中にマーカーを表示できます。最高速度は、マーカー間速度の最高速度です。<br>
+	  マーカーをクリックすると、その地点の標高、前マーカーからの距離、前マーカーからの平均速度、出発地点からの距離、出発地点からの平均速度を表示します。<br>
+	  「ルート再生」ボタンで、ルートを順に人間マークのマーカーが移動します。マーカーをクリックすると、ルート再生の開始地点が、そのマーカーの場所となります。<br><img src="images/00000290-gpslog.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>アップロードしたGPSログデータは、データベースに登録されます。GPXの&lt;name&gt;と&lt;desc&gt;を名前、補足説明として登録します。
+<br><img src="images/gpslog-l.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>Google Mapsを使ったルート表示には、「Google Maps/Earth活用ツール：轍 Wadachi」のJavaScriptを利用させていただいています。一部カスタマイズしています。<br>
+	<a href="http://wadachi.cyclekikou.net/" target="_blank">http://wadachi.cyclekikou.net/</a>
+		</li>
+	<li>2点間の距離計算には、「GPSなどの緯度経度の２点間の直線距離を求めるPHP関数」を利用させていただいています。<br>
+	<a href="http://d.hatena.ne.jp/kudakurage/20100319/1268986000" target="_blank">http://d.hatena.ne.jp/kudakurage/20100319/1268986000</a>
+		</li>
+	<li>動作検証には、Androidアプリ「My Tracks」のGPX保存データを使っています。サンプルデータを、「実運用サンプル/gpx」フォルダに入れています。<br>
+	<a href="https://play.google.com/store/apps/details?id=com.google.android.maps.mytracks&hl=ja" target="_blank">https://play.google.com/store/apps/details?id=com.google.android.maps.mytracks&hl=ja</a>
+		</li>
+	<li>Ver.5.06以前で既に環境を構築済みの場合は、以下の手順で「GPSログ View」の環境設定をしてください。<br>
+	  コマンドプロンプトで以下を実行してください。以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  ≪サンプルデータベース作成≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_gpslog;
+exit
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_gpslog < _db_gpslog.bk.txt
+mysql -u root -pkanri789 _db_gpslog < create_view_db_gpslog.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_gpslog.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit
+</pre>
+	  ≪実運用データベース作成＆環境設定≫<br>
+		＊実運用データベース作成
+			・MySQLを一旦停止します。
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+</pre>
+			・データベース「_db_gpslog」をコピーして、実運用データベース「_mydb_gpslog」を作成します。
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_gpslog
+copy D:\xampp\mysql\data\_db_gpslog\* D:\xampp\mysql\data\_mydb_gpslog
+</pre>
+			・MySQLを再起動します。
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+			・データベースのビューを作成します。
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_gpslog < create_view_mydb_gpslog.txt
+</pre>
+			・データベースのアクセス権を設定します。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_gpslog.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+		＊アップロードファイル格納用ディレクトリ作成。(ドライブが「D:」の例。)
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs"
+mkdir D:\xampp\htdocs\_attach\gpslog
+</pre>
+		＊実運用定義ファイル __define_common_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_gpslog", "_mydb_gpslog");
+define("ATTACH_FILE_FOLDER_gpslog", "../../_attach/gpslog/");
+</pre>
+		＊GPSログを、メインコンテンツにする場合以下を設定してください。<br>
+			・実運用定義ファイル __define_contents_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"gpslog/", "query"=>"arg=session", "name"=>"GPSログ");
+</pre>
+			・実運用定義ファイル __define_common_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("gpslog_PAGE_HEADER", "YES");
+</pre></li>
+	<li>「旅行記」でカテゴリが全ユーザー共通だったのを変更し、ユーザー単位としました。<br>
+	  「旅行記」で、ログインユーザー以外の登録・更新で不具合があったのを修正。</li>
+	<li>追加モジュール<br>
+		・gpslog/*<br>
+		・z_db_backup/_db_gpslog.bk.txt, create_view_db_gpslog.txt, create_view_mydb_gpslog.txt<br>
+		・実運用サンプル/gpx/sample.gpx</li>
+	<li>おもな変更モジュール<br>
+		・tools/index.php<br>
+		・db_tool/backup-mydb.php<br>
+		・diary/category.php, _contents-header.php, marker-*.php<br>
+		・setup-sample.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.06&nbsp;&nbsp;(2012/12/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「アルバム」の全画面スライドショーを、ブラウザのウインドウサイズと画像サイズの縦横比率を判断して、画像がウインドウ内に収まるようにしました。ただ、ブラウザのウインドウサイズの判断は1つ前のウインドウ状態で判断しますので、ウインドウサイズを変更した直後は正しく表示されない可能性があります。2回ほど、リロードすれば正しく表示されます。</li>
+	<li>「預貯金管理」の「ライフプラン」のデータ保存先を、localStorage(Webストレージ)からMySQLデータベースに変更しました。
+元のバージョンでは勉強のためにlocalStorageを使っていましたが、特定のブラウザのローカルストレージに保存では実用性に乏しいので。
+データベースには、データをJSON形式にまとめて登録します。<br>
+前のlocalStorage版も、lifeplan-localStorage.phpという名前で残してあります。</li>
+	<li>既に前のバージョンで実運用中の場合は、ライフプラン用のテーブル「m_lifeplan」を、データベース「_db_kakeibo/_mydb_kakeibo」に追加してください。MySQL管理者ユーザーrootのパスワードを「kanri789」、
+	  インストールドライブを「D:」として説明します。<br>
+		  ≪サンプルデータベース≫<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_kakeibo < _db_kakeibo_add_m_lifeplan.txt
+</pre>
+		  ≪実運用データベース≫<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_kakeibo < _db_kakeibo_add_m_lifeplan.txt
+</pre></li>
+	<li>追加モジュール<br>
+		・kakeibo/lifeplan-load.php, lifeplan-load-name.php, lifeplan-save.php<br>
+		・z_db_backup/_db_kakeibo_add_m_lifeplan.txt</li>
+	<li>おもな変更モジュール<br>
+		・photo/slide.php, img-view-include.php<br>
+		・kakeibo/lifeplan.php, _contents-header.php, lifeplan-localStorage.php<br>
+		・z_db_backup/_db_kakeibo.bk.txt</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.05&nbsp;&nbsp;(2012/11/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「Google Maps API V3版」で、レストランやコンビニ等の場所を検索できるようにしました。<br>
+	  「Google Maps JavaScript API V3 Places ライブラリ」を使用しています。<br>
+<a href="https://developers.google.com/maps/documentation/javascript/places?hl=ja" target="_blank">https://developers.google.com/maps/documentation/javascript/places?hl=ja</a></li>
+	<li>「INDEX」トップページの検索ボタン「●」による地図検索を、「Google Maps (複数地点) API V3版」でなく、「Google Maps API V3版」に変更しました。</li>
+	<li>「Google Maps (複数地点) API V3版」「カレンダー」「住所録」の全画面タイプのマップで、地点表示をマーカーでなく、先頭10文字の文字入り吹き出しアイコンで表示するようにしました。世界遺産、日本百名山、鉄道駅などの地図表示も、それぞれの場所を名前入りのマーカーで表示します。
+</li>
+	<li>「カレンダー」「旅行記」「アルバム」「住所録」の全画面タイプのマップで、印刷時になるべく用紙一杯に印刷できるようにしました。サイドバーやルートナビは印刷されません。なお、Chromeでは印刷がうまくできません。印刷する場合は、Firefoxをご利用ください。</li>
+	<li>サンプルモードのカレンダー、旅行記のGoogle Maps APIバージョンをV3に変更しました。<br>
+<pre class="command" style="font-size: 11px;">
+define("GOOGLE_MAPS_API_VERSION", "V3");
+</pre>
+<img src="images/00000281-map-001.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/00000229-wh2.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><a href="images/map-a1-b.jpg" target="_blank"><img src="images/map-a1.jpg" style="margin:2px 20px;border: 1px solid #444;"></a>
+<br><a href="images/map-a2-b.jpg" target="_blank"><img src="images/map-a2.jpg" style="margin:2px 20px;border: 1px solid #444;"></a></li>
+	<li>おもな変更モジュール<br>
+		・tools/google_maps_place_types.php</li>
+	<li>追加モジュール<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php<br>
+		・abook/maps-abook-v3.php<br>
+		・photo/maps-photo-v3.php<br>
+		・diary/maps-diary.php, __include-maps-v3.php<br>
+		・calendar/maps-alone.php, maps-include-v3.php<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download10.html">
+		<span style="font-size: 120%;">→→→　バージョン5.04以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

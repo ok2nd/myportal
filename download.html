@@ -1,0 +1,857 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal ダウンロード / 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal ダウンロード / 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+
+<!-- ************************************************************************************** -->
+<!--
+	<div class="paragraph">
+		<p style="margin: 0 0 10px 20px;">
+		<span style="font-weight: bold;">★お知らせ：</span>MyHome Portalの一部機能をカスタマイズして、インターネット上のサービスとして立ち上げました。<br>
+		</p>
+		<p style="margin:0 0 0 40px;">
+		<img src="images/pc_lcd_monitor.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/index/" target="_blank">「2nd INDEX」</a><br>
+		<img src="images/iphone.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/abook/map/" target="_blank">「2nd マップ (スマホ用)」</a><br>
+		<img src="images/pc_lcd_monitor.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/abook/pc/" target="_blank">「2nd 世界遺産,日本百名山,日本百選,桜名木,鉄道駅」</a><br>
+		<img src="images/iphone.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/flower/" target="_blank">「2nd 誕生花,花言葉」</a><br>
+		<img src="images/iphone.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/eigo/mobile/" target="_blank">「2nd 英語」（スマホ用）</a><br>
+		<img src="images/pc_lcd_monitor.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/eigo/pc/" target="_blank">「2nd 英語」（PC用）</a><br>
+		<img src="images/pc_lcd_monitor.png" style="width:20px;margin-right:5px;"><a href="http://ok2nd.me/tenki/" target="_blank">「2nd 週間天気予報」</a><br>
+		</p>
+	</div>
+-->
+	<div class="paragraph">
+		<p id="message">
+		<span style="font-weight: bold;">「MyHome Portal」</span>一式をダウンロードできます。
+		<ul class="download">
+		<li>ダウンロード：
+	<a href="http://sourceforge.jp/projects/myhomeportal/releases/" target="_blank">MyHome Portal Ver.8.02 一式 (サンプルデータベース付)</a>
+	(SOURCEFORGE.JP)
+		</li>
+		</ul>
+		</p>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.8.02&nbsp;&nbsp;(2016/08/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>トップページ「INDEX」のボタン「料理(G)」「価格(G)」を廃止。</li>
+	<li>トップページ「INDEX」にボタン「ヨドバシ」「ヤフーshop」を追加。
+<img src="images/index-802.jpg" style="margin:2px 10px;border: 1px solid #444;width:560px;"></li>
+	<li>ボタンデザインcssのデフォルトを、kube.cssに変更。<br>
+<pre class="command" style="font-size: 11px;">define("_STYLE_SHEET_BUTTON", "../style/button/kube.css");
+</pre></li>
+	<li>「ID管理」でW↑をクリックすると表示されるポップアップウインドウに件名と備考内容も表示するように変更。</li>
+	<li>「カレンダー」に国民の祝日「山の日」追加するためのCSVファイル「m_holiday_add.csv」を入れました。<br>以下のブログの記事に従って追加してください。<br>
+		<a href="http://ok2nd.hatenablog.com/entry/2016/07/13/104524" target="_blank">http://ok2nd.hatenablog.com/entry/2016/07/13/104524</a></li>
+	<li>おもな変更モジュール<br>
+		・index/__define_index_search.php<br>
+		・__common__/__define_common.php<br>
+		・id-manager/view-idpass.php<br>
+		・__define_common_my_sample.php<br>
+		・style/id-manager.css</li>
+	<li>追加モジュール<br>
+		・z_db_backup/m_holiday_add.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.8.01&nbsp;&nbsp;(2016/02/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>トップページ「INDEX」にボタン「乗換(Yahoo)」を追加。</li>
+	<li>トップページ「INDEX」からボタン「百度」を廃止。</li>
+	<li>「預貯金管理」の一括修正/追加/削除ページの預入額、利率の入力枠内の数字を右揃えにしました。</li>
+	<li>「GPSログ」のGPXファイルからの新規登録で、ログの名前取得先をGPXの&lt;trk&gt;→&lt;name&gt;から&lt;metadata&gt;→&lt;name&gt;に変更。「MyTracks」のGPXを想定して仕様を決めていたが「MyTracks」が終了してしまうようなので「GeoTracker」のGPXの仕様に合わせた。（GeoTrackerは編集で履歴の名前を変更しても&lt;trk&gt;→&lt;name&gt;には反映されないため）</li>
+	<li>ツール「Google Maps API V3版」から「写真」表示機能を廃止。Google Maps APIからPanoramio連携が廃止されてしまったようなので。</li>
+	<li>おもな変更モジュール<br>
+		・index/__define_index_search.php<br>
+		・style/original/kakeibo.css<br>
+		・abook/maps-abook-v3.php<br>
+		・calendar/maps-include-v3.php<br>
+		・diary/__include-maps-v3.php<br>
+		・gpslog/maps-gpslog-v3.php, view.php<br>
+		・photo/maps-photo-v3.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.8.00&nbsp;&nbsp;(2015/09/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>Ver.1.00リリースから約8年目ということで、Ver.8.00としました。</li>
+	<li>Google Maps API のストリートビューの人形マーク表示位置が左上から右下に仕様変更になったようなので、ストリートビュー用のウインドウ表示枠位置とサイズを少し変更しました。<br>
+<img src="images/maps-street.jpg" style="margin:2px 20px;border: 1px solid #444;width:400px;"></li>
+	<li>おもな変更モジュール<br>
+		・calendar/maps-alone.php<br>
+		・diary/maps-diary.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.7.04&nbsp;&nbsp;(2015/02/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツールに「Yahoo ホームページ対訳」を追加。指定したURLのホームページとYahooウェブ翻訳で翻訳したページを左右に並べて表示します。左右のフレームは同時にスクロールできます。<br>
+<img src="images/00000297-yahoo-translate.jpg" style="margin:2px 20px;border: 1px solid #444;width:400px;"></li>
+	<li>「住所録」の「葉書宛名書き」の住所等の印字位置を調整。差出人の郵便番号位置は年賀状に合わせています。位置調整は__define_abook_pdf_my_sample.phpの定義も合わせての調整になっています。</li>
+	<li>「メモ」等の一覧表示に、5ページ単位のページ移動「←スキップ (5)」「→スキップ (5)」を追加。</li>
+	<li>「INDEX」「Myニュース」のニュース検索を、<a href="http://news.google.co.jp/news" target="_blank">http://news.google.co.jp/news</a>から、<br>
+		<a href="http://www.google.co.jp/search?tbm=nws" target="_blank">http://www.google.co.jp/search?tbm=nws</a>に変更。</li>
+	<li>「INDEX」「Myニュース」から、「記事見出しのみ」ボタンを廃止。</li>
+	<li>「INDEX」「Myニュース」に「Google」検索ボタンを追加。</li>
+	<li>おもな変更モジュール<br>
+		・tools/index.php<br>
+		・__common__/include-common-mp-list.php<br>
+		・abook/do-proc.php<br>
+		・index/list-my-template-mynews.php<br>
+		・__define_abook_pdf_my_sample.php</li>
+	<li>追加モジュール<br>
+		・tools/yahoo-translate.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.7.03&nbsp;&nbsp;(2014/11/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」に、印刷用ページを追加しました。余分なヘッダー等を無くしたシンプルな月間スケジュールを印刷します。1か月～12か月分をまとめて印刷できます。
+<br><img src="images/month-print.jpg" style="margin:2px 20px;border: 1px solid #444;width:400px;"></li>
+	<li>「カレンダー」で他人が書き込んだスケジュールに「by ハンドル名」表示しないように出来るようにしました。実運用定義ファイルで以下を指定します。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_HANDLE_PRINT_BY", "NO");
+</pre></li>
+	<li>「カレンダー」のアルバムモードでフォルダ名を表示できるようにしました。フォルダ名から日付部分を除いて表示します。実運用定義ファイルで以下を指定します。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_ALBUM_VIEW_FOLDER_NAME", "YES");
+</pre></li>
+	<li>「学習」に、英文の発音機能を追加しました。「High Quality Text-to-Speech API」を使っています。<br>
+<a href="http://tts-api.com/" target="_blank">http://tts-api.com/</a><br>
+以下のサイトで紹介されている方法を使いました。</li>
+<a href="http://hello-apis.blogspot.jp/2013/02/tts-apicom-text-to-speech-api.html" target="_blank">http://hello-apis.blogspot.jp/2013/02/tts-apicom-text-to-speech-api.html</a>
+<pre class="command" style="font-size: 11px;">
+&lt;button onclick="(new Audio('http://tts-api.com/tts.mp3?q=&lt;?= urlencode($rec['c_answer']) ?&gt;')).play();return false;"&gt;
+	&lt;img src="../icon/speaker.png"&gt;&lt;/button&gt;
+</pre>
+テストでは、以下の２つの方法も試しましたが、上記方法が一番レスポンスが良かったようです。<br>１つは、次のサイトで紹介されている「jquery.say.js」を使う方法です。<br>
+<a href="http://stabucky.com/wp/archives/4576" target="_blank">http://stabucky.com/wp/archives/4576</a>
+<pre class="command" style="font-size: 11px;">
+&lt;button onclick="sayEnglish('&lt;?= str_replace("'", '’', $rec['c_answer']) ?&gt;');return false;"&gt;
+	&lt;img src="../icon/speaker.png"&gt;&lt;/button&gt;
+&lt;script src="../scripts/jquery.say.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+function sayEnglish(text) {
+	$.say(text.replace(/’/g, "'"));
+}
+&lt;/script&gt;
+</pre>
+もう１つは、Ajaxを使って、audioタグを返す方法です。
+<pre class="command" style="font-size: 11px;">
+&lt;button onclick="speechEnglish('&lt;?= urlencode($rec['c_answer']) ?&gt;');return false;"&gt;
+	&lt;img src="../icon/speaker.png"&gt;&lt;/button&gt;
+&lt;script&gt;
+function speechEnglish(text) {
+	$.ajax({
+		type: "GET",
+		url: "text-to-speech.php?q="+text,
+		async: true,
+		success: function(res){
+			$("#mp3").html(res);
+			var myAudio=document.getElementById("english");
+			myAudio.play();
+		}
+	})
+}
+&lt;/script&gt;
+&lt;span id="mp3"&gt;&lt;/span&gt;
+</pre>
+<pre class="command" style="font-size: 11px;">
+【text-to-speech.php】
+&lt;?php
+	echo '&lt;audio id="english" src="http://tts-api.com/tts.mp3?q='.$_GET['q'].'&gt;" controls&gt;&lt;/audio&gt;';
+?&gt;
+</pre></li>
+	<li>おもな変更モジュール<br>
+		・calendar/month.php, _my_calendar.php<br>
+		・study/mycheck-my-template.php, popup.php<br>
+		・style/original/calendar.css, study.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・calendar/month-print.php<br>
+		・diary/month-print.php<br>
+		・icon/speaker.png</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.7.02&nbsp;&nbsp;(2014/11/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>MySQL関数をmysqliに変更。(mysql拡張モジュールが、PHP5.5から非推奨になっているため。)
+<pre class="command" style="font-size: 11px;">
+$link = mysql_connect('localhost', 'my_user', 'my_password');
+$db_selected = mysql_select_db('database_name', $link);
+　↓↓↓
+$link = mysqli_connect('localhost', 'my_user', 'my_password', 'database_name');
+</pre></li>
+	<li>ただし、モバイル用モジュール「_mobile/以下」は、mysqli非対応のままです。</li>
+	<li>ツール「Google Maps API V3版」で、ストリートビューをオフにした時に、人形マークを元に戻すようにしました。</li>
+	<li>ツール「Google Maps API V3版」で、ストリートビュー状態では、現在地情報ウインドウを表示しないようにしました。</li>
+	<li>おもな変更モジュール<br>
+		・データベース・アクセスのある全モジュール<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php</li>
+	<li>追加モジュール<br>
+		・_mobile/__common__/include-common-all-701.php（_mobile用：mysqli非対応版)</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.7.01&nbsp;&nbsp;(2014/09/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Ver.7.00で、Google Maps APIを使ったページの情報ウィンドウに縦スクロールバーを表示させないために、スタイルシートに以下を追加しましたが、情報ウィンドウ内の一部が表示されなくなってしまう場合がある事が分かったため、修正しました。<br>
+	google-maps-earth-v3.phpでは、スタイルシートはそのままとし、情報ウィンドウに表示するテキストの最後に&lt;br&gt;&lt;br&gt;を追加。<br>
+	それ以外(abook/maps-abook-v3.php, diary/maps-diary.php, tools/google-maps-earth-multi-v3.php)では、スタイルシートから、以下を除去しました。
+<pre class="command" style="font-size: 11px;">
+.gm-style-iw {
+&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden ! important;
+}
+.gm-style-iw div {
+&nbsp;&nbsp;&nbsp;&nbsp;overflow: hidden ! important;
+}
+</pre></li>
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php, google-maps-places.php, google-maps-earth-multi-v3.php<br>
+		・abook/maps-abook-v3.php<br>
+		・diary/maps-diary.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.7.00&nbsp;&nbsp;(2014/08/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Ver.1.00リリースから約7年目ということで、Ver.7.00としました。</li>
+	<li>ツール「Google Maps API V3版」で、検索結果やマウスクリックで作成されるマーカーに地点名を表示するようにしました。ルート表示をして印刷した時に分かりやすいようにするためです。マーカーの地点名をクリックすると、表示地点名を変更できます。
+<br><img src="images/map-route1.jpg" style="margin:2px 20px;border: 1px solid #444;width:400px;">
+<br><img src="images/map-route2.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「Google Maps API V3版」のルート表示で、ルート全体の所要時間と距離を表示できるようにしました。ポイント間の時間と距離の簡潔な表示も追加しました。
+<br><img src="images/map-route3.jpg" style="margin:2px 20px;border: 1px solid #444;width:500px;"></li>
+	<li>ツール「Google Maps API V3版」のルート表示で、車の場合、有料道路の有無を選択できるようにしました。
+<br><img src="images/map-route4.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「Google Maps API V3版」のルート表示で、ルートをドラッグして変更できるようにしました。</li>
+	<li>ツール「Google Maps API V3版」で、ルート表示時は、検索結果やマウスクリックで作成されたマーカーを一旦非表示とするにしました。ルート表示のポイント・マーカーが隠れないようにするためです。</li>
+	<li>ツール「Google Maps API V3版」で、「クリア」ボタンを廃止し、検索文字入力テキストボックスに、クリアボタン(×)が付くようにしました。</li>
+	<li>ok2nd.jsのzen2han()で、全角「ー」を半角「-」に変換しないように仕様変更。</li>
+	<li>「INDEX」の「ブログ」ボタンを廃止。</li>
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php<br>
+		・scripts/ok2nd.js<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.15&nbsp;&nbsp;(2014/08/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>ツール「Google Maps API V3版」のルート表示のルートナビを閉じることが出来るようにしました。
+<img src="images/map-navi-on.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>
+<img src="images/map-navi-off.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.14&nbsp;&nbsp;(2014/07/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「INDEX」検索文字入力テキストボックスに、クリアボタン(×)を付けました。jQueryプラグインaddclearを使っています。
+<pre class="command" style="font-size: 11px;">
+$(function(){
+	$('#search_str').addClear();
+});
+</pre>
+<img src="images/index-addclear.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「INDEX」の検索ボタン「価格(G)」「楽天」「Twitter」を、サイトURL変更に合わせてスクリプト修正。</li>
+	<li>「週間天気予報」の台風画像が、tenki.jpの画像URL変更により表示されなくなったのを修正。</li>
+
+	<li>おもな変更モジュール<br>
+		・index/_add_header-index.php, tenki.php, __define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	<li>追加モジュール<br>
+		・scripts/addclear.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.13&nbsp;&nbsp;(2014/06/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「GPSログ View」の修正画面で、GPXファイル差し替えた場合、名前と補足説明をGPXファイルのデータで置き換えていた仕様を変更。修正画面の名前と補足説明が有効になります。</li>
+	<li>tenki.jpのtenki RSSサービスが終了してしまったので、「週間天気予報」の週間天気を<a href="http://weather.livedoor.com/weather_hacks/rss_feed_list" target="_blank">livedoor天気情報(Weather Hacks)</a>のRSS利用に変更しました。</li><br>
+<img src="images/tenki-shukan.jpg" style="margin:2px 20px;border: 1px solid #444;">
+	<li>おもな変更モジュール<br>
+		・gpslog/edit.php, view.php<br>
+		・index/tenki.php, tenki-ajax.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.12&nbsp;&nbsp;(2014/05/13)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「メモ」等の添付ファイルのダウンロードで、ファイル名の頭のID番号を付けないように変更しました。aタグのdownload属性(download="ファイル名")を使っていますので、HTML5対応ブラウザでしか機能しません。</li>
+	<li>「INDEX」検索ボタンの「ニュース」検索を、http://news.google.co.jpからhttp://www.google.com/search?tbm=nwsに変更。</li>
+	<li>「INDEX」検索ボタンの「ブック」を「書籍」に変更。</li>
+	<li>「INDEX」検索ボタンの「百科Yahoo」を廃止。「Yahoo!百科事典」がサービス終了になったので。</li>
+	<li>「INDEX」検索ボタンの「天気」をtenki.jpから、Yahooに変更。</li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.11&nbsp;&nbsp;(2014/04/10)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「Google Maps API V3版」の「探す」結果マーカー位置を少し修正。</li>
+	<li>「Google Maps API V3版」のレストラン等の場所検索で、レストラン名等に&が含まれているとマーカーが黒くなってしまう不具合を修正。</li>
+	<li>トップページ「INDEX」用のブログパーツ「はてな人気」(rss-hatena-hotentry.inc)のタイムスタンプが正しく表示されるように修正。</li>
+	<li>「INDEX」で、URLの登録がない場合は、サムネイル・キャプチャを非表示に修正。</li>
+	<li>「INDEX」のサンプルデータを全面変更。『2nd INDEX』と同じにしました。<br>
+	<a href="http://ok2nd.me/index/" target="_blank" style="margin-left:50px;">『2nd INDEX』：http://ok2nd.me/index/</a></li>
+	<li>「住所録」日本百選データの夜景100選「池田山」が北海道になっていたのを、岐阜県に修正。夜景100選に、北海道の測量山を追加。</li>
+	<li>おもな変更モジュール<br>
+		・index/_include-list-data.php, list-my-template-thumbnail.php<br>
+		・tools/google-maps-earth-v3.php<br>
+		・blog-parts/rss-hatena-hotentry.inc<br>
+		・blog-parts/z_db_backup/_db_index.bk.txt, _db_abook.bk.txt<br>
+		・実運用サンプル/日本百選.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.10&nbsp;&nbsp;(2014/03/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「Google Maps API V3版」の世界遺産、日本百選、日本百名山、日本桜名木、日本鉄道駅検索結果を、別ページでなく、同じページ内に表示するように、仕様変更。</li>
+	<li>「Google Maps API V3版」と「住所録のマップ(V3)」で、マーカーをクリックすると、そのマーカーが一番上に表示されるようにしました。</li>
+	<li>「Google Maps API V3版」のオートコンプリート機能を、Google Suggest APIを使った予測変換(単語補完)機能に変更。</li>
+	<li>ツール「HTML TABLE to CSV」を追加。URLを指定して、HTMLテーブルデータをCSVに変換してダウンロードします。<br>
+	  以下のサイトのソースコードを使わせていただきました。<br>
+<a href="http://pentan.info/php/sample/table_tag2csv.html" target="_blank" style="margin-left:50px;">http://pentan.info/php/sample/table_tag2csv.html</a><br>
+<img src="images/html-table-to-csv.jpg" style="margin:2px 20px;border: 1px solid #444;">
+	</li>
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php<br>
+		・abook/maps-abook-v3.php</li>
+	<li>追加モジュール<br>
+		・tools/google-maps-places.php<br>
+		・tools/html-table-to-csv.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.09&nbsp;&nbsp;(2014/02/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「サンプルDB自動セットアップツール」とツール「実運用環境バックアップ」を、
+	  データベースサーバーがlocalhostでない場合に対応させました。
+	  定義ファイルの「_DB_SERVER」で指定されているデータベースサーバーに対して実行します。</li>
+	<li>「住所録」と「預貯金管理」で、一覧表の行にマウスが乗ったときに行をハイライトするようにしました。</li>
+	<li>「カレンダー」の「天気出現地図」の天気マーク判定ロジックを変更。</li>
+	<li>一覧形式のページで、ページ指定が最終ページを超えた場合、エラーとならず、先頭のページが表示される不具合を修正。</li>
+	<li>「INDEX」一覧で、ホームページのキャプチャ画像作成に使用するサービス・サイトを実運用定義ファイルで変更できるようにしました。<br>
+<pre class="command" style="font-size: 11px;">
+define("index_CAPTURE_CREATE_SITE", 'http://capture.heartrails.com/130x130/cool?');
+</pre>
+デフォルトで使用するサービス・サイトをHeartRails Captureに変更しました。<br>
+<a href="http://img.simpleapi.net/" target="_blank" style="margin-left:50px;">http://img.simpleapi.net/</a><br>
+<span style="margin-left:100px;">↓↓↓</span><br>
+<a href="http://capture.heartrails.com/" target="_blank" style="margin-left:50px;">http://capture.heartrails.com/</a></li>
+	<li>ツール「Google Maps API V3版」のPlacesライブラリを使ったスポット検索を改善しました。<br>
+	  以下のページを参考にさせていただきました。<br>
+	<a href="http://phpjavascriptroom.com/?t=ajax&p=googlemapsapiv3_lib_places" target="_blank">http://phpjavascriptroom.com/?t=ajax&p=googlemapsapiv3_lib_places</a>
+<br><img src="images/map-places.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・setup-sample.php<br>
+		・db_tool/backup-mydb.php<br>
+		・calendar/__include-weather.php, year.php<br>
+		・abook/list-my-template***.php<br>
+		・tools/google-maps-earth-v3.php<br>
+		・index/list-url.php, list-my-template-thumbnail.php, _include-list-data.php<br>
+		・__common__/include-common-mp-list.php<br>
+		・style/original/abook.css, kakeibo.css</li>
+	<li>追加モジュール<br>
+		・db_tool/setup-database-sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.08&nbsp;&nbsp;(2014/01/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「学習」のポップアップ・ウインドウで、キーボード操作が出来るようにしました。<br>
+		・[Enter][Space]：解答/質問表示 & 次<br>
+		・[→]：次<br>
+		・[←]：前<br>
+		・[Tab]：Skip(10) Next<br>
+		・[Caps Lock]：Skip(10) Back<br>
+		・[Home]：先頭<br>
+		・[End]：最後<br>
+		・[R]：ランダム<br>
+		・[A]：Auto<br>
+		・[H]：メニュー On/off</li>
+	<li>「週間天気予報」に表示していたtenki.jpの「衛星画像」がブログサービス終了ということで表示されなくなってしまったので、weather.goo.ne.jpの「衛星画像」置き換えました。</li>
+	<li>「Google Maps API V3版」の地名検索欄に、オートコンプリート機能を付けました。</li>
+	<li>「アルバム」のギャラリで、Chromeで動作していなかったギャラリ1、ギャラリ2を廃止しました。</li>
+	<li>「アルバム」に「Fotorama」を使ったギャラリを追加して「ギャラリ1」としました。<br>
+	<a href="http://fotorama.io/" target="_blank">http://fotorama.io/</a>
+<br><img src="images/00000254-gallery1n.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「アルバム」に「jQuery CollagePlus」を使ったギャラリを追加して「ギャラリ2」としました。<br>
+	<a href="http://collageplus.edlea.com/" target="_blank">http://collageplus.edlea.com/</a>
+<br><img src="images/00000254-gallery2n.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・study/popup.php<br>
+		・index/tenki.php<br>
+		・tools/google-maps-earth-v3.php</li>
+	<li>追加モジュール<br>
+		・scripts/ubilabs-geocomplete/*<br>
+		・photo/gallery1.php, gallery2.php (新)<br>
+		・photo/fotorama/*<br>
+		・photo/jquery-collagePlus/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.07&nbsp;&nbsp;(2013/12/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「世界地図（国旗付き）」を追加。以下のページを、利用させてもらいました。<br>
+<a href="http://xml-xsl.sakura.ne.jp/google_maps17/google_maps17.htm" target="_blank">http://xml-xsl.sakura.ne.jp/google_maps17/google_maps17.htm</a>
+<br><img src="images/world_map.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「住所録」が世界遺産モードの場合、「世界地図」を追加。「世界地図」の国選択から、その国の世界遺産一覧を表示できます。</li>
+	<li>「カレンダー」の一覧表示の日付クリックで、月間カレンダー表示に切り替わるように、仕様変更。</li>
+	<li>「カレンダー」の一覧表示で、カテゴリの背景色を反映するように、仕様変更。</li>
+	<li>サンプルDBセットアップのソースコードを一部修正。</li>
+	<li>NAVER検索サービスが2013年12月18日でサービス終了するので、トップページの「NAVER」検索ボタンを廃止。</li>
+	<li>トップページに、NAVERまとめ検索ボタン「まとめ」を追加。</li>
+	<li>おもな変更モジュール<br>
+		・abook/list-my-add-filter.php<br>
+		・calendar/list-my-template.php<br>
+		・setup-sample.php<br>
+		・index/__define_index_search.php</li>
+	<li>追加モジュール<br>
+		・abook/world-map.php<br>
+		・tools/world-map/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.06&nbsp;&nbsp;(2013/11/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「INDEX」トップページのカレンダースケジュール欄をAjax対応にしました。詳細ボタンのOn/Offでページ遷移しません。</li>
+	<li>「INDEX」トップページの「辞書Yahoo」「料理(キ)」検索ボタンがサイト側の仕様変更で機能しなくなっていたのを修正。</li>
+	<li>「住所録」の「一括修正/追加/削除」で、メモ欄が、valueconvertor.jsでASCII変換されるようになっていました。例えば、「ー」が「-」に変換されてしまう状態でした。これを修正しました。</li>
+	<li>「住所録」世界遺産データのRef.1380:Sangha Trinationalの国名の「カメルーン共和国」が、「カメル-ン共和国」になっていたのを修正しました。</li>
+	<li>「住所録」一覧の分類が世界遺産の場合、新規登録/修正画面を世界遺産専用の画面としました。</li>
+	<li>「付箋」で編集ボタンを押すとフリーズする不具合を修正しました。Ver.6.01で、jquery-ui.min.jsのバージョンを上げたのが原因でした。</li>
+	<li>ツールに「HTML テキストを自分のCSSで読む」を追加。ホームページの文章を自分が読みやすいスタイルシートで読みます。
+	  余分なHTMLタグは除きます。&lt;img&gt;、&lt;object&gt;タグなどの表示/非表示の選択が出来ます。
+	  実運用定義ファイルで、使うcssファイルを変更できます。
+<pre class="command" style="font-size: 11px;">
+define('HTML_MY_CSS_STYLE_SHEET', '../style/tools/html-my-css.css');
+</pre></li>
+	<li>「RSS」で、MagpieRSSを使わずに、simplexml_load_file()を使う方式を選択できるようにしました。
+	  実運用定義ファイルで、以下を設定すると、simplexml_load_file()を使います。この場合、キャッシュしません。
+<pre class="command" style="font-size: 11px;">
+define("RSS_SIMPLEXML_LOAD_USE", "YES");
+</pre></li>
+	<li>アカウント名、パスワードの最小文字数を5から3に変更。</li>
+	<li>アカウント名、パスワードの最小文字数の設定を実運用定義ファイルで設定できるようにしました。
+<pre class="command" style="font-size: 11px;">
+define("ACCOUNT_ID_NAME_MIN_LENGTH", 3);
+define("ACCOUNT_PASSWORD_MIN_LENGTH", 3);
+</pre></li>
+	<li>おもな変更モジュール<br>
+		・abook/list.php, input.php<br>
+		・tools/index.php, tategaki.php<br>
+		・index/index.php, __define_index_search.php<br>
+		・account/__define.php, __include-account-check.php, _add_newaccount_header.php<br>
+		・account/account-chk.php, newaccount.php, edit-mypass.php, edit-id-mgr-pass.php<br>
+		・rss/ajax-rss.php, ajax-rss-popup.php, __include-common-rss.php<br>
+		・scripts/jquery-ui.min.js (バージョン・ダウン)<br>
+		・__common__/include-common-all.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・index/ajax-calendar.php<br>
+		・tools/html-my-css.php<br>
+		・rss/__include-common-rss-simplexml.php<br>
+		・style/tools/html-my-css.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.05&nbsp;&nbsp;(2013/10/20)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「週間天気予報」で、台風が発生していない場合、直近の台風情報が表示され続けてしまう問題を修正。</li>
+	<li>テレビ番組表RSS(http://rey.rash.jp/junk/)が、機能していないようなので、サンプルのトップページから外しました。代わりに、fx-newsを表示するようにしました。</li>
+	<li>「住所録」の「世界遺産」で、世界遺産名のウムラウト付き文字等が?で文字化けしていたのを修正。</li>
+	<li>「住所録」の「世界遺産」に、2012～2013年に新たに登録された世界遺産を追加。</li>
+	<li>「住所録」の「世界遺産」で、２ヶ国以上にまたがる世界遺産は重複して登録していたのを、1行に変更。</li>
+	<li>「実運用サンプル」フォルダにCSVファイルとして「世界遺産_2013_UTF8.csv」を追加しました。<br>
+	  文字コードがShift-JISではなく、UTF-8になっていますので、注意してください。<br>
+	  テキストエディタTeraPadで表示・編集すると、ウムラウト付き文字等が?で文字化けします。<br>
+	  運用済みの実運用データベースの世界遺産データを差し替える場合は、次の手順で行ってください。<br>
+	  データを差し替えると、チェック項目のチェックデータ(サンプルでは制覇のデータ)が失われますので、ご注意ください。<br>
+		1.既存のデータベースから世界遺産データを削除する。<br>
+		  コマンドプロンプトで、以下を実行する。(rootのパスワードがkanri789の場合)<br>
+		  <span style="color:red;">注：id_categoryは実運用データベースの世界遺産の分類IDと同じものを指定してください。</span><br>
+		  事前にデータベースのバックアップをとることをお勧めします。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+delete from m_abook where <span style="color:red;">id_category = 4</span>;
+</pre>
+		2.ツール「MySQL管理ツール」で、データベース「_mydb_abook」：テーブル「m_abook」に、世界遺産_2013_UTF8.csvをアップロードしてください。<span style="color:red;">注：CSVファイルをアップロードする際は、id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</span>
+<pre class="command" style="font-size: 11px;">
+<span style="color:red;">"id_account","id_category"</span>,"c_address2","c_memo","c_name1","c_name2","c_address1","c_phone1"
+<span style="color:red;">10002,4</span>,"Ecuador","エクアドル共和国","ガラパゴス諸島","Galapagos Islands","-0.415375,-91.1355388888889","1"
+<span style="color:red;">10002,4</span>,"Ecuador","エクアドル共和国","キト市街","City of Quito","0.00388888888888888,-78.5","2"
+</pre></li>
+	<li>「住所録」のチェック有無フィルタがユーザー切り替えに対応しておらず、一覧で不具合が発生する問題を修正。</li>
+	<li>ツール「MySQL管理ツール」の「テーブル データ表示」に、id_accountとid_categoryの検索フィルタを追加しました。</li>
+	<li>ツール「MySQL管理ツール」の「CSVダウンロード」で、ダウンロードファイルの文字コードはUTF-8に仕様変更し、Shift-JIS変換はオプションとしました。
+<br><a href="images/mysql-table-list.jpg"><img src="images/mysql-table-list.jpg" style="width:400px;margin:2px 20px;border:1px solid #444;"></a></li>
+	<li>Ver.5.19でのCookieスコープ変更に漏れがあり、修正しました。<br>
+	  MyHome Portalを以前のバージョンから利用している場合、ブラウザのクッキーを一旦すべて削除してから利用願います。<br>
+	  クッキーを一旦削除しないと一部で不具合が発生します。例えば、週間天気予報で地点変更ができなくなります。<br>
+	  クッキーを一旦削除した場合、週間天気予報の表示地点は再度設定が必要です。</li>
+	<li>translate.google.comがX-Frame-Optionsで&lt;frame&gt;や&lt;iframe&gt;の中では使えないように設定されたため、「Google ホームページ対訳」が機能しなくなりました。「ツール」メニューから外しました。</li>
+	<li>おもな変更モジュール<br>
+		・index/tenki.php, tenki-set.php<br>
+		・tools/index.php<br>
+		・abook/list-my-template-sekaiisan.php, maps-abook-v3.php, list-my-add-filter.php<br>
+		・db_tool/mysql-table-list.php, csv-download.php, db_delete999.php<br>
+		・scripts/ok2nd.js<br>
+		・style/original/memo.css<br>
+		・__common__/__define_common.php</li>
+	<li>追加モジュール<br>
+		・blog-parts/fx-news.inc, himekuri.inc, rss-hatena-hotentry.inc<br>
+		・実運用サンプル/世界遺産_2013_UTF8.csv</li>
+	<li>削除モジュール<br>
+		・実運用サンプル/世界遺産_2011.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.04&nbsp;&nbsp;(2013/10/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「アルバム」のスライドモードのオプションに「ImageFilters」を追加。<br>
+	「ImageFilters.js」を使って、ブラウザ上で画像加工が出来ます。<br>
+	 加工した結果は、PNGまたはJPEGでダウンロードできます。IEでは正常動作しません。
+<a href="https://github.com/arahaya/ImageFilters.js" target="_blank">https://github.com/arahaya/ImageFilters.js</a>
+<br><img src="images/imagefilters1.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/imagefilters2.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「アルバム」のスライドモードのオプションに「さざ波」を追加。<br>
+	画像の上にマウスを重ねると、さざ波のような効果が出ます。「ImageFilters.js」を使っています。
+<br><span style="color:red;">※ ≪さざ波：サンプル≫下の画像の上にマウスを重ねて動かしてみてください。</span>
+<br><canvas id="c" style="margin:2px 20px;border: 1px solid #444;"></canvas>
+<script src="scripts/jquery-1.8.3.js"></script>
+<script src="scripts/imagefilters.js"></script>
+<script src="scripts/imagefilters-ripple.js"></script></li>
+	<li>「アルバム」のスライドモードのオプションに「CSSフィルタ」を追加。<br>フィルタ効果は、キーボードでページ移動しても引き継がれます。<br>
+	フィルタ加工した結果の保存はできません。Chrome(webkit系)のみ動作。<br>
+<a href="http://www.propra.nl/playground/css_filters/" target="_blank">http://www.propra.nl/playground/css_filters/</a>
+<br><img src="images/css_filters1.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/css_filters2.jpg" style="margin:2px 20px;border: 1px solid #444;">
+<br><img src="images/css_filters3.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・photo/ajax-photo-view.php</li>
+	<li>追加モジュール<br>
+		・photo/imagefilters.php, imagefilters-ripple.php, css_filters.php<br>
+		・photo/ImageFilters/*<br>
+		・photo/JavaScript-Canvas-to-Blob/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.03&nbsp;&nbsp;(2013/09/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>週間天気予報一覧機能を追加しました。<br>
+	  ページヘッダー右上の天気アイコンをクリックすると開きます。<br>
+	  tenki.jpの「tenki RSS」を使っています。<br>
+<a href="http://tenki.jp/webservice/rss/" target="_blank">http://tenki.jp/webservice/rss/</a><br>
+	  全国の任意の複数地点を一括して確認できます。表示地点の設定はブラウザのCookieに保存します。<br>
+	  表示順序はドラッグ＆ドロップで変更できます。表示地点を設定し直すと、表示順序はリセットされ北から順に並びます。
+<br><img src="images/00000296-tenki.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「CSV to スプレッドシート風表示」を追加。CSVファイルをアップロードして、スプレッドシート風に表示します。<br>
+	  表示のみです。編集機能はありません。ページングと並び替えができます。<br>
+	  「ParamQuery grid」を使っています。<br>
+<a href="http://paramquery.com/" target="_blank">http://paramquery.com/</a>
+<br><img src="images/spreadsheet.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「アルバム」のスライドモードに「雨降り」を追加。写真の上に窓ガラスに水滴が付くようなイメージを付けたします。IEでは機能しません。<br>
+	  キーボードで、1～3の数字キーを押すと、水滴のイメージが変わります。<br>
+	  キーボードの[↑]でガラスの透明度を上げます。[↓]でガラスの透明度を下げます。<br>
+	  rainyday.jsを使っています。<br>
+<a href="http://maroslaw.github.io/rainyday.js/" target="_blank">http://maroslaw.github.io/rainyday.js/</a><br>
+rainyday.jsは、colissのページで知りました。<br>
+<a href="http://coliss.com/articles/build-websites/operation/javascript/rainyday-js.html" target="_blank">http://coliss.com/articles/build-websites/operation/javascript/rainyday-js.html</a>
+<br><img src="images/rainyday.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「アルバム」の「全画面」スライドで、オートプレイ時間間隔変更が機能しない問題の不具合を修正。<br>
+	  Ver.5.19でCookieスコープを変更しましたが、その時の修正漏れが原因です。<br>
+	  以下を実行して、オートプレイ時間間隔のCookieを一旦削除してください。以下を実行後すぐに、一旦ブラウザを閉じてください。<br>
+<a href="http://localhost/_myhome/photo/cookie-clear.php" target="_blank">http://localhost/_myhome/photo/cookie-clear.php</a></li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・style/original/common.css<br>
+		・photo/ajax-photo-view.php, slide.php, __include-session-variable.php<br>
+		・scripts/ok2nd.js</li>
+	<li>追加モジュール<br>
+		・index/tenki.php, tenki-ajax.php, tenki-set.php<br>
+		・icon/weather_sun.png<br>
+		・spreadsheet/*<br>
+		・photo/rainyday.php<br>
+		・rainyday/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.02&nbsp;&nbsp;(2013/09/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「カレンダー」「旅行記」の月間カレンダーで、日付欄の空白部分をダブルクリックすることで、新規入力画面が開くようにしました。</li>
+	<li>「カレンダー」のスケジュール入力画面で、Webアイコンフォントを使えるようにしました。<br>
+	  Font AwesomeのWebアイコンフォントを使っています。<br>
+<a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">http://fortawesome.github.io/Font-Awesome/</a>
+<br><img src="images/00000165-150.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「カレンダー」スケジュール入力画面のWebアイコンフォント・ボタンは以下のファイルで定義しています。<br>
+	  ファイル名は実用定義ファイルで、FONT_ICON_CLASS_INCLUDEで指定していますので、例えば、_myhome_mysetディレクトリの下に置いて、自分の使いたい任意のアイコンを設定できます。
+<pre class="command" style="font-size: 11px;">
+≪__common__/__define_font-icon.php≫
+$font_icons = array();
+$font_icons[] = '&lt;ig class=icon-smile&gt;&lt;/ig&gt;';
+$font_icons[] = '&lt;ir class=icon-frown&gt;&lt;/ir&gt;';
+$font_icons[] = '&lt;ib class=icon-meh&gt;&lt;/ib&gt;';
+$font_icons[] = '&lt;ib class=icon-male&gt;&lt;/ib&gt;';
+$font_icons[] = '&lt;im class=icon-female&gt;&lt;/im&gt;';
+$font_icons[] = '◆';		// 改行
+</pre>
+タグで色を変えられます。
+<pre class="command" style="font-size: 11px;">
+&lt;style&gt;
+ii { padding: 0 1px; font-size: 16px; }
+ir { padding: 0 1px; font-size: 16px; color: red; }
+ig { padding: 0 1px; font-size: 16px; color: green; }
+・・・
+</pre>
+</li>
+	<li>ツール「Font Awesome Webアイコンフォント サンプル」追加。「カレンダー」で使えるWebアイコンフォントとclass名が確認できます。
+<br><img src="images/font-awesome.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「MySQL管理ツール」に、「CSVダウンロード」機能を追加。CSVファイルの文字コードはShift-JISにします。</li>
+	<li>「CSVダウンロード」では、auto_incrementの列を除いたダウンロードもできます。</li>
+	<li>ツール「MySQL管理ツール」に、「c_delete=999 完全削除」機能を追加。テーブル単位に削除フラグ付きデータを完全削除します。</li>
+	<li>ツール「MySQL管理ツール」のデータベース一覧、テーブル一覧で、プルダウンでデータベースやテーブルを切り替えられるようにしました。
+<br><img src="images/00000199-sql2.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・index/index.php, __html-my-header.php<br>
+		・calendar/month.php, week.php, _my_calendar.php, __html-my-header.php<br>
+		・calendar/input.php, input-include.php<br>
+		・db_tool/mysql-database.php, mysql-table-list.php<br>
+		・__common__/__define_common.php<br>
+		・style/original/calendar.css<br>
+		・_mobile/calendar/index.php</li>
+	<li>追加モジュール<br>
+		・db_tool/csv-download.php, db_delete999.php<br>
+		・__common__/__define_font-icon.php<br>
+		・tools/font-awesome.php<br>
+		・style/font-awesome/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.01&nbsp;&nbsp;(2013/09/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「RSS」で、表示順序の入れ替えをマウスのドラッグ＆ドロップで出来るようにしました。
+<br><img src="images/rss-num.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「ToDo」で、順番の入れ替えをドラッグ＆ドロップで出来るようにしました。
+<br><img src="images/todo-num.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「INDEX」ピックアップ編集で、順番の入れ替えをドラッグ＆ドロップで出来るようにしました。
+<br><img src="images/oftenuse-num.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「INDEX」ピックアップ編集で、背景色の選択肢を増やしました。前のバージョンで実運用中の場合は、実運用定義ファイルの"OFTENUSE_URL_BGCOLOR_index"をサンプルと同じにしてください。
+<br><img src="images/oftenuse-color.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・index/oftenuse.php, __define.php<br>
+		・rss/index.php, __include-common-rss.php<br>
+		・todo/index.php, read.php<br>
+		・style/original/index.css, calendar.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・index/oftenuse-renum.php<br>
+		・rss/rss-renum.php<br>
+		・todo/todo-renum.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.6.00&nbsp;&nbsp;(2013/08/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Ver.1.00リリースから、もうじき6年目ということで、Ver.6.00としました。</li>
+	<li>「メモ」の一覧画面に新規入力欄を表示するようにしました。非表示にすることも可能。
+<br><img src="images/memo-i.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「はてなキーワード自動リンク & Yahoo!キーフレーズ → Weblio」追加。文章を入れると、はてなキーワード自動リンクAPIを使って、キーワードを抽出し、キーワード部分をリンクにしたHTMLを生成します。リンク先をWeblioにしたHTMLもあわせて生成します。<br>
+<a href="http://developer.hatena.ne.jp/ja/documents/keyword/apis/autolink" target="_blank">http://developer.hatena.ne.jp/ja/documents/keyword/apis/autolink</a>
+	</li>
+	<li>ツール「はてなキーワード自動リンク & Yahoo!キーフレーズ → Weblio」では、Yahoo!キーフレーズ抽出APIを使って、キーフレーズ抽出も行います。
+<a href="http://developer.yahoo.co.jp/webapi/jlp/keyphrase/v1/extract.html" target="_blank">http://developer.yahoo.co.jp/webapi/jlp/keyphrase/v1/extract.html</a><br>
+	  Yahoo!キーフレーズ抽出を使う場合、Yahoo! JAPANでアプリケーションIDを取得し、実運用定義ファイルで設定してください。
+<pre class="command" style="font-size: 11px;">
+define("YAHOO_JAPAN_APPLICATION_ID_KEYPHRASE", "アプリケーションID");
+</pre>
+<img src="images/00000295-hatena-autolink.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>「RSS」の記事表示件数を、実運用定義ファイルの「RSS_ARTICLE_VIEW_CNT_rss」ではなく、カテゴリ単位に設定できるようにしました。
+<br><img src="images/rss-cate.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>データベース「_db_rss」/「_mydb_rss」のテーブル「m_rss」に列「c_article_cnt」を追加しました。<br>
+	  既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。<br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_rss;
+ALTER TABLE m_category ADD c_article_cnt int(10) unsigned NOT NULL default '5' AFTER c_categoryDisplayColor;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_rss < create_view_db_rss.txt
+</pre>
+《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_rss;
+ALTER TABLE m_category ADD c_article_cnt int(10) unsigned NOT NULL default '5' AFTER c_categoryDisplayColor;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_rss < create_view_mydb_rss.txt
+</pre>
+	</li>
+	<li>INDEXトップページ用「Yahoo!急上昇ワード」ブログパーツ「yahoo-ranking.inc」を追加。実運用定義ファイルで設定して、ご利用ください。
+<br><img src="images/yahoo-word.jpg" style="margin:2px 20px;border: 1px solid #444;"></li>
+	<li>ツール「ファイルマネージャー」で、Windows以外のLinux等の場合、ファイル・パーミッションも表示するようにしました。</li>
+	<li>配布パッケージから、「_mobile_HAWHAW」を削除。</li>
+	<li>おもな変更モジュール<br>
+		・memo/list.php, _contents-header.php, input.php<br>
+		・tools/file-manager-ajax.php<br>
+		・rss/__include-common-rss.php, ajax-rss.php, category.php<br>
+		・z_db_backup/create_view_db_rss.txt, create_view_mydb_rss.txt<br>
+		・scripts/ok2nd.js<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・tools/hatena-autolink.php<br>
+		・scripts/jquery-1.8.3.js<br>
+		・scripts/wikiUp/* (未使用)<br>
+		・blog-parts/yahoo-ranking.inc</li>
+	</div>
+
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download11.html">
+		<span style="font-size: 120%;">→→→　バージョン5.19以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

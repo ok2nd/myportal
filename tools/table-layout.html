@@ -1,0 +1,653 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="author" content="ok.2nd">
+<style type="text/css">
+<!--
+* {margin: 0px; padding: 0px; }
+form { margin: 0px; }
+img { border: 0px; }
+body {
+	background-color: #ffffff;
+	margin: 10px 20px 10px 20px;
+	text-align: left;
+}
+body {
+	font-size: 84%;
+	font-family: "ＭＳ Ｐゴシック",arial,helvetica,clean,sans-serif;
+}
+textarea,input,select {
+	font-family: "ＭＳ Ｐゴシック",arial,helvetica,clean,sans-serif;
+	line-height: 1.2;
+	*line-height: 1.0;
+	font-size: 100%;
+}
+input.button {
+	margin: 0px;
+	padding: 0 0 0 5px;
+	width: 9.3em;
+	text-align: left;
+}
+h1 { font-size: 140%; font-weight: bold; }
+h2 { font-size: 130%; font-weight: bold; }
+h3 { font-size: 120%; font-weight: bold; margin: 0 0 5px 0; }
+h4 { font-size: 110%; font-weight: bold; }
+td { text-align: left; vertical-align: top; }
+a { text-decoration: underline; font-weight: normal; }
+a:link { color: #0000ff; font-weight: normal; }
+a:visited { color: #0000ff; font-weight: normal; }
+a:hover { color: #ff0000; font-weight: normal; }
+a:active { color: #ff0000; font-weight: normal; }
+-->
+</style>
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript">
+<!--
+var pool_style = {
+//	変更したスタイルデータのプール領域
+//	JavaScriptでは通常変数では参照渡しができないので、連想配列(オブジェクト)を使用。
+
+	bgColorTABLE: "#A0A0A0",
+	bgColorTH: "#00C0C0",
+	bgColorTD: "#E8F8FF",
+	fontColorTH: "#FFFFFF",
+	fontColorTD: "#000000",
+	borderColorTABLE: "#A0A0A0",
+	borderColorTH: "#A0A0A0",
+	borderColorTD: "#A0A0A0",
+	borderWidthTABLE: "1px",
+	borderWidthTH: "1px",
+	borderWidthTD: "1px"
+};
+function color_Change_THTD_Border(chgColorInput) {
+	colorNew = document.getElementById(chgColorInput).value;
+	if (colorNew != "") {
+		$('#'+chgColorInput+'_icon').css('color', colorNew);
+		css_Change_Do('borderColorTH', 'th', 'border-color', colorNew);
+		css_Change_Do('borderColorTD', 'td', 'border-color', colorNew);
+	}
+}
+function color_Change_BG_ALL(chgColorInput) {
+	colorNew = document.getElementById(chgColorInput).value;
+	if (colorNew != "") {
+		document.getElementById('borderColorTABLE').value = colorNew;
+		document.getElementById('borderColorTHTD').value = colorNew;
+		color_Change('bgColorTABLE', 'table', 'background-color');
+		color_Change('borderColorTABLE', 'table', 'border-color');
+		color_Change_THTD_Border('borderColorTHTD');
+	}
+}
+function color_Change(chgColorInput, targetHTML, targetCSS) {
+	colorNew = document.getElementById(chgColorInput).value;
+	if (colorNew != "") {
+		$('#'+chgColorInput+'_icon').css('color', colorNew);
+		css_Change_Do(chgColorInput, targetHTML, targetCSS, colorNew);
+	}
+}
+function borderWidthTABLE_Change(px) {
+	css_Change_Do('borderWidthTABLE', 'table', 'border-width', px);
+}
+function borderWidthTHTD_Change(px) {
+	css_Change_Do('borderWidthTH', 'th', 'border-width', px);
+	css_Change_Do('borderWidthTD', 'td', 'border-width', px);
+	for (ix=0; ix<=2; ix++) {
+		for (jx=3; jx<=4; jx++) {						// th td border-width: (n)px 0 0 0;
+			$('tr.tr'+jx+ix+' th').css('border-left-width', 0);
+			$('tr.tr'+jx+ix+' th').css('border-right-width', 0);
+			$('tr.tr'+jx+ix+' th').css('border-bottom-width', 0);
+			$('tr.tr'+jx+ix+' td').css('border-left-width', 0);
+			$('tr.tr'+jx+ix+' td').css('border-right-width', 0);
+			$('tr.tr'+jx+ix+' td').css('border-bottom-width', 0);
+		}
+	}
+}
+function css_Change_Do(PoolVarName, targetHTML, targetCSS, newValue) {
+	$(targetHTML+'.my').css(targetCSS, newValue);
+	if (targetCSS == 'background-color') {
+		for (ix=1; ix<=tableCnt; ix++) {
+			$(targetHTML+'#table'+ix+'2').css(targetCSS, '#FFFFFF');	// background-color: #FFFFFF 固定
+		}
+	}
+	htmlView_Replace('#'+targetHTML+'View', targetCSS+': '+pool_style[PoolVarName], targetCSS+': '+newValue);
+	pool_style[PoolVarName] = newValue;
+}
+function htmlView_Replace(idName, nowStr, newStr) {
+	for (ix=1; ix<=tableCnt; ix++) {
+		$(idName+ix+"0").html($(idName+ix+"0").html().replace(nowStr, newStr));
+		$(idName+ix+"1").html($(idName+ix+"1").html().replace(nowStr, newStr));
+		$(idName+ix+"2").html($(idName+ix+"2").html().replace(nowStr, newStr));
+	}
+}
+-->
+</script>
+<title>HTML テーブル CSSスタイル シミュレーション</title>
+</head>
+<body>
+<h1>HTML テーブル CSSスタイル シミュレーション</h1>
+<div>
+<form>
+	<input type="text" id="bgColorTABLE" name="bgColorTABLE" value="#A0A0A0" size="10">
+		<span id="bgColorTABLE_icon" style="color: #A0A0A0; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TABLE background"
+		onClick="color_Change('bgColorTABLE', 'table', 'background-color')">
+		<input type="button" class="button" value="TABLE background & TABLE,TH,TD border 一括" style=" width: 22em;"
+		onClick="color_Change_BG_ALL('bgColorTABLE')">
+<br>
+	<input type="text" id="borderColorTABLE" name="borderColorTABLE" value="#A0A0A0" size="10">
+		<span id="borderColorTABLE_icon" style="color: #A0A0A0; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TABLE border"
+		onClick="color_Change('borderColorTABLE', 'table', 'border-color')">
+	<select name="zoomsize" onChange="borderWidthTABLE_Change(this.options[this.selectedIndex].value);">
+			<option value="0px">0px</option>
+			<option value="1px" selected>1px</option>
+			<option value="2px">2px</option>
+			<option value="3px">3px</option>
+			<option value="4px">4px</option>
+			<option value="5px">5px</option>
+			</select>
+	<input type="text" id="borderColorTHTD" name="borderColorTHTD" value="#A0A0A0" size="10">
+		<span id="borderColorTHTD_icon" style="color: #A0A0A0; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TH TD border"
+		onClick="color_Change_THTD_Border('borderColorTHTD');">
+	<select name="zoomsize" onChange="borderWidthTHTD_Change(this.options[this.selectedIndex].value);">
+			<option value="0px">0px</option>
+			<option value="1px" selected>1px</option>
+			<option value="2px">2px</option>
+			<option value="3px">3px</option>
+			<option value="4px">4px</option>
+			<option value="5px">5px</option>
+			</select>
+<br>
+	<input type="text" id="bgColorTH" name="bgColorTH" value="#00C0C0" size="10">
+		<span id="bgColorTH_icon" style="color: #00C0C0; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TH background"
+		onClick="color_Change('bgColorTH', 'th', 'background-color')">
+	<input type="text" id="bgColorTD" name="bgColorTD" value="#E8F8FF" size="10">
+		<span id="bgColorTD_icon" style="color: #E8F8FF; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TD background"
+		onClick="color_Change('bgColorTD', 'td', 'background-color')">
+<br>
+	<input type="text" id="fontColorTH" name="fontColorTH" value="#FFFFFF" size="10">
+		<span id="fontColorTH_icon" style="color: #FFFFFF; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TH font"
+		onClick="color_Change('fontColorTH', 'th', 'color')">
+	<input type="text" id="fontColorTD" name="fontColorTD" value="#000000" size="10">
+		<span id="fontColorTD_icon" style="color: #000000; font-size: 120%;">■</span>
+		<input type="button" class="button" value="TD font"
+		onClick="color_Change('fontColorTD', 'td', 'color')">
+	<span style="padding: 0 0 0 100px;"><a href="color-chart.html" target="_blank">↑カラーチャート</a></span>
+</form>
+</div>
+<table>
+	<tr>
+		<th colspan=2>cellspacing=0</th>
+		<th colspan=2>cellspacing=1</th>
+		<th colspan=2>cellspacing=1<br>table background-color: #ffffff 固定</th>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table10" cellspacing="0" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr10">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr10">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr10">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView10">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView10"> color: #FFFFFF;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView10"> color: #000000;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table11" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr11">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr11">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr11">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView11">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView11"> color: #FFFFFF;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView11"> color: #000000;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table12" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr12">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr12">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr12">
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView12">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView12"> color: #FFFFFF;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView12"> color: #000000;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table20" cellspacing="0" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr20">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr20">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr20">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView20">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView20"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView20"> color: #000000;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table21" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr21">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr21">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr21">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView21">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView21"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView21"> color: #000000;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table22" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr22">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr22">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr22">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView22">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView22"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView22"> color: #000000;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table30" cellspacing="0" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr30">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr30">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr30">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView30">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView30"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView30"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table31" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr31">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr31">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr31">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView31">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView31"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView31"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table32" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr32">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr32">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr32">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView32">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView32"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView32"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table40" cellspacing="0" style="border-collapse: collapse; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr40">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr40">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr40">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView40">border-collapse: collapse;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView40"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView40"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table41" cellspacing="1" style="border-collapse: collapse; border-style: none; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr41">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr41">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr41">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView41">border-collapse: collapse;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView41"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView41"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table42" cellspacing="1" style="border-collapse: collapse; border-style: none; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr42">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr42">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr42">
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: solid; border-width: 1px 0 0 0; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView42">border-collapse: collapse;<br> border-style: none;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView42"> color: #FFFFFF;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView42"> color: #000000;<br> border-style: solid;<br> border-width: 1px 0 0 0;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table50" cellspacing="0" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr50">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr50">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr50">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView50">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView50"> color: #FFFFFF;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView50"> color: #000000;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table51" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr51">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr51">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr51">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView51">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView51"> color: #FFFFFF;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView51"> color: #000000;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table52" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr52">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr52">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr52">
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: inset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView52">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView52"> color: #FFFFFF;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView52"> color: #000000;<br> border-style: inset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+	<tr>
+	<td>
+		<table class="my" id="table60" cellspacing="0" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr60">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr60">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr60">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=0</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView60">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView60"> color: #FFFFFF;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView60"> color: #000000;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table61" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; background-color: #A0A0A0;">
+		<tr class="tr61">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr61">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr61">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView61">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #A0A0A0;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView61"> color: #FFFFFF;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView61"> color: #000000;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	<td>
+		<table class="my" id="table62" cellspacing="1" style="border-collapse: separate; border-style: solid; border-width: 1px; border-color: #A0A0A0; BACKGROUND-COLOR: #FFFFFF;">
+		<tr class="tr62">
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+			<th nowrap class="my" style=" color: #FFFFFF; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #00C0C0; padding: 2px;">見出し</th>
+		</tr>
+		<tr class="tr62">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		<tr class="tr62">
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+			<td nowrap class="my" style=" color: #000000; border-style: outset; border-width: 1px; border-color: #A0A0A0; background-color: #E8F8FF; padding: 2px;">データ</td>
+		</tr>
+		</table>
+	</td>
+	<td class="description" nowrap>
+		<table>
+			<tr><td>&lt;table&gt;</td><td>cellspacing=1</td><tr>
+			<tr><td>&lt;table&gt;</td><td id="tableView62">border-collapse: separate;<br> border-style: solid;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> BACKGROUND-COLOR: #FFFFFF;<br></td><tr>
+			<tr><td>&lt;th&gt;</td><td id="thView62"> color: #FFFFFF;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #00C0C0;<br> padding: 2px;<br></td><tr>
+			<tr><td>&lt;td&gt;</td><td id="tdView62"> color: #000000;<br> border-style: outset;<br> border-width: 1px;<br> border-color: #A0A0A0;<br> background-color: #E8F8FF;<br> padding: 2px;<br></td><tr>
+		</table>
+	</td>
+	</tr>
+</table>
+<script type="text/javascript">
+<!--
+var tableCnt = 6;
+-->
+</script>
+<div id="footer">
+<a href="http://ok2nd.web.fc2.com/" target="_blank" style="color:#8080ff;">Powered by ok.2nd</a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

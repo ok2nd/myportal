@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<title>ホームページのモノトーン表示</title>
+<style type="text/css">
+<!--
+* {margin: 0px; padding: 0px; }
+form { margin: 0px; }
+img { border: 0px; }
+body {
+	background-color: #ffffff;
+	margin: 5px;
+	padding: 0px;
+	text-align: left;
+	filter: Gray();
+}
+body { font-size: 84%; color: #101020; }
+body,td,a,p,.h {font-family:arial,sans-serif; }
+-->
+</style>
+<script type="text/javascript">
+<!--
+function urlChange(size) {
+	parent.monoframe.location.href = document.all.url.value;
+}
+//-->
+</script>
+</head>
+<body style="margin:0px;" bgcolor="#e0e0e0">
+<form name="form0">
+URL：<input type="text" name="url" size="80" value="">
+<input input type="button" value="表示" onclick="urlChange()">
+</font>
+</form>
+<iframe name="monoframe" src="" width="100%" height="1000px" frameborder="0"></iframe>
+<br/>
+<div>
+<a href="http://ok2nd.web.fc2.com/" target="_blank" style="color:#8080ff;">Powered by ok.2nd</a>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

@@ -1,0 +1,594 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン1.25以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download2.html">1.26以降の履歴に戻る</a>
+		</p>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.25&nbsp;&nbsp;(2008/12/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップページのインターネット検索ボタンに「Yahoo!百科事典」を追加。</li>
+	<li>カレンダースケジュール入力画面の日付のポップアップ入力で使用しているYUIのJavaScriptとCSSを、Yahooサイトでなくサーバーローカルからロードする方式に変更。</li>
+	<li>変更モジュール<br>
+		・photo/index.php<br>
+		・calendar/_add_input_header.php<br>
+		・scripts/YahhoCal.js</li>
+	<li>追加モジュール<br>
+		・scripts/yui 以下一式 (YUI Library: version 2.6.0から一部を抜粋)</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.24&nbsp;&nbsp;(2008/11/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムで、画像データをimagecopyresampled()でリサイズしていたが、非常に時間がかかるのでリサイズ処理を行わない方法に変更。</li>
+	<li>変更モジュール<br>
+		・photo/index.php</li>
+	<li>追加モジュール<br>
+		・photo/img-view.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.23&nbsp;&nbsp;(2008/11/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「ツール」に「HTML テーブル CSSスタイル シミュレーション」を追加。<br>
+	  使いそうなテーブルレイアウト複数パターンのbackground-colorやborder-widthなどを一括変更してレイアウトイメージを確認できます。<br>
+	  JavaScript＋jQueryを使っています。</li>
+	<li><font color=red>※ 拡張子をhtmlにして、ホームページの<a href="tools.html">ツール</a>にも置きました。</font></li>
+	<li>変更モジュール<br>
+		・tools/index.php<br>
+		・scripts/jquery.js (photo/scriptsから移動。バージョンを1.2.6に。)<br>
+		・photo/index.php (jquery.jsのディレクトリ移動に伴う修正。)</li>
+	<li>追加モジュール<br>
+		・tools/table-layout.php<br>
+		<img src="images/123-1.jpg"><br>
+		<img src="images/123-2.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.22&nbsp;&nbsp;(2008/11/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>入力フォームの件名未入力チェックをJavaScriptで行い警告ダイアログを表示するようにしました。<br>
+	  (修正コンテンツ：カレンダー、メモ、ID管理、利用ガイド)</li>
+	<li>変更モジュール<br>
+		・calendar/input.php<br>
+		・memo/input.php<br>
+		・id-manager/input.php<br>
+		・guide/input.php<br></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.21&nbsp;&nbsp;(2008/11/15)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>一覧形式ページでurl引数にdebug=yを付けるとSQL文を表示するようにしているが、そのSQLを少しだけ整形して表示するようにした。</li>
+<li>合わせて、このデバッグ用SQL表示のロジック変更をした。<br>
+	  【修正前】<br>
+		include-common-mp-list.php内の、mp_list_sql_add_create、mp_list_sql_createで、$_SESSION['debug'] == "y"の時にerror_msgでSQLを表示していた。<br>
+	  【修正後】<br>
+		error_msgの代わりに、整形表示用sql_printを作成。<br>
+		include-common-all.php内に、my_mysql_query_debug_printという関数を新たに作成し、mp_list_view、mp_list_editで、my_mysql_queryの代わりにこれをコールするようにした。<br>
+		定義ファイルの_DEBUG_ERROR_MSGが"YES"の時のみ、この機能が有効なように仕様変更。<br>
+<pre>
+	function my_mysql_query_debug_print($sql, $err_msg="", $con_link=NULL, $html=False) {
+		if (_DEBUG_ERROR_MSG == "YES" and $_SESSION['debug'] == "y") {
+			sql_print ($sql);
+		}
+		return my_mysql_query($sql, $err_msg, $con_link, $html);
+	}
+</pre></li>
+<li>デバッグモードをOFFにする場合は、url引数にdebug=nを付けてください。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-common-mp-list.php<br>
+		・index/top.php(debugプリント機能を削除)<br>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.20&nbsp;&nbsp;(2008/11/13)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+		<li>「ID管理」表示ページのID、パスワード表示欄のレイアウトを少しだけ修正。<br>
+	  項目名と値表示ボックスの上下位置がアンバランスだったのを補正。<br>
+	  Google Chromeでは改行されて2段表示になってしまっていた問題を解消。</li>
+		<li>ReadMe-original.txt.phpに、「初期アカウント登録」と「サンプルデータ削除方法」を追加。
+<pre>
+【初期アカウント登録方法】
+	サンプルデータを利用して一括修正する方法が簡単です。
+	1.サンプルデータの管理者アカウント「tarou」でログインします。
+	2.右上メニュー「ユーザ一覧」を開き、「一括修正/追加/削除」を開きます。
+	3.サンプルデータのアカウント、ハンドル、パスワードを利用環境のユーザに合わせて修正します。
+	  権限に「admin」と入れるとシステム管理者になります。
+
+【サンプルデータ削除方法】
+	サンプルデータを削除する方法です。
+	＜カレンダからサンプルのスケジュールデータを削除＞
+	mysql -u myhome -ppass123
+	use _db_calendar;
+	truncate table m_schedule;
+	exit;
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・id-manager/list-my-template.php<br>
+		・style/original/id-manager.css<br>
+				<img src="images/120.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.19&nbsp;&nbsp;(2008/11/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+<li>携帯電話(mobile端末)からのカレンダースケジュール表示機能を作成しました。<br>
+本人のスケジュール表示機能だけです。本文のHTML、アイコンは省いています。カテゴリアイコンと色は件名に反映させています。png画像の場合、正しく表示されない可能性があります。<br>
+開発には、携帯用アプリの開発ツールキットHAWHAWを利用しています。<br>
+<a href="http://www.d-meister.co.jp/HAWHAW/" target="_blank">http://www.d-meister.co.jp/HAWHAW/</a><br>
+テストはiモードHTMLシミュレータIIでのみ行っています。実機でのテストは行っていません。(iモードHTMLシミュレータIIではlocalhostは使えないようです。IPアドレスで指定してください。)<br>
+<a href="http://www.nttdocomo.co.jp/service/imode/make/content/download/index.html" target="_blank">http://www.nttdocomo.co.jp/service/imode/make/content/download/index.html</a><br>
+実用に耐えるかどうかは保障できません。 あくまで、携帯端末向けWebサイトのトライアルとして作成しました。<br>
+認証は、ログイン画面を表示する方式とurlで直接アカウントとパスワードを指定する方式をサポートしています。<br>
+http://localhost/_mobile/calendar/<br>
+http://localhost/_mobile/calendar/?ac=tarou&pw=demo</li>
+<li>携帯端末の場合、Cookieが使えないなどセッションまわりがPCブラウザと違うので、そのための工夫をしていますが、試行錯誤しましたので、間違いや余分のものがある可能性があります。<br>
+PHPソース内でのセッション開始では、以下のようにしています。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ini_set('session.use_trans_sid', '1');<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session_start();<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;session_regenerate_id(true);<br>
+.htaccessファイルを作成して以下のように記述しました。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;php_flag session.use_trans_sid On<br>
+header("Location: xxx.php")でページ遷移する場合、携帯端末ではセッションが引き継がれないことがあるので、下記のようにしてセッションIDを指定しています。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;header("Location: xxx.php?".SID);<br>
+以下のサイトを参考にしました。<br>
+<a href="http://www.phppro.jp/qa/1356" target="_blank">http://www.phppro.jp/qa/1356</a></li>
+	<li>_myhomeと並列のディレクトリ_mobileとして作成しました。
+	  ただし、_myhomeの定義ファイルや共有ライブラリに依存する構成にしています。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php(関数追加)<br>
+	<li>追加モジュール<br>
+		・/_mobile/index.php, .htaccess<br>
+		・/_mobile/__common__/__define_mobile.php, include-common-mobile.php<br>
+		・/_mobile/login/index.php<br>
+		・/_mobile/calendar/index.php, __define.php<br>
+		・/_mobile/lib/hawhaw.inc, hawxy.php<br>
+				<img src="images/119-11.jpg"><img src="images/119-12.jpg"><br>
+				<img src="images/119-21.jpg"><img src="images/119-22.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.18&nbsp;&nbsp;(2008/10/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>システム管理者「ログアウト/管理」に、「MyHome Portal ログイン履歴表示」を追加。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・__define_common_my_sample.php<br>
+		・account/logout.php, __define.php<br>
+		・style/original/account.css</li>
+	<li>追加モジュール<br>
+		・account/list-loginlog.php<br>
+				<img src="images/118.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.17&nbsp;&nbsp;(2008/10/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「ツール」にシステム管理者用ツールとして「MySQL データベース/テーブル一覧」を追加しました。<br>
+		データベースのテーブル/ビューのフィールド名、データタイプなどの一覧を表示します。<br>
+		<font color=red>ビューの場合、スキーマも合わせて表示します。少し見やすく整形しています。</font><br>
+		単独でも動作できるように、MyHome Portalの共有ライブラリに依存しない形で作成しました。</li>
+	<li>カレンダー、メモ入力画面がブラウザの文字サイズを大きくした時に崩れる問題を解消。(textareaと大小ボタンをdivで並べていたのをtableに変更。)</li>
+	<li>Ver.1.14でスタイル調整のため、inputタグにclass指定したのが原因で、検索キー有の時のbackground-colorが有効にならなくなっていた不具合を修正。</li>
+	<li>利用ガイドを、最新バージョンに合わせて少しだけ修正しました。</li>
+	<li>変更モジュール<br>
+		・tools/index.php<br>
+		・__common__/include-common-mp-list.php<br>
+		・calendar/input.php, _my_calendar.php, __html-my-header.php<br>
+		・memo/input.php<br>
+		・style/original/calendar.css, mp-list.css<br>
+		・z_db_backup/_db_guide.bk.txt</li>
+	<li>追加モジュール<br>
+		・tools/mysql-database.php, mysql-database-simple.php<br>
+				<img src="images/117.jpg"><br>
+				<img src="images/117-2.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.16&nbsp;&nbsp;(2008/10/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダースケジュール入力画面のアイコン挿入ボタンで挿入されるタグを「&lt;img src=」ではなく、ダミーの「&lt;icon」に変更し、ファイルのソースパスを省略。HTML表示時に「&lt;img src=」に戻して表示。<br>
+	  スケジュール入力欄(textarea)内をすっきりさせるためと、運用開始後にアイコンフォルダを移動(変更)しても支障が出ないようにするため。<br>
+	  ※ 既にMyHome Portalを運用開始済みの場合は、入力済みのスケジュールを以下の方法で変更することをお勧めします。<br>
+	     実行前には、データベースのバックアップをとってください。<br>
+	     MySQLのユーザー名、パスワードは環境に合わせて変更してください。<br>
+	■ サンプルデータベースの例 (Windowsの場合、DOSプロンプトから実行。)<br>
+	<pre class="pre">mysql -u myhome -ppass123
+use _db_calendar;
+update m_schedule set c_memo=REPLACE(c_memo,"&lt;img src=images/","&lt;icon ");
+exit;</pre>
+	■ 実運用データベースの例 (Windowsの場合、DOSプロンプトから実行。)<br>
+		    define("IMAGES_FOLDER_calendar", "../../_myhome_myset/_my_calendar_images")で、データベース名が_mydb_calendarの場合の例。<br>
+		    注：置換前の&lt;img srcのパスは、defineで定義しているパスの最後に必ず/をつけてください。<br>
+	<pre class="pre">mysql -u myhome -ppass123
+use _mydb_calendar;
+update m_schedule set c_memo=REPLACE(c_memo,"&lt;img src=../../_myhome_myset/_my_calendar_images/","&lt;icon ");
+exit;</pre></li>
+	<li>変更モジュール<br>
+		・calendar/input.php, list.php, list-my-template.php, _my_calendar.php<br>
+				<img src="images/116.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.15&nbsp;&nbsp;(2008/10/20)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダースケジュール入力画面で、アイコン挿入およびカラータグ挿入時にHTMLプレビューを自動更新するようにしました。</li>
+	<li>カレンダースケジュール修正画面で、HTMLプレビューを合わせて表示するようにしました。</li>
+	<li>変更モジュール<br>
+		・calendar/input.php</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.14&nbsp;&nbsp;(2008/10/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>textarea内の文字サイズ、種類をページ内全体と同じになるようにCSS(スタイルシート)の見直しをしました。</li>
+	<li>IE6、Firefox、Google Chromeの各ブラウザでFORM入力画面がなるべく同じになるようにしました。</li>
+	<li>上記CSSの変更に合わせて、FORM画面のtextareaのcolsなどを調整。</li>
+	<li>CSSの更新時にブラウザにキャッシュが残っているとスタイルが更新されない問題の対策。<br>
+	  以下のようにすることで、キャッシュを使わないようになります。<br>
+	  &lt;link rel="stylesheet" href="xxx.css" type="text/css"&gt;<br>
+	  &nbsp;&nbsp;&nbsp;&nbsp;	↓↓↓<br>
+	  &lt;link rel="stylesheet" href="xxx.css?20081017" type="text/css"&gt;</li>
+	<li>ユーザー登録画面でAjaxを使ったアカウント名、ハンドル名チェックのエラーメッセージがFirefoxでは表示されなかった問題を解消。<br>
+	  document.all.xxxxxxは、IE独自の仕様のため、document.getElementById('xxxxxx')に変更。</li>
+	<li>変更モジュール<br>
+		・style/common.css<br>
+		・account/_add_newaccount_header.php<br>
+		・FORM入力関係全て</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.13&nbsp;&nbsp;(2008/10/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダースケジュール入力画面に、スケジュール本文へのカラータグ挿入ボタン追加。<br>
+	  スケジュール本文の色を付けたい文字列を選択して、カラーボタンを押してください。<br>
+	  ボールド、イタリック、ストライクアウトボタンも付けました。<br>
+	  カラータグメニューの色は、calendar/__define_color_tag.phpで指定できます。</li>
+	<li>カレンダースケジュール入力画面に、スケジュール本文のHTMLプレビュー確認機能追加。<br>
+	  スケジュール入力画面右の●ボタンを押してください。</li>
+	<li>上記機能およびスケジュール本文へのアイコン挿入機能を、Firefox、Google Chromeでも動作するようにしました。<br>
+	  (Powered by <a href="http://painter.homeip.net/~raelian/tag/enclose.html" target="_blank">http://painter.homeip.net/~raelian/tag/enclose.html)</a></li>
+	<li>カレンダーの「一括修正/追加/削除」画面の列見出しを変更。(表題=>件名、メモ=>スケジュール本文)</li>
+	<li>実運用定義ファイル__define_common_my.phpサンプル追加。</li>
+	<li>変更モジュール<br>
+		・calendar/input.php, __define.php, list.php<br>
+		・__common__/__define_common.php</li>
+	<li>追加モジュール<br>
+		・calendar/__define_color_tag.php<br>
+		・scripts/textarea.js<br>
+		・__define_common_my_sample.php<br>
+				<img src="images/113.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.12&nbsp;&nbsp;(2008/10/10)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>「ツール」にシステム管理者用機能として「PHP/JavaScriptソースコード整形表示」を追加。<br>
+		・Powered by <a href="http://code.google.com/p/syntaxhighlighter/" target="_blank">http://code.google.com/p/syntaxhighlighter/</a><br>
+		・ツールメニューにはシステム管理者のみ表示するようにしていますが、syntax-highlight.php本体には、アクセス制限機能は付けていませんのでご注意ください。<br>
+		・dp.SyntaxHighlighterを使ってソースコード全体を整形表示します。<br>
+		・php、js、css、html、htm、txt、sqlの拡張子に合わせて整形表示します。ボタンで整形タイプを変更できます。<br>
+		・ファイルマネージャー的な機能も付けましたので、フォルダを移動して任意のソースを表示できます。<br>
+		・IE6では、ステップ数の多いソースを表示しようとすると、「このページのスクリプトが、Internet Explorerの実行速度を遅くしています。...」という警告が出ます。実際に遅いです。<br>
+		 Google Chromeでは高速に表示されます。<br>
+		・syntax-highlight.php＋JavaScriptのみで動作できるように、cssやphp共通関数を取り込んでいます。</li>
+	<li>上記ツールに検索機能を付加した「PHP/JavaScript整形表示＋検索付」も作ってみました。<br>
+		・winofsqlによる改造版SyntaxHighlighterを使用。<br>
+		  Powered by <a href="http://winofsql.jp/sh/html/syntax_highlighter.htm" target="_blank">http://winofsql.jp/sh/html/syntax_highlighter.htm</a><br>
+		・検索文字列をハイライト表示します。ただ、整形タイプ指定によってハイライト表示されない場合もあります。<br>
+		・フォルダ内ファイル名一覧でも、ファイル内のテキスト検索を行い、該当ファイル名をハイライト表示します。</li>
+	<li>コンテンツカテゴリの「ツール」と「ＩＤ管理」の位置を交換。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_contents.php, __define_common.php
+		・style/original/tools.css<br></li>
+	<li>追加モジュール<br>
+		・tools/syntax-highlight.php, syntax-highlight-search.php, __define.php<br>
+		・tools/scripts/dp.SyntaxHighlighter<br>
+		・tools/icon/* (フォルダ名をimagesから変更)<br>
+				<img src="images/112-1.jpg"><br>
+				<img src="images/112-2.jpg"><br>
+				<img src="images/112-3.jpg"><br></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.11&nbsp;&nbsp;(2008/10/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>あまり実用的でないかもしれないツールをいくつか追加。(IE6でしか動作確認できていません。)</li>
+	<li>「ツール」に「ホームページのモノトーン表示」を追加。(url引数指定版とform指定版を用意)</li>
+	<li>「ツール」に「ホームページの拡大縮小表示」を追加。(url引数指定版とform指定版を用意)</li>
+	<li><font color=red>※ 「ホームページのモノトーン表示」と「ホームページの拡大縮小表示」は純粋にJavascriptしか使っていませんので、拡張子htmlとして、単独でこのホームページの<a href="tools.html">ツール</a>にも置きました。</font></li>
+	<li>「ツール」に「テキスト縦書き表示」を追加。<br>
+		(注：サーバーローカルのテキストファイル全てを表示可能です。ツールメニューにはシステム管理者のみ表示するようにしていますが、実行ファイルにはプロテクト機能は付けていません。)</li>
+	<li>「ReadMe-original.txt」と「db_backup_restore.txt」が不用意にブラウザから見えてしまわないように拡張子phpを付けました。</li>
+	<li>カレンダーのサンプルデータの月を10月に変更。</li>
+	<li>変更モジュール<br>
+		・tools/index.php, __html-my-header.php<br>
+		・関数「up_folder_path,right_slash_strip」を
+		  photo/__include-common.phpから、__common__/include-common-all.phpに移動</li>
+	<li>追加モジュール<br>
+		・tools/monotone.php, monotone-page.php, zoom.php, zoom-page.php, tategaki.php<br>
+				<img src="images/111-1.jpg"><br>
+				<img src="images/111-2.jpg"><br></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.10&nbsp;&nbsp;(2008/10/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>コンテンツカテゴリとして「ツール」を追加。</li>
+	<li>「ツール」に「翻訳 by Google AJAX Language API」を追加。<br>
+		※ 日⇔英翻訳では、翻訳後、元の言語に再翻訳して翻訳の精度を確かめられるようにしました。<br>
+		※ 直接翻訳ができない場合は、英語経由で翻訳できるようにしました。<br>
+		<font color=red>※ 「翻訳 by Google AJAX Language API」は、純粋にJavascriptしか使っていませんので、<br>拡張子htmlとして、単独でこのホームページの<a href="tools.html">ツール</a>にも置きました。</font></li>
+	<li>「ツール」に「HTMLカラーチャート」をリンク。</li>
+	<li>変更モジュール<br>
+		・_common__/__define_contents.php<br>
+		・style/original/common.css</li>
+	<li>追加モジュール<br>
+		・tools/index.php, ajaxlang.php, __html-my-header.php<br>
+		・style/original/tools.css</li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.09&nbsp;&nbsp;(2008/09/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>カレンダーの月間表示に、詳細表示のチェックボックスを追加。スケジュール本文全てを表示します。</li>
+	<li>カレンダー入力画面でカテゴリが多いとページが横に広がってしまう問題点を修正。</li>
+	<li>変更モジュール<br>
+		・calendar/_my_calendar.php, month.php, input.php<br>
+		・style/original/calendar.css<br>
+					<img src="images/109.jpg"></li>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.08&nbsp;&nbsp;(2008/09/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページに、livedoor天気Webサービスによる天気を表示できるようにしました。</li>
+		<ul class="paragraph_s" type="square"><font color=red>
+		<li>IEの標準のセキュリティレベルで、自宅のPCからAjaxでインターネット上のWebサービスにアクセスすると<br>
+		「このページは、制御範囲外の情報にアクセスしています。セキュリティ上の問題がある可能性があります。」<br>
+		という警告が出てしまいます。FirefoxやGoogle Chromeでは、警告は出ませんが、天気予報が表示できません。</li>
+		<li>そこで、PHPのfile_get_contentsで、ネット上のホームページファイルを取得できることを利用して、<br>
+		直接Ajaxでインターネットにアクセスせず、サーバーサイドのphp(get_weather_livedoor.php)で、<br>
+		file_get_contentsでXMLを取得し、クライアントに返す方法を取っています。</li>
+		<li>これで、IEの警告画面が出なくなり、FirefoxとGoogle Chromeでも天気予報を表示できるようになりました。</li>
+		</font></ul>
+	<li>INDEXトップページのデザインを微調整。</li>
+	<li>スケジュール入力画面のアイコン挿入ボタンのデザインを変更。アイコンをそのままボタンにしました。</li>
+	<li>変更モジュール<br>
+		・_common__/__define_common.php<br>
+		・index/top.php, __define.php<br>
+		・calendar/input.php<br>
+		・style/original/index.css, calendar.css<br>
+		・scripts/prototype.jsをnot_useから格上げ(livedoor天気WebサービスAjaxで使用)</li>
+	<li>追加モジュール<br>
+		・index/__include-weather.php, __define_weather_city.php, get_weather_livedoor.php<br>
+				<img src="images/108-1.jpg"><br>
+				<img src="images/108-2.jpg"><br>
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.07&nbsp;&nbsp;(2008/09/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+
+	<li>INDEXトップページに、カレンダースケジュールを数日分(defineで指定)表示できるようにしました。</li>
+	<li>INDEXトップページのカレンダースケジュールから、直接スケジュール入力画面に入れます。</li>
+	<li>INDEXトップページの月カレンダーの表示月数をdefineで指定できるようにしました。</li>
+	<li>スケジュール入力画面のアイコン挿入ボタンの配置を変更。縦12個単位で横に広がるようにしました。</li>
+		<li>変更モジュール<br>
+		・_common__/__define_common.php, include-common-all.php<br>
+		・index/top.php, __define.php<br>
+		・calendar/input.php, _my_calendar.php<br>
+		・style/original/index.css, calendar.css<br>
+				<img src="images/107.jpg">
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.06&nbsp;&nbsp;(2008/09/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>カレンダーのスケジュール本文にhtmlタグを使えるようにしました。<br>
+		(define("TEXTAREA_HTML_USE", "YES")の場合)<br>
+		  ※注：<scriptだけは機能しないようにしていますが、それ以外は全て機能してしまいます。<br>
+			この機能はセキュリティ上、問題があります。家族など信頼できるユーザーだけで利用する以外は、<br>
+		&nbsp;&nbsp;&nbsp;&nbsp;define("TEXTAREA_HTML_USE", "NO")にして、このタグ機能を無効にすることをお勧めします。</li>
+		<li>スケジュール入力画面に、アイコン挿入ボタンを追加しました。(define("TEXTAREA_HTML_USE", "YES")の場合)<br>
+		  (ただし、FirefoxやGoogle Chromeでは、textareaのカーソル位置に関係なく最後に挿入されてしまいます。)</li>
+		<li>Firefoxで、スケジュール入力画面が正常に表示されない不具合を解消。</li>
+		<li>変更モジュール<br>
+		・_common__/__define_common.php, include-common-all.php<br>
+		・calendar/__define.php, input.php, _my_calendar.php, _add_input_header.php, list-my-template.php<br>
+		・style/original/calendar.css<br>
+				<img src="images/106.jpg">
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.05&nbsp;&nbsp;(2008/09/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>	・calendar/images：カレンダー用アイコン追加。<br>「1キロバイトの素材屋さん」に新幹線と飛行機のアイコンを作ってもらいました。他も含めて6個のアイコンを追加しました。<br>
+			<img src="105-icon/hikouki01.gif" border=0>&nbsp;
+			<img src="105-icon/shinkansen.gif" border=0>&nbsp;
+			<img src="105-icon/spoon01.gif" border=0>&nbsp;
+			<img src="105-icon/hospital.gif" border=0>&nbsp;
+			<img src="105-icon/post.gif" border=0>&nbsp;
+			<img src="105-icon/osake02.gif" border=0><br>
+	<a href="http://1kb-sozai.com/" target="_blank">http://1kb-sozai.com/</a><br>
+	<a href="http://www.fuchu.or.jp/~tenshi/1kb/sozai/blog.html" target="_blank">http://www.fuchu.or.jp/~tenshi/1kb/sozai/blog.html</a>
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.04&nbsp;&nbsp;(2008/09/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>style/original/common.css：CSSに以下を追加。<br>FirefoxやGoogle Chromeではレイアウトが崩れてしまう件の対策。<br>
+(サブヘッダーのメニューやユーザー切り替えの部分)<br> by ブログコメントANさん（ANさん、ありがとうございます。）
+			<pre class="pre">#page_contents に width: 100%; を追加。
+#contents_header:after {
+	content: "."; 
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}</pre>
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.03&nbsp;&nbsp;(2008/09/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>style/original/common.css：CSSに以下を追加。<br>FirefoxやGoogle Chromeではレイアウトが崩れてしまう件の対策。by ブログコメントANさん
+			<pre class="pre">#page_header:after {
+	content:".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+#page_navi {
+	float:left;
+}</pre>
+			</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.02&nbsp;&nbsp; (2008/09/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>acount/logout.php：実運用モード/サンプルモード切替判断で、define定数を参照せずに直接ファイルパスを記述していた問題を修正。</li>
+				<li>_common__/__define_common.php：define("_MY_DEFINE_COMMON".定義ファイルパスを都合により修正。</li>
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.01&nbsp;&nbsp;(2008/09/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+				<li>calendar/_my_calendar.php,style/original/calendar.css：カレンダーの月間表示で当月以外の日付のスケジュール表示と入力ができるようにしました。<br></li>
+				<img src="images/00000157-101.jpg">
+			</ul>
+	</div>
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.1.00&nbsp;&nbsp;(2008/09/16)</h3>
+			<ul class="memo_subject">
+				<li>現在わかっている問題点</li>
+			</ul>
+			<ul class="memo">
+				<li>ユーザー登録画面の簡易Ajaxによるアカウント名やハンドル名チェックが環境によって動作しない。</li>
+				<li>カレンダー入力画面でGoogle Calendar APIによる日付入力で、YahhoCal.loadYUIにアクセスできない環境では、入力画面の表示が待ちになってしまう。</li>
+				<li>アルバムで、画像データが大きいと画像表示に時間がかかる。</li>
+			</ul>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

@@ -1,0 +1,923 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン2.25以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download5.html">最新(2.26以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.25&nbsp;&nbsp;(2009/11/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>CSSで、<br>
+<pre class="command" style="font-size: 11px;">
+* {margin: 0px; padding: 0px; }
+</pre>
+とすると、Google Chromeだけtextareaの左端のカーソルが見えなくなってしまう問題の対策をしました。以下をCSSに追加しました。ただし、Firefox、Safariのtextareaの左端に隙間ができます。<br>
+<font color=red>Google Chromeだけに有効なCSSハックをご存知の方、教えてください。</font><br>
+<pre class="command" style="font-size: 11px;">
+textarea {
+	padding: 2px;
+	_padding: 0px;
+	/padding: 0px;
+}
+</pre>
+
+</li>
+	<li>入力画面のレイアウトの微調整。</li>
+	<li>textareaの横幅がブラウザによって違ってしまう問題の回避策として、colsをやめてwidthにしました。</li>
+	<li>変更モジュール<br>
+		・account/edit-myprofile.php, newaccount.php<br>
+		・calendar/input.php<br>
+		・chat/index.php<br>
+		・guide/input.php<br>
+		・id-manager/input.php<br>
+		・memo/input.php<br>
+		・tools/html-text-mail.php<br>
+		・style/original/common.css, tools_common.css, chat.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.24&nbsp;&nbsp;(2009/11/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録の都道府県フィルタで都道府県を選択した時に、分類がリセットされてしまう問題を修正。</li>
+	<li>変更モジュール<br>
+		・abook/list-my-template.php<br>
+		・__common__/include-common-mp-list.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.23&nbsp;&nbsp;(2009/11/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録で、日本地図で都道府県を選択すると、分類の選択がリセットされてしまう問題を修正。</li>
+	<li>RSSの配置を横4個固定でなく、ウインドウサイズに合わせて可変にしました。</li>
+	<li>RSSの画面表示で出力をバッファリングしないように「ob_implicit_flush();」を追加しました。</li>
+	<li>一覧形式のページのCSSの微調整。</li>
+	<li>ツールの「実運用環境バックアップ」で住所録DBのバックアップが漏れていたのを修正。</li>
+	<li>変更モジュール<br>
+		・abook/_contents-header.php, map-japan.php<br>
+		・abook/list-my-template.php, list-my-template-sekaiisan.php<br>
+		・rss/index.php, __define.php<br>
+		・db_tool/backup-mydb.php<br>
+		・style/original/mp-list.css, rss.css, abook.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.22&nbsp;&nbsp;(2009/11/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>サンプルデータDBの住所録の百名山データを太郎から共通に変更しました。</li>
+	<li>住所録のサンプルデータとして世界遺産を追加しました。<br>
+	分類フィルタで、世界遺産を選択すると世界遺産専用の一覧形式に変わります。国別、UNESCOのRef番号順に並び替えもできます。<br>
+世界遺産名をクリックすると、UNESCOの解説ページが開きます。「→日本語」をクリックすると、UNESCOの解説ページをGoogleで翻訳表示します。<br>
+「マップ」で、世界遺産をGoogleマップでマーカー表示することもできます。Google Earthモード表示もできます。<br>
+Googleマップのマーカーから、UNESCOの解説ページに飛ぶこともできます。</li>
+	<li>「実運用サンプル」フォルダに「世界遺産.csv」を追加しています。MySQL管理ツールのCSVアップロードで、実運用データベースへ追加できます。<font color=red>CSVアップロードする場合は、事前に分類を追加した上で、id_accountとid_categoryのデータ部分を置き換えてご利用ください。テーブル「m_abook」にアップロードしてください。</font></li>
+	<li>世界遺産のデータは、以下のページのものを使わせていただきました。<br>
+＜google maps による世界遺産めぐり：世界遺産の緯度と経度＞<br>
+<a href="http://www.geocities.jp/heritages001/heritages.html" target="_blank">http://www.geocities.jp/heritages001/heritages.html</a></li>
+
+	<li>世界遺産データを実運用データベースに登録した場合、世界遺産のカテゴリid_category番号を実運用定義ファイルで設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("SEKAI_ISAN_CATEGORY_ID", 4);
+</pre>
+	<img src="images/00000229-wh1.jpg"><br>
+	<img src="images/wh10.jpg"><br>
+	<img src="images/00000229-wh2.jpg"><br>
+	<img src="images/00000229-wh3.jpg"><br>
+	</li>
+	<li>
+	<font color=red>既に前のバージョンで実運用の場合は、以下の手順で、テーブル「m_abook」の列の桁数を大きくしてください。コマンドプロンプトから以下を実行してください。MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。世界遺産データをアップロードする前に実行してください。</font><br>
+	【サンプルDBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_abook;
+alter table m_abook modify c_name1 varchar(255) NOT NULL;
+alter table m_abook modify c_name2 varchar(255) NOT NULL;
+alter table m_abook modify c_yomi1 varchar(255) NOT NULL;
+alter table m_abook modify c_yomi2 varchar(255) NOT NULL;
+alter table m_abook modify c_renmei varchar(255) NOT NULL;
+alter table m_abook modify c_memo varchar(500) NOT NULL;
+exit;
+</pre>
+	【実運用DBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+alter table m_abook modify c_name1 varchar(255) NOT NULL;
+alter table m_abook modify c_name2 varchar(255) NOT NULL;
+alter table m_abook modify c_yomi1 varchar(255) NOT NULL;
+alter table m_abook modify c_yomi2 varchar(255) NOT NULL;
+alter table m_abook modify c_renmei varchar(255) NOT NULL;
+alter table m_abook modify c_memo varchar(500) NOT NULL;
+exit;
+</pre>
+	<li>変更モジュール<br>
+		・abook/多数<br>
+		・style/original/abook.css<br>
+		・__define_common_my_sample.php<br>
+		・実運用サンプル/日本百名山.csv</li>
+	<li>追加モジュール<br>
+		・実運用サンプル/世界遺産.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.21&nbsp;&nbsp;(2009/10/31)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録の住所欄を緯度、経度で入力した場合、マップ機能で1地点あたりのスリープが不要なのに、スリープするようになっていた問題を修正。</li>
+	<li>マップ機能で、地点数が多いとエラーになりやすいので、1地点あたりの取得タイム設定値「GETLATLNG_SLEEP_TIMEののデフォルト値を0.2秒に変更しました。<br>
+define("GETLATLNG_SLEEP_TIME", 200000); // 0.2秒</li>
+	<li>変更モジュール<br>
+		・abook/maps-abook.php<br>
+		・calendar/maps-include.php<br>
+		・tools/google-maps-earth-marker.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.20&nbsp;&nbsp;(2009/10/31)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録のマップ機能で、マーカーに氏名、住所、メモを表示するようにしました。</li>
+	<li>住所録のマップ機能で、住所欄に緯度、経度情報を入力した場合も表示できるようにしました。</li>
+	<li>住所録サンプルデータの日本百名山のデータを差し替えました。日本百名山の住所欄に緯度、経度情報を住所欄に入れています。これで、かなり正確な位置にマーカー表示できるようになりました。実運用アップロード用ファイル「日本百名山.csv」も差し替えました。<br>
+日本百名山の緯度、経度情報は、以下のページのものを使わせていただきました。<br>
+＜日本百名山一覧/深田順 NASA World Wind＞<br>
+<a href="http://www.occn.zaq.ne.jp/sohta/100list_N.htm" target="_blank">http://www.occn.zaq.ne.jp/sohta/100list_N.htm</a><br>
+	<img src="images/00000228-a1.jpg"><br>
+	<img src="images/m100.jpg"><br>
+	<img src="images/00000228-m1.jpg"><br>
+	<img src="images/00000228-m3.jpg"><br>
+	<img src="images/map5.jpg"><br>
+	</li>
+	<li>変更モジュール<br>
+		・abook/do-proc.php<br>
+		・実運用サンプル/日本百名山.csv</li>
+	<li>追加モジュール<br>
+		・abook/maps-abook.php, __html-my-header-maps-abook.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.19&nbsp;&nbsp;(2009/10/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>MySQL管理ツールのCSVインポート、Excelインポートで、サイズの大きなファイルをインポートした場合にエラーとならないように、メモリサイズ、実行時間の拡張を追加。
+<pre class="command" style="font-size: 11px;">
+ini_set("memory_limit", MEMORY_LIMIT_INI_SET);
+ini_set("max_execution_time", MAX_EXECUTION_TIME_INI_SET);
+</pre>
+実運用定義ファイルでメモリサイズ、実行時間の変更もできます。
+<pre class="command" style="font-size: 11px;">
+define("MEMORY_LIMIT_INI_SET", "128M");	
+define("MAX_EXECUTION_TIME_INI_SET", "240");
+</pre>
+	<li>INDEXの一覧表示でホームページのサムネイル表示が出来るようにしました。<br>
+	<img src="images/00000154-117.jpg"><br>
+	<img src="images/00000227-index-thumb.jpg"><br></li>
+	<li>住所録に、項目「都道府県」を追加。</li>
+	<li>住所録一覧に、「都道府県」フィルタを追加。</li>
+	<li>住所録一覧の表示順に、「都道府県順」を追加。</li>
+	<li>住所録に、「都道府県名セット」を追加。郵便番号から判断して都道府県名をセットします。
+	<img src="images/00000226-kemei.jpg"><br></li>
+	<li>住所録に、日本地図を追加。都道府県をクリックすると、該当の都道府県の住所録一覧が表示されます。<br>
+	<img src="images/00000225-map.jpg"><br>
+</li>
+	<li>住所録一覧で、都道府県選択のプルダウンでは、以下のサイトのCustom Select「jquery.cs.js」を利用しています。<br>
+	ただ、「jquery.cs.js」では、selectタグをbuttonに変更しているためにonChangeが使えないので、一部カスタマイズした「jquery.cs.ok2nd.js」を使っています。強引にonClickを追加しています。<br>
+＜Custom Select - JQueryでselectタグのプルダウンをカスタマイズする＞<br>
+<a href="http://www.jextend.com/sample/cs.html" target="_blank">http://www.jextend.com/sample/cs.html</a><br>
+	<img src="images/ken-select.jpg"><br>
+</li>
+	<li>住所録DBに、都道府県テーブル「r_kenmei」を追加。<br>
+	住所録DBに、郵便番号の頭2桁と都道府県の対応テーブル「r_zip100」を追加。都道府県名セットで使用。<br>
+	<font color=red>既に前のバージョンで実運用中の場合は、以下の手順で、テーブル「m_abook」に列「c_kenid」の追加と、テーブル「r_kenmei」「r_zip100」の追加をしてください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。</font><br>
+	【サンプルDBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_abook;
+ALTER TABLE m_abook ADD c_kenid varchar(10) NOT NULL AFTER c_zip2;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_abook < _db_abook_add_r_kenmei.txt
+mysql -u root -pkanri789 _db_abook < _db_abook_add_r_zip100.txt
+mysql -u root -pkanri789 _db_abook < create_view_db_abook.txt
+</pre>
+	【実運用DBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+ALTER TABLE m_abook ADD c_kenid varchar(10) NOT NULL AFTER c_zip2;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_abook < _db_abook_add_r_kenmei.txt
+mysql -u root -pkanri789 _mydb_abook < _db_abook_add_r_zip100.txt
+mysql -u root -pkanri789 _mydb_abook < create_view_mydb_abook.txt
+</pre>
+</li>
+	<li>住所録のサンプルデータに、「日本百名山」を追加。<br>
+	「マップ」機能で、ツールの「Google Maps & Earth」で日本百名山のマーカー付きの地図が表示できます。ただし、日本百名山の多くは山の名前でGoogle Mapsでマーカー表示されますが、一部の山は同名の中国等の山が表示されてしまいます。<font color=red>Ver.2.20で緯度、経度情報を使ったデータに変更しましたので、MyHome Portal上では、この問題は解決しています。</font><br>
+	実運用データベースへの追加用として、「実運用サンプル」フォルダに「日本百名山.csv」を追加しています。MySQL管理ツールのCSVアップロードで、実運用データベースへ追加できます。CSVアップロードする場合は、事前に分類を追加した上で、id_accountとid_categoryのデータ部分を置き換えてご利用ください。テーブル「m_abook」にアップロードしてください。<br>
+	<img src="images/hyakumeizan.jpg"><br>
+</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-mp-list.php, include-common-all.php<br>
+		・index/list-my-template.php<br>
+		・abook/__html-my-header.php, _contents-header.php, list.php<br>
+		・abook/list-my-add-filter.php, list-my-template.php, edit-caption.php<br>
+		・db_tool/__define.php, csv-import.php, excel-import.php<br>
+		・style/index.css, abook.css, mp-list.css<br>
+		・z_db_backup/create_view_db_abook.txt, create_view_mydb_abook.txt<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・abook/set-todofuken-by-zip.php, map-japan.php, __html-my-header-map-japan.php<br>
+		・scripts/jquery.cs.js, jquery.cs.ok2nd.js<br>
+		・style/map-japan.css<br>
+		・実運用サンプル/日本百名山.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.18&nbsp;&nbsp;(2009/10/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムで画像エフェクトをかけた場合、現在のエフェクト状態をボタンの下にテキスト表示するようにしました。</li>
+	<li>saturationのボタン1回あたりのエフェクト度を少し下げました。</li>
+	<li>アルバムの全画面スライドショーで、キーボード操作を可能にしました。<br>
+	  ・[ESC]：全画面モード終了<br>
+	  ・[→], [Page Down], [Enter], [Space]：次画像<br>
+	  ・[←], [Page Up]：前画像<br>
+	  ・[Tab]：10画像スキップ(リピートは無効)<br>
+	  ・[半角/全角]：10画像前へスキップ(リピートは無効)<br>
+	  ・[Home]：先頭画像へスキップ<br>
+	  ・[End]：最後画像へスキップ<br>
+	  ・[A]：自動モード On/Off<br>
+	  ・[R]：リピート On/Off<br>
+	  ・[W]：壁紙モード On/Off<br>
+	</li>
+	<li>変更モジュール<br>
+		・photo/index.php, slide.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.17&nbsp;&nbsp;(2009/10/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEXトップページでカテゴリ表示順が同じものが複数ある場合、１つのカテゴリのリンクが分かれて表示されてしまう不具合を修正。sort orderの指定ミスでした。</li>
+	<li>ログインし直した時に、HTMLを含まないページ(chat/read-min.phpなど)に遷移してしまうことがある不具合を修正。</li>
+	<li>変更モジュール<br>
+		・index/top.php<br>
+		・account/__logincheck.php<br>
+		・chat/read.php, read-min.php, write.php</li>
+		・todo/read.php, read-min.php, write.php, update.php, delete.php, priority_updown.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.16&nbsp;&nbsp;(2009/10/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>MySQL管理ツールに、CSVファイルからデータベースへのアップロード機能を追加。デリミッタ(区切り文字)はカンマ( , )、文字列の囲みはダブルクォーテーション(")のみサポート。文字コードは、Shift-JIS、UTF-8、EUCなど自動判別します。</li>
+	<li>MySQL管理ツールのExcelシートアップロードにエラー処理の不備があったので修正。</li>
+	<li>アルバムのスライドショーに、画像エフェクト機能を追加。<br>
+画像エフェクトには、JavaScriptライブラリ「Pixastic」を使用しています。<br>
+<a href="http://www.pixastic.com/lib/" target="_blank">http://www.pixastic.com/lib/</a><br>
+エフェクトの種類は、sepia、posterize、saturation、sharpen、blur、contrast、lighten、glow、red、green、blue、desaturate、solarizeです。<br>
+desaturate、solarize以外は、ボタンを複数回押すとエフェクトの効果が上がっていきます。<br>
+複数のエフェクトを組み合わせることができます。<br>
+エフェクトを組み合わせると、処理に時間がかかります。<font color=red>多くのエフェクトを組み合わせると、ブラウザがハングアップします。</font><br>
+エフェクトは、スライドショーで次の画像にも反映されます。<br>
+全画面スライドショーにも、反映されます。壁紙タイプの場合は、反映されません。<br>
+<font color=red>IEでは、この機能は使えません。</font><br><br>
+	<img src="images/00000224-e01.jpg"><br>
+	<img src="images/00000224-e02.jpg"><br>
+	<img src="images/00000224-e05.jpg"><br>
+	<img src="images/effect-10.jpg"><br>
+	<img src="images/effect-11.jpg"><br>
+	<img src="images/effect-12.jpg"><br>
+	</li>
+	<li>変更モジュール<br>
+		・db_tool/mysql-database.php, mysql-table-list.php, excel-import.php<br>
+		・photo/index.php, slide.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・db_tool/csv-import.php, __define_csv-import.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.15&nbsp;&nbsp;(2009/10/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムやファイルマネージャーで、ネットワークドライブが使えない問題の解決策はみつかっていませんが、UNC表記(例：\\HostName\Folder)であれば可能なことが判明。しかし、アルバムやファイルマネージャーでUNC表記を使った時にフォルダ移動すると//が/になってしまう不具合があったので修正。<br>
+	UNC表記を使う場合、サーバ名だけではダメで、必ずディレクトリの最上位階層も含めて指定する必要があります。</li>
+	<li>ユーザーによるアカウント登録ページで、CAPTCHA(認証用絵文字コード)を使用しない設定を可能に。定義ファイルで設定してください。</li>
+	<li>アルバムの全画面スライドショーに壁紙タイプを追加。画像をタイル形式で並べて表示します。<br>
+	<img src="images/00000215-wallpaper.jpg"><br>
+	</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, __define_common.php<br>
+		・tools/file-manager.php, code-file-view.php, html-get-url-img.php, index.php<br>
+		・db_tool/backup-mydb.php<br>
+		・photo/index.php, slide.php<br>
+		・account/newaccount-confirm.php, __define.php, __include-login.php<br>
+		・setup-sample.php, __define_common_my_sample.php</li>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.14&nbsp;&nbsp;(2009/10/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーのスケジュール入力画面において、textareaへの文字の色付などのタグ挿入で、ChromeとSafariでは文字列を右から左に選択した場合、正しい位置にタグ挿入できなかったのを修正。<br>
+	textareaの文字列選択によるタグ挿入のJavaScriptを、textarea.jsから、getRange_in_textarea.jsに変更。<br>
+	getRange_in_textarea.jsは、Archiva.jpの以下のものを使わせていただきました。<br>
+		<a href="http://archiva.jp/web/javascript/getRange_in_textarea.html" target="_blank">http://archiva.jp/web/javascript/getRange_in_textarea.html</a>
+	</li>
+	<li>チャットでURLを入力した場合、Aタグ挿入しリンク表示するようにしました。タグテキストは短く表示します。</li>
+	<li>ツールに「縦計だけの表計算」を追加。縦計だけのシンプルな表計算シートです。各セルには、()付きの数式の入力もできます。数式の計算はJavaScriptのeval()を使っていますので、JavaScriptの数学関数(Math)も使えます。数字以外は、JavaScriptとして評価して実行しますので、ご注意ください。例えば、「alert(Date());」なども実行できます。<br>
+	<img src="images/00000223-calc.jpg"><br>
+	</li>
+	<li>変更モジュール<br>
+		・calendar/input.php<br>
+		・chat/read.php, read-min.php<br>
+		・__common__/include-common-all.php, include-common-html.php</li>
+	<li>追加モジュール<br>
+		・tools/calc.php<br>
+		・scripts/getRange_in_textarea.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.13&nbsp;&nbsp;(2009/09/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録のPDF葉書宛名書きの印刷フォントをゴシック体/明朝体から選択ができるようにしました。住所録定義ファイル__define_abook_pdf_my.phpで設定してください。</li>
+	<li>住所録でローマ数字(ⅠⅡⅢⅣⅤ)を表示するために、PEAR/Numbers/Roman.phpを使っていたのを使わない方法に変更。なおかつ、環境依存文字のローマ数字自体を使わずに、I、II、III、IV、Vで代用。</li>
+	<li>ⅠⅡⅢⅣⅤのチェックボックスを、見出しを定義しているもののみ表示するように変更。見出しの定義は、「チェック項目見出し編集」で行ってください。</li>
+	<li>MyHome Portal全体のアンカータグのリンク文字色を青色から変更。</li>
+	<li>(簡易) 預貯金管理のkakeibo/list.phpのテーブル指定が、v_keiyakuShaになっていたのを、v_keiyakushaに修正。Linux環境で動作可能にするため。</li>
+	<li>ツールに「Photoshop-like JavaScript Color Picker」追加。<br>
+		Powered by <a href="http://johndyer.name/post/2007/09/PhotoShop-like-JavaScript-Color-Picker.aspx" target="_blank">http://johndyer.name/post/2007/09/PhotoShop-like-JavaScript-Color-Picker.aspx</a></li>
+	<li>変更モジュール<br>
+		・abook/以下一式<br>
+		・kakeibo/list.php<br>
+		・style/original/common.css, tools_common.css, abook.css<br>
+		・__common__/include-common-all.php<br>
+		・__define_abook_pdf_my_sample.php</li>
+	<li>追加モジュール<br>
+		・tools/colorpicker.php<br>
+		・tools/refresh_web/以下一式</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.12&nbsp;&nbsp;(2009/09/20)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>新コンテンツ「住所録」を追加。選択した名簿の電子メール宛名一覧作成、Google Maps & Earthマップ作成、PDF葉書宛名書き等ができます。<br>
+		<img src="images/00000219-a01.jpg"><br>
+		<img src="images/00000220-a02.jpg"><br>
+		<img src="images/00000221-a03.jpg">
+	</li>
+	<li>My設定のアカウント情報に、〒番号、住所2を追加しました。</li>
+	<li><font color=red>既に前のバージョンで実運用中の場合は、「住所録」を追加するために、以下の手順により環境設定してください。</font><br>
+	<font color=green>【サンプルモード】</font><br>
+	まず、サンプルモード用データベース「<font color=blue>_db_abook</font>」を登録します。<br>
+	コマンドプロンプトから以下を実行してください。<font color=red>以下、MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。また、インストールディレクトリをDドライブとして説明します。</font><br>
+	<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+create database _db_abook;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_abook < _db_abook.bk.txt
+mysql -u root -pkanri789 _db_abook < create_view_db_abook.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_abook.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+	<font color=green>【実運用モード】</font><br>
+	実運用定義ファイル__define_common_my.phpに、実運用データベースの定義を追加してください。<br>
+	__define_common_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_abook", _mydb_abook);</pre>
+	コンテンツ定義ファイル__define_contents_my.phpに、コンテンツの追加をしてください。<br>
+	__define_contents_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">$navi_item[] = array("href"=>"abook/", "query"=>"", "name"=>"住所録");</pre>
+	データベース「_db_abook」をコピーして、実運用データベース「<font color=blue>_mydb_abook</font>」を作成します。<br>
+	MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+	<pre class="command" style="font-size: 11px;">mkdir D:\xampp\mysql\data\_mydb_abook
+copy D:\xampp\mysql\data\_db_abook\* D:\xampp\mysql\data\_mydb_abook</pre>
+	MySQLを再起動します。XAMPPコントロールパネルで「開始」を押してください。コマンドプロンプトから以下を実行してください。
+	<pre class="command" style="font-size: 11px;">d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_abook < create_view_mydb_abook.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_abook.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+サンプルデータベースからコピーされた住所録をクリアします。
+<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+use _mydb_abook;
+truncate table m_abook;
+truncate table m_category;
+truncate table m_check_caption;
+exit;</pre>
+</li>
+
+
+	<li><font color=red>既に前のバージョンで実運用中の場合は、MySQLデータベース_db_account、_mydb_accountのテーブル「m_account」に、列「c_home_address2」を追加してください。 コマンドプロンプトから以下を実行してください。</font>MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br>
+	【サンプルモードDB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_account;
+ALTER TABLE m_account ADD c_home_address2 varchar(200) NOT NULL;
+ALTER TABLE m_account ADD c_zip1 varchar(10) NOT NULL;
+ALTER TABLE m_account ADD c_zip2 varchar(10) NOT NULL;
+exit;
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+</pre>
+	【実運用DB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_account;
+ALTER TABLE m_account ADD c_home_address2 varchar(200) NOT NULL;
+ALTER TABLE m_account ADD c_zip1 varchar(10) NOT NULL;
+ALTER TABLE m_account ADD c_zip2 varchar(10) NOT NULL;
+exit;
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre>
+	</li>
+	<li>既に前のバージョンで実運用中の場合は、実運用定義ファイル__define_common_my.phpに以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("ATTACH_FILE_FOLDER_abook", "../../_attach/abook/");
+</pre>
+	</li>
+	<li>PDF作成には、FPDFを利用しています。<br>
+		<a href="http://www.fpdf.org/" target="_blank">http://www.fpdf.org/</a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDF<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・MBFPDF<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・Rotations<br>
+		<a href="http://www.setasign.de/products/pdf-php-solutions/fpdi/" target="_blank">http://www.setasign.de/products/pdf-php-solutions/fpdi/</a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDI<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDF_TPL<br>
+	</li>
+	<li>PDF葉書宛名書きでは、以下のRapid Expressで公開されているpdf.inc.phpを利用させてもらっています。文字列の長さに合わせてフォントサイズの調整もしてくれる優れものです。<br>
+		Rapid Express：PDF作成ライブラリ(FPDF+FPDI+MBFPDF+Rotations)<br>
+		<a href="http://wp.rapidexp.com/2009/01/fpdf/" target="_blank">http://wp.rapidexp.com/2009/01/fpdf/</a><br>
+	</li>
+	<li>IE以外のChrome、Safariなどのブラウザで、INDEXトップが「リンク先を新しいウインドウで開く」設定になっている場合、先頭の(Google)検索ボタンで開いたウインドウを閉じてしまうと、2回目以降、ウインドウが開かない不具合を修正。(formタグのtarget指定では、同様の不具合が発生する模様)</li>
+	<li>カレンダーの今日が休みの場合、日付の色が赤色にならなかったのを修正。</li>
+
+	<li>変更モジュール<br>
+		・account/list-user.php, myprofile.php, edit-myprofile.php<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・calendar/_my_calendar.php<br>
+		・style/original/calendar.css<br>
+		・__common__/include-common-mp-list.php</li>
+	<li>追加モジュール<br>
+		・abook/以下一式<br>
+		・pdf/以下一式 (FPDF関係ライブラリを含む)<br>
+		・style/original/abook.css<br>
+		・__define_abook_pdf_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.11&nbsp;&nbsp;(2009/09/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>INDEX、メモ、学習、(簡易) 預貯金管理 、ユーザ一覧に、「一括修正/追加/削除」とは別に、一覧形式の追加専用「一括追加」を追加しました。</li>
+	<li>変更モジュール<br>
+		・index/list.php<br>
+		・memo/list.php<br>
+		・study/list.php<br>
+		・kakeibo/list.php<br>
+		・account/list-user.php<br>
+		・__common__/include-common-mp-list.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.10&nbsp;&nbsp;(2009/09/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダー入力画面に、リンク先(URL)挿入ボタン「Ｌ」を追加しました。文字列を&lt;a href=..&gt;&lt;/a&gt;で囲みます。
+	<br><img src="images/00000165-150.jpg"></li>
+	<li>変更モジュール<br>
+		・calendar/input.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.09&nbsp;&nbsp;(2009/09/12)</h3>
+			<ul class="memo_subject">
+	<li><font color=red>ダウンロードファイル名は「_myhome_209_1.zip」です。「_myhome_209.zip」には不具合がありました。</font></li>
+			</ul>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>ツール「(簡易) 預貯金管理」の「預貯金一覧」に検索フィルタ「解約状態」を追加。</li>
+	<li>変更モジュール<br>
+		・kakeibo/list.php</li>
+	<li>追加モジュール<br>
+		・kakeibo/list-my-add-filter.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.08&nbsp;&nbsp;(2009/09/11)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>トップINDEXの「●」ボタンの検索を、「Google Maps & Earth」から「Google Maps & Earth (複数地点/マーカー付)」に変更。</li>
+	<li>トップINDEXの検索で、複数キーワードの区切りスペースの全角から半角への変換が1つのみしか対処していなかった点を修正。</li>
+	<li>カレンダーの「マップ」およびツールの「Google Maps & Earth(...)」のマップの高さサイズをディスプレイのサイズを判断して多少調整するようにしました。</li>
+	<li>変更モジュール<br>
+		・index/__define_index_search.php<br>
+		・calendar/maps.php, maps-alone.php<br>
+		・calendar/maps-include.php, __html-my-header-maps.php, __html-my-header-maps-alone.php<br>
+		・tools/google-maps-earth.php, google-maps-earth-marker.php, google-maps-earth-marker-uncertain.php<br>
+		・__define_index_search_my_google,  __define_index_search_my_yahoo.php</li>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.07&nbsp;&nbsp;(2009/09/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーの「マップ」と、ツールの「Google Maps & Earth(複数地点/マーカー付)」のロジック修正。</li>
+	<li>表示地点が多い場合、全ての地点が表示されない点を改善。(取得できない地点は、タイミングによって不定です。)<br>
+サーバー側でURL引数によるMaps APIジオコーダを使って緯度経度を取得する方式に変更。<br>
+ただ、この方式にしても、取得地点が多いとタイミングによって取得できない場合あり。1地点取得毎に0.1秒程度時間遅延すると取得できる頻度が上がるため、ロジックに時間遅延を入れています。よって地点が多いと地図が表示されるまで時間がかかります。緯度経度情報が取得できなかった地名をウインドウの下にNot foundとして表示します。<br>
+＜参考：サーバー側のスクリプトを直接使用して、Maps APIジオコーダにアクセス＞<br>
+<a href="http://q.hatena.ne.jp/1194229236" target="_blank">http://q.hatena.ne.jp/1194229236</a><br>
+<a href="http://code.google.com/intl/ja/apis/maps/documentation/services.html#Geocoding_Direct" target="_blank">http://code.google.com/intl/ja/apis/maps/documentation/services.html#Geocoding_Direct</a><br>
+
+＜参考：イベントリスナでクロージャを使用＞<br>
+<a href="http://blog.hansode.org/archives/51763965.html" target="_blank">http://blog.hansode.org/archives/51763965.html</a><br>
+<a href="http://code.google.com/intl/ja/apis/maps/documentation/mapplets/events.html#Event_Closures" target="_blank">http://code.google.com/intl/ja/apis/maps/documentation/mapplets/events.html#Event_Closures</a></li>
+	<li>ロジック修正前の「Google Maps & Earth(複数地点/マーカー付)」を不確実版として残しています。地点数が多い場合、すべてを表示できない可能性が高いです。</li>
+
+	<li>変更モジュール<br>
+		・calendar/maps-include.php, __html-my-header-maps.php, __html-my-header-maps-alone.php<br>
+		・tools/google-maps-earth-marker.php<br>
+		・__common__/include-common-all.php</li>
+	<li>追加モジュール<br>
+		・tools/google-maps-earth-marker-uncertain.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.06&nbsp;&nbsp;(2009/09/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーの一覧、マップの検索フィルタの不具合を修正。</li>
+	<li>変更モジュール<br>
+		・calendar/list-my-add-filter.php, _contents-header.php, maps-include.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.05&nbsp;&nbsp;(2009/09/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーの「マップ」とツールの「Google Maps & Earth(複数地点/マーカー付)」のロジック修正。マーカー表示地点が多いと地図を表示できなくなる不具合を修正。</li>
+	<li>カレンダーに「マップ(別窓)」を追加。マップの全画面タイプです。別ウインドウで開きます。
+	<br><img src="images/00000218-map12.jpg"></li>
+	<li>変更モジュール<br>
+		・calendar/maps.php, __html-my-header-maps.php, _contents-header.php<br>
+		・tools/google-maps-earth-marker.php<br>
+		・__common__/include-common-html.php, include-common-all.php</li>
+	<li>追加モジュール<br>
+		・calendar/maps-alone.php, maps-include.php, __html-my-header-maps-alone.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.04&nbsp;&nbsp;(2009/09/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーにGoogle Maps APIを使ったマップ機能を追加しました。<br>
+	カレンダーに登録されている場所をGoogleマップでマーカー表示します。<br>
+	件名に地図チェックが付いているスケジュールが対象です。<br>
+	検索条件にあった地点全てを表示します。去年旅行で行ったところの一覧地図といった感じで使えます。<br>
+	同じ場所が複数ある場合、マーカーは１つにまとめます。<br>
+	マーカーをクリックすると、スケジュールの日付とスケジュール内容を表示します。<br>
+	Google Earth 表示もできます。
+	<br><img src="images/00000163-map1.jpg"></li>
+	<li>カレンダーの一覧表示の週間指定で、月を跨った場合、ただしく検索されない不具合を修正しました。</li>
+	<li>定義ファイルの定義名の英語の綴りが間違っていたのを、修正しました。
+<pre class="command" style="font-size: 11px;">
+define("SCHEDULE_VIEW_FRAME_COLOR_index", "#228b22");	// スケジュール表示 枠カラー
+define("SCHEDULE_VIEW_DAY_index", 3);		// スケジュール表示 日数
+</pre>
+</li>
+	<li>ツールに「Google Maps & Earth (複数地点/マーカー付) 」を追加しました。
+	Google Maps & Earthのマーカー付きのタイプです。<br>
+	複数地点をスペースで区切って入力できます。
+	<br><img src="images/00000217-map2.jpg">
+	<br><img src="images/00000217-map3.jpg"></li>
+	<li>変更モジュール<br>
+		・calendar/_contents-header.php, list-my-add-filter.php, list-my-template.php<br>
+		・__common__/include-common-all.php, include-common-html.php<br>
+		・tools/google-maps-earth.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・calendar/maps.php, __html-my-header-maps.php<br>
+		・tools/google-maps-earth-marker.php, index.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.03&nbsp;&nbsp;(2009/09/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>カレンダーの件名でも、Googleマップの地図検索と経路検索と連携ができるようにしました。スケジュール入力画面の件名欄右のチェックボックス「地図」にチェックを入れると、カレンダー月間表示に「→地図」「→経路」のリンクが表示され、クリックするとGoogleマップで検索します。
+<br><img src="images/00000193-152-1.jpg"></li>
+
+
+	<li><font color=red>既に2.02以前のバージョンで実運用中の場合は、MySQLデータベース_db_calendar、_mydb_calendarのテーブル「m_schedule」に、列「c_map」を追加してください。 コマンドプロンプトから以下を実行してください。</font>MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br>
+	【サンプルモードDB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_calendar;
+ALTER TABLE m_schedule ADD c_map int unsigned NOT NULL;
+exit;
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_calendar < create_view_db_calendar.txt
+</pre>
+	【実運用DB】<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_calendar;
+ALTER TABLE m_schedule ADD c_map int unsigned NOT NULL;
+exit;
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_calendar < create_view_mydb_calendar.txt
+</pre>
+	</li>
+
+	<li>アルバムの全画面表示で、写真のページ数を表示するようにしました。</li>
+	<li>ツールの「ファイル暗号化/復号化＋ファイルマネージャー」を、「(簡易)ファイルマネージャー(暗号化/復号化付き)」に名称変更。</li>
+	<li>ツール「ファイルマネージャー」に、unZIP機能追加。(unZipは、元のタイムスタンプは保存されません。)</li>
+	<li>ツール「ファイルマネージャー」に、フォルダコピー、リネーム、削除機能追加。</li>
+	<li>ツール「ファイルマネージャー」に、ファイルダウンロード機能追加。ファイル名クリックでダウンロードします。
+<br><img src="images/00000206-encode.jpg"></li>
+	<li>変更モジュール<br>
+		・calendar/input.php, _my_calendar.php<br>
+		・z_db_backup/create_view_db_calendar.txt, create_view_mydb_calendar.txt<br>
+		・photo/slide.php<br>
+		・tools/index.php, code-file-view.php<br>
+		・tools/file-manager.php<br>
+		・tools/file-rename.php, file-copy.php, file-delete.php, file-cipher.php<br>
+		・__common__/include-common-all.php</li>
+	<li>追加モジュール<br>
+		・tools/folder-copy.php, folder-delete.php, folder-rename.php<br>
+		・tools/file-unzip.php, file-download.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.02&nbsp;&nbsp;(2009/08/30)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>アルバムに全画面表示タイプのスライドショーを追加。<br>
+	F11キーと組み合わせると、パソコン画面一杯でスライドショーができます。<br>
+	左右の＜＞キーで前後の画像に移動できます。<br>
+	画面下の×クリックで通常のスライド画面に戻ります。<br>
+	オートプレイやオートプレイの繰り返しもできます。<br>
+	<img src="images/00000215-slide.jpg"></li>
+	<li>「Google Maps & Earth」のcssに「overflow: hidden;」を追加。</li>
+	<li>変更モジュール<br>
+		・photo/index.php<br>
+		・tools/google-maps-earth.php</li>
+	<li>追加モジュール<br>
+		・photo/slide.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.01&nbsp;&nbsp;(2009/08/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>ツールに「Google Maps & Earth」を追加。<br>
+	<a href="http://code.google.com/intl/ja/apis/maps/" target="_blank">Google Maps API</a> と<a href="http://code.google.com/intl/ja/apis/earth/" target="_blank">Google Earth API</a>を組み合わせたツールです。<br>
+	検索した地図を、Google Earth APIを使って3D立体表示にできます。<br>
+	3D地図を表示するためには、Google Earth プラグインをインストールする必要があります。<br>
+	&nbsp;&nbsp;<a href="http://code.google.com/intl/ja/apis/earth/" target="_blank">http://code.google.com/intl/ja/apis/earth/</a><br>
+	url引数に、場所とズーム倍率を指定できるようにもしています。<br>
+	&nbsp;&nbsp;<a href="http://localhost/_myhome/tools/google-maps-earth.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&zoom=18" target="_blank">http://localhost/_myhome/tools/google-maps-earth.php?addr=%e6%9d%b1%e4%ba%ac%e3%82%bf%e3%83%af%e3%83%bc&zoom=18</a></li>
+	<li>Google MAPS APIキーは、<a href="http://code.google.com/apis/ajax/playground/" target="_blank">http://code.google.com/apis/ajax/playground/</a>のサンプルのものを記述しています。このツールをインターネット上で使う場合は、Google MAPS APIキーを取得して、そのキーを使用願います。</li>
+	<li>INDEXトップページに、このGoogle Maps & Earth検索用ボタン<button>●</button>を追加。</li>
+<br><img src="images/00000212-maps1.jpg">
+<br><img src="images/00000212-earth1.jpg"></li>
+	<li>変更モジュール<br>
+		・index/__define_index_search.php<br>
+		・tools/index.php<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・tools/google-maps-earth.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.00&nbsp;&nbsp;(2009/08/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>Ver.1.00リリースから約1年ということで、Ver.2.00としました。</li>
+	<li>メインコンテンツとして「学習」を追加。任意の問題集を登録して、自学習に使えます。英会話の英文と日本文を登録するなどして、ご利用ください。ユーザー各自の理解度を記録できます。Ajaxにより、ラジオボタンをクリックするだけでデータベースに記録できます。質問や解答をそれぞれ隠すこともできます。質問や解答の上にマウスを重ねると、それぞれ解答と質問がツールチップ表示されます。表示順序をランダムにすることもできます。
+<br><img src="images/00000207-study3.jpg">
+<br><img src="images/00000207-study4.jpg"></li>
+
+	<li>問題集のサンプルデータとして、以下の2つを使わせていただきました。<br>
+	＜できるといいな英会話(Excel版)＞<br>
+	<a href="http://www.vector.co.jp/soft/win95/edu/se143894.html" target="_blank">http://www.vector.co.jp/soft/win95/edu/se143894.html</a><br>
+	＜「実践例蓄積型」の英会話集＞<br>
+	<a href="http://www5f.biglobe.ne.jp/~newseastory/" target="_blank">http://www5f.biglobe.ne.jp/~newseastory/</a></li>
+
+	<li>問題集を、MySQL管理ツールを使って、Excelシートから一括アップロードすることもできます。</li>
+	<li><font color=red>既にMyHome Portalをご利用の方は、「学習」を追加するために、以下の手順により環境設定してください。</font></li>
+	<li><font color=green>【サンプルモード】</font><br>
+	まず、サンプルモード用データベース「<font color=blue>_db_study</font>」を登録します。<br>
+	コマンドプロンプトから以下を実行してください。<font color=red>以下、MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。また、インストールディレクトリをDドライブとして説明します。</font><br>
+	<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+create database _db_study;
+exit;
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_study < _db_study.bk.txt
+mysql -u root -pkanri789 _db_study < create_view_db_study.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_study.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+	<font color=green>【実運用モード】</font><br>
+	実運用定義ファイル__define_common_my.phpに、実運用データベースの定義を追加してください。<br>
+	__define_common_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_study", _mydb_study);</pre>
+	コンテンツ定義ファイル__define_contents_my.phpに、コンテンツの追加をしてください。<br>
+	__define_contents_my_sample.phpを参考にしてください。<br>
+<pre class="command" style="font-size: 11px;">$navi_item[] = array("href"=>"study/", "query"=>"", "name"=>"学習");</pre>
+	データベース「_db_study」をコピーして、実運用データベース「<font color=blue>_mydb_study</font>」を作成します。<br>
+	MySQLを一旦停止します。XAMPPコントロールパネルを使って停止してください。<br>
+	<pre class="command" style="font-size: 11px;">mkdir D:\xampp\mysql\data\_mydb_study
+copy D:\xampp\mysql\data\_db_study\* D:\xampp\mysql\data\_mydb_study</pre>
+	MySQLを再起動します。XAMPPコントロールパネルで「開始」を押してください。コマンドプロンプトから以下を実行してください。
+	<pre class="command" style="font-size: 11px;">d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_study < create_view_mydb_study.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_study.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;</pre>
+サンプルデータベースからコピーされたMyチェックをクリアします。
+<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+use _mydb_study;
+truncate table m_mycheck;
+exit;</pre>
+サンプルデータベースからコピーされたサンプル問題集一式も削除する場合、次を実行してください。
+<pre class="command" style="font-size: 11px;">mysql -u root -pkanri789
+use _mydb_study;
+truncate table m_study;
+truncate m_category;
+truncate m_category2;
+exit;</pre>
+</li>
+	<li>z_db_backup以下のファイルが、ブラウザからダウンロードできないように、.htaccessを追加。</li>
+	<li>デザインの微調整。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_contents.php, include-common-mp-list.php<br>
+		・_style/original/common.css<br>
+		・___define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・_setup-sample.php<br>
+		・_db_backup.txt.php, db_restore.txt.php<br>
+		・db_tool/backup-mydb.php</li>
+	<li>追加モジュール<br>
+		・study/以下一式<br>
+		・scripts/jquery.cookie.js<br>
+		・_style/original/study.css<br>
+		・_z_db_backup/_db_study.bk.txt, create_view_db_study.txt, create_view_mydb_study.txt<br>
+		・z_db_backup/.htaccess</li>
+	</div>
+
+
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download3.html">
+		<span style="font-size: 120%;">→→→　バージョン1.71以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

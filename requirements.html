@@ -1,0 +1,772 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 動作環境</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 動作環境</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html" id="page_navi_current">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p id="message">
+		<span style="font-weight: bold;">「MyHome Portal」</span>動作環境です。
+		</p>
+	</div>
+	<div class="paragraph">
+		<h3>動作環境</h3>
+		<ul class="requirements_head">
+			<li>Webシステムとして動作します。</li>
+			<li><font color=red>Webシステムといっても、サーバー用のコンピュータやサーバーOSが必要という訳ではありません。<br>
+			1台のパソコン上に、サーバー側のXAMPP+MyHome Portalとクライント側のブラウザを同居させて利用することができます。<br>
+			Windows XPベースの非力なパソコンでも十分に動作します。</font></li>
+		</ul>
+		<ul class="requirements_subject">
+			<li>開発環境</li>
+
+		</ul>
+
+		<ul class="requirements">
+			<li>（Ver.3.27以降）&nbsp;&nbsp;XAMPP 1.7.1 (Windows)</li>
+		</ul>
+		<ul class="requirements_detail">
+			<li>+ Apache 2.2.11</li>
+			<li>+ MySQL 5.1.33 (Community Server)</li>
+			<li>+ PHP 5.2.9 + PEA</li>
+		</ul>
+
+		<ul class="requirements">
+			<li>（Ver.3.26以前）&nbsp;&nbsp;XAMPP 1.6.6a (Windows)</li>
+		</ul>
+		<ul class="requirements_detail">
+			<li>+ Apache 2.2.8</li>
+			<li>+ MySQL 5.0.51a</li>
+			<li>+ PHP 5.2.5</li>
+		</ul>
+
+		<ul class="requirements_subject">
+			<li>Windows動作環境</li>
+		</ul>
+		<ul class="requirements">
+			<li>上記開発環境以降のApache/MySQL/PHPバージョン</li>
+		</ul>
+
+		<ul class="requirements_subject">
+			<li>Windows10上での動作確認</li>
+		</ul>
+		<ul class="requirements">
+			<li>XAMPP1.8.3で動作確認済<br>
+<a href="http://ok2nd.hatenablog.com/entry/2015/11/24/134358" target="_blank">Windows10にMyHome Portalインストール</a></li>
+		</ul>
+
+		<ul class="requirements_subject">
+			<li>Linux上での動作について</li>
+		</ul>
+		<ul class="requirements">
+			<li>以下のブログ記事を参照ください。<br>
+<a href="http://ok2nd.hatenablog.com/entry/2013/06/09/073857" target="_blank">MyHome PortalをVine Linuxにインストール</a><br>
+<a href="http://ok2nd.hatenablog.com/entry/2009/09/24/193156" target="_blank">Linux環境でMyHome Portal</a><br>
+</li>
+		</ul>
+
+		<ul class="client_subject">
+			<li>クライアント側動作確認 <br>
+			&nbsp;&nbsp;&nbsp;&nbsp;一部機能はブラウザによっては動作しません。</li>
+		</ul>
+
+		<ul class="client">
+			<li>Google Chrome (推奨)</li>
+			<li>Firefox</li>
+			<li>Internet Explorer (非推奨)</li>
+		</ul>
+		<ul class="requirements_subject">
+			<li>使用スクリプト/ライブラリ</li>
+		</ul>
+		<ul class="requirements">
+			<li>encodeURL：URLエンコード
+			<ul class="requirements_script">
+<li>IE他クロスブラウザで正しく動作するURLエンコード。</li>
+<li><a href="http://www.favorite-labo.org/archives/211.html" target="_blank">http://www.favorite-labo.org/archives/211.html</a></li>
+			</ul>
+			</li>
+			<li>URLencode：URLエンコード
+			<ul class="requirements_script">
+<li>PHPでデコードできるURLエンコード。</li>
+<li><a href="http://postcard.blog.ocn.ne.jp/itazura/2004/12/javascript_url_.html" target="_blank">http://postcard.blog.ocn.ne.jp/itazura/2004/12/javascript_url_.html</a></li>
+			</ul>
+			</li>
+
+			<li>ecl_new.js：Escape Codec Library
+			<ul class="requirements_script">
+<li>MyHome PortalトップページのGoo郵便番号検索、Yahoo電話帳検索で、EUC-JPコードでのescapeエンコードに使用。下のecl.jsの改善版。</li>
+<li><a href="http://www.drk7.jp/MT/archives/001324.html" target="_blank">http://www.drk7.jp/MT/archives/001324.html</a></li>
+			</ul>
+			</li>
+
+			<s><li>ecl.js：Escape Codec Library
+			<ul class="requirements_script">
+<li>ecl.jsは、問題があるため、使用中止。</li>
+<li><a href="http://nurucom-archives.hp.infoseek.co.jp/digital/escape-codec-library.html" target="_blank">http://nurucom-archives.hp.infoseek.co.jp/digital/escape-codec-library.html</a></li>
+			</ul>
+			</li></s>
+
+			<li>create_image.php：Create CAPTCHA Protection
+			<ul class="requirements_script">
+<li>MyHome Portalユーザー登録画面のCAPTCHA認証画像の生成に使用。</li>
+<li><a href="http://www.webcheatsheet.com/PHP/create_captcha_protection.php" target="_blank">http://www.webcheatsheet.com/PHP/create_captcha_protection.php</a></li>
+			</ul>
+			<img src="images/CAPTCHA.gif" style="padding: 0 0 0 80px;"></a>
+			</li>
+
+<li>scripts/calen_input/calendar.js：「WEB上手」の日付入力補助。一部修正しています。
+			<ul class="requirements_script">
+<li>カレンダースケジュール入力画面の日付のポップアップ入力で使用。(標準)<br>
+		<a href="http://www.web-jozu.com/javascript/calen_input.html" target="_blank">http://www.web-jozu.com/javascript/calen_input.html</a></li>
+			</ul>
+			<img src="images/calen_inpu.gif" style="padding: 0 0 0 80px;"></a></li>
+
+<li>scripts/calendar.js：「ホームページの素」の日付入力補助。一部修正しています。
+			<ul class="requirements_script">
+<li>カレンダースケジュール入力画面の日付のポップアップ入力で使用。(定義ファイルでの選択)<br>
+		<a href="http://www.kanaya440.com/contents/js/calendar/" target="_blank">http://www.kanaya440.com/contents/js/calendar/</a></li>
+			</ul>
+			<img src="images/pop-cal.gif" style="padding: 0 0 0 80px;"></a></li>
+
+			<li>YahhoCal.js：YUI Calendar(Yahoo! UI Library: Calendar)の日本語化&ポップアップ対応JavaScript
+			<ul class="requirements_script">
+<li>カレンダースケジュール入力画面の日付のポップアップ入力で使用。(定義ファイルでの選択)</li>
+<li><a href="http://0-oo.net/sbox/javascript/yahho-calendar" target="_blank">http://0-oo.net/sbox/javascript/yahho-calendar</a></li>
+<li><a href="http://developer.yahoo.com/yui/calendar/" target="_blank">http://developer.yahoo.com/yui/calendar/</a></li>
+			</ul>
+			<img src="images/yahooCal.jpg" style="padding: 0 0 0 80px;" width=160></a>
+			</li>
+
+			<li>jquery.js
+			<ul class="requirements_script">
+<li>アルバムの画像のマウスクリックによる拡大・縮小で使用。<br>
+チャット、ToDoのAjaxで使用。<br>
+ツールの「HTML テーブル CSSスタイル シミュレーション」(<a href="http://ok2nd.hatenablog.com/entry/2008/11/24/101523" target="_blank">サンプル</a>)で使用。<br>その他、多くの箇所で使用。</li>
+<li><a href="http://jquery.com/" target="_blank">http://jquery.com/</a></li>
+			</ul>
+			</li>
+			<li>livedoor天気Webサービス (Ajax利用)
+			<ul class="requirements_script">
+<li>MyHome Portalトップページの3日分の天気表示で使用。(定義ファイルでの選択)
+			(<a href="http://ok2nd.hatenablog.com/entry/2014/06/01/130429" target="_blank">関連ブログ記事</a>)</li>
+<li><a href="http://weather.livedoor.com/weather_hacks/webservice.html" target="_blank">http://weather.livedoor.com/weather_hacks/webservice.html</a></li>
+			</ul>
+			<!--<img src="images/livedoorWeather.gif" style="padding: 0 0 0 80px;"></a>-->
+			</li>
+			<li>prototype.js
+			<ul class="requirements_script">
+<li>livedoor天気Webサービス利用のAjaxで使用。</li>
+<li><a href="http://www.prototypejs.org/" target="_blank">http://www.prototypejs.org/</a></li>
+			</ul>
+			</li>
+			<li>scripts/getRange_in_textarea.js
+			<ul class="requirements_script">
+			<li>カレンダースケジュール本文へのタグ&アイコン挿入機能に使用。一部カスタマイズしたencloseTextArea.jsを使っています。</li>
+			<li><a href="http://archiva.jp/web/javascript/getRange_in_textarea.html" target="_blank">http://archiva.jp/web/javascript/getRange_in_textarea.html</a></li>
+			</ul>
+			</li>
+			<li>scripts/not_use/textarea.js
+			<ul class="requirements_script">
+			<li>textarea入力支援スクリプト。(現在、未使用)</li>
+			<li><a href="http://painter.homeip.net/~raelian/tag/enclose.html" target="_blank">http://painter.homeip.net/~raelian/tag/enclose.html</a></li>
+			</ul>
+			</li>
+			<li>scripts/openwysiwyg/ 一式
+			<ul class="requirements_script">
+				<li>掲示板のWYSIWYGエディタとして使用</li>
+				<li><a href="http://www.openwebware.com/" target="_blank">http://www.openwebware.com/</a></li>
+			</ul>
+			</li>
+			<li>scripts/yui/ 一式：Yahoo! UI Library(YUI)
+			<ul class="requirements_script">
+				<li>掲示板のWYSIWYGエディタとして使用</li>
+				<li><a href="http://developer.yahoo.com/yui/editor/" target="_blank">http://developer.yahoo.com/yui/editor/</a></li>
+			</ul>
+			</li>
+			<li>scripts/JWPlayer/ 一式 (JW FLV Player/JW WMV Player)
+			<ul class="requirements_script">
+				<li>アルバム、掲示板、メモのFLV, WMV動画プレビューに使用。</li>
+				<li><a href="http://www.longtailvideo.com/" target="_blank">http://www.longtailvideo.com/</a></li>
+				<li><a href="http://www.longtailvideo.com/players/jw-wmv-player/" target="_blank">http://www.longtailvideo.com/players/jw-wmv-player/</a></li>
+			</ul>
+			</li>
+			<li>rss/magpierss/ 一式
+			<ul class="requirements_script">
+				<li>RSSパーサーとして使用。</li>
+				<li><a href="http://magpierss.sourceforge.net/" target="_blank">http://magpierss.sourceforge.net/</a></li>
+			</ul>
+			</li>
+			<li>scripts/nifty/ 一式
+			<ul class="requirements_script">
+				<li>RSSのカテゴリ・ナビの角丸タグに使用。</li>
+				<li><a href="http://www.html.it/articoli/nifty/index.html" target="_blank">http://www.html.it/articoli/nifty/index.html</a></li>
+			</ul>
+			</li>
+			<li>scripts/inputdraw/ 一式
+			<ul class="requirements_script">
+				<li>掲示板のお絵かきに使用。</li>
+				<li><a href="http://www.mainada.net/inputdraw" target="_blank">http://www.mainada.net/inputdraw</a></li>
+			</ul>
+			</li>
+			<li>scripts/Highcharts/ 一式 (SVG/VMLを使ったグラフ作成JavaScriptライブラリ)
+			<ul class="requirements_script">
+				<li>カレンダーの天気グラフ、預貯金管理「ライフプラン」、ツール「GPSログ View」で使用。</li>
+				<li><a href="http://www.highcharts.com/" target="_blank">http://www.highcharts.com/</a></li>
+			</ul>
+			</li>
+
+			<li>scripts/tablesorter/ 一式
+			<ul class="requirements_script">
+				<li>ツール「ファイルマネージャー（暗号化/復号化付き）」「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」でテーブルの並び替え処理に使用。</li>
+				<li><a href="http://tablesorter.com/docs/" target="_blank">http://tablesorter.com/docs/</a></li>
+			</ul>
+			</li>
+
+			<li>scripts/tristen-tablesort/ 一式
+			<ul class="requirements_script">
+				<li>「メール」一覧でテーブルの並び替え処理に使用。</li>
+				<li><a href="https://github.com/tristen/tablesort" target="_blank">https://github.com/tristen/tablesort</a></li>
+			</ul>
+			</li>
+
+			<li>tools/scripts/dp.SyntaxHighlighter/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」で使用。</li>
+				<li><a href="http://winofsql.jp/sh/html/syntax_highlighter.htm" target="_blank">http://winofsql.jp/sh/html/syntax_highlighter.htm</a></li>
+			</ul>
+			</li>
+			<li>tools/scripts/editarea/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」で使用。</li>
+				<li><a href="http://sourceforge.net/projects/editarea/files/" target="_blank">http://sourceforge.net/projects/editarea/files/</a></li>
+			</ul>
+			</li>
+			<li>tools/scripts/Bluff/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「Excel to グラフ by Bluff」で使用。</li>
+				<li><a href="http://bluff.jcoglan.com/" target="_blank">http://bluff.jcoglan.com/</a></li>
+			</ul>
+			</li>
+			<li>tools/scripts/html5jp/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「Excel to グラフ by HTML5」で使用。</li>
+				<li><a href="http://www.html5.jp/library/index.html" target="_blank">http://www.html5.jp/library/index.html</a></li>
+			</ul>
+			</li>
+			<li>Google Chart API
+			<ul class="requirements_script">
+				<li>ツールの「Excel to グラフ by Google」で使用。</li>
+				<li><a href="http://code.google.com/intl/ja/apis/charttools/index.html" target="_blank">http://code.google.com/intl/ja/apis/charttools/index.html</a></li>
+			</ul>
+			</li>
+			<li>scripts/excanvas.compiled.js<br>
+			tools/scripts/excanvas/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「Excel to グラフ」で使用。Internet ExplorerをCanvasに対応させる。</li>
+				<li><a href="http://sourceforge.net/projects/excanvas/" target="_blank">http://sourceforge.net/projects/excanvas/</a></li>
+			</ul>
+			</li>
+			<li>tools/phpExcelReader/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「Excel to グラフ」のExcelシートの取り込みに使っています。</li>
+				<li><a href="http://sourceforge.net/projects/phpexcelreader" target="_blank">http://sourceforge.net/projects/phpexcelreader</a></li>
+			</ul>
+			</li>
+			<li>db_tool/CreateZipFile/ 一式
+			<ul class="requirements_script">
+				<li>ツールの「実運用環境バックアップ」でZIPファイル生成に使っています。</li>
+				<li><a href="http://olederer.users.phpclasses.org/browse/package/2322.html" target="_blank">http://olederer.users.phpclasses.org/browse/package/2322.html</a></li>
+			</ul>
+			</li>
+
+
+			<li>pdf/fpdf 一式
+			<ul class="requirements_script">
+				<li>PDF作成用ライブラリFPDF関連。</li>
+				<li><a href="http://www.fpdf.org/" target="_blank">http://www.fpdf.org/</a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDF<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・MBFPDF<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・Rotations<br>
+				</li>
+				<li><a href="http://www.setasign.de/products/pdf-php-solutions/fpdi/" target="_blank">http://www.setasign.de/products/pdf-php-solutions/fpdi/</a><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDI<br>
+			&nbsp;&nbsp;&nbsp;&nbsp;・FPDF_TPL<br>
+				</li>
+			</ul>
+			</li>
+			<li>pdf/fpdf/pdf-inc.php
+			<ul class="requirements_script">
+				<li>PDF葉書宛名書きライブラリ。</li>
+				<li><a href="http://www.rapidexp.com/wordpress/2009/01/12/fpdf/" target="_blank">http://www.rapidexp.com/wordpress/2009/01/12/fpdf/</a></li>
+			</ul>
+			</li>
+
+			<li>tools/refresh_web/ 一式
+			<ul class="requirements_script">
+				<li>ツール「Photoshop-like JavaScript Color Picker」</li>
+				<li><a href="http://johndyer.name/post/2007/09/PhotoShop-like-JavaScript-Color-Picker.aspx" target="_blank">http://johndyer.name/post/2007/09/PhotoShop-like-JavaScript-Color-Picker.aspx</a></li>
+			</ul>
+			</li>
+
+			<li>Fresh Sliding Thumbnails Gallery with jQuery and PHP
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。(ver.6.08以降廃止しました。)</li>
+				<li><a href="http://tympanus.net/codrops/2010/05/23/fresh-sliding-thumbnails-gallery-with-jquery-php/" target="_blank">http://tympanus.net/codrops/2010/05/23/fresh-sliding-thumbnails-gallery-with-jquery-php/</a></li>
+			</ul>
+			</li>
+			<li>Sliding Panel Photo Wall Gallery with jQuery
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。(ver.6.08以降廃止しました。)</li>
+				<li><a href="http://tympanus.net/codrops/2010/05/14/sliding-panel-photo-wall-gallery-with-jquery/" target="_blank">http://tympanus.net/codrops/2010/05/14/sliding-panel-photo-wall-gallery-with-jquery/</a></li>
+			</ul>
+			</li>
+
+			<li>Galleria
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://galleria.aino.se/" target="_blank">http://galleria.aino.se/</a></li>
+			</ul>
+			</li>
+
+			<li>FULLSCREEN BACKGROUND IMAGE SLIDESHOW WITH CSS3
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/" target="_blank">http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/</a></li>
+			</ul>
+			</li>
+
+			<li>Merging Image Boxes with jQuery
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://tympanus.net/codrops/2010/11/30/merging-image-boxes/" target="_blank">http://tympanus.net/codrops/2010/11/30/merging-image-boxes/</a></li>
+			</ul>
+			</li>
+
+			<li>3D Wall Gallery
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/" target="_blank">http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/</a></li>
+			</ul>
+			</li>
+
+			<li>Supersized - Fullscreen Slideshow jQuery Plugin
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://www.buildinternet.com/project/supersized/" target="_blank">http://www.buildinternet.com/project/supersized/</a></li>
+			</ul>
+			</li>
+
+			<li>Fotorama
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://fotorama.io/" target="_blank">http://fotorama.io/</a></li>
+			</ul>
+			</li>
+
+			<li>jQuery CollagePlus
+			<ul class="requirements_script">
+				<li>「アルバム」のギャラリーに使っています。</li>
+				<li><a href="http://collageplus.edlea.com/" target="_blank">http://collageplus.edlea.com/</a></li>
+			</ul>
+			</li>
+
+			<li>tenbyou.js（canvas要素のピクセル操作で点描っぽいお絵描きアニメーション）
+			<ul class="requirements_script">
+				<li></li>「アルバム」の点描で使っています。
+				<li><a href="http://funenplacanen.com/blog/163" target="_blank">http://funenplacanen.com/blog/163</a></li>
+				<li><a href="https://github.com/ykhs/tenbyou" target="_blank">https://github.com/ykhs/tenbyou</a></li>
+			</ul>
+			</li>
+
+			<li>scripts/pixastic/ 一式
+			<ul class="requirements_script">
+				<li>「アルバム」の画像エフェクトに使っています。(Ver.4.12以降機能廃止)</li>
+				<li><a href="http://www.pixastic.com/lib/" target="_blank">http://www.pixastic.com/lib/</a></li>
+			</ul>
+			</li>
+
+			<li>tiltShift.js
+			<ul class="requirements_script">
+				<li>「アルバム」のチルトシフトに使っています。</li>
+				<li><a href="http://www.noeltock.com/tilt-shift-css3-jquery-plugin/" target="_blank">http://www.noeltock.com/tilt-shift-css3-jquery-plugin/</a></li>
+			</ul>
+			</li>
+
+			<li>rainyday.js
+			<ul class="requirements_script">
+				<li>「アルバム」の「雨降り」で使っています。</li>
+				<li><a href="http://maroslaw.github.io/rainyday.js/" target="_blank">http://maroslaw.github.io/rainyday.js/</a></li>
+			</ul>
+			</li>
+
+			<li>ImageFilters.js
+			<ul class="requirements_script">
+				<li>「アルバム」の「ImageFilters」で使っています。</li>
+				<li><a href="https://github.com/arahaya/ImageFilters.js" target="_blank">https://github.com/arahaya/ImageFilters.js</a></li>
+			</ul>
+			</li>
+
+			<li>deviantART muro
+			<ul class="requirements_script">
+				<li>「アルバム」の「deviantART」で使っています。</li>
+				<li><a href="https://github.com/deviantART/embedded-deviantART-muro/" target="_blank">https://github.com/deviantART/embedded-deviantART-muro/</a></li>
+			</ul>
+			</li>
+
+			<li>SVG-edit
+			<ul class="requirements_script">
+				<li>「お絵かき」で使っています。</li>
+				<li><a href="http://code.google.com/p/svg-edit/" target="_blank">http://code.google.com/p/svg-edit/</a></li>
+			</ul>
+			</li>
+
+			<li>Skookum/Ghostwriter
+			<ul class="requirements_script">
+				<li>「ペン画」で使っています。</li>
+				<li><a href="https://github.com/Skookum/ghostwriter" target="_blank">https://github.com/Skookum/ghostwriter</a></li>
+				<li><a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio" target="_blank">https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio</a></li>
+ 	</ul>
+			</li>
+			<li>json2.js
+			<ul class="requirements_script">
+				<li>「ペン画」でJSON形式変換で使っています。(Ver.3.33のみ使用)</li>
+				<li><a href="https://github.com/douglascrockford/JSON-js/blob/master/json2.js" target="_blank">https://github.com/douglascrockford/JSON-js/blob/master/json2.js</a></li>
+ 	</ul>
+			</li>
+
+			<li>scripts/jquery.cs.js
+			<ul class="requirements_script">
+				<li>「住所録」の都道府県選択のプルダウンに使っています。一部カスタマイズしたjquery.cs.jsを使っています。</li>
+				<li><a href="http://www.jextend.com/sample/cs.html" target="_blank">http://www.jextend.com/sample/cs.html</a></li>
+			</ul>
+			</li>
+
+			<li>hokaccha/js-zip2address
+			<ul class="requirements_script">
+				<li>「住所録」の郵便番号からの住所検索で使っています。Google日本語入力APIを利用しています。</li>
+				<li><a href="https://github.com/hokaccha/js-zip2address" target="_blank">https://github.com/hokaccha/js-zip2address</a></li>
+			</ul>
+			</li>
+
+			<li>AJAX-enabled Sticky Notes With PHP & jQuery
+			<ul class="requirements_script">
+				<li>「付箋」に使っています。</li>
+				<li><a href="http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/" target="_blank">http://tutorialzine.com/2010/01/sticky-notes-ajax-php-jquery/</a></li>
+			</ul>
+			</li>
+			<li>Fancybox
+			<ul class="requirements_script">
+				<li>「付箋」のsticky-notesに使っています。</li>
+				<li><a href="http://fancybox.net/" target="_blank">http://fancybox.net/</a></li>
+			</ul>
+			</li>
+
+			<li>scripts/jquery.loupe.js
+			<ul class="requirements_script">
+				<li>「アルバム」スライドモードの画像部分拡大(ルーペ)機能に使っています。(Ver.4.12以降機能廃止)</li>
+				<li><a href="http://jdbartlett.github.com/loupe/" target="_blank">http://jdbartlett.github.com/loupe/</a></li>
+			</ul>
+			</li>
+
+			<li>valueconvertor.js
+			<ul class="requirements_script">
+				<li>入力フォームで、半角変換、半角カナ全角変換, ひらがな変換に使っています。</li>
+				<li><a href="http://www.yomotsu.net/lab/javascripts/valueconvertor" target="_blank">http://www.yomotsu.net/lab/javascripts/valueconvertor</a></li>
+			</ul>
+			</li>
+
+			<li>jqKey.js
+			<ul class="requirements_script">
+				<li>入力フォームで、Enterキーでの入力フィールド移動に使っています。</li>
+				<li><a href="http://d.hatena.ne.jp/Hidepyon/20110220/1298217228" target="_blank">http://d.hatena.ne.jp/Hidepyon/20110220/1298217228</a></li>
+			</ul>
+			</li>
+
+			<li>jQuery-File-Upload
+			<ul class="requirements_script">
+				<li>ツール「ファイルマネージャー」の一括アップロード(ドラッグ&ドラップ対応)で使っています。</li>
+				<li><a href="https://github.com/blueimp/jQuery-File-Upload" target="_blank">https://github.com/blueimp/jQuery-File-Upload</a></li>
+			</ul>
+			</li>
+
+			<li>Multiple File Upload With Progress Bar Using jQuery
+			<ul class="requirements_script">
+				<li>ツール「ファイルマネージャー」の一括アップロード(IE版)で使っています。</li>
+				<li><a href="http://webdeveloperplus.com/jquery/multiple-file-upload-with-progress-bar-using-jquery/" target="_blank">http://webdeveloperplus.com/jquery/multiple-file-upload-with-progress-bar-using-jquery/</a></li>
+			</ul>
+			</li>
+
+			<li>SWFUpload jQuery Plugin
+			<ul class="requirements_script">
+				<li>ツール「ファイルマネージャー」の一括アップロード(IE版)で使っています。</li>
+				<li><a href="http://blogs.bigfish.tv/adam/2009/06/14/swfupload-jquery-plugin/" target="_blank">http://blogs.bigfish.tv/adam/2009/06/14/swfupload-jquery-plugin/</a></li>
+			</ul>
+			</li>
+
+			<li>scripts/snapfit/ 一式
+			<ul class="requirements_script">
+				<li>「アルバム」のジグソーパズル生成に使っています。</li>
+				<li><a href="http://www.netzgesta.de/snapfit/" target="_blank">http://www.netzgesta.de/snapfit/</a></li>
+			</ul>
+			</li>
+
+			<li>Zero Clipboard
+			<ul class="requirements_script">
+				<li>「ID管理」でクリップボードへのコピーで使っています。</li>
+				<li><a href="http://code.google.com/p/zeroclipboard/" target="_blank">http://code.google.com/p/zeroclipboard/</a></li>
+			</ul>
+			</li>
+
+			<li>physicsketch.js、box2d.js
+			<ul class="requirements_script">
+				<li>物理エンジンを使った物体落下シミュレーションゲーム「physicSketch」で使っています。</li>
+				<li><a href="http://physicsketch.appspot.com/" target="_blank">http://physicsketch.appspot.com/</a></li>
+			</ul>
+			</li>
+
+			<li>jquery.autocomplete.js
+			<ul class="requirements_script">
+				<li>Google Suggest APIを使った予測変換(単語補完)機能組み込みでテキスト入力枠のオートコンプリートに使用。</li>
+				<li><a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/" target="_blank">http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/</a></li>
+			</ul>
+			</li>
+
+			<li>jquery.highlight.js (JavaScript text higlighting jQuery plugin)
+			<ul class="requirements_script">
+				<li>メモなどのキーワード検索時のキーワードハイライトで使用しています。</li>
+				<li><a href="http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html" target="_blank">http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html</a></li>
+			</ul>
+			</li>
+
+			<li>jquery-ms-Dropdown
+			<ul class="requirements_script">
+			<li>カレンダのカテゴリselectプルダウンにアイコンを表示するのに使用。</li>
+			<li><a href="https://github.com/marghoobsuleman/ms-Dropdown" target="_blank">https://github.com/marghoobsuleman/ms-Dropdown</a></li>
+			</ul>
+			</li>
+
+			<li>jStorage：ローカルストレージ使用JavaScriptライブラリ。IEではuserDataを使用。
+			<ul class="requirements_script">
+			<li>預貯金管理「ライフプラン」で使用。</li>
+			<li><a href="http://www.jstorage.info/" target="_blank">http://www.jstorage.info/</a></li>
+			</ul>
+			</li>
+
+			<li>郵便番号検索API(グルーブテクノロジー株式会社)
+			<ul class="requirements_script">
+				<li>「住所録」入力画面の住所検索で使っています。</li>
+				<li><a href="http://groovetechnology.co.jp/webservice/zipsearch/index.html" target="_blank">http://groovetechnology.co.jp/webservice/zipsearch/index.html</a></li>
+			</ul>
+			</li>
+
+			<li>Google Maps/Earth活用ツール「轍 Wadachi」
+			<ul class="requirements_script">
+				<li>ツール「GPSログ View」のルート表示に使っています。(JavaScript,CSS,HTML)</li>
+				<li><a href="http://wadachi.cyclekikou.net/" target="_blank">http://wadachi.cyclekikou.net/</a></li>
+			</ul>
+			</li>
+
+			<li>GPSなどの緯度経度の２点間の直線距離を求めるPHP関数
+			<ul class="requirements_script">
+				<li>ツール「GPSログ View」のルート表示で使っています。</li>
+				<li><a href="http://d.hatena.ne.jp/kudakurage/20100319/1268986000" target="_blank">http://d.hatena.ne.jp/kudakurage/20100319/1268986000</a></li>
+			</ul>
+			</li>
+
+			<li>JSColor
+			<ul class="requirements_script">
+				<li>ツール「jSnow お好み」で背景色の設定に使っています。</li>
+				<li><a href="http://jscolor.com/" target="_blank">http://jscolor.com/</a></li>
+			</ul>
+			</li>
+
+			<li>tools/jSnow/jsnow.js
+			<ul class="requirements_script">
+				<li>ツールのjSnow（ページ内に雪を降らせる）で使っています。</li>
+				<li><a href="http://www.ajaxblender.com/jsnow.html" target="_blank">http://www.ajaxblender.com/jsnow.html</a></li>
+			</ul>
+			</li>
+
+			<li>slider.js
+			<ul class="requirements_script">
+				<li>ツール「jSnow：お好み」で、オプション選択に使っています。</li>
+				<li><a href="http://www.frequency-decoder.com/demo/slider-revisited/" target="_blank">http://www.frequency-decoder.com/demo/slider-revisited/</a></li>
+			</ul>
+			</li>
+
+			<li>PHP Simple HTML DOM Parser
+			<ul class="requirements_script">
+				<li>ツール「HTML URL抽出 & ファイルダウンロード (Simple HTML DOM Parser版)」で、使っています。</li>
+				<li><a href="http://simplehtmldom.sourceforge.net/" target="_blank">http://simplehtmldom.sourceforge.net/</a></li>
+			</ul>
+			</li>
+
+			<li>jQuery Mobile
+			<ul class="requirements_script">
+				<li>スマートフォン用のカレンダースケジュール表示、RSSリーダー、チャットに使用。</li>
+				<li><a href="http://jquerymobile.com/" target="_blank">http://jquerymobile.com/</a></li>
+			</ul>
+			<img src="images/iphone.jpg" style="padding: 0 0 0 80px;"></a>
+			</li>
+
+			<li>HAWHAW：汎用的な携帯用アプリの開発ツールキット
+			<ul class="requirements_script">
+<li>携帯電話(mobile端末)用のカレンダースケジュール表示機能に使用。</li>
+<li><a href="http://www.d-meister.co.jp/HAWHAW/" target="_blank">http://www.d-meister.co.jp/HAWHAW/</a></li>
+			</ul>
+			<img src="images/119-22.jpg" style="padding: 0 0 0 80px;"></a>
+			</li>
+		</ul>
+
+		<ul class="requirements_subject">
+			<li>使用外部ツール（コマンド）</li>
+		</ul>
+		<ul class="requirements">
+			<li>ffmpeg
+			<ul class="requirements_script">
+<li>アルバムの動画サムネイル表示、動画時間分割、mpg,mov,m2tsの動画再生で使用します。以下からダウンロードしてインストールが必要です。</li>
+<li><a href="http://blog.k-tai-douga.com/" target="_blank">http://blog.k-tai-douga.com/</a></li>
+			</ul>
+			</li>
+
+			<li>IrfanView、IrFanView Graphic Viewer PlugIns(拡張プラグイン全DLL収録版)
+			<ul class="requirements_script">
+<li>アルバムの画像表示高速化のためのJPEG画像縮小で使用します。以下からダウンロードしてインストールが必要です。</li>
+<li>
+<a href="http://www.irfanview.com/" target="_blank">http://www.irfanview.com/</a><br>
+<a href="http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html" target="_blank">http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html</a></li>
+			</ul>
+			</li>
+
+			<li>ImageMagick
+			<ul class="requirements_script">
+<li>ImageMagickを使った画像処理機能で使用します。以下からダウンロードしてインストールが必要です。</li>
+<li>
+<a href="http://www.imagemagick.org/script/index.php" target="_blank">http://www.imagemagick.org/script/index.php</a></li>
+			</ul>
+			</li>
+
+		</ul>
+
+		<ul class="requirements_subject">
+			<li>使用アイコン・使用データ</li>
+		</ul>
+		<ul class="requirements">
+			<li>1キロバイトの素材屋さん（カレンダーのアイコンで使用。）
+			<ul class="requirements_script">
+<li><a href="http://1kb-sozai.com/" target="_blank">http://1kb-sozai.com/</a></li>
+			</ul>
+			</li>
+			<li>素材のプチッチ（天気出現率の天気マークで使用。）
+			<ul class="requirements_script">
+<li><a href="http://putiya.com/4risuto2.html" target="_blank">http://putiya.com/4risuto2.html</a></li>
+			</ul>
+			</li>
+			<li>famfamfam.com
+			<ul class="requirements_script">
+<li><a href="http://www.famfamfam.com/" target="_blank">http://www.famfamfam.com/</a></li>
+			</ul>
+			</li>
+
+			<li>205 16x16 cms ect icons pngs by ~zman3
+			<ul class="requirements_script">
+<li><a href="http://zman3.deviantart.com/art/205-16x16-cms-ect-icons-pngs-85612498" target="_blank">http://zman3.deviantart.com/art/205-16x16-cms-ect-icons-pngs-85612498</a></li>
+			</ul>
+			</li>
+
+			<li>google-maps-icons
+			<ul class="requirements_script">
+<li><a href="http://code.google.com/p/google-maps-icons/" target="_blank">http://code.google.com/p/google-maps-icons/</a></li>
+			</ul>
+			</li>
+
+			<li>Webアイコンフォント：Font Awesome（カレンダーのアイコンとして使用）
+			<ul class="requirements_script">
+<li><a href="http://fortawesome.github.io/Font-Awesome/" target="_blank">http://fortawesome.github.io/Font-Awesome/</a></li>
+			</ul>
+			</li>
+
+			<li>日本百名山一覧/深田順 NASA World Wind（住所録の日本百名山で利用。Ver.4.15以降は未使用）
+			<ul class="requirements_script">
+<li><a href="http://www.occn.zaq.ne.jp/sohta/100list_N.htm" target="_blank">http://www.occn.zaq.ne.jp/sohta/100list_N.htm</a></li>
+			</ul>
+			</li>
+
+			<li>日本百選と座標値（経緯度数値）（住所録の日本百名山と日本百選で利用）
+			<ul class="requirements_script">
+<li><a href="http://100sen.cyber-ninja.jp/" target="_blank">http://100sen.cyber-ninja.jp/</a></li>
+			</ul>
+			</li>
+
+			<li>google maps による世界遺産めぐり：世界遺産の緯度と経度（住所録の世界遺産で利用）
+			<ul class="requirements_script">
+<li><a href="http://www.geocities.jp/heritages001/heritages.html" target="_blank">http://www.geocities.jp/heritages001/heritages.html</a></li>
+			</ul>
+			</li>
+
+			<li>駅データ（住所録の鉄道駅で利用）
+			<ul class="requirements_script">
+<li><a href="http://www.ekidata.jp/" target="_blank">http://www.ekidata.jp/</a></li>
+			</ul>
+			</li>
+
+			<li>全国駅一覧ポイントデータ（住所録の鉄道駅の駅名よみで利用）
+			<ul class="requirements_script">
+<li><a href="http://www.vector.co.jp/soft/data/home/se441833.html" target="_blank">http://www.vector.co.jp/soft/data/home/se441833.html</a></li>
+			</ul>
+			</li>
+
+			<li>名桜・古桜・一本桜（住所録の桜名木で利用）
+			<ul class="requirements_script">
+<li><a href="http://yutabi.cside4.com/sakura/index.html" target="_blank">http://yutabi.cside4.com/sakura/index.html</a></li>
+			</ul>
+			</li>
+
+		</ul>
+
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

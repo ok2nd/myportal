@@ -1,0 +1,822 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン5.04以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download11.html">最新(5.05以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.04&nbsp;&nbsp;(2012/10/14)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「アルバム」で全画面スライドショーからEscキーでアルバム標準画面に戻る際に、元のモードに関係なくスライドモード状態になっていたのを、元のモード(サムネイル/スライド)に戻すように修正。</li>
+	<li>「アルバム」の標準画面(サムネイル/スライド)で、キーボード操作によるフォルダ移動やページ移動等ができるようにしました。<br>
+・[Tab]：次フォルダ<br>
+・[Caps Lock]：前フォルダ<br>
+・[→]：次ページ<br>
+・[←]：前ページ<br>
+・10キーの[＋]：サムネイル画像サイズ大きく<br>
+・10キーの[－]：サムネイル画像サイズ小さく<br>
+・[A]：モード切替→サムネイル<br>
+・[B]：モード切替→サムネイル(B)<br>
+・[S]：モード切替→スライド<br>
+・[Space]：モード切替→全画面スライド<br>
+	  キーボード操作機能を使わない場合、実運用定義ファイルで以下を指定してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_FOLDER_MOVE_BY_KEYBOARD", "NO");
+</pre>
+キーボード操作によるモード切替を使わない場合、実運用定義ファイルで以下を指定してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_MODE_CHANGE_BY_KEYBOARD", "NO");
+</pre></li>
+	<li>「アルバム」「全画面」スライドショーのキーボードによる操作のうち、10画像前へスキップのキーを、[Ctrl]キーから、[Caps Lock]キーに変更。</li>
+	<li>ツール「Google Maps API V3版」「Google Maps (複数地点) API V3版」で、印刷において、極力用紙一杯に印刷できるようにしました。サイドバーやルートナビは印刷されません。なお、Chromeでは印刷がうまくできません。印刷する場合は、Firefoxをご利用ください。
+<br><img src="images/map-screen.jpg" style="margin:2px 20px;border: 1px solid #444;"><br>
+≪印刷イメージ≫
+<br><img src="images/map-print.jpg" style="margin:2px 20px;;border: 1px solid #444;"></li>
+	<li>おもな変更モジュール<br>
+		・photo/ajax-photo-view.php, slide.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.03&nbsp;&nbsp;(2012/09/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ボタンのスタイルシート(CSS)を、common.cssとは別ファイルとして独立させました。tools_common.cssは分割していません。</li>
+	<li>ボタンのスタイルシート(CSS)サンプルとして、角丸タイプ、グラデーションタイプなど、数種類用意しました。<br>
+
+<a href="images/index-kube-big.png" target="_blank"><img src="images/index-kube.jpg"  style="margin:2px 20px;"></a><br>
+<pre class="command" style="font-size: 11px;">
+radius.css, gradient.css, shadow.css, kube.css
+</pre>
+
+<img src="images/button-radius.jpg" style="margin:2px 20px; border:#404040 1px solid;vertical-align:top;"><img src="images/button-gradient.jpg" style="margin:2px 0; border:#404040 1px solid;vertical-align:top;">
+<br><img src="images/button-shadow.jpg" style="margin:2px 20px; border:#404040 1px solid;vertical-align:top;"><img src="images/button-kube.jpg" style="margin:2px 0; border:#404040 1px solid;vertical-align:top;"><br>
+	  実運用定義ファイルで任意のものを設定できます。<br>
+<pre class="command" style="font-size: 11px;">
+define("_STYLE_SHEET_BUTTON", "../style/button/gradient.css");
+</pre>
+	  オリジナルのCSSを作成して、ディレクトリ_myhome_myset等に置いて使用することもできます。<br>
+<pre class="command" style="font-size: 11px;">
+define("_STYLE_SHEET_BUTTON", "../../_myhome_myset/style/button/xxxxx.css");
+</pre></li>
+	<li>「アルバム」に、画像(写真)をチルトシフト表示する機能を追加。「tiltShift.js」を使用。Chromeでのみ動作します。
+<br><img src="images/tiltshift.jpg" style="margin:2px 20px"><br>
+<pre class="command" style="font-size: 11px;">
+<a href="http://www.noeltock.com/tilt-shift-css3-jquery-plugin/" target="_blank">http://www.noeltock.com/tilt-shift-css3-jquery-plugin/</a>
+</pre>
+	  画面サイズに合わせてリサイズはしません。チルトシフトデータのリサイズがうまくいかない(?)ため。<br>
+	  スライドモードの画像の右の「チルトシフト」をクリックしてください。キーボードによる表示画像のページ移動もできます。マウスクリックで、チルトシフト効果をON/OFF出来ます。</li>
+	<li>「アルバム」に、画像(写真)を拡大縮小アニメーション表示する機能を追加。拡大縮小率や速度を調整できます。IEでは動作しません。<br>
+	  スライドモードの画像の右の「拡大縮小」をクリックしてください。キーボードによる表示画像のページ移動もできます。</li>
+	<li>ツール「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」の編集で、「保存のみ」ボタンを追加。ただし、画面は一番上に戻ります。</li>
+	<li>追加モジュール<br>
+		・style/button/standard.css, radius.css, gradient.css, shadow.css, kube.css<br>
+		・photo/tiltshift.php, zoom-inout.php<br>
+		・scripts/jquery-1.8.1.jsv
+		・scripts/tiltShift/*</li>
+	<li>おもな変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・style/original/common.css<br>
+		・index/__define_index_search.php, list-my-template-mynews.php<br>
+		・photo/ajax-photo-view.php<br>
+		・tools/code-file-edit.php<br>
+		・__define_common_my_sample.php, __define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.02&nbsp;&nbsp;(2012/09/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「メモ」一覧に、Ajax対応削除ボタン追加。ページ遷移なしに削除できます。</li>
+	<li>「メモ」修正画面で修正ボタン実行後、一覧ページで修正した行が画面内に表示されるようにスクロールするようにしました。ただし、IEではこの機能が働きません。(header("Location: list.php#id_999")の#から後ろがカットされてしまうため。)</li>
+	<li>「カレンダー(一覧表示)」「ID管理」「利用ガイド」の修正処理も、上記同様の処理を追加しました。</li>
+	<li>「メモ」で、件名を必須でなくしました。メモ本文のみでも登録できます。</li>
+	<li>「メモ」で、件名を全く使わない設定もできるようにしました。実運用定義ファイルで、以下を設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("MEMO_SUBJECT_USE", "NO");
+</pre>
+	  既に実運用開始済で、件名を全く使わない設定に変更する場合、事前にメモ件名をメモ本文の1行目にコピーしてください。まず、データベースのバックアップをとった上で以下を実行してください。コマンドプロンプトで以下を実行してください。MySQL管理者ユーザーrootのパスワードが「kanri789」の場合。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_memo;
+update m_memo set c_memo = concat(c_subject, '\n', c_memo);
+exit;
+</pre>
+	  「メモ」一覧で、メモ件名がメモ本文にコピーされた事を確認の上、メモ件名を空白にします。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_memo;
+update m_memo set c_subject = '';
+exit;
+</pre></li>
+	<li>「アルバム」に「パネルを揺らすように画像を表示する機能」を追加。以下のスタイルシートを使用して画像を揺らしています。IEでは動作しません。<br>
+<pre class="command" style="font-size: 11px;">
+<a href="http://jsfiddle.net/codepo8/MXq9x/" target="_blank">http://jsfiddle.net/codepo8/MXq9x/</a>
+</pre>
+	  スライドモードの画像の右の「揺れる」をクリックしてください。<br>
+	  キーボードによる表示画像のページ移動もできます。<br>
+<pre class="command" style="font-size: 11px;">
+・[→], [Page Down], [Enter], [Space]：次画像
+・[←], [Page Up],[無変換]：前画像
+・[Tab]：10画像スキップ
+・[Ctrl]：10画像前へスキップ
+・[Home]：先頭画像へスキップ
+・[End]：最後画像へスキップ</pre>
+<img src="images/00000214-swinging.jpg" style="margin:2px 20px"></li>
+	<li>「アルバム」「全画面」スライドショーのキーボードによる操作のうち、10画像前へスキップのキーを、半角/全角キーから、Ctrlキーに変更。半角/全角キーでは動作が不安定なため。</li>
+	<li>「アルバム」「全画面(Ajax)」で、スライドショーを一時停止できるようにしました。
+	  キーボード[A]キーで一時停止/再開が出来ます。</li>
+
+	<li>「INDEX」トップページの各ボックスのボーダー幅を実運用定義ファイルで指定できるようにしました。デフォルトを1pxにしました。
+<pre class="command" style="font-size: 11px;">
+define("index_BOX_BORDER_WIDTH", '1px');	// ボックスのボーダー幅
+</pre></li>
+	<li>「INDEX」トップページの各ボックスのボーダー色を、タイトルと同じではなく、共通の色に設定できるようにしました。タイトルと同じ色にする場合は、''を指定してください。
+<pre class="command" style="font-size: 11px;">
+define("index_BOX_BORDER_COLOR", '#b0b0b0;');	// ボックスのボーダー色：全ボックスを同じ色にする場合
+</pre><img src="images/box-2.jpg" style="margin:2px 0 2px 10px">
+<img src="images/box-1.jpg" style="margin:2px 0 2px 2px">
+<img src="images/box-3.jpg" style="margin:2px 0 2px 2px">
+</li>
+	<li>「INDEX」トップページ右に配置するRSSブログパーツサンプルも、上記ボックス指定が適用されるようにしました。</li>
+	<li>追加モジュール<br>
+		・memo/delete.php<br>
+		・photo/swinging.php</li>
+	<li>おもな変更モジュール<br>
+		・memo/__define.php, list.php, list-my-template.php, input.php<br>
+		・calendar/list-my-template.php, input.php<br>
+		・guide/list-my-template.php, input.php<br>
+		・id-manager/list-my-template.php, input.php<br>
+		・photo/ajax-photo-view.php, slide.php<br>
+		・index/__define.php, index.php<br>
+		・blog-parts/rss-tv.inc, rss-ameba-news.inc, rss-google-news.inc, rss-nhk-news.inc<br>
+		・style/original/memo.css, index.css<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.01&nbsp;&nbsp;(2012/08/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「INDEX」トップページ「Twitter」検索ボタンの検索キーに「lang:ja」を付けるようにしました。また、ツイート範囲を「トップ」でなく「すべて」にしました。</li>
+	<li>「INDEX」トップページに「リアルタイム」検索ボタンを追加。Yahooリアルタイム検索をします。
+<br><img src="images/index-sch-button.jpg" style="margin:2px 20px"></li>
+	<li>「INDEX」の「Myニュース」に「Yahoo:リアルタイム」検索ボタンを追加しました。
+<br><img src="images/00000287-mynews.jpg" style="margin:2px 20px"></li>
+	<li>Firefoxのボタンサイズを他のブラウザと同じになるように調整。</li>
+	<li>おもな変更モジュール<br>
+		・index/__define_index_search.php, list-my-template-mynews.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・style/original/common.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.5.00&nbsp;&nbsp;(2012/08/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>Ver.1.00リリースから約4年経過で5年目に入ったということで、Ver.5.00としました。</li>
+	<li>新コンテンツ「メール」を追加しました。
+<br><img src="images/00000288-email1.jpg" style="margin:2px 20px">
+<br><img src="images/00000288-email2.jpg" style="margin:2px 20px">
+<br><img src="images/00000289-email3.jpg" style="margin:2px 20px"></li>
+	<li>SMTP/POP3メールの受信ができます。Gmail等SMTP/POP3対応のメールも受信できます。</li>
+	<li>複数のメールアカウントのメールを同時に一括して受信ができます。最新の受信メールから最大10件を一覧表示します。(件数は実運用定義ファイルで変更可)</li>
+	<li>メールBOX名をクリックすると、最新の受信メールから最大50件を一覧表示します。(件数は実運用定義ファイルで変更可)</li>
+	<li>一覧リストのメール件名をクリックすると、本文を別ウインドウで表示します。本文表示は、HTML有効/無効を選択できます。添付ファイルは読み込みません。</li>
+	<li>この「メール」機能を使うと、他のユーザーから、メールやメールアカウントのパスワードを参照される可能性がありますので、MyHome Portalを個人で利用されている場合を除いては利用しないことをお勧めします。</li>
+	<li>この「メール」機能でメールを受信しても、メールサーバーにメールは残ります。通常使用しているメールクライアントソフトでの受信に支障は出ません。</li>
+	<li>Gmailで使う場合は、「設定」の「メール転送とPOP/IMAP」で、「今後受信するメールで POP を有効にする」に設定してください。<br>また、「POPでメールにアクセスする場合」を、「Gmailのメールを受信トレイに残す」に設定してください。</li>
+	<li>Gmailで使う場合は、ユーザー名(メールアカウント)の頭に「recent:」を付けてください。これを付けないと、サーバ側で未読既読管理をされるため、本文を表示したメールが既読扱いとなり、次回から取得できなくなり、不都合が生じます。「recent:」を付けると、過去30日分のメールが既読分も含めて受信されます。</li>
+	<li>メールサーバーによっては、既にメール・サーバーから取り出し済みのメールも取得してしまう場合があるようです。</li>
+	<li>メール受信には「PEAR::Net_POP3」を使っています。XAMPPでPHPをインストールした場合、「PEAR::Net_POP3」がインストールされていない可能性があります。ファイル「xampp/php/PEAR/Net/POP3.php」があればインストールされています。ファイルが無い場合は、コマンドプロンプトで以下を実行してインストールしてください。
+<pre class="command" style="font-size: 11px;">
+pear install Net_POP3
+</pre></li>
+	<li>SSL対応のPOP3サーバーから受信する場合、PHPをSSL対応にする必要があります。<br>
+	  確認は、phpinfoで「Registered Stream Socket Transports」に「ssl」が含まれているかを確認します。
+<pre class="command" style="font-size: 11px;">
+<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a>
+</pre>
+	  含まれていない場合は、「xampp/php/php.ini」を修正します。以下の行
+<pre class="command" style="font-size: 11px;">
+;extension=php_openssl.dll
+</pre>のコメントアウトを外した上で、Apacheを再起動します。Windowsの場合、コマンドプロンプトで以下を実行してください。
+<pre class="command" style="font-size: 11px;">
+net stop Apache2.2
+net start Apache2.2
+</pre>
+SSLを使う場合、POP3ホスト名設定で、ホスト名の頭に「ssl://」を付けてください。Gmailの例では、「ssl://pop.gmail.com」となります。ポート番号は、995になります。
+</li>
+	<li>Ver.4.25以前で既に環境を構築済みの場合は、以下の手順で「メール」のデータベース追加等の環境設定をしてください。<br>
+	  コマンドプロンプトで以下を実行してください。以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  ≪サンプルデータベース作成≫
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_email;
+exit
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_email < _db_email.bk.txt
+mysql -u root -pkanri789 _db_email < create_view_db_email.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_email.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit
+</pre>
+	  ≪実運用データベース作成＆環境設定≫<br>
+		＊実運用データベース作成<br>
+			・MySQLを一旦停止します。
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+</pre>
+			・データベース「_db_email」をコピーして、実運用データベース「_mydb_email」を作成します。
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_email
+copy D:\xampp\mysql\data\_db_email\* D:\xampp\mysql\data\_mydb_email
+</pre>
+
+			・MySQLを再起動します。
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+			・データベースのビューを作成します。
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_email < create_view_mydb_email.txt
+</pre>
+
+			・データベースのアクセス権を設定します。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_email.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+		＊実運用定義ファイル __define_contents_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"email/", "query"=>"arg=session", "name"=>"ＥＭａｉｌ");
+</pre>
+		＊実運用定義ファイル __define_common_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_email", "_mydb_email");
+</pre></li>
+	<li>追加モジュール<br>
+		・email/* 一式<br>
+		・scripts/tristen-tablesort/* 一式<br>
+		・style/original/email.css<br>
+		・z_db_backup/_db_email.bk.txt, create_view_db_email.txt, create_view_mydb_email.txt</li>
+	<li>おもな変更モジュール<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・setup-sample.php, mydb_restore.txt.php, db_backup.txt.php, db_restore.txt.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.24&nbsp;&nbsp;(2012/07/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「住所録」に、「OneToOneメール」機能を追加しました。<br>
+	  住所録一覧で、チェックした相手宛てにOne To Oneでメール送信できます。<br>
+	  メール本文に、「%% TO %%」を入れておくと、送信時に宛先人名(住所録の姓・名)で置き換えて送信します。
+<br><img src="images/00000220-onetoone.jpg" style="margin:2px 20px"></li>
+	<li>「住所録」に「OneToOneメール送信者」機能を追加しました。<br>
+	  「OneToOneメール」送信者を複数登録できます。「OneToOneメール」送信時に、送信者を選択できます。
+<br><img src="images/00000220-mailfrom-input.jpg" style="margin:2px 20px"></li>
+	<li>既に前のバージョンで実運用中の場合は、データベース「_mydb_abook」にテーブル「m_mailfrom」を追加してください。追加は、コマンドプロンプトで、以下を実行してください。<br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  ≪実運用データベース≫
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_abook < _db_abook_add_m_mailfrom.txt
+</pre></li>
+	<li>追加モジュール<br>
+		・abook/mail-one2one.php, mailfrom.php, mailfrom-input.php</li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-all.php<br>
+		・abook/do-proc.php, list-my-template.php, _contents-header.php<br>
+		・z_db_backup/_db_abook_add_m_mailfrom.txt</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.23&nbsp;&nbsp;(2012/06/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」月間カレンダーで、次月の1週間分を合わせて表示するようにしました。</li>
+	<li>「カレンダー」月間カレンダーで、当日がカレンダーの4行目以降にあたる場合、スクロールアップして表示するようにしました。<br>
+	  既に本番運用済みで、この機能を使う場合、実運用定義ファイル__define_contents_my.phpを以下のように修正して下さい。<br>
+<pre class="command" style="font-size: 11px;width:550px;">
+$navi_item[] = array("href"=>"calendar/", "query"=>"arg=session", "name"=>"カレンダ");
+	↓↓↓
+$navi_item[] = array("href"=>"calendar/", "query"=>"arg=session&#today", "name"=>"カレンダ");
+</pre>
+</li>
+	<li>「カレンダー」月間カレンダーの「←前月」「→次月」のリンクをページ下にも表示するようにしました。</li>
+	<li>ツール「HTML カラーチャート ＋ Photoshop-like JavaScript Color Picker」で、16進カラーコード入力欄に、頭に#の付いたコードを入力しても大丈夫なように修正。</li>
+	<li>おもな変更モジュール<br>
+		・calendar/_my_calendar.php, __define.php<br>
+		・style/original/calendar.css<br>
+		・__define_common_my_sample.php<br>
+		・__define_contents_my_sample.php<br>
+		・__common__/__define_contents.php<br>
+		・tools/refresh_web/colorpicker/ColorValuePicker.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.22&nbsp;&nbsp;(2012/06/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>アルバムの「EXIF情報」に、GPS緯度・経度追加。<br>
+	  EXIFデータにGPSデータが含まれている場合、緯度、経度を表示し、Googleマップとツール「Google Maps API V3版」リンクも表示。
+<br><img src="images/00000239-exif.jpg" style="margin:2px 20px"></li>
+	<li>アルバムに「GPSマップ」を追加。アルバムのカレント・ディレクトリ内の写真のうち、EXIF-GPSデータがある写真全てをGoogleマップで表示します。対象の写真が多いと表示に時間がかかります。
+<br><img src="images/photo-map.jpg" style="margin:2px 20px"></li>
+	<li>ツール「Google Maps API V3版」で、パラメーター(&photo=)に画像(写真)のURL指定がある場合、 画像をマーカーアイコンとして表示するようにしました。アルバムの「EXIF情報」との連動用です。</li>
+	<li>スマートフォン スケジュール表示、RSSリーダー、チャット機能で使用しているjQuery Mobileのバージョンを、1.1.0にしました。</li>
+	<li>おもな追加モジュール<br>
+		・photo/maps-photo-v3.php</li>
+	<li>おもな変更モジュール<br>
+		・photo/exif-read.php, _contents-header.php<br>
+		・tools/google-maps-earth-v3.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.21&nbsp;&nbsp;(2012/05/14)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「INDEX」に「Myニュース」を追加しました。ニュース検索用キーワードを登録して、ボタンクリックでGoogleニュース検索が出来ます。キーワードは、AND/ORの指定ができます。検索対象は、「記事本文」「記事見出しのみ」が選択できます。通常のGoogle検索の24時間以内、1週間以内検索もできます。
+<br><img src="images/00000287-mynews.jpg" style="margin:2px 20px"></li>
+	<li>既に前のバージョンで実運用中の場合は、Myニュース用のテーブル「m_mynews」を、データベース「_db_index/_mydb_index」に追加してください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+		  ≪サンプルデータベース≫<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_index < _db_index_add_m_mynews.txt
+mysql -u root -pkanri789 _db_index < create_view_db_index.txt
+</pre>
+		  ≪実運用データベース≫<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_index < _db_index_add_m_mynews.txt
+mysql -u root -pkanri789 _mydb_index < create_view_mydb_index.txt
+</pre></li>
+	<li>ID管理で管理する項目数を増やせるようにしました。<br>
+	  増やす場合は、データベーステーブルのカラム追加等を行う必要があります。項目を2つ増やして8個にする場合で説明します。<br>
+	  （MySQL管理者ユーザーrootのパスワード「kanri789」、インストールドライブ「D:」）<br>
+		・データベーステーブルのカラム追加。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_zid_mgr_a;
+ALTER TABLE m_pass ADD c_item7 varchar(45) NOT NULL AFTER c_item6;
+ALTER TABLE m_pass ADD c_item8 varchar(45) NOT NULL AFTER c_item7;
+use _mydb_zid_mgr_b;
+ALTER TABLE m_pass2 ADD c_val7 varchar(700) NOT NULL;
+ALTER TABLE m_pass2 ADD c_val8 varchar(700) NOT NULL;
+exit;
+</pre>
+		・データベース「_mydb_zid_mgr_a」のビュー「v_pass」を再作成します。<br>
+		  カラム数8用のcreate_view_mydb_zid_mgr_a_8.txtを用意していますので、これを利用します。<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_zid_mgr_a < create_view_mydb_zid_mgr_a_8.txt
+</pre>
+		・実運用定義ファイルで、ID管理の項目最大数を設定してください。
+<pre class="command" style="font-size: 11px;">
+define("ID_MANAGER_ITEM_NUMBER", 8);
+</pre>
+		・実運用定義ファイルで、ポップアップウインドウの高さを変更してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("POP_WIN1_HEIGHT_id_manager", 170);
+</pre></li>
+	<li>追加モジュール<br>
+		・index/mynews.php, list-my-template-mynews.php<br>
+		・z_db_backup/_db_index_add_m_mynews.txt<br>
+		・z_db_backup/create_view_mydb_zid_mgr_a_8.txt</li>
+	<li>おもな変更モジュール<br>
+		・index/_contents-header.php<br>
+		・id-manager/__define.php, list.php, input.php<br>
+		・z_db_backup/create_view_db_index.txt, create_view_mydb_index.txt<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.20&nbsp;&nbsp;(2012/04/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツールに「Google ホームページ対訳」を追加。指定したURLのホームページとGoogle翻訳で翻訳したページを左右に並べて表示します。左右のフレームは同時にスクロールできます。
+<br><img src="images/translate1.jpg" style="margin:2px 20px">
+<br><img src="images/translate2.jpg" style="margin:2px 20px"></li>
+	<li>ツール「Google Maps API V3版」で、複数マーカーがある時に、ルート検索ができるようにしました。</li>
+	<li>ツール「Google Maps API V3版」「Google Maps (複数地点) API V3版」で、クリックした任意の地点にマーカー表示を可能に。追加されたマーカーは、ルート表示の対象になります。</li>
+	<li>ツール「Google Maps API V3版」「Google Maps (複数地点) API V3版」で、マーカーの削除を可能に。</li>
+	<li>ツール「Google Maps (複数地点) API V3版」で、URL引数で複数地点の地名を渡す場合、「,」区切りでなく、「+」区切りに仕様変更。「,」の入った緯度・経度データでも検索できるようにするため。</li>
+	<li>追加モジュール<br>
+		・tools/google-translate.php</li>
+	<li>おもな変更モジュール<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php<br>
+		・index/__define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.19&nbsp;&nbsp;(2012/04/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「メモ」のカテゴリフィルタをselectプルダウンからradioボタンに変更。</li>
+	<li>Chrome、Firefoxで、ラジオボタン、チェックボックスの位置と横のラベルテキストの位置が縦にずれる問題の対策として、スタイルシート(common.css、tools_common.css)に以下を追加。
+<pre class="command" style="font-size: 11px;">
+input[type="radio"], input[type="checkbox"] {
+	vertical-align: middle;
+}
+</pre>
+</li>
+	<li>「メモ」の一覧リスト件名のスタイルを実運用定義ファイルで、変更できるようにしました。
+<pre class="command" style="font-size: 11px;">
+define("MEMO_LIST_SUBJECT_STYLE", "background-color:#d0d0ff;border-style:solid;border-color:#808080;border-width:1px 0 0 0;");
+</pre></li>
+	<li>「メモ」のカテゴリに背景色を設定できるようにしました。既に運用中の場合は、カテゴリ編集で背景色を設定してください。</li>
+	<li>データベース「_db_memo」/「_mydb_memo」のテーブル「m_category」に列「c_categoryIcon」を追加しました。既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  《実運用DB「_mydb_memo」の場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_memo;
+ALTER TABLE m_category ADD c_categoryDisplayColor varchar(50) NOT NULL AFTER c_categoryName;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_memo < create_view_mydb_memo.txt
+</pre></li>
+	<li>「カレンダー」ミニカレンダーの日付クリックで、スケジュール入力画面が開くように仕様変更。</li>
+	<li>「カレンダー」週間一覧のハンドル名の背景色を、各ユーザー設定のページ背景色を使うようにしました。</li>
+	<li>「INDEX」トップページのブログパーツを横に3列並べられるようにしました。実運用定義ファイルで次の形式で定義してください。
+<pre class="command" style="font-size: 11px;">
+define("BLOG_PARTS_SCRIPT_RIGHT21_index", "???");
+define("BLOG_PARTS_SCRIPT_RIGHT22_index", "???");
+define("BLOG_PARTS_SCRIPT_RIGHT23_index", "???");
+define("BLOG_PARTS_SCRIPT_RIGHT24_index", "???");
+</pre></li>
+	<li>「Junk Place：テレビ番組表RSS」<a href="http://rey.rash.jp/junk/" target="_blnbak">http://rey.rash.jp/junk/</a>を使ったINDEXトップページ用テレビ番組表示ブログパーツ「rss-tv.inc」を追加。</li>
+	<li>追加モジュール<br>
+		・blog-parts/rss-tv.inc</li>
+	<li>おもな変更モジュール<br>
+		・__common__/__define_common.php, include-common-mp-list.php<br>
+		・memo/category.php, list.php, list-my-template.php<br>
+		・calendar/_my_calendar.php, week.php<br>
+		・style/original/common.css, tools_common.css, calendar.css, mp-list.css<br>
+		・z_db_backup/create_view_db_memo.txt, create_view_mydb_memo.txt<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.18&nbsp;&nbsp;(2012/03/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「INDEX」「カレンダー」等のカテゴリ編集画面等で、背景色やアイコンを変更した場合、編集画面で直接変更結果が確認できるようにしました。<br><img src="images/cate-edit.jpg" style="margin:2px 20px"></li>
+	<li>「カレンダー」で、カテゴリ設定色をスケジュールの背景色とするように仕様変更。既に運用済みの場合、カテゴリ設定色を薄い色に変更をお願いいたします。カテゴリ設定色をスケジュールの背景色に使用しない場合、実運用定義ファイルで、以下を設定してください。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_CATEGORYCOLOR_BACKGROUND", "NO");
+</pre><img src="images/00000157-131.jpg" style="margin:2px 20px"></li>
+	<li>「カレンダー」で、個々のスケジュールの頭に◆を付けるようにしました。
+	  個々のスケジュールの頭に付ける文字を無くすか変更する場合、実運用定義ファイルで、以下を設定してください。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_SCHEDULE_PREFIX", "");
+</pre></li>
+	<li>「カレンダー」で個々のスケジュールに枠を付けました。枠を無くすかスタイルを変更する場合は、実運用定義ファイルで、以下の形式で設定してください。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_SCHEDULE_BORDER_STYLE", "border:1px dotted #d0d0d0;margin-top:-1px;");
+</pre></li>
+	<li>「カレンダー」月間カレンダーの今日の枠のスタイルを実運用定義ファイルで変更可能にしました。変更する場合は、実運用定義ファイルで、以下の形式で設定してください。
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_SCHEDULE_TODAY_STYLE", "background-color:#d0fff0;border:#0080e0 2px solid;");
+</pre></li>
+	<li>「カレンダー」その他スタイルシートの一部微調整。</li>
+	<li>ボタンの上にマウスを載せた時にカーソルをリンクポインタカーソルに。common.cssに以下を追加。
+<pre class="command" style="font-size: 11px;">
+button, input[type="button"], input[type="submit"], input[type="reset"], input[type="file"] {
+	cursor:pointer;
+}
+</pre></li>
+	<li>おもな変更モジュール<br>
+		・__common__/include-common-mp-list.php, __define_common.php, include-color-chart.php<br>
+		・calendar/_my_calendar.php, category.php, input.php, list-my-template.php, year.php, week.php<br>
+		・account/myprofile.php, edit-myprofile.php, list-my-template-edit-friends.php<br>
+		・index/category.php<br>
+		・sticky/category.php<br>
+		・rss/list.php<br>
+		・style/original/common.css, calendar.css, account.css, weather.css<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.17&nbsp;&nbsp;(2012/03/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」で、詳細表示モードでない場合、件名をホバーすると、スケジュール本文を表示するようにしました。</li>
+	<li>「カレンダー」で、本人以外が新規登録したスケジュールは、登録したユーザー名を合わせて表示するようにしました。ただし、システム・バージョンアップ前に登録済みのスケジュールには適用されません。</li>
+	<li>「カレンダー」に伝言機能を追加。</li>
+	<li>「カレンダー」の伝言機能では、合わせて電子メールで伝言を送信することもできます。<br>
+	ただし、宛先ユーザーが、スケジュール送信先電子メールアドレスを登録している場合に限ります。</li>
+	<li>「カレンダー」の伝言機能では、合わせて、スケジュールの新規登録ができます。<br>
+	伝言機能によるスケジュール登録では、複数ユーザーにスケジュールを一括登録できます。<br>
+	伝言機能によるスケジュール登録では、宛先ユーザーが「書込許可」設定していないユーザーにも書き込みできます。</li>
+	<li>伝言は、伝言ページを本人が開いた時点で、既読扱いとなります。<br><img src="images/00000285-dengon.jpg" style="margin:2px 20px"></li>
+	<li>未読伝言がある場合、「INDEX」トップページ、カレンダー月間表示ページに「未読伝言あり」と表示します。</li>
+	<li>伝言機能を使わない場合、実運用定義ファイルで、以下を定義してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_CALENDAR_SEND_MESSAGE_USE", "NO");
+</pre></li>
+	<li>
+	既に前のバージョンで実運用中の場合は、データベース「_db_calendar/_mydb_calendar」のテーブル「m_schedule」に列の追加と、	  テーブル「m_message」の追加をしてください。<br>
+	追加は、コマンドプロンプトで、以下を実行してください。<br>
+	MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	≪サンプルデータベース≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_calendar;
+ALTER TABLE m_schedule ADD add_id_account int(10) unsigned NOT NULL default '0';
+ALTER TABLE m_schedule ADD upd_id_account int(10) unsigned NOT NULL default '0';
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_calendar < _db_calendar_add_m_message.txt
+mysql -u root -pkanri789 _db_calendar < create_view_db_calendar.txt
+</pre>
+	≪実運用データベース≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_calendar;
+ALTER TABLE m_schedule ADD add_id_account int(10) unsigned NOT NULL default '0';
+ALTER TABLE m_schedule ADD upd_id_account int(10) unsigned NOT NULL default '0';
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_calendar < _db_calendar_add_m_message.txt
+mysql -u root -pkanri789 _mydb_calendar < create_view_mydb_calendar.txt
+</pre>
+	</li>
+	<li>「メモ」登録画面の件名とメモをGET引数からも指定できるようにしました。<br>
+	  これによりブックマークレットをブラウザに登録しておいて、表示しているホームページのタイトルとURLをフォームに自動入力した登録画面を開くことができます。<br>
+	  ブックマークレットのひな型は、「メモ」登録画面に記載しています。</li>
+	<li>ユーザーのハンドル名の全角条件を廃止。半角英数字も可としました。</li>
+	<li>「カレンダー」のスタイルシート(calendar.css)に、以下を追加。上位階層でfont-sizeを指定しても有効にするため。
+<pre class="command" style="font-size: 11px;">
+b { font-size: inherit; }
+i { font-size: inherit; }
+s { font-size: inherit; }
+</pre>
+	</li>
+	<li>追加モジュール<br>
+		・calendar/input-include.php, message.php, message-delete.php<br>
+		・z_db_backup/_db_calendar_add_m_message.txt</li>
+	<li>おもな変更モジュール<br>
+		・calendar/_contents-header.php, _my_calendar.php, input.php, list.php, list-my-template.php<br>
+		・index/__define.php, index.php<br>
+		・memo/input.php<br>
+		・abook/maps-abook.php, maps-abook-v3.php<br>
+		・account/*<br>
+		・style/original/index.css, calendar.css<br>
+		・z_db_backup/create_view_db_calendar.txt, create_view_mydb_calendar.txt<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.16&nbsp;&nbsp;(2012/03/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「INDEX」ホームページ（ブックマーク）の1件単位の登録画面を追加。登録画面のタイトルとURLをGET引数からも指定できるようにしました。<br>
+	  これにより、以下のようなブックマークレットをブラウザに登録しておくことで、表示しているホームページのタイトルとURLをフォームに自動入力した登録画面を開くことができます。<br>
+<pre class="command" style="font-size: 11px;">
+javascript:(function(){window.open("http://localhost/_myhome/index/input.php?title="+encodeURIComponent(document.title)+"&url="+encodeURIComponent(document.URL))})();
+</pre></li>
+	<li>「INDEX」ピックアップ登録画面もタイトルとURLをGET引数からも指定できるようにしました。<br>
+	  これにより、以下のようなブックマークレットをブラウザに登録しておくことで、表示しているホームページのタイトルとURLをフォームに自動入力した登録画面を開くことができます。<br>
+<pre class="command" style="font-size: 11px;">
+javascript:(function(){window.open("http://localhost/_myhome/index/oftenuse.php?title="+encodeURIComponent(document.title)+"&url="+encodeURIComponent(document.URL))})();
+</pre></li>
+	<li>「INDEX」ホームページ（ブックマーク）の1件単位の修正画面を追加。修正画面はポップアップウインドウで開き、Ajax利用で、元画面はページ遷移なしで修正できます。</li>
+	<li>「INDEX」ホームページ（ブックマーク）の1件単位の削除機能を追加。Ajax利用で、ページ遷移なしで削除できます。</li>
+	<li>ツール「Google Maps API V3版」と「Google Maps (複数地点) API V3版 」に、距離測定機能を追加しました。<br>
+	  距離測定機能は、「Seis Pesos - Google Maps API（グーグル・マップ）サンプル集」の「距離を測定」を参考にさせていただきました。<br>
+<a href="http://japonyol.net/editor/googlemaps.html" target="_blank">http://japonyol.net/editor/googlemaps.html</a>
+<br><img src="images/00000281-map-001.jpg" style="margin:2px 20px"></li>
+	<li>ChromeでGoogleマップのサイドバーの背景色をopacityで指定するとスクロールバーがきたなくなるので、画像データで置き換え。<br>
+<pre class="command" style="font-size: 11px;">
+background: #ffffff; filter: alpha(opacity=75); -moz-opacity:0.75; opacity:0.75;
+	↓
+background: url(../images/trans-white.png);
+</pre></li>
+	<li>追加モジュール<br>
+		・index/_include-list-data.php, edit.php, update.php, delete.php, delete-offenuse.php<br>
+		・images/trans-white.png</li>
+	<li>おもな変更モジュール<br>
+		・index/oftenuse.php, list.php, list-my-template.php, input.php<br>
+		・abook/maps-abook.php, maps-abook-v3.php<br>
+		・calendar/maps-alone.php, __html-my-header-maps.php<br>
+		・diary/maps-diary.php, __html-my-header-maps.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.15&nbsp;&nbsp;(2012/02/26)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「住所録」一覧とマップ(V3)に、任意のマーカーアイコンを表示する機能を追加しました。<br>
+	  マーカーアイコンは、デフォルトでは、ディレクトリ「/_myhome/icon/maps」のアイコンを使います。<br>
+	  実運用でマーカーアイコンを追加・変更する場合は、ディレクトリを変更し、実運用定義ファイルでパスを設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("DIARY_MAPS_ICON_FOLDER", "../../_myhome_myset/_my_maps_icon/");
+</pre></li>
+	<li>「住所録」分類(カテゴリ)で、マーカーアイコンを指定できます。</li>
+	<li>「住所録」個々の住所データにマーカーアイコンを指定できます。個々の住所データにマーカーアイコンの設定がある場合、こちらが優先します。</li>
+	<li>データベース「_db_abook」/「_mydb_abook」のテーブル「m_abook」に列「c_markericon」を追加しました。<br>
+データベース「_db_abook」/「_mydb_abook」のテーブル「m_category」に列「c_categoryIcon」を追加しました。<br>
+	  既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	  《実運用DB「_mydb_abook」の場合》
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+ALTER TABLE m_abook ADD c_markericon varchar(255) NOT NULL AFTER c_memo;
+ALTER TABLE m_category ADD c_categoryIcon varchar(255) NOT NULL AFTER c_categoryDisplayOrder;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_abook < create_view_mydb_abook.txt
+</pre></li>
+	<li>既に運用中のデータベース「_mydb_abook」のカテゴリに、マーカーアイコンを追加する例。<br>
+「分類編集」で手動で登録するか、以下のようにコマンドプロンプトで登録してください。
+<br><img src="images/abook-bunrui.jpg" style="margin:2px 20px"><br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br>
+	  分類ID(カテゴリID)が以下の場合で、説明します。
+<pre class="command" style="font-size:11px; margin-left:30px;width:200px;">
+日本百名山	3
+世界遺産	4
+鉄道駅		5
+桜名所		6
+日本百選	7
+</pre>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+update m_category set c_categoryIcon = 'mountains.png' where id_category = 3;
+update m_category set c_categoryIcon = 'worldheritagesite.png' where id_category = 4;
+update m_category set c_categoryIcon = 'train2.png' where id_category = 5;
+update m_category set c_categoryIcon = 'sakura.gif' where id_category = 6;
+update m_category set c_categoryIcon = 'award.png' where id_category = 7;
+exit;
+</pre></li>
+	<li>「住所録」の「日本百名山」のデータを更新しました。日本百名山に合わせて、二百名山、三百名山のデータを追加しました。<br>
+	  データはホームページ「日本百選と座標値（経緯度数値）」のものを使わせていただきました。<br>
+<a href="http://100sen.cyber-ninja.jp/" target="_blank">http://100sen.cyber-ninja.jp/</a></li>
+	<li>「実運用サンプル」フォルダの「日本百名山.csv」も入れ替えています。<br>
+	  運用済みの実運用データベースの日本百名山データを差し替える場合は、次の手順で行ってください。<br>
+	  データを差し替えると、チェック項目のチェックデータ(サンプルでは制覇のデータ)が失われますので、ご注意ください。<br>
+		1.既存のデータベースから日本百名山データを削除する。<br>
+		  コマンドプロンプトで、以下を実行する。(rootのパスワードがkanri789の場合)<br>
+		  注：id_categoryは実運用データベースの日本百名山の分類IDと同じものを指定してください。<br>
+		  事前にデータベースのバックアップをとることをお勧めします。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+delete from m_abook where id_category = 3;
+</pre>
+		2.ツール「MySQL管理ツール」で、日本百名山.csvをアップロードしてください。CSVファイルをアップロードする際は、
+		  id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</li>
+	<li>「住所録」に「日本百選」データを追加しました。
+	  データは、ホームページ「日本百選と座標値（経緯度数値）」のものを使わせていただきました。<br>
+<a href="http://100sen.cyber-ninja.jp/" target="_blank">http://100sen.cyber-ninja.jp/</a><br>
+		
+	  名称について、MeCabで読み変換したものを登録しています。正しい読みになっていないものもあります。</li>
+	<li>「住所録」分類フィルタで、「日本百選」を選択すると専用の一覧ページが表示されます。</li>
+	<li>「実運用サンプル」フォルダにCSVファイルとして「日本百選.csv」を入れています。<br>
+	  実運用データベースに、日本百選データを追加登録する場合、まず、「分類編集」で分類を「日本百選」等の名前で登録してください。<br>
+	  その上で、ツール「MySQL管理ツール」で、この「日本百選.csv」をアップロードしてください。CSVファイルをアップロードする際は、
+	  id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</li>
+	<li>日本百選データを実運用データベースに登録した場合、日本百選の分類ID(id_category)を実運用定義ファイルで設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+例）define("HYAKUSEN_CATEGORY_ID", 7);
+</pre>
+	  日本百選データを実運用データベースに登録しない場合、実運用定義ファイルで-1を設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+例）define("HYAKUSEN_CATEGORY_ID", -1);
+</pre>
+<img src="images/hyakusen3.jpg" style="margin:2px 20px">
+<br><img src="images/00000284-hyakusen1.jpg" style="margin:2px 20px">
+<br><img src="images/00000284-hyakusen2.jpg" style="margin:2px 20px"></li>
+	<li>「住所録」の「世界遺産」一覧に、世界遺産の多い国20か国程の区別フィルタを追加しました。</li>
+	<li>「世界遺産」データの国名表記を一部修正。上記、区別フィルタが正常動作するためには、「世界遺産」データも「世界遺産_2011.csv」を使って、入れ替えてください。</li>
+	<li>ツール「Google Maps API V3版」と「Google Maps (複数地点) API V3版 」に、マウスクリックした地点の標高を表示する機能を追加。</li>
+	<li>「住所録」のマップ(V3)に、緯度・経度、住所、標高を表示する機能を追加。
+<br><img src="images/hyoko1.jpg" style="margin:2px 20px"></li>
+	<li>追加モジュール<br>
+		・abook/list-my-template-hyakusen.php, list-hyakusen-shurui.php<br>
+		・実運用サンプル/日本百選.csv<br>
+		・icon/maps/*</li>
+	<li>おもな変更モジュール<br>
+		・abook/__define.php, list.php, category.php, do-proc.php, maps-abook.php, maps-abook-v3.php<br>
+		・abook/list-my-add-filter.php, list-my-template-*.php, input.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php<br>
+		・style/original/abook.css<br>
+		・z_db_backup/create_view_db_abook.txt, create_view_mydb_abook.txt<br>
+		・実運用サンプル/日本百名山.csv, 世界遺産_2011.csv</li>
+	</div>
+
+
+
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download9.html">
+		<span style="font-size: 120%;">→→→　バージョン4.14以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

@@ -1,0 +1,884 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン3.34以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download9.html">最新(3.35以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.34&nbsp;&nbsp;(2011/07/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>コンテンツ「ペン画」を<br>
+<a href="https://github.com/Skookum/ghostwriter" target="_blank">https://github.com/Skookum/ghostwriter</a><br>
+	で公開されているGhostwriterのバージョンではなく、<br>
+<a href="https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio" target="_blank">https://developer.mozilla.org/en-US/demos/detail/ghostwriter-art-studio</a><br>
+	で公開されているバージョンを使用するように変更しました。<br>
+	主な変更点として、スプレーガンと消しゴムが使えます。また、作成した画像データは、Base64エンコーデイングしたPNG画像として保存します。Base64データ内の+はスペースに変換してデータベースに保存します。<br>
+<img src="images/00000271-draw-1.jpg" style="margin:2px 20px"><br>
+<img src="images/00000271-draw-2.jpg" style="margin:2px 20px"><br>
+<img src="images/00000269-draw-3.jpg" style="margin:2px 20px"><br>
+<img src="images/00000270-draw-4.jpg" style="margin:2px 20px"><br>
+	Ver.3.33の「ペン画」とは保存データの互換性がありませんので、Ver.3.33で作成した画像の表示、修正はできません。<br>
+	Ver.3.33で作成した「ペン画」データを全て削除する場合は、以下のコマンドを実行してください。MySQL管理者ユーザーrootのパスワードを「kanri789」とした場合で示します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_draw;
+truncate table m_draw;
+truncate table m_comment;
+exit;
+</pre>
+</li>
+	<li>アルバムで、拡張子「mts」のファイルも、m2tsと同様に動画再生できるようにしました。m2tsと同様にflv変換しての再生のため、画質はよくありません。既に実運用中の場合、実運用定義ファイルの以下の行を修正してください。
+<pre class="command" style="font-size: 11px;">
+define("IS_VIDEO_EXT", "avi,flv,mpg,mov,swf,wmv,m2ts,mts,mp4");
+define("IS_VIDEO_MIME","video/x-msvideo,video/x-flv,video/mpeg,video/quicktime,application/x-shockwave-flash,video/x-ms-wmv,video/avc,video/avc,video/mp4");
+define("photo_VIDEO_PREVIEW_EXT", "flv,mp4,mp3,wmv,mpg,mov,m2ts,mts");
+define("VIDEO_PREVIEW_CONVERT", "mpg,mov,m2ts,mts");
+define("GET_URL_FILE_TYPE_SELECTS_tools", "jpeg,jpg,gif,png,wmv,flv,avi,mpg,mp4,mov,m2ts,mts,swf,zip,lzh");
+</pre>
+</li>
+	<li>ffmpegでm2ts,mtsをflvに変換するオプションに-deinterlaceを追加。画像がギザギザ(?)になるのが解消されます。「<a href="http://blog.k-tai-douga.com/" target="_blank">お気に入りの動画を携帯で見よう</a>」の管理人さんからのアドバイスです。<br>
+<a href="http://blog.k-tai-douga.com/article/46744896.html" target="_blank">http://blog.k-tai-douga.com/article/46744896.html</a>のコメント欄にて。<br>
+既に実運用中の場合、実運用定義ファイルの以下の行を修正してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("FFMPEG_CONVERT_OPTION_M2TS", "-ar 44100 -b 700k -deinterlace");
+</pre>
+アルバムで既に動画再生した場合は、___flv___フォルダに変換済みのflvファイルが残っているため、再変換しません。再変換する場合は、___flv___フォルダ以下のファイルを削除してください。
+</li>
+	<li>各コンテンツのHTMLタイトルを実運用定義ファイルで変更可能にしました。</li>
+	<li>主な変更モジュール<br>
+		・draw/一式<br>
+		・photo/video-view.php, video-convert.php<br>
+		・__common__/__define_common.php<br>
+		・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.33&nbsp;&nbsp;(2011/07/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>新コンテンツ「ペン画」を追加しました。万年筆や水性マーカーペンタッチの絵が描けます。<br>
+
+JavaScriptライブラリ「Skookum/Ghostwriter」を使っています。Chrome、Firefoxで、動作を確認しています。IE9では正常動作しません。<br>
+<a href="https://github.com/Skookum/ghostwriter" target="_blank">https://github.com/Skookum/ghostwriter</a><br>
+「ペン画」のデータは、JavaScriptライブラリ「json2.js」を使ってJSON形式でデータベースに登録します。<br>
+<a href="https://github.com/douglascrockford/JSON-js/blob/master/json2.js" target="_blank">https://github.com/douglascrockford/JSON-js/blob/master/json2.js</a><br>
+登録データはサムネイル一覧表示できます。<br>
+オリジナルのGhostwriterでは、ペンの色設定が出来なくなっていましたが、色設定できるようにしました。また、カレーパレットも切り替えできるようにしました。<br>
+背景の紙のテクスチャも変更できるようにしました。<br>
+<img src="images/00000271-draw1.jpg" style="margin:2px 20px"><br>
+<img src="images/00000271-draw2.jpg" style="margin:2px 20px"><br>
+<img src="images/00000269-draw3.jpg" style="margin:2px 20px"><br>
+<img src="images/00000270-draw4.jpg" style="margin:2px 20px">
+</li>
+	<li>My設定で、カレンダー連携のアルバムフォルダの設定を、アルバムフォルダ設定と別に設定できるようにしました。<br>
+<img src="images/cal_album.jpg" style="margin:2px 20px"></li>
+<li>
+Ver.3.32以前で既に環境を構築済みの場合は、以下の手順で「ペン画」の環境設定をしてください。コマンドプロンプトで以下を実行してください。以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+≪サンプルデータベース作成≫
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_draw;
+exit
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_draw < _db_draw.bk.txt
+mysql -u root -pkanri789 _db_draw < create_view_db_draw.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_draw.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit
+</pre>
+≪実運用データベース作成＆環境設定≫<br>
+  ＊実運用データベース作成<br>
+・MySQLを一旦停止します。<br>
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+</pre>
+・データベース「_db_draw」をコピーして、実運用データベース「_mydb_draw」を作成します。<br>
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_draw
+copy D:\xampp\mysql\data\_db_draw\* D:\xampp\mysql\data\_mydb_draw
+</pre>
+・MySQLを再起動します。<br>
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+・データベースのビューを作成します。<br>
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_draw < create_view_mydb_draw.txt
+</pre>
+・データベースのアクセス権を設定します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_draw.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+・サンプルデータを削除します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_draw;
+truncate table m_draw;
+truncate table m_comment;
+exit;
+</pre>
+  ＊実運用定義ファイル __define_contents_my.phpに、以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"draw/", "query"=>"arg=session", "name"=>"ペン画");
+</pre>
+  ＊実運用定義ファイル __define_common_my.phpに、以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_draw", "_mydb_draw");
+</pre>
+</li>
+<li>
+データベース「_db_account」/「_mydb_account」のテーブル「m_account」に列「c_album_calendar_folder」を追加しました。<br>
+既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。<br>
+MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_account;
+ALTER TABLE m_account ADD c_album_calendar_folder varchar(255) NOT NULL AFTER c_album_folder;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+</pre>
+《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_account;
+ALTER TABLE m_account ADD c_album_calendar_folder varchar(255) NOT NULL AFTER c_album_folder;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre>
+</li>
+	<li>追加モジュール<br>
+	・draw/一式<br>
+	・scripts/json2/一式<br>
+	・style/original/draw.css<br>
+	・z_db_backup/_db_draw.bk.txt, create_view_db_draw.txt, create_view_mydb_draw.txt</li>
+	<li>変更モジュール<br>
+	・__common__/__define_common.php, __define_contents.php, include-common-all.php<br>
+	・account/__include-login.php, myprofile.php, edit-myprofile.php<br>
+	・calendar/_my_calendar.php<br>
+	・db_tool/backup-mydb.php<br>
+	・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+	・db_backup.txt.php, db_restore.txt.php, mydb_restore.txt.php, setup-sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.32&nbsp;&nbsp;(2011/06/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>CSS関連一部修正。</li>
+	<li>変更モジュール<br>
+	・calendar/input.php<br>
+	・tools/file-manager.php, code-file-view.php, __include-common-excel-graph.php<br>
+	・style/original/common.css, tools_common.css, calendar.css, tools-excel-graph.css</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.31&nbsp;&nbsp;(2011/06/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「INDEX」の「ブックマーク」のタイトル検索に、サブディレクトリまで検索できるオプションを追加。<br>
+<img src="images/00000250-bm2.jpg" style="margin:2px 20px"><br><img src="images/bm3.jpg" style="margin:2px 20px"></li>
+	<li>「INDEX」の「ブックマーク」の検索で、スペース区切りで複数キーワードAND検索もできるようにしました。</li>
+	<li>「住所録」の「マップ」や「ID管理」の「↑」が、Chromeの場合、ボタンを押す都度新しいウインドウが開くようになっていなかったのを修正。</li>
+	<li>common.css、tools_common.cssの一部変更。font-family指定をbodyから*に変更。関連モジュールも合わせて修正。</li>
+	<li>主な変更モジュール<br>
+	・index/list-url.php, list-my-template-thumbnail.php<br>
+	・id-manager/list-my-template.php<br>
+	・abook/list-my-template.php, list-my-template-***.php<br>
+	・__common__/include-common-all.php<br>
+	・style/original/common.css, tools_common.css, index.css</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.30&nbsp;&nbsp;(2011/05/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>Chromeで、「INDEXトップページ」の設定が「リンク先を新しいウインドウで開く」の場合、Google検索ボタンを押す都度新しいウインドウが開くようになっていなかったのを修正。</li>
+	<li>変更モジュール<br>
+	・index/__define_index_search.php<br>
+	・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.29&nbsp;&nbsp;(2011/05/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>ツール「縦計だけの表計算」が、Ver.3.26以降、セルに式を入れた時に縦計がされなくなってしまっていたのを修正。</li>
+	<li>ツール「縦計だけの表計算」でEnterキーでTabキー同様にテーブル・セル移動が出来るようにしました。<br>
+	  Enterキーでのテーブル・セル移動には、以下のJavaScriptを使わせていただきました。<br>
+		≪EnterキーをTabキーに変換(Google Chrome対応)≫<br>
+		<a href="http://code.nanigac.com/source/view/686" target="_blank">http://code.nanigac.com/source/view/686</a><br>
+<img src="images/00000223-calc.jpg" style="margin:2px 20px"></li>
+	<li>photo/index.php, slide.php内で、関数コール側で引数参照渡しになっていた部分を修正。<br>
+<pre class="command" style="font-size: 11px;">
+get_width_height($imgpath, &$width, &$height);
+	↓↓↓
+get_width_height($imgpath, $width, $height);</li>
+</pre>
+	<li>変更モジュール<br>
+	・tools/calc.php<br>
+	・photo/index.php, slide.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.28&nbsp;&nbsp;(2011/05/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>mb_convert_encoding()で、変換前の文字エンコーディングに'auto'を指定した場合に、正しく変換がされないケースがあるので、<br>
+<pre class="command" style="font-size: 11px;">
+define("MB_CONVERT_ENCODING_AUTO", "ASCII,JIS,UTF-8,EUC-JP,SJIS-win,SJIS");
+</pre>
+を定義して、これを使うようにしました。<br>
+<pre class="command" style="font-size: 11px;">
+$html = mb_convert_encoding($html, 'UTF-8', MB_CONVERT_ENCODING_AUTO);
+</pre></li>
+	<li>MySQL管理ツールのCSVインポート(csv-import.php)で使っているfgetcsv()が全角英数字を正常処理できないため、mb_convert_kana()で全角英数字を半角にしてから処理するように変更。</li>
+	<li>変更モジュール<br>
+	・__common__/__define_common.php<br>
+	・db_tool/csv-import.php<br>
+	・tools/html-get-url-img.php, html-text-mail.php, html-text-multi.php, tategaki.php<br>
+	・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.27&nbsp;&nbsp;(2011/05/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+<li>サンプルDBセットアップ処理「setup-sample.php」でエラーを拾えていなかったのを修正。</li>
+<li>実運用環境バックアップ処理「db_tool/backup-mydb.php」でエラーを拾うように修正。また、実行中のバックアップコマンドmysqldumpを表示するようにしました。</li>
+<li>実運用環境バックアップ処理「db_tool/backup-mydb.php」でmysqldumpを連続処理するとエラーになる場合があるようなので、データベース単位に時間間隔を空けてバックアップ処理できるようにしました。</li>
+<li>実運用データベース・リストア用サンプル・スクリプトmydb_restore.txt.php追加。</li>
+<li>MySQLのバージョンにより、mysqldumpで作成されるバックアップファイルのCREATE TABLEのUSING BTREEの書式が違っているようで、新しいバージョンでバックアップしたデータを古いバージョンでリストアするとエラーが発生するようです。<br>
+例えば、MySQL 5.1.33でバックアップされたデータは、MySQL 5.0.51aではエラーになってリストアできません。USING BTREEの書式を修正すれば、リストア可能なようですが。
+MyHome PortalのVer.3.27では、サンプルDBのファイルがMySQL 5.1.33でバックアップされたものが混在しますので、MySQLのバージョンによっては、リストアできない可能性があります。
+<pre class="command" style="font-size: 11px;">
+-- (MySQL 5.0.51a) MySQL dump 10.11
+  PRIMARY KEY  USING BTREE (`id_category`)
+-- (MySQL 5.1.33) MySQL dump 10.13  Distrib 5.5.8, for Win32 (x86)
+  PRIMARY KEY (`id_category`) USING BTREE
+</pre>
+</li>
+<li>「__define_common_my_sample.php」の「FILE_MANAGER_CIPHER_SEED」設定箇所に注意事項追加。ファイル暗号化では、PHPのCrypt_Blowfishを使っていますが、XAMPPのバージョンによっては、Crypt_Blowfishがインストールされないようです。「/xampp/php/PEAR/Crypt/Blowfish.phpがインストールされている事を確認の上、設定してください。
+</li>
+<li>スタイルシートの一部変更をしました。font-sizeを基本的に%指定からpx指定に変更。<br>
+IEではボタンの左右に余分な余白が付いてしまう問題を、INDEXトップページでは、width指定することで回避していましたが、cssで"overflow: visible;"を指定することで回避するようにしました。ただし、IE6はinput[type="button"]が使えないため、対象外です。inputで指定すると弊害が出るため。<br>
+その他、common.css, tools_common.cssの基本部分を見直して以前より少しシンプルにしました。</li>
+<li>アルバムのギャラリ3,5を、それぞれ「3D Wall Gallery」「Supersized - Fullscreen Slideshow jQuery Plugin」を使ったものに変更。旧ギャラリ3,5は、それぞれgallery88.php, gallery99.phpとして残してあります。<br>
+≪3D Wall Gallery≫<br>
+<a href="http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/" target="_blank">http://tympanus.net/codrops/2011/02/02/3d-wall-gallery/</a><br>
+≪Supersized - Fullscreen Slideshow jQuery Plugin≫<br>
+<a href="http://www.buildinternet.com/project/supersized/" target="_blank">http://www.buildinternet.com/project/supersized/</a><br>
+</li>
+<li>おもな変更モジュール<br>
+・setup-sample.php<br>
+・db_tool/backup-mydb.php<br>
+・style/original/common.css, tools_common.css, index.css, bbs.css, id-manager.css<br>
+・bbs/input.php, view.php<br>
+・index/__define_index_search.php<br>
+・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+・photo/gallery3.php, gallery5.php</li>
+<li>追加モジュール<br>
+・photo/3DWallGallery/* 一式<br>
+・photo/supersized/* 一式<br>
+・photo/css/jquery.ui.core.css, jquery.ui.slider.css, jquery.ui.theme.css<br>
+・photo/scripts/jquery-ui.min.js<br>
+・mydb_restore.txt.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.26&nbsp;&nbsp;(2011/04/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+<li>PHP5.3.?の仕様変更により、「Undefined index」や「Call-time pass-by-reference has been deprecated」等のエラーが出てしまうようなので、とりあえずの対策としてエラーが出ないようにしました。</li>
+<li>__define_common.php、include-common-all.phpに<br>
+<pre class="command" style="font-size: 11px;">
+error_reporting(E_ERROR & ~E_NOTICE & ~E_PARSE);
+</pre>
+を追加。Undefined index等のエラーを出さないため。
+<li>__define_common.phpで、データベース名定義の一部が"で括られていなかったのを修正。</li>
+<li>.htaccessに、<br>
+<pre class="command" style="font-size: 11px;">
+php_flag allow_call_time_pass_reference On
+</pre>
+を追加。関数コールの引数参照渡しのエラーを出さないため。</li>
+<li>カレンダーのスケジュールにURL等の長い英文字列があった場合に、テーブル枠内で折り返して表示するようにしました。
+CSSで、&lt;td&gt;タグに、以下を指定しています。
+<pre class="command" style="font-size: 11px;">
+word-break: break-all;
+</pre>
+</li>
+<li>変更モジュール<br>
+・__common__/__define_common.php, include-common-all.php<br>
+・style/original/calendar.css, index.css<br>
+・.htaccess</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.25&nbsp;&nbsp;(2011/03/30)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」の入力画面のプレビューを●ボタンを押す方式でなく、onkeyup()イベントでリアルタイムにプレビューするようにしました。</li>
+	<li>「カレンダー」の入力画面の予定済スケジュールを非表示に出来るようにしました。</li>
+	<li>IE以外で、「カレンダー」「旅行記」「メモ」「利用ガイド」の入力画面のtextareaのリサイズを、大小ボタンを押す方式でなく、自動リサイズ方式にしました。jQueryプラグイン「autoResize」を利用しています。IEでは動作が不安定なので、大小ボタン方式のままとしました。<br>
+<a href="http://james.padolsey.com/javascript/jquery-plugin-autoresize/" target="_blank">http://james.padolsey.com/javascript/jquery-plugin-autoresize/</a>
+		</li>
+	<li>追加モジュール<br>
+	・scripts/autoresize.jquery.min.js</li>
+	<li>変更モジュール<br>
+	・calendar/input.php<br>
+	・diary/input.php, item-input.php<br>
+	・memo/input.php<br>
+	・guide/input.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.24&nbsp;&nbsp;(2011/03/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+<li>スマートフォン・スケジュール表示を、他のメンバー分も可能にしました。</li>
+<li>jQuery Mobileを使ったスマートフォン用RSSリーダー機能を追加しました。myHome Portal本体で設定したRSSを参照できます。<br>
+<img src="images/mobile-rss.jpg" style="margin:2px 20px"></li>
+<li>jQuery Mobileを使ったスマートフォン用チャット機能を追加しました。<br>
+<img src="images/mobile-chat.jpg" style="margin:2px 20px"></li>
+<li>アカウントの「My設定」で、プロファイル用のアイコン画像を登録できるようにしました。アイコン画像は、チャットなどで使います。</li>
+<li>myHome Portal本体のチャットのページレイアウトを変更しました。アイコン画像も表示します。<br>
+<img src="images/00000195-155-2.jpg" style="margin:2px 20px"></li>
+<li>ツール「テキスト縦書き表示」のロジックを一部改良。<a href="http://www.aozora.gr.jp/" target="_blank">青空文庫</a>
+のHTML版をURL指定した場合等になるべくゴミが出ないようにしました。<br>
+<img src="images/aozora.jpg" style="margin:2px 20px">
+</li>
+<li>ツール「テキスト縦書き表示」を、システム管理者用でなく全ユーザー用に変更しました。</li>
+<li>関数my_file_get_contents()を、include-common-all.php内に移動。</li>
+	<li>データベース「_db_account」/「_mydb_account」のテーブル「m_account」に列「c_profile_image」を追加しました。<br>
+	  既に前のバージョンで実運用中の場合は、以下の手順で、列の追加とデータの更新作業を行ってください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_account;
+ALTER TABLE m_account ADD c_profile_image varchar(50) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_account < create_view_db_account.txt
+</pre>
+	   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_account;
+ALTER TABLE m_account ADD c_profile_image varchar(50) NOT NULL;
+exit;
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+</pre>
+</li>
+	<li>データベース「_db_chat」/「_mydb_chat」のビューを作りなおしてください。<br>
+	  MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+	   《サンプルDBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_chat < create_view_db_chat.txt
+</pre>
+	   《実運用DBの場合》<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_chat < create_view_mydb_chat.txt
+</pre>
+</li>
+
+<li>実運用定義ファイル__define_common_my.phpに以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("ATTACH_FILE_FOLDER_account", "../../_attach/account/");
+</pre>
+</li>
+<li>添付ファイル用ディレクトリを作成してください。(ドライブが「D:」の例。)<br>
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\htdocs\_attach\account
+</pre>
+</li>
+
+<li>追加モジュール<br>
+・_mobile/chat/*<br>
+・_mobile/rss/*<br>
+・_mobile/member/*<br>
+・_mobile/twitter/*<br>
+・_mobile/images/blank.jpg<br>
+・_mobile/js/jquery.cookie.js
+</li>
+<li>変更モジュール<br>
+・_mobile/__common__/include-common-mobile.php<br>
+・_mobile/calendar/index.php<br>
+・_mobile/index/index.php<br>
+・_mobile/js/ajaxDisable.js<br>
+・_myhome/__common__/__define_common.php, include-common-all.php, include-common-mp-list.php<br>
+・_myhome/account/__define.php, myprofile.php, edit-myprofile.php, list-user.php<br>
+・_myhome/chat/index.php, read.php, read-min.php<br>
+・_myhome/tools/index.php, tategaki.php, tategaki-form.php<br>
+・_myhome/z_db_backup/create_view_db_chat.txt, create_view_mydb_chat.txt<br>
+・_myhome/z_db_backup/_db_account.bk.txt, _db_chat.bk.txt<br>
+・_myhome/style/original/index.css, chat.css<br>
+・_myhome/関数my_file_get_contents()を使っているモジュール</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.23&nbsp;&nbsp;(2011/03/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>jQuery Mobileを使ったスマートフォン・スケジュール表示が、iPhoneエミュレーターiBBDemo2で動作確認すると、セッション処理やページ遷移がきちんと動作していなさそうなのを修正。<br>
+	  ・ログインのモジュールlogin/index.phpとlogin/login-submit.phpを1つのファイルにしました。<br>
+	  ・携帯電話用の以下の設定を外しました。<br>
+<pre class="command" style="font-size: 11px;">
+ini_set('session.use_trans_sid', '1');
+</pre></li>
+	<li>変更モジュール<br>
+	・_mobile/login/index.php<br>
+	・_mobile/__common__/include-common-mobile.php</li>
+	<li>削除モジュール<br>
+	・_mobile/login/login-submit.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.22&nbsp;&nbsp;(2011/03/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>jQuery Mobile (Alphaバージョン)(<a href="http://jquerymobile.com/" target="_blank">http://jquerymobile.com/</a>)<br>
+	を使った「スマートフォン・スケジュール表示機能」を作成しました。ディレクトリを「_mobile」にしています。ローカルでの検証は、Chromeやスマートフォンエミュレータなどで、<br>
+	<a href="http://localhost/_mobile/" target="_blank">http://localhost/_mobile/</a><br>
+	にアクセスすることで、確認できます。本人のスケジュール表示機能だけです。
+	<br><img src="images/iphone.jpg" style="margin:2px 20px">
+</li>
+	<li>開発者本人は、iPhoneやAndroid端末などを持っていませんし、インターネット上のサーバーも持っていませんので、実機による検証はしていません。セッション情報が保持されるのか不明です。<br>
+	インターネット上での実機による動作確認や運用については、セキュリティ上の問題等、一切の責任を持てませんので、自己責任にてお願いいたします。<br>
+	動作には、_myhome Poratal本体の以下のファイルも必要です。<br>
+		・_myhome/__common__/__define_common.php, include-common-all.php<br>
+		・_myhome_myset/__define_common_my.php</li>
+	<li>作成にあたっては、吉川徹氏のサンプルを参考にさせていただきました。<br>
+	<a href="http://yst.web.infoseek.co.jp/jquerymobile/" target="_blank">http://yst.web.infoseek.co.jp/jquerymobile/</a><br>
+	<a href="http://yst.web.infoseek.co.jp/jquerymobile/sample.html" target="_blank">http://yst.web.infoseek.co.jp/jquerymobile/sample.html</a>
+	</li>
+	<li>HAWHAWを使った携帯電話スケジュール表示機能「_mobile」のディレクトリを「_mobile_HAWHAW」に変更しました。</li>
+	<li>追加モジュール<br>
+	・_mobile/*</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.21&nbsp;&nbsp;(2011/02/23)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「INDEX」「カレンダー」「旅行記」「掲示板」「メモ」などの一覧検索で、全角/半角、カタカナ/ひらがなを区別せずに同一視して検索するように仕様変更しました。SQL文で、collate utf8_unicode_ciを指定しています。<br>一覧検索で、全角/半角、カタカナ/ひらがなを同一視しない場合、実運用定義ファイルで、MP_LIST_SELECT_COLLATEを""にしてください。
+<pre class="command" style="font-size: 11px;">
+define("MP_LIST_SELECT_COLLATE", "");
+</pre></li>
+	<li>上記一覧検索で、全角/半角、カタカナ/ひらがなを同一視した場合、「メモ」などの検索キーワードのハイライト表示も、同様にハイライトするようにしました。</li>
+	<li>変更モジュール<br>
+	・__common__/__define_common.php, include-common-all.php<br>
+	・diary/list.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.20&nbsp;&nbsp;(2011/02/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー」「旅行記」「住所録」それぞれのGoogle Maps API V3を使ったマップが、1地点の場合、地図が拡大されすぎてしまうのを修正。</li>
+	<li>「テキスト縦書き表示 (IEのみ)」で、H1タグ内文字をHTMLタイトルとするようにしました。フォーム入力版では、別途HTMLタイトルを指定できるようにしました。
+</li>
+	<li>「ID管理」で、W↑をクリックすると、ID&パスワードの小ウインドウと該当ホームページのウインドウ2つが開きますが、ChromeではID&パスワードの小ウインドウが、メインウインドウの下に隠れてしまう問題を修正。<br>
+window.open()で、ウインドウを開く位置指定でscreenX,screenYを追加。ただ、screenX,screenYが0だと正常動作しないので、実運用定義ファイルの次の定数を0以外に変更してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("POP_WIN1_LEFT_id_manager", 10);
+define("POP_WIN1_TOP_id_manager", 10);
+</pre></li>
+	<li>「ID管理」で、クリップボードコピー[C]ボタンを押してもZero Clipboardを使用している関係でボタンの形状が変化しないのを改善。クリック時点で白くハイライトするようにしました。</li>
+
+
+	<li>変更モジュール<br>
+	・abook/maps-abook-v3.php<br>
+	・calendar/maps-include-v3.php<br>
+	・diary/__include-maps-v3.php<br>
+	・tools/google-maps-earth-multi-v3.php, tategaki-form.php, tategaki.php<br>
+	・id-manager/__define.php, list-my-template.php<br>
+	・scripts/zeroclipboard/ZeroClipboard-ok2nd.js<br>
+	・__common__/__define_common.php<br>
+	・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.19&nbsp;&nbsp;(2011/02/10)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「ID管理」に、クリップボードへのコピーボタン機能を追加。<br>
+	IDやパスワードの右の「C」ボタンをクリックすると、クリップボードにその文字列をコピーします。<br>
+	各サイトのログイン画面にそのままペーストできます。<br>
+	クリップボードへのコピーには、Zero Clipboardを利用。<br>
+	<a href="http://code.google.com/p/zeroclipboard/" target="_blank">http://code.google.com/p/zeroclipboard/</a>
+	<br><img src="images/00000171-260.jpg" style="margin:2px 20px">
+	</li>
+
+	<li>「アルバム」「ギャラリ5」で、画像サイズをSELECTメニューで変更できるようにしました。<br>
+	SELECTメニューの選択肢は、実運用定義ファイルで、設定できます。<br>
+<pre class="command" style="font-size: 11px;">
+例) define("MERGING_IMAGE_BOXES_SIZE_SELECT", "100,110,120,130,140,150,160,170,180,190,200");
+</pre>
+
+	</li>
+
+	<li>「アルバム」「ギャラリ5」の背景画像を設定できるようにしました。<br>
+	実運用定義ファイルで、"MERGING_IMAGE_BOXES_BACKGROUND"を設定すると、そのディレクトリ内の画像ファイルを背景画像として使います。<br>
+<pre class="command" style="font-size: 11px;">
+例) define("MERGING_IMAGE_BOXES_BACKGROUND", "../../_myhome_myset/gallery5_background");
+</pre>
+	画像ファイルが複数ある場合、ランダムに背景画像を切り替えます。画像ファイルの拡張子は、jpg,jpeg,png,gifを対象にします。
+	<img src="images/boxes-b.jpg" style="margin:2px 20px"></li>
+
+	<li>各コンテンツの検索機能が、検索キーワード入力後、Returnキーでも動作するように修正しました。</li>
+
+	<li>Google Maps JavaScript API V3を使ったマップページのマップタイプ切り替えメニューの形式が変更されていたので、それに合わせてマップの地点一覧のサイドバーの位置を少し下に下げました。<br>
+	対象は、カレンダー、旅行記、住所録のそれぞれのマップページと、Google Maps (複数地点) API V3版。
+	<br><img src="images/map-sidebar.jpg" style="margin:2px 20px"></li>
+	<li>ツール「Google Maps (複数地点) API V3版」で検索地点が1地点の場合、地図が拡大されすぎてしまうのを修正。</li>
+
+	<li>ツール「テキスト縦書き表示 (IEのみ)」を修正。文章をファイルではなく、フォームから入力できるタイプも用意。行間やフォントタイプの指定も可能にしました。
+	<br><img src="images/00000268-tategaki.jpg" style="margin:2px 20px"></li>
+	<li>各ページのHTMLのDOCTYPEをhtml5に合わせて、<br>
+<pre class="command" style="font-size: 11px;">
+&lt;!DOCTYPE html&gt;
+</pre>
+	に、変更。IE6も含めて、これで特に支障はなさそうです。</li>
+	<li>変更モジュール<br>
+	・__common__/include-common-mp-list.php<br>
+	・abook/maps-abook-v3.php<br>
+	・calendar/__html-my-header-maps.php, maps-alone.php<br>
+	・diary/__html-my-header-maps.php, maps-diary.php<br>
+	・id-manager/list.php, list-my-template.php, view-idpass.php, _include_idpass.php<br>
+	・photo/gallery5.php<br>
+	・photo/MergingImageBoxescss/css/style-ok2nd.css<br>
+	・tools/google-maps-earth-multi-v3.php<br>
+	・tools/index.php, tategaki.php<br>
+	・__define_common_my_sample.php</li>
+
+<li>追加モジュール<br>
+	・scripts/tategaki-form.php<br>
+	・scripts/zeroclipboard/*</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.18&nbsp;&nbsp;(2011/02/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+
+	<li>3.17で追加した「アルバム」の「ギャラリ5」が、ブラウザがIE6の場合、テンポラリディレクトリに大量にファイルが残ってしまうことが判明。原因は不明ですが、サムネイル表示時点でなく、個別の画像をクローズアップした時点でimg-view.phpが複数回呼ばれてしまいます。<br>
+ギャラリ5の仕様を変更し、テンポラリファイル名をランダムでなく、ユーザーアカウント毎に固定のファイル名24個として、テンポラリディレクトリから消さない方式にしました。同一ユーザーアカウントで複数画面を開いて、別ディレクトリの画像を表示した場合、違う画像が表示される可能性があります。
+</li>
+	<li>既にIE6でギャラリ5を試された場合、ERROR_LOG_DIRで指定したディレクトリにjpgファイルが残っている可能性がありますので、削除をお願いいたします。</li>
+	<li>ギャラリ5のテンポラリディレクトリ指定を"ERROR_LOG_DIR"から"photo_GALLERY_5_TEMP_DIR"に変更しました。<br>
+実運用定義ファイルで"photo_GALLERY_5_TEMP_DIR"を指定してください。<br>
+<pre class="command" style="font-size: 11px;">
+例) define("photo_GALLERY_5_TEMP_DIR", "D:/xampp/htdocs/_myhome_myset/gallery5");
+</pre>
+</li>
+	<li>変更モジュール<br>
+	・photo/index.php, gallery5.php, img-view.php, img-view-include.php<br>
+	・__define_common_my_sample.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.17&nbsp;&nbsp;(2011/02/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「アルバム」に、JavaScriptライブラリ「Merging Image Boxes with jQuery」を利用した画像ギャラリーを追加しました。<br>
+<a href="http://tympanus.net/codrops/2010/11/30/merging-image-boxes/" target="_blank">http://tympanus.net/codrops/2010/11/30/merging-image-boxes/</a><br>
+<img src="images/00000267-boxes.jpg" style="margin:2px 20px"><br>
+<img src="images/boxes2.jpg" style="margin:2px 20px"><br>
+24枚単位で表示します。<br>
+[Esc]キーで元のアルバムページに戻ります。[Enter], [Space],[→]キーで次の24枚に移動します。[←]キーで前の24枚に移動します。<br>
+この画像ギャラリーを使う場合、実運用定義ファイルで、photo_GALLERY_5_USEを"YES"にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_GALLERY_5_USE", "YES");
+</pre>
+実運用定義ファイルで、次の2つの定数も定義されている必要があります。<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_JPEG_RESIZE", "YES");
+define("ERROR_LOG_DIR", "D:/?????");
+</pre>
+サムネイル画像1つのサイズを、実運用定義ファイルで設定できます。<br>
+<pre class="command" style="font-size: 11px;">
+define("MERGING_IMAGE_BOXES_SIZE", 125);
+</pre>
+</li>
+<li>「INDEX」の「ブックマーク」とツール「ファイルマネージャー」の検索機能をファイル名だけでなくフォルダ名も対象にするように仕様変更しました。</li>
+	<li>変更モジュール<br>
+	・photo/index.php, mg-view.php, img-view-include<br>
+	・index/list-url.php, _add_header-list-url.php<br>
+	・tools/file-manager.php<br>
+	・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+	・photo/MergingImageBoxes/*<br>
+	・photo/gallery5.php</li>
+	</ul>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.16&nbsp;&nbsp;(2011/01/29)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+<li>新コンテンツ「お絵かき」を追加。「SVG-edit」(ver.2.5.1)を使っています。<br>
+<a href="http://code.google.com/p/svg-edit/" target="_blank">http://code.google.com/p/svg-edit/</a><br>
+「お絵かき」のデータは、SVGデータとしてデータベースに登録できます。<br>
+登録データはサムネイル一覧表示できます。サムネイルは、画像の縦横比を3:4として縮小します。<br>
+登録データは修正、削除できます。<br>
+登録データは、他ユーザーのものを含めて自分のデータとしてコピーして再利用できます。<br>
+IE6, 7, 8では、SVG-editは動作しませんが、Google Chrome Frame pluginをインストールすると、SVG-editが動作するようになります。<br>
+<a href="http://code.google.com/intl/ja/chrome/chromeframe/" target="_blank">http://code.google.com/intl/ja/chrome/chromeframe/</a><br>
+画像表示、サムネイル一覧ができるのはChromeのみです。<br>
+<img src="images/00000264-svg-edit.jpg" style="margin:2px 20px"><br>
+<img src="images/00000266-svg-view.jpg" style="margin:2px 20px"><br>
+<img src="images/00000265-svg-list.jpg" style="margin:2px 20px"><br></li>
+
+<li>「アルバム」に「点描アニメ」機能を追加。以下の「tenbyou.js」を使っています。<br>
+＜canvas要素のピクセル操作で点描っぽいお絵描きアニメーション＞<br>
+<a href="http://funenplacanen.com/blog/163" target="_blank">http://funenplacanen.com/blog/163</a><br>
+<a href="https://github.com/ykhs/tenbyou" target="_blank">https://github.com/ykhs/tenbyou</a><br>
+サーバーロ－カルの任意の写真画像を点描アニメーション表示できます。<br>
+インターバル時間と描画レートを変更して、実行できます。<br>
+IE6,7では動作しません。IE8以降は未確認。
+<br><img src="images/00000214-tenbyou.jpg" style="margin:2px 20px">
+</li>
+
+<li>Ver.3.16以前で既に環境を構築済みの場合は、以下の手順で「お絵かき」の環境設定をしてください。コマンドプロンプトで以下を実行してください。以下、MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。また、インストールディレクトリをDドライブとして説明します。<br>
+	≪サンプルデータベース作成≫<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_svg;
+exit
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_svg < _db_svg.bk.txt
+mysql -u root -pkanri789 _db_svg < create_view_db_svg.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_svg.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit
+</pre>
+	≪実運用データベース作成＆環境設定≫<br>
+	＊実運用データベース作成<br>
+		・MySQLを一旦停止します。<br>
+<pre class="command" style="font-size: 11px;">net stop mysql
+</pre>
+		・データベース「_db_svg」をコピーして、実運用データベース「_mydb_svg」を作成します。<br>
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_svg
+copy D:\xampp\mysql\data\_db_svg\* D:\xampp\mysql\data\_mydb_svg
+</pre>
+		・MySQLを再起動します。<br>
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+		・データベースのビューを作成します。<br>
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_svg < create_view_mydb_svg.txt
+</pre>
+		・データベースのアクセス権を設定します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_svg.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+	＊実運用定義ファイル __define_contents_my.phpに、以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"svg/", "query"=>"arg=session", "name"=>"お絵かき");
+</pre>
+	＊実運用定義ファイル __define_common_my.phpに、以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_svg", "_mydb_svg");
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・__common__/__define_contents.php, __define_common.php<br>
+		・photo/index.php, __define.php<br>
+		・style/original/photo.css<br>
+		・__define_common_my_sample.php, __define_contents_my_sample.php<br>
+		・db_tool/backup-mydb.php<br>
+		・setup-sample.php</li>
+	<li>追加モジュール<br>
+		・svg/*<br>
+		・photo/tenbyou.php<br>
+		・photo/scripts/tenbyou.jsv
+		・style/original/svg.css<br>
+		・z_db_backup/_db_svg.bk.txt, create_view_db_svg.txt, create_view_mydb_svg.txt</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.15&nbsp;&nbsp;(2011/01/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「住所録」で、1件単位の新規登録、修正ができる画面を用意。一覧で名前をクリックすると、修正画面になります。</li>
+	<li>「住所録」の1件単位の新規登録、修正ができる画面では、郵便番号から住所を検索できる機能を付けました。郵便番号を入力して「住所取得」ボタンを押すと、住所欄に住所が入ります。修正の場合、「住所取得」ボタンでは、住所を上書きしてしまいますので、「Check」ボタンを押してください。住所欄の上に、検索された住所を表示します。<br>
+	住所検索には、「hokaccha/js-zip2address」を使わせてさせていただきました。Google日本語入力APIを利用しているので、常に最新の郵便番号対応で住所検索ができます。<br>
+<a href="https://github.com/hokaccha/js-zip2address" target="_blank">https://github.com/hokaccha/js-zip2address</a>
+<br><img src="images/00000263-zip-in.jpg" style="margin:2px 20px"></li>
+	<li>ツール「ファイルマネージャー」、「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャーを、ID管理ログインが必要とするように設定可能にしました。実運用定義ファイルで、以下を定義してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("FILE_MANAGER_ID_PASSWORD_USE", "YES");
+</pre></li>
+	<li>「アルバム」のディレクトリ表示位置を左側にした場合に、レイアウトが崩れるようになっていたのを、修正しました。</li>
+	<li>変更モジュール<br>
+	・abook/list.php, list-my-template.php<br>
+	・abook/list-my-template-hyakumeizan.php, list-my-template-sekaiisan.php<br>
+	・abook/list-my-template-tetsudo-eki.php<br>
+	・photo/index.php<br>
+	・style/original/abook.css<br>
+	・tools/file-*.php, folder-*.php, code-file-*.php<br>
+	・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+	・abook/input.php<br>
+	・scripts/hokaccha/*</li>
+	</ul>
+	</div>
+
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download7.html">
+		<span style="font-size: 120%;">→→→　バージョン3.14以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

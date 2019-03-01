@@ -1,0 +1,86 @@
+<?php
+	define("_DB_SERVER", "localhost");
+
+	define("_DB_USERNAME", "********");			// MySQL ユーザー名	★ 設定必須
+	define("_DB_PASSWORD", "********");			// MySQL パスワード	★ 設定必須
+
+	define("_SEND_MAIL_SMTP", "smtp.****.****.****");	// smtp サーバ (php.ini)
+
+
+	define("_DB_ANGOUKA_KEY", "YUihdYZYUihdmUwNZmsihshYZYUhdsihZYUiYUwNZsidsihYsiihYZYUihdYNZYUidsihYmw");
+	// ↑ ID管理のパスワードの暗号化用文字列。
+	// ↑ date関数のformatパラメータ文字列として使用可能な文字をランダムに指定。
+	// ↑ 運用開始前に必ず修正すること。
+	// ↑ 運用開始後は絶対に修正してはいけません。修正するとパスワードが復元できなくなります。
+
+	define("LOGIN_COOKIE_EXPIRE", (3600 * 24 * 365));	// ログイン setcookie 保存時間
+	define("IDMGR_COOKIE_EXPIRE", (3600 * 5));		// IDマネージャ setcookie 保存時間
+
+	define("_STYLE_SHEET_FOLDER", "../style/original");	// CSSスタイルシート ディレクトリ
+
+	define("_CALENDAR_SELECT_FIRST_YEAR", 1980);		// カレンダー日付プルダウン表示開始年
+	define("_DEBUG_ERROR_MSG", "YES");			// "YES":エラー詳細情報出力
+
+	define("_ACCOUNT_CHANGE_USER_NUM", 4);			// カレントユーザ切り替えメニューをSELECTにするユーザ数
+
+	define("_DB_ACCOUNT_SCHEMA", "_mydb_account");			// ★ 実運用 (DB名変更)
+
+	// データベース指定
+	define("_DB_SCHEMA_account", "_mydb_account");			// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_calendar", "_mydb_calendar");		// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_index", "_mydb_index");			// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_memo", "_mydb_memo");			// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_zid_mgr_a", "_mydb_zid_mgr_a");		// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_zid_mgr_b", "_mydb_zid_mgr_b");		// ★ 実運用 (DB名変更)
+	define("_DB_SCHEMA_guide", "_db_guide");
+
+	// 管理者メールアドレス
+	define("_SEND_MAIL_ADMIN_NAME_account", "MyHome Admin");
+	define("_SEND_MAIL_ADMIN_EMAIL_account", "xxx@xxx.com");	// ★ パスワード忘れのメール送信機能を使う場合、設定必須
+
+	// 添付ファイルフォルダ
+	define("ATTACH_FILE_FOLDER_memo", "../../_attach/memo/");		// ★ 実運用 (ファイル格納場所)
+	define("ATTACH_FILE_FOLDER_calendar", "../../_attach/calendar/");	// ★ 実運用 (ファイル格納場所)
+
+	define("ATTACH_FILE_FOLDER_guide", "../_attach/guide/");		// サンプルと同じ
+
+	// イメージファイルフォルダ
+	define("IMAGES_FOLDER_calendar", "../../_myhome_myset/_my_calnedar_images");
+
+	// カレンダースケジュール本文にhtmlタグを許可する場合"YES"
+	//  ※注：<scriptだけは機能しないようにしていますが、それ以外は全て機能してしまいます。
+	//	この機能はセキュリティ上、問題があります。
+	//	家族など信頼できるユーザーだけで利用する以外は、
+	//	define("TEXTAREA_HTML_USE", "NO")にして、このタグ機能を無効にすることをお勧めします。
+	define("TEXTAREA_HTML_USE_calendar", "YES");
+
+	// index 天気ガジェット：表示有無
+	define("GADGET_WEATHER_USE_index", "YES");
+	// index 天気ガジェット：都市プルダウン定義ファイル
+	define("WEATHER_CITY_DEFINE_index", "../../_myhome_myset/__define_weather_city_my.php");	// ★ 実運用
+	// index 天気ガジェット：リンク天気予報サイト
+	define("LINK_WEATHER_SITE_index", "http://weathernews.jp/");
+
+	// index スケジュール/カレンダー
+	define("SCHDULE_VIEW_DAY_index", 3);		// スケジュール表示日数
+	define("CALENDAR_VIEW_MONTH_index", 3);		// カレンダー表示月数
+	define("CALENDAR_VIEW_FIRST_index", -1);	// カレンダー表示先頭月(-1:前月,0:今月)
+
+	// photo
+	define("photo_DEFAULT_IMAGES_FOLDER", "D:/Temp");
+	define("photo_SMALL_SIZE", 120);
+	define("photo_MID_SIZE", 240);
+	define("photo_BIG_SIZE", 360);
+	define("photo_MAX_SIZE", 720);
+	define("photo_UPDOWN_SIZE", 120);
+	define("photo_LBOX_DIR_SIZE", 60);
+	define("photo_LIST_DIR_SIZE", 60);
+	define("photo_TILE_DIR_SIZE", 120);
+	define("photo_DIR_POP_SIZE", 360);
+
+	// tools
+	define("SYNTAX_HIGHLIGHT_DEFAULT_FOLDER_tools", "D:/xampp/htdocs/_myhome");
+
+	define("_NEWACOUNT_KIYAKU_account", "ハンドル名とコメントは公開されます。
+本システム利用による何らかの不利益に一切の責任を負いません。");
+?>

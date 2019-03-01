@@ -1,0 +1,1125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<script>
+function popup(url) {
+w01 = window.open(url,"","toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=430,height=270");
+}
+</script>
+<title>MyHome Portal インストール手順</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal インストール手順</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html" id="page_navi_current">インストール</a></li>
+			<li><a href="download.html">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p id="message">
+		<b>XAMPP</b>(<b>Apache</b>／<b>MySQL</b>／<b>PHP</b>) と<b>MyHome Portal</b>のインストール手順です。<br>以下、Windowsの場合です。
+		</p>
+		<p id="message">
+		<b>XAMPP</b>と<b>MyHome Portal</b>のインストールにかかる時間はおよそ30分程度です(<b>XAMPP</b>を使えば、<b>Apache</b>,<b>MySQL</b>,<b>PHP</b>一式を簡単に一括インストールできます)。実運用環境構築まで含めて1時間程度です。実運用環境のカスタマイズには2,3時間程度かかるかもしれません。
+		</p>
+	</div>
+<div class="paragraph">
+<h3>XAMPP (Apache／MySQL／PHP) インストール</h3>
+	<ol class="install">
+		<li>XAMPPダウンロード
+		<ul class="description">
+			<li>XAMPPを次のサイトからダウンロードしてください。インストーラタイプをダウンロードしてください。<br>
+	<a href="http://www.apachefriends.org/jp/xampp-windows.html" target="_blank">http://www.apachefriends.org/jp/xampp-windows.html</a></li>
+			<li>XAMPPの最新バージョンでも動作すると思いますが、XAMPP 1.7.2以降ではインストーラが日本語対応になっていない等、以前のバージョンとかなり違いがあるようです。可能であれば、Source Forgeから1.7.1以前をダウンロードしてインストールした方が無難かもしれません。<br>
+	<a href="http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/" target="_blank">http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/</a><br>
+XAMPP 1.7.1<br>
++ Apache 2.2.11<br>
++ MySQL 5.1.33 (Community Server)<br>
++ PHP 5.2.9 + PEA<br>
+</li>
+		</ul>
+
+		</li>
+		<li>XAMPPインストール
+		<ul class="description">
+			<li>インストールディレクトリを「<b>D:\xampp</b>」として、説明します。</li>
+			<li>インストーラをダブルクリックで実行してください。</li>
+			<li>Apache, MySQLを<b>サービスとしてインストール</b>してください。</li>
+			<li>XAMPPコントロールパネルが以下のように表示されればOKです。<img src="images/xampp-1.gif"></li>
+
+
+			<li>「ポート80または443（SSL)はすでに利用されています。Apacheをサービスとしてインストールするのに失敗しました。」というメッセージが表示される場合は、以下のサイトが参考になります。<br>
+<a href="http://shiotani.cn/20080515xampp.html" target="_blank">XAMPPのインストール・エラーの対処方法</a></li>
+
+		</ul>
+		</li>
+		<li>XAMPP動作確認
+		<ul class="description">
+			<li>ブラウザで、<a href="http://localhost" target="_blank">http://localhost/</a>と入れて初期画面を表示します。表示されたページで「<b>日本語</b>」を選択します。</li>
+			<li>以下のような画面が表示されればOKです。<font color=red>最初は日本語で表示されないかもしれませんが、いつの間にか（？）日本語が表示されるようになります。</font><img src="images/xampp-2.gif"></li>
+		</ul>
+		</li>
+		<li>MySQL root パスワード設定
+		<ul class="description">
+			<li>ブラウザで、<a href="http://localhost/security/index.php" target="_blank">http://localhost/security/index.php</a>と入れてMySQL設定画面を表示します。「日本語」が見つからなければとりあえず「English」を選択します。<font color=red>設定完了後、いつのまにか（？）日本語が表示されるようになります。</font></li>
+			<li>ブラウザで、<a href="http://localhost/security/xamppsecurity.php" target="_blank">http://localhost/security/xamppsecurity.php</a>と入れてMySQLパスワード設定画面を表示します。<br>
+			<b>root</b>のパスワードを「<b>kanri789</b>」として説明します。<br>
+			「PhpMyAdmin authentification:」は「cookie」を選択してください。</li>
+		</ul>
+		</li>
+		<li>Windowsシステム環境変数設定
+		<ul class="description">
+			<li>Windowsマイコンピュータのプロパティの環境変数で、システム環境変数<b>Path</b>に「<b>;D:\xampp\mysql\bin</b>」を追加します。環境変数を追加した後、Windowsを再起動してください。</li>
+		</ul>
+		</li>
+	</ol>
+</div>
+<div class="paragraph">
+<h3>MyHome Portal インストール</h3>
+	<ol class="install">
+		<li>MyHome Portal インストール
+		<ul class="description">
+			<li>ダウンロードファイル「<b>_myhome_XXX.zip</b>」を解凍します。</li>
+			<li>インストールディレクトリを「<b>D:\xampp\htdocs</b>」として、説明します。</li>
+			<li>解凍フォルダ以下の「<b>_myhome</b>」、「<b>_mobile</b>」を、フォルダごと「<b>D:\xampp\htdocs</b>」の下に入れます。<br>
+	「<b>_mobile</b>」は、スマートフォン用の用のカレンダースケジュール表示、RSSリーダー、チャットのサンプルです。実機での検証はしていません。不要な場合は入れる必要はありません。<br>
+		</ul>
+		</li>
+
+		<li>MyHome Portal バージョンアップ
+		<ul class="description">
+			<li>バージョンアップは、新しいバージョンの解凍ファイルのフォルダ「<b>_myhome</b>」を、既存の「<b>D:\xampp\htdocs\_myhome</b>」と丸ごと置き換えるか、丸ごと上書きしてください。サンプルモードのまま運用していない場合は、古い不要ファイルを残さないために、丸ごと置き換えをお勧めします。<font color=red>念のため、古いバージョンの<b>_myhome</b>をリネームしてしばらく残すこともお勧めします。定義ファイルの設定によっては、<b>_myhome/_attach</b>フォルダに登録された添付ファイルが残っている可能性もあります。</font><br>MySQLデータベースの追加や変更がない限りは、これだけでバージョンアップされます。</li>
+		</ul>
+		</li>
+
+		<li>サンプルDB登録：方法1 <font color=red>（サンプルDB自動セットアップツールを使う方法）</font>
+		<ul class="description">
+			<li>サンプルDBを一括登録します。<br>【サンプルDB名一覧】
+<pre class="command">
+_db_account
+_db_index
+_db_calendar
+_db_memo
+_db_email
+_db_guide
+_db_bbs
+_db_rss
+_db_chat
+_db_study
+_db_abook
+_db_diary
+_db_sticky
+_db_kakeibo
+_db_photo
+_db_svg
+_db_draw
+_db_psketch
+_db_gpslog
+_db_zid_mgr_a
+_db_zid_mgr_b
+</pre></li>
+
+			<li>ブラウザで、<a href="http://localhost/_myhome/setup-sample.php" target="_blank">http://localhost/_myhome/setup-sample.php</a>を開いてください。</li>
+			<li>※ Linuxの場合、URLパラメーターでmysqlのディレクトリ・パスを以下のように指定してください。(Ver.5.17以降)<br>
+<span style="margin-left:20px;">例）<a href="http://localhost/_myhome/setup-sample.php?mysql=/opt/lampp/bin" target="_blank">http://localhost/_myhome/setup-sample.php?mysql=/opt/lampp/bin</a></span><br>
+
+<span style="margin-left:20px;">Linuxインストール補足(メモ書き)：<a href="http://ok2nd.hatenablog.com/entry/2013/06/09/073857" target="_blank">MyHome PortalをVine Linuxにインストール</a><br></li>
+			<li>MySQL管理者のユーザー名(通常root)、パスワード、_myhomeインストールディレクトリを入れて、開始ボタンを押してください。
+			<br><img src="images/install-sample.jpg"</li>
+		</ul>
+		</li>
+
+		<li>サンプルDB登録：方法2 <font color=red>（コマンドプロンプトで手動でセットアップする方法）</font>
+		<ul class="description">
+			<li>「D:\xampp\htdocs\_myhome\db_restore.txt.php」ファイルに従って、MySQLサンプルDBを登録します。</li>
+			<li>MySQL管理者<b>root</b>のパスワードを「<b>kanri789</b>」として説明します。</li>
+			<li>テキストエディタを使って「db_restore.txt.php」の中の文字列「パスワード」を「kanri789」に置換します。(次項の「UTF-8N対応テキストエディタの準備」を参照。)</li>
+			<li>「リストア、ビュー作成、ユーザーアカウント作成」の手順をWindowsコマンドプロンプトで実行します。</li>
+		</ul>
+		</li>
+
+		<li>MyHome Portal 動作確認
+		<ul class="description">
+			<li>ブラウザで、<a href="http://localhost/_myhome/" target="_blank">http://localhost/_myhome/</a>と入れてMyHome Portalを立ち上げます。</li>
+			<li>アカウント名「<b>tarou</b>」パスワード「<b>demo</b>」でログインしてください。</li>
+			<li>MyHome Portalトップページが表示されればOKです。</li>
+			<li>カレンダー、メモ等の入力や修正ができることを確認してください。</li>
+		</ul>
+		</li>
+
+		<li>PHPのタイムゾーン設定　<span style="color:red;font-weight:bold;">【重要】</span>
+		<ul class="description">
+XAMPPのバージョンによって、PHPのタイムゾーンがEurope/Berlinになっているようなので、この場合、Asia/Tokyoに修正する必要があります。
+
+タイムゾーン設定値は、<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a><br>
+で確認できます。「Default timezone」が、「Asia/Tokyo」になっていれば、そのままで支障ありません。<br>
+php.ini(Dドライブインストールの場合→D:\xampp\php\php.ini)を修正します。以下のように、date.timezoneを設定してください。
+<span style="color:red;">※ MyHome Portal「ID管理」を既に利用中の場合、タイムゾーンを変更すると、登録したIDやパスワードが文字化けします。</span>
+<pre class="command" style="font-size: 11px;">
+date.timezone = Europe/Berlin
+   ↓↓↓
+date.timezone = Asia/Tokyo
+</pre>
+修正した後は、<a href="javascript:popup('apache.html')">Apacheの再起動</a>をする必要があります。</li>
+
+	</ol>
+</div>
+<div class="paragraph">
+<h3>MyHome Portal 実運用環境 構築</h3>
+	<ol class="install">
+
+		<li><b>UTF-8N</b>対応テキストエディタの準備
+		<ul class="description">
+			<li>MyHome PortalのPHPファイルは、文字コードがUTF-8Nになっています(「_mobile」はShift-JISです)。定義ファイル等のテキストファイル編集にはUTF-8対応テキストエディタが必要です。Windowsアクセサリのメモ帳(NotePad)は、UTF-8対応です。</li>
+			<li>私は、TeraPadを使っています。以下からダウンロードできます。<br>
+			<a href="http://www5f.biglobe.ne.jp/~t-susumu/" target="_blank">http://www5f.biglobe.ne.jp/~t-susumu/</a></li>
+			<li>TeraPadのオプションの「拡張子」で「HTML」に「;*.php」を追加すると、PHPソースのHTML部分が色表示されます。<br>
+			MyHome Portalでは、HTMLインラインコーディングを基本にしていますので、こうすることでHTML部分とPHPロジック部分が認識しやすくなります。<br>
+			<img src="images/terapad.jpg"></li>
+		</ul>
+		</li>
+
+		<li>ディレクトリ作成
+		<ul class="description">
+			<li>実運用環境のディレクトリを作成します。</li>
+			<li>以下の構成にする前提で説明します。
+<pre class="command">
+/htdocs/_myhome_myset			(実運用環境ディレクトリ)
+/htdocs/_myhome_myset/_my_calendar_images	(カレンダーアイコンフォルダ)
+/htdocs/_blog-parts			(トップページ用ブログパーツフォルダ)
+/htdocs/_attach				(添付ファイル格納場所)
+</pre>
+</li>
+			<li>Windowsコマンドプロンプトで以下を実行してディレクトリを作成します。
+<pre class="command">
+D:
+cd "D:\xampp\htdocs"
+mkdir D:\xampp\htdocs\_blog-parts
+mkdir D:\xampp\htdocs\_attach
+mkdir D:\xampp\htdocs\_attach\abook
+mkdir D:\xampp\htdocs\_attach\bbs
+mkdir D:\xampp\htdocs\_attach\calendar
+mkdir D:\xampp\htdocs\_attach\diary
+mkdir D:\xampp\htdocs\_attach\diary_marker
+mkdir D:\xampp\htdocs\_attach\memo
+mkdir D:\xampp\htdocs\_attach\gpslog
+mkdir D:\xampp\htdocs\_attach\csv-import
+mkdir D:\xampp\htdocs\_attach\excel-import
+mkdir D:\xampp\htdocs\_attach\excel-graph
+mkdir D:\xampp\htdocs\_myhome_myset
+mkdir D:\xampp\htdocs\_myhome_myset\_my_calendar_images
+</pre>
+</li>
+			<li>ディレクトリ内のファイルがブラウザから見えなくするために、「D:\xampp\htdocs\_myhome\.htaccess」を「D:\xampp\htdocs\_myhome_myset」と「D:\xampp\htdocs\_attach」の下にコピーしてください。
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\.htaccess D:\xampp\htdocs\_myhome_myset
+copy D:\xampp\htdocs\_myhome\.htaccess D:\xampp\htdocs\_attach
+</pre>
+</li>
+
+			<li>ブログパーツをサンプルデータからコピーします。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\blog-parts\* D:\xampp\htdocs\_blog-parts
+</pre>
+</li>
+			<li>カレンダーアイコンファイルをサンプルデータからコピーします。コマンドプロンプトで以下を実行してください。<br>
+◆ サンプルデータと同じアイコンセットを使う場合。
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\calendar\images\* D:\xampp\htdocs\_myhome_myset\_my_calendar_images
+</pre>
+◆ アイコン名の頭に数字をつけて、種類別に並ぶようにしたアイコンセットを使う場合。<font color=red>(こちらをお勧めします。)</font>
+(「MyHome Portal 実運用環境 カスタマイズ ＞ Ⅱ.カレンダーアイコンの変更」を参照)
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\実運用サンプル\_my_calendar_images\* D:\xampp\htdocs\_myhome_myset\_my_calendar_images
+</pre>
+</li>
+		</ul>
+		</li>
+		<li>実運用定義ファイルの作成と編集
+		<ul class="description">
+			<li>定義ファイルサンプルを実運用環境ディレクトリ(/htdocs/_myhome_myset)にコピーします。
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\__define_common_my_sample.php D:\xampp\htdocs\_myhome_myset\__define_common_my.php
+</pre>
+</li>
+		</ul>
+		<ul class="description">
+			<li>定義ファイル「D:\xampp\htdocs\_myhome_myset\__define_common_my.php」の必要な箇所修正をしてください。<font color=red>定義ファイルの中で、★★★が付いている箇所は、必ずチェックしてください。</font>UTF-8対応のテキストエディタが必要です。</li>
+		</ul>
+		<ul class="description">
+			<li>MyHome Portal用MySQLユーザー名、パスワードを設定してください。
+<pre class="command">
+define("_DB_USERNAME", "myhome");
+define("_DB_PASSWORD", "pass123");
+</pre>
+</li>
+		</ul>
+		<ul class="description">
+			<li>企業内イントラなど、プロキシ経由の環境では、プロキシサーバの設定をしてください。RSSリーダー、一部のGoogleマップを利用しているページ(サーバーサイドで、Google Maps API Web サービスを利用しているため)、ツールの「HTML URL抽出&ファイルダウンロード」、「HTML テキスト抽出&メール送信」で必要です。</li>
+<pre class="command">
+define("HTTP_PROXY_HOST", "");	// HTTP プロキシサーバ アドレス
+define("HTTP_PROXY_PORT", "");	// HTTP プロキシサーバ ポート
+</pre>
+			</li>
+		</ul>
+		</li>
+		<ul class="description">
+			<li>ID管理の暗号化用文字列も修正することをお勧めします。運用開始後は絶対に修正してはいけません。<font color=red><b>実運用定義ファイルは必ずバックアップを取ってください。暗号化用文字列が失われると、ID管理のパスワードなどの情報を復元できなくなります。バージョンアップの際にも、ご注意ください。</b></font>
+<pre class="command">
+define("_DB_ANGOUKA_KEY", "YUihdYZYUihdmUwNZmsihshYZYUhdsihZYUiYUwNZsidsihYsiihYZYUihdYNZYUidsihYmw");
+</pre>
+			</li>
+
+			<li>ID管理の暗号化を2重に行う場合、_DB_ANGOUKA_KEY_EORのコメントアウトを外してください。キーコードは必ず修正すること。利用開始後は絶対に修正してはいけません。</b></font>
+<pre class="command">
+define("_DB_ANGOUKA_KEY_EOR", "OpenSesame123");
+</pre>
+			</li>
+
+			<li>ツール「ファイル暗号化」「実運用環境バックアップで暗号化」を使う場合、FILE_MANAGER_CIPHER_SEEDのコメントアウトを外してください。キーコードは必ず修正すること。利用開始後は絶対に修正してはいけません。<br>
+ファイル暗号化には、PHPのCrypt_Blowfishを使っています。XAMPPのバージョンによっては、Crypt_Blowfishがインストールされません。
+/xampp/php/PEAR/Crypt/Blowfish.phpがインストールされている事を確認の上、設定してください。</b></font>
+<pre class="command">
+define("FILE_MANAGER_CIPHER_SEED", "HirakeGoma789");	
+</pre>
+			</li>
+		</ul>
+		</li>
+		<li>実運用DBの作成
+		<ul class="description">
+			<li>MySQLを一旦停止します。コマンドプロンプトで次のコマンドを入力するか、XAMPPコントロールパネルを使って停止してください。
+<pre class="command">
+net stop mysql
+</pre></li>
+		</ul>
+		<ul class="description">
+			<li>サンプルデータベースを名前を変えてコピーすることで実運用DBを作成します。<br>
+			データベース名の頭を、「_db_」から「_mydb_」にする例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mkdir D:\xampp\mysql\data\_mydb_account
+mkdir D:\xampp\mysql\data\_mydb_calendar
+mkdir D:\xampp\mysql\data\_mydb_index
+mkdir D:\xampp\mysql\data\_mydb_memo
+mkdir D:\xampp\mysql\data\_mydb_email
+mkdir D:\xampp\mysql\data\_mydb_bbs
+mkdir D:\xampp\mysql\data\_mydb_rss
+mkdir D:\xampp\mysql\data\_mydb_chat
+mkdir D:\xampp\mysql\data\_mydb_study
+mkdir D:\xampp\mysql\data\_mydb_abook
+mkdir D:\xampp\mysql\data\_mydb_diary
+mkdir D:\xampp\mysql\data\_mydb_sticky
+mkdir D:\xampp\mysql\data\_mydb_kakeibo
+mkdir D:\xampp\mysql\data\_mydb_photo
+mkdir D:\xampp\mysql\data\_mydb_svg
+mkdir D:\xampp\mysql\data\_mydb_draw
+mkdir D:\xampp\mysql\data\_mydb_psketch
+mkdir D:\xampp\mysql\data\_mydb_gpslog
+mkdir D:\xampp\mysql\data\_mydb_zid_mgr_a
+mkdir D:\xampp\mysql\data\_mydb_zid_mgr_b
+copy D:\xampp\mysql\data\_db_account\* D:\xampp\mysql\data\_mydb_account
+copy D:\xampp\mysql\data\_db_calendar\* D:\xampp\mysql\data\_mydb_calendar
+copy D:\xampp\mysql\data\_db_index\* D:\xampp\mysql\data\_mydb_index
+copy D:\xampp\mysql\data\_db_memo\* D:\xampp\mysql\data\_mydb_memo
+copy D:\xampp\mysql\data\_db_email\* D:\xampp\mysql\data\_mydb_email
+copy D:\xampp\mysql\data\_db_bbs\* D:\xampp\mysql\data\_mydb_bbs
+copy D:\xampp\mysql\data\_db_rss\* D:\xampp\mysql\data\_mydb_rss
+copy D:\xampp\mysql\data\_db_chat\* D:\xampp\mysql\data\_mydb_chat
+copy D:\xampp\mysql\data\_db_study\* D:\xampp\mysql\data\_mydb_study
+copy D:\xampp\mysql\data\_db_abook\* D:\xampp\mysql\data\_mydb_abook
+copy D:\xampp\mysql\data\_db_diary\* D:\xampp\mysql\data\_mydb_diary
+copy D:\xampp\mysql\data\_db_sticky\* D:\xampp\mysql\data\_mydb_sticky
+copy D:\xampp\mysql\data\_db_kakeibo\* D:\xampp\mysql\data\_mydb_kakeibo
+copy D:\xampp\mysql\data\_db_photo\* D:\xampp\mysql\data\_mydb_photo
+copy D:\xampp\mysql\data\_db_svg\* D:\xampp\mysql\data\_mydb_svg
+copy D:\xampp\mysql\data\_db_draw\* D:\xampp\mysql\data\_mydb_draw
+copy D:\xampp\mysql\data\_db_psketch\* D:\xampp\mysql\data\_mydb_psketch
+copy D:\xampp\mysql\data\_db_gpslog\* D:\xampp\mysql\data\_mydb_gpslog
+copy D:\xampp\mysql\data\_db_zid_mgr_a\* D:\xampp\mysql\data\_mydb_zid_mgr_a
+copy D:\xampp\mysql\data\_db_zid_mgr_b\* D:\xampp\mysql\data\_mydb_zid_mgr_b
+</pre>
+			</li>
+		</ul>
+		<ul class="description">
+			<li>MySQLを再起動します。コマンドプロンプトで次のコマンドを入力するか、XAMPPコントロールパネルで「開始」を押してください。
+<pre class="command">
+net start mysql
+</pre></li></li>
+		</ul>
+		<ul class="description">
+			<li>データベースのビューを作成します。コマンドプロンプトで以下を実行してください。<br>
+<pre class="command">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_account < create_view_mydb_account.txt
+mysql -u root -pkanri789 _mydb_index < create_view_mydb_index.txt
+mysql -u root -pkanri789 _mydb_calendar < create_view_mydb_calendar.txt
+mysql -u root -pkanri789 _mydb_memo < create_view_mydb_memo.txt
+mysql -u root -pkanri789 _mydb_email < create_view_mydb_email.txt
+mysql -u root -pkanri789 _mydb_bbs < create_view_mydb_bbs.txt
+mysql -u root -pkanri789 _mydb_rss < create_view_mydb_rss.txt
+mysql -u root -pkanri789 _mydb_chat < create_view_mydb_chat.txt
+mysql -u root -pkanri789 _mydb_study < create_view_mydb_study.txt
+mysql -u root -pkanri789 _mydb_abook < create_view_mydb_abook.txt
+mysql -u root -pkanri789 _mydb_diary < create_view_mydb_diary.txt
+mysql -u root -pkanri789 _mydb_kakeibo < create_view_mydb_kakeibo.txt
+mysql -u root -pkanri789 _mydb_svg < create_view_mydb_svg.txt
+mysql -u root -pkanri789 _mydb_draw < create_view_mydb_draw.txt
+mysql -u root -pkanri789 _mydb_psketch < create_view_mydb_psketch.txt
+mysql -u root -pkanri789 _mydb_gpslog < create_view_mydb_gpslog.txt
+mysql -u root -pkanri789 _mydb_zid_mgr_a < create_view_mydb_zid_mgr_a.txt
+</pre>
+			</li>
+		</ul>
+		<ul class="description">
+			<li>ユーザーアカウントのアクセス権を設定します。サンプルデータと同じユーザー名の例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_account.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_calendar.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_guide.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_index.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_memo.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_email.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_bbs.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_rss.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_chat.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_study.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_abook.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_diary.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_sticky.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_kakeibo.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_photo.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_svg.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_draw.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_psketch.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_gpslog.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_zid_mgr_a.* TO myhome@localhost;
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_zid_mgr_b.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+			</li>
+		</ul>
+		<li>MyHome Portal 動作確認
+		<ul class="description">
+			<li>ブラウザで、<a href="http://localhost/_myhome/" target="_blank">http://localhost/_myhome/</a>と入れてMyHome Portalの動作確認をします。</li>
+			<li>アカウント名「<b>tarou</b>」パスワード「<b>demo</b>」でログインしてください。</li>
+			<li>MyHome Portalの「ID管理」で、サンプルデータが文字化けします。暗号化用文字列が違うため、これが正常です。</li>
+			<li><a href="http://localhost/_myhome/db_tool/mysql-database.php" target="_blank">http://localhost/_myhome/db_tool/mysql-database.php</a>で、DBスキーマの確認ができます。</li>
+		</ul>
+		</li>
+		<li>MyHome Portal ユーザー登録
+		<ul class="description">
+			<li>MyHome Portal「ユーザー一覧」→「一括修正/追加/削除」で、サンプルデータのアカウント名、ハンドル名、パスワードを修正する方法で初期ユーザーを登録してください。システム管理者権限の付いているアカウント「tarou」を、自分用に修正して使ってください。権限の「admin」はそのまま付けておいてください。</li>
+	<li>「ログアウト/管理」で一旦「ログアウト」し、新しいユーザー名で再「ログイン」してください。</li>
+	<li>「My設定」→「アカウント情報修正」「ID管理パスワード修正」で、その他のユーザー情報を修正してください。</li>
+		</ul>
+		</li>
+		<li>サンプルデータからコピーした実運用データベースのデータ削除
+		<ul class="description">
+			<li>サンプルデータからコピーした<font color=red>実運用データベース</font>のデータを削除します。<br>
+INDEXのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_index;
+truncate table m_category;
+truncate table m_homepage;
+exit;
+</pre>
+カレンダーのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_calendar;
+truncate table m_category;
+truncate table m_schedule;
+exit;
+</pre>
+掲示板のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_bbs;
+truncate table m_bbs;
+truncate table m_category;
+exit;
+</pre>
+RSSのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_rss;
+truncate table m_category;
+truncate table m_rss;
+exit;
+</pre>
+メモのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_memo;
+truncate table m_category;
+truncate table m_memo;
+exit;
+</pre>
+学習のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_study;
+truncate table m_mycheck;
+truncate table m_study;
+truncate table m_category;
+truncate table m_category2;
+exit;
+</pre>
+住所録のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_abook;
+truncate table m_abook;
+truncate table m_category;
+truncate table m_check_caption;
+exit;
+</pre>
+旅行記のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_diary;
+truncate table m_schedule;
+truncate table m_category;
+truncate table m_marker;
+exit;
+</pre>
+付箋のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_sticky;
+truncate table m_notes;
+truncate table m_category;
+exit;
+</pre>
+お絵かきのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_svg;
+truncate table m_svg;
+truncate table m_comment;
+exit;
+</pre>
+ペン画のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_draw;
+truncate table m_draw;
+truncate table m_comment;
+exit;
+</pre>
+physicSketchのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_psketch;
+truncate table m_psketch;
+truncate table m_comment;
+exit;
+</pre>
+(簡易) 預貯金管理のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_kakeibo;
+truncate table m_chokin;
+truncate table m_ginkou;
+exit;
+</pre>
+チャットのサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_chat;
+truncate table m_messages;
+exit;
+</pre>
+ID管理のサンプルデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_zid_mgr_a;
+truncate table m_category;
+truncate table m_pass;
+use _mydb_zid_mgr_b;
+truncate table m_pass2;
+exit;
+</pre>
+ログインログデータを削除する例です。コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mysql -u root -pkanri789
+use _mydb_account;
+truncate table z_loginlog;
+exit;
+</pre>
+			</li>
+		</ul>
+		</li>
+		<li>DBのバックアップ
+		<ul class="description">
+			<li>実運用DBをバックアップすることをお勧めします。<font color=red>バックアップはなるべく定期的に取ってください。</font><br>
+システム管理者用ツールとして、「実運用環境バックアップ」を用意しています。<br>
+<a href="http://localhost/_myhome/db_tool/backup-mydb.php" target="_blank">http://localhost/_myhome/db_tool/backup-mydb.php</a><br>
+「実運用環境バックアップ」を使う場合、実運用定義ファイルの「BACKUP_MYDB_DIR_REAL」のコメントアウトを外して、適切なパスを指定してください。/xampp/htdocsの下は指定しないでください。xampp/htdoc以下のパス指定では、バックアップファイルがWeb経由でダウンロードできてしまいます。
+<pre class="command">
+//define("BACKUP_MYDB_DIR_REAL", "D:/_myhome_backup");	//←優先(物理パス)
+</pre>
+手動でバックアップする場合、コマンドプロンプトで以下を実行してください。
+<pre class="command">
+mkdir D:\xampp\htdocs\_myhome_myset\_mydb_backup
+mysqldump -u root -pkanri789 _mydb_account > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_account.bk.txt"
+mysqldump -u root -pkanri789 _mydb_index > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_index.bk.txt"
+mysqldump -u root -pkanri789 _mydb_calendar > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_calendar.bk.txt"
+mysqldump -u root -pkanri789 _mydb_memo > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_memo.bk.txt"
+mysqldump -u root -pkanri789 _mydb_email > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_email.bk.txt"
+mysqldump -u root -pkanri789 _mydb_bbs > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_bbs.bk.txt"
+mysqldump -u root -pkanri789 _mydb_rss > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_rss.bk.txt"
+mysqldump -u root -pkanri789 _mydb_chat > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_chat.bk.txt"
+mysqldump -u root -pkanri789 _mydb_study > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_study.bk.txt"
+mysqldump -u root -pkanri789 _mydb_abook > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_abook.bk.txt"
+mysqldump -u root -pkanri789 _mydb_diary > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_diary.bk.txt"
+mysqldump -u root -pkanri789 _mydb_sticky > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_sticky.bk.txt"
+mysqldump -u root -pkanri789 _mydb_kakeibo > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_kakeibo.bk.txt"
+mysqldump -u root -pkanri789 _mydb_photo > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_photo.bk.txt"
+mysqldump -u root -pkanri789 _mydb_svg > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_svg.bk.txt"
+mysqldump -u root -pkanri789 _mydb_draw > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_draw.bk.txt"
+mysqldump -u root -pkanri789 _mydb_psketch > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_psketch.bk.txt"
+mysqldump -u root -pkanri789 _mydb_gpslog > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_gpslog.bk.txt"
+mysqldump -u root -pkanri789 _mydb_zid_mgr_b > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_zid_mgr_b.bk.txt"
+mysqldump -u root -pkanri789 _mydb_zid_mgr_a > "D:\xampp\htdocs\_myhome_myset\_mydb_backup\_mydb_zid_mgr_a.bk.txt"
+</pre>
+			</li>
+		</ul>
+		</li>
+	</ol>
+</div>
+
+<div class="paragraph">
+<h3>MyHome Portal 実運用環境 カスタマイズ</h3>
+	<ol class="install">
+		<li>実運用定義ファイル
+		<ul class="description">
+			<li>実運用定義ファイルで、MyHome Portalをカスタマイズできます。</li>
+<pre class="command">
+D:\xampp\htdocs\_myhome_myset\__define_common_my.php
+</pre>
+			</li>
+			<li>（例）以下を修正することで、トップページの掲示板スレッド表示やスケジュール表示の枠カラーや表示件数を変更できます。</li>
+<pre class="command">
+define("BBS_VIEW_FRAME_COLOR_index", "#228b22");	// 掲示板スレッド表示 枠カラー
+define("BBS_VIEW_THREAD_index", 3);			// 掲示板スレッド表示 件数
+define("SCHDULE_VIEW_FRAME_COLOR_index", "#ff8c00");	// スケジュール表示 枠カラー
+define("SCHDULE_VIEW_DAY_index", 3);			// スケジュール表示 日数
+</pre>
+			</li>
+		</ul>
+		</li>
+		<li id="customize_top_button">ボタンデザインとトップページ検索ボタンのカスタマイズ
+		<ul class="description">
+			<li>ボタンデザインを変更できます。実運用定義ファイルで任意のCSSを設定できます。ボタンデザイン・サンプルとして、角丸タイプ、グラデーションタイプなど、数種類のCSSを用意しています。<br>
+<pre class="command" style="font-size: 11px;">
+define("_STYLE_SHEET_BUTTON", "../style/button/gradient.css");
+</pre>
+<img src="images/button-radius.jpg" style="margin:2px 20px; border:#404040 1px solid;vertical-align:top;"><img src="images/button-gradient.jpg" style="margin:2px 0; border:#404040 1px solid;vertical-align:top;">
+<br><img src="images/button-shadow.jpg" style="margin:2px 20px; border:#404040 1px solid;vertical-align:top;"><img src="images/button-kube.jpg" style="margin:2px 0; border:#404040 1px solid;vertical-align:top;"><br>
+	  オリジナルのCSSを作成して、ディレクトリ_myhome_myset等に置いて使用することもできます。<br>
+<pre class="command" style="font-size: 11px;">
+define("_STYLE_SHEET_BUTTON", "../../_myhome_myset/style/button/xxxxx.css");
+</pre>
+
+</li>
+
+			<li>トップページ検索ボタンをカスタマイズできます。不要なボタンを外したり、順番を入れかえたりできます。HTMLとJavaScriptが少し分かる人なら、ボタンの追加など自由な編集が可能です。検索ボタンをカスタマイズする場合は、カスタマイズ用の検索ボタンモジュールをディレクトリにコピーします。__define_index_search_my_yahoo.phpはYahoo検索ボタンを先頭にしたタイプです。<br><img style="margin-left:50px;" src="images/button-google.jpg"><br><img style="margin-left:50px;" src="images/button-yahoo.jpg">
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\__define_index_search_my_google.php D:\xampp\htdocs\_myhome_myset\__define_index_search_my_google.php
+copy D:\xampp\htdocs\_myhome\__define_index_search_my_yahoo.php D:\xampp\htdocs\_myhome_myset\__define_index_search_my_yahoo.php
+</pre>
+			</li>
+			実運用定義ファイルの以下の部分を変更してください。_DEFINE_INDEX_SEARCH_MYで検索ボタンモジュールを指定してください。<br>
+<pre class="command" style="font-size: 11px;">
+// ★ index トップページ 検索ボタン定義ファイル
+define("_DEFINE_INDEX_SEARCH_MY", "");
+// define("_DEFINE_INDEX_SEARCH_MY", "../../_myhome_myset/__define_index_search_my_google.php");
+// define("_DEFINE_INDEX_SEARCH_MY", "../../_myhome_myset/__define_index_search_my_yahoo.php");
+</pre></li>
+		</ul>
+		</li>
+
+		<li>カレンダーアイコンの変更
+		<ul class="description">
+			<li>「D:\xampp\htdocs\_myhome_myset\_my_calendar_images」のカレンダーアイコンを、好みに合わせて追加・削除してください。</li>
+			<li>アイコンフォルダ内に拡張子.zzzのダミーファイルを入れると、カレンダースケジュール入力画面のアイコン挿入ボタン一覧を任意のところで改行できます。アイコン名の頭に数字をつけて、種類別に並ぶようにすることで、アイコン挿入ボタンを使いやすいように設定できます。(↓例)</li>
+<pre class="command">
+165-star.gif
+180-lens.gif
+200.zzz		←ダミーファイル
+231-man.gif
+</pre>
+			<li>「D:\xampp\htdoc\_myhome\実運用サンプル\_my_calendar_images」内に、上記方法の実運用カレンダーアイコンセットも用意しました。
+			↓サンプルを使った、カレンダースケジュール入力画面です。<br>
+		<img src="images/134-2.jpg"></li>
+		</ul>
+		</li>
+
+		<li>カレンダーWebアイコンフォントの変更
+		<ul class="description">
+			<li>「カレンダー」スケジュール入力画面のWebアイコンフォント・ボタンは以下のファイルで定義しています。<br>
+	  ファイル名は実用定義ファイルで、FONT_ICON_CLASS_INCLUDEで指定していますので、例えば、_myhome_mysetディレクトリの下に置いて、自分の使いたい任意のアイコンを設定できます。
+
+<pre class="command" style="font-size: 11px;">
+≪__common__/__define_font-icon.php≫
+$font_icons = array();
+$font_icons[] = '&lt;ig class=icon-smile&gt;&lt;/ig&gt;';
+$font_icons[] = '&lt;ir class=icon-frown&gt;&lt;/ir&gt;';
+$font_icons[] = '&lt;ib class=icon-meh&gt;&lt;/ib&gt;';
+$font_icons[] = '&lt;ib class=icon-male&gt;&lt;/ib&gt;';
+$font_icons[] = '&lt;im class=icon-female&gt;&lt;/im&gt;';
+$font_icons[] = '◆';		// 改行
+</pre>
+タグで色を変えられます。
+<pre class="command" style="font-size: 11px;">
+&lt;style&gt;
+ii { padding: 0 1px; font-size: 16px; }
+ir { padding: 0 1px; font-size: 16px; color: red; }
+ig { padding: 0 1px; font-size: 16px; color: green; }
+・・・
+</pre>
+</li>
+	<li>ツール「Font Awesome Webアイコンフォント サンプル」で、Webアイコンフォントとclass名が確認できます。
+<br><img src="images/font-awesome.jpg" style="margin:2px 20px;border: 1px solid #444;">
+				</li>
+		</ul>
+		</li>
+
+		<li>メインコンテンツの追加・削除
+		<ul class="description">
+<li>コンテンツ定義ファイルサンプル「D:\xampp\htdocs\_myhome\__define_contents_my_sample.php」を実運用環境のディレクトリ「D:\xampp\htdocs\_myhome_myset」にコピーして、ファイル名を「__define_contents_my.php」にします。</li>
+<pre class="command">
+copy D:\xampp\htdocs\_myhome\__define_contents_my_sample.php D:\xampp\htdocs\_myhome_myset\__define_contents_my.php
+</pre>
+
+「D:\xampp\htdocs\_myhome_myset\__define_contents_my.php」を修正することで、メインコンテンツの追加・削除が行えます。<br>
+
+
+外部コンテンツをMyHome Portalのコンテンツとして組み込む例を示します。YouTubeを組み込むサンプルで説明します。<br>
+
+「D:\XAMPP\htdocs\_myhome\実運用サンプル\youtube」フォルダ一式と「D:\XAMPP\htdocs\_myhome\実運用サンプル\icon」フォルダ一式を「D:\XAMPP\htdocs\_myhome_myset」の下にコピーします。
+<pre class="command">
+mkdir D:\xampp\htdocs\_myhome_myset\youtube
+mkdir D:\xampp\htdocs\_myhome_myset\icon
+copy D:\XAMPP\htdocs\_myhome\実運用サンプル\youtube D:\xampp\htdocs\_myhome_myset\youtube
+copy D:\XAMPP\htdocs\_myhome\実運用サンプル\icon D:\xampp\htdocs\_myhome_myset\icon
+</pre>
+
+「D:\xampp\htdocs\_myhome_myset\__define_contents_my.php」に、次の1行を追加します。<br>
+サンプル「__define_contents_my_sample.php」には、最初から入っています。
+<pre class="command">
+$navi_item[] = array("href"=>"../_myhome_myset/youtube/", "query"=>"", "name"=>"YouTube");
+</pre>
+
+				<img src="images/134-1.jpg"></li>
+		</ul>
+		</li>
+
+
+		<li>ツール「GPSログ　View」を、メインコンテンツにする方法
+		<ul class="description">
+			<li>「GPSログ View」をメインコンテンツにする場合、以下を設定してください。<br>
+			・実運用定義ファイル __define_contents_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"gpslog/", "query"=>"arg=session", "name"=>"GPSログ");
+</pre>
+			・実運用定義ファイル __define_common_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("gpslog_PAGE_HEADER", "YES");
+</pre></li>
+
+
+
+		</ul>
+		</li>
+
+
+
+		</li>
+		<li>トップページのブログパーツ/RSSリーダー設定
+		<ul class="description">
+			<li>トップページ右側に任意のブログパーツを貼り付けることができます。</li>
+			<li>ブログパーツディレクトリ「D:\XAMPP\htdocs\_blog-parts」に、ブログパーツのテキストファイルを入れます。ファイルの拡張子は、incが適当かと思います。</li>
+			<li>ブログパーツとしてRSS記事表示もできます。_myhome/blog-parts/rss-google-news.incをコピー&ペーストして任意のRSSを設定できます。</li>
+			<li>MyHome Portal定義ファイル「D:\XAMPP\htdocs\_myhome_myset\__define_common_my.php」でブログパーツファイルを設定します。以下は設定サンプルです。</li>
+<pre class="command">
+define("BLOG_PARTS_SCRIPT_TOP1_index", "");				// 右カレンダーの上
+define("BLOG_PARTS_SCRIPT_TOP2_index", "");				// 右カレンダーの上
+define("BLOG_PARTS_SCRIPT_BOTTOM1_index", "yahoo-news.inc");		// 右カレンダーの下
+define("BLOG_PARTS_SCRIPT_BOTTOM2_index", "");			// 右カレンダーの下
+define("BLOG_PARTS_SCRIPT_RIGHT1_index", "clock-simple-blue.inc");	// 右カレンダーの右
+define("BLOG_PARTS_SCRIPT_RIGHT2_index", "weather-yahoo.inc");		// 右カレンダーの右
+define("BLOG_PARTS_SCRIPT_RIGHT3_index", "fx-news.inc");		// 右カレンダーの右
+define("BLOG_PARTS_SCRIPT_RIGHT4_index", "");				// 右カレンダーの右
+</pre>
+		</ul>
+		</li>
+		<li>アルバムの表示ディレクトリ設定
+		<ul class="description">
+			<li>アルバムの表示ディレクトリを設定します。<br>定義ファイル「D:\XAMPP\htdocs\_myhome_myset\__define_common_my.php」で設定します。アルバムの表示ディレクトリ制限photo_LIMITED_IMAGES_FOLDERを指定すると、こちらが有効になり、指定ディレクトリおよびその下以外には移動できなくなります。システム管理者のみ、このディレクトリ制限をはずすこともできます。パスのディレクトリ区切り文字は、\でなく必ず/を使ってください。</li>
+<pre class="command">
+define("photo_DEFAULT_IMAGES_FOLDER", "D:/Temp");
+....
+define("photo_LIMITED_IMAGES_FOLDER", "D:/デジカメ写真");	// アルバムの表示ディレクトリ制限
+define("photo_LIMITED_ADMIN_NOLIMIT", "YES");		// システム管理者のみ制限をはずす場合は"YES"
+</pre>
+			<li>カレンダー連携のアルバムフォルダは、My設定のカレンダーアルバムフォルダで設定してください。<br>
+				<img src="images/cal_album.jpg"><br>
+カレンダーアルバムフォルダを、このように設定した場合、以下のような階層で写真を管理することで、カレンダーでアルバムの写真を表示できます。写真をクリックするとアルバムフォルダに移動します。
+<pre class="command">
+D:/Album/Photos/2009/
+D:/Album/Photos/2009/2009-01-11-京都
+D:/Album/Photos/2009/2009-02-15-伊豆
+</pre>
+<img src="images/00000179-132.jpg"</li>
+		</ul>
+		</li>
+		<li><a name="s6" id="s6">アルバムの動画サムネイル表示設定（ffmpegインストール）</a>
+		<ul class="description">
+		<li>アルバムの動画サムネイル表示、動画時間分割、mpg,mov,m2ts(AVCHD)の動画再生機能を使う場合、<a href="http://ja.wikipedia.org/wiki/Ffmpeg" target="_blank">ffmpeg</a>がインストールされている必要があります。<br>
+	ffmpegは、「お気に入りの動画を携帯で見よう(<a href="http://blog.k-tai-douga.com/" target="_blank">http://blog.k-tai-douga.com/</a>)」から、Windows用バイナリをダウンロードしてインストールするのが手っ取り早いです。<br>
+	Windowsのシステム環境変数Pathにffmpegのインストールディレクトリを追加してください。<br>(例:「<b>;C:\Program Files\ffmpeg</b>」)<br>
+	環境変数追加後に、Windowsを再起動してください。
+		<li>動画をサムネイル表示する場合は、定義ファイル「D:\XAMPP\htdocs\_myhome_myset\__define_common_my.php」で、<b>photo_VIDEO_FFMPEG</b>を"YES"にしてください。
+<pre class="command">define("photo_VIDEO_FFMPEG", "YES");</pre></li>
+		<li>mpg,mov,m2tsの動画再生は、FLVに変換して再生します。動画フォルダの下に「___flv___」フォルダを作成して、変換したFLVを保管します。</li>
+		</ul>
+		</li>
+
+		<li><a name="s6" id="s6">アルバムのJPEG画像の縮小機能設定（IrfanViewインストール）</a>
+		<ul class="description">
+		<li>デジカメで撮影した写真等の解像度の高い画像を、そのままアルバム表示すると非常に時間がかかります。MyHome Portalでは、縮小画像を生成して画像表示を高速化できます。<br>
+アルバムの画像表示高速化のためのJPEG画像縮小機能を使う場合、「IrfanView」と「IrFanView Graphic Viewer PlugIns(拡張プラグイン全DLL収録版)」がインストールされている必要があります。以下からダウンロードしてインストールしてください。<br>
+<a href="http://www.irfanview.com/" target="_blank">http://www.irfanview.com/</a><br>
+<a href="http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html" target="_blank">http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html</a><br>
+	Windowsのシステム環境変数PathにIrfanViewのインストールディレクトリを追加してください。<br>(例:「<b>;C:\Program Files\IrfanView</b>」)<br>
+	環境変数追加後に、Windowsを再起動してください。
+		<li>JPEG画像の縮小機能を使う場合は、定義ファイル「D:\XAMPP\htdocs\_myhome_myset\__define_common_my.php」で、<b>photo_JPEG_RESIZE</b>を"YES"にしてください。
+<pre class="command">define("photo_JPEG_RESIZE", "YES");</pre>
+		<li>JPEG縮小機能を使う設定にした場合、各画像フォルダの下に「___small___」「___thumb___」フォルダを作成して、アルバム表示用縮小画像とスライドショー下の小さなサムネイル画像を保管します。</li>
+		<li>
+生成する縮小画像の大きさは、実運用定義ファイルで指定できます。
+<pre class="command" style="font-size: 11px;">
+define("photo_RESIZE_SIZE_SMALL", 1200);	//アルバム 縮小画像のサイズ
+define("photo_RESIZE_SIZE_THUMB", 160);	//アルバム スライド下のサムネイルサイズ
+</pre>
+</li>
+
+		<li>JPEG画像の縮小機能は、Windows XPでは、日本語のファイルパスでは正常動作しない可能性があります。そのため、アルバムの縮小画像生成が出来ません。</li>
+		<li>JPEG縮小機能を使う設定にした場合、EXIF対応デジカメで縦位置した画像は自動的に縦位置表示されます。</li>
+
+		<li>JPEG画像一括縮小に「EXIF縦位置画像回転」機能もあります。EXIF対応デジカメで縦位置した画像を、WindowsエクスプローラやEXIF未対応ソフトでも縦位置表示できるようになります。ただ、Windowsエクスプローラのサムネイルは縦位置表示にならない場合もあります。<br>
+この回転処理はロスレス(無劣化)で行われますが、画像以外の何らかの属性情報が失われる可能性があります。ファイル更新日は保存されます。<br>
+この機能を使う場合、実運用定義ファイルでphoto_EXIF_AUTO_ROTATEを"YES"にしてください。<br>
+<pre class="command">
+define("photo_EXIF_AUTO_ROTATE", "YES");
+</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li><a name="s6" id="s6">アルバムの画像処理機能設定（ImageMagickインストール）</a>
+		<ul class="description">
+		<li>アルバムの画像処理機能を使う場合、ImageMagickがインストールされている必要があります。
+	<a href="http://www.imagemagick.org/script/index.php" target="_blank">http://www.imagemagick.org/script/index.php</a><br>
+	から、環境にあったパッケージをダウンロードしてインストールしてください。<br>
+<pre class="command" style="font-size: 11px;">
+例：ImageMagick-6.6.6-1-Q16-windows-dll.exe
+</pre>
+	（ImageMagickオプション参考：<a href="http://hashi4.civil.tohoku.ac.jp/soft/node43.html" target="_blank">http://hashi4.civil.tohoku.ac.jp/soft/node43.html</a>）<br>
+	ImageMagickをインストール直後は、Windowsを再起動しないと、この機能を利用できません。<br>
+</li>
+	<li>この画像処理機能を使う場合、実運用定義ファイルで、<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_IMAGEMAGIC", "YES");
+</pre>
+を定義してください。</li>
+	<li>この画像処理機能をシステム管理者以外にも許可する場合、実運用定義ファイルで、<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_IMAGEMAGIC_ALLUSER", "YES");
+</pre>
+を定義してください。この定義をしても、「画像処理オプション」の編集と、任意のconvertオプション指定による画像処理は、システム管理者以外は出来ません。<br>
+</li>
+		</ul>
+		</li>
+
+		<li><a name="s6" id="s6">アルバムのファイル削除機能設定</a>
+		<ul class="description">
+		<li>アルバムの全画面モードでは、画像ファイルの削除機能もあります。
+[Delete]キーを押すと、表示されている画像ファイルを該当フォルダから削除します。削除したファイルは該当フォルダの下に「___trash___」フォルダを作成し、そこに保管します。</li>
+		<li>アルバムのファイル削除機能を使う場合は、定義ファイル「D:\XAMPP\htdocs\_myhome_myset\__define_common_my.php」で、<b>photo_DELETE_FILE_USE</b>を"YES"にしてください。
+<pre class="command">define("photo_DELETE_FILE_USE", "YES");</pre></li>
+
+		</ul>
+		</li>
+
+		<li>電子メール設定
+		<ul class="description">
+		<li>「パスワード忘れ」およびカレンダーの「メール送信」機能を使うためには、定義ファイルで電子メール利用の設定が必要です。
+
+<br><pre class="command">define("_SENDMAIL_HOST", "localhost");		// smtp サーバ (php.ini)
+define("_SENDMAIL_PORT", 25);			// smtp ポート (25、587など)
+define("_SENDMAIL_EMAIL_NAME", "MyHome Portal");	// Emailに使う送信者名(日本語不可)
+define("_SENDMAIL_EMAIL_ADDR", "xxx@xxx.com");	// 送信者Emailアドレス
+define("_SENDMAIL_EMAIL_USER", "");		// 送信者Emailアカウント(smtp認証を使う場合)
+define("_SENDMAIL_EMAIL_PASS", "");		// 送信者Emailアカウントパスワード(smtp認証を使う場合)
+define("_SENDMAIL_AUTH_USE", False);		// smtp認証を使う場合: True
+define("_FORGOT_PASS_USE", False);		// パスワード忘れのメール送信機能を使う場合: True
+define("_SCHEDULE_SENDMAIL_USE", False);	// スケジュールメール送信機能を使う場合: True</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li>コンテンツ「メール」(メール一括受信)機能を使う設定
+		<ul class="description">
+		<li>
+メール受信には「PEAR::Net_POP3」を使っています。XAMPPでPHPをインストールした場合、「PEAR::Net_POP3」がインストールされていない可能性があります。ファイル「xampp/php/PEAR/Net/POP3.php」があればインストールされています。ファイルが無い場合は、コマンドプロンプトで以下を実行してインストールしてください。
+<pre class="command" style="font-size: 11px;">
+pear install Net_POP3
+</pre>
+		</li>
+		</ul>
+		<ul class="description">
+		<li>SSL対応のPOP3サーバーから受信する場合、PHPをSSL対応にする必要があります。<br>確認は、phpinfoで「Registered Stream Socket Transports」に「ssl」が含まれているかを確認します。
+<pre class="command" style="font-size: 11px;">
+<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a>
+</pre>
+含まれていない場合は、「xampp/php/php.ini」(Dドライブインストールの場合→D:\xampp\php\php.ini)を修正します。以下の行
+<pre class="command" style="font-size: 11px;">
+;extension=php_openssl.dll
+</pre>のコメントアウトを外した上で、<a href="javascript:popup('apache.html')">Apacheの再起動</a>をする必要があります。
+		</li>
+		</ul>
+		<ul class="description">
+		<li>実運用定義ファイル __define_contents_my.phpに、以下を追加してください。
+<pre class="command" style="font-size: 11px;">
+$navi_item[] = array("href"=>"email/", "query"=>"arg=session", "name"=>"ＥＭａｉｌ");
+</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li>ツールの「MySQL管理ツール」でビューのスキーマ表示
+		<ul class="description">
+		<li>「MySQL管理ツール」でビューのスキーマ表示をさせるには、サンプルの<br>
+/htdocs/_myhome/__define_mysql_admin_sample.phpを、<br>
+/htdocs/_myhome_myset/__define_mysql_admin.php<br>にコピーして、管理者権限があるMySQLユーザーのユーザーIDとパスワードを設定してください。
+<pre class="command">
+define("_DB_ADMIN_USERNAME", "root");
+define("_DB_ADMIN_PASSWORD", "********");
+</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li>スタイルシートの変更
+		<ul class="description">
+		<li>スタイルシートのうち、common.cssは別ディレクトリから参照することもできます。<br>
+common.cssを別ディレクトリにコピーし、カスタマイズしてご利用ください。<br>
+定義ファイルの以下の部分を修正してください。(以下は修正例)
+<pre class="command">
+define("_STYLE_SHEET_FOLDER_COMMON", "../../_myhome_myset");
+// CSSスタイルシート(common.css) ディレクトリ
+</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li>ミニカレンダーの今日の背景色と文字色
+		<ul class="description">
+		<li>INDEX、カレンダー、旅行記のミニカレンダーの今日の背景色と文字色を変更できます。<br>
+<pre class="command" style="font-size: 11px;">
+define("CALENDAR_TODAY_MINI_BACKGROUND_COLOR", "#00ced1"); //ミニカレンダー今日 背景色
+define("CALENDAR_TODAY_MINI_LINK_COLOR", "#ffffff"); //ミニカレンダー今日 文字色</pre>
+		</li>
+		</ul>
+		</li>
+
+		<li>アップロードファイルのサイズ制限
+		<ul class="description">
+		<li>カレンダー、旅行記、掲示板、メモのフォームによる登録ページのメモリサイズと最大実行時間を実運用定義ファイルで変更してください。<br>
+<pre class="command" style="font-size: 11px;">define("FILE_UPLOAD_MEMORY_LIMIT", "32M");
+define("FILE_UPLOAD_MAX_EXECUTION_TIME", "60");</pre>
+	  php.ini(Dドライブインストールの場合→D:\xampp\php\php.ini)の以下の2項目も修正する必要があります。
+<font color=red>※ php.inを修正する時は、必ずバックアップファイルを作成してから、行なってください。</font><br>
+<pre class="command" style="font-size: 11px;">upload_max_filesize	32M
+post_max_size		16M</pre>
+	  修正後は、<a href="javascript:popup('apache.html')">Apacheの再起動</a>をする必要があります。設定値は、<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://localhost/xampp/phpinfo.php" target="_blank">http://localhost/xampp/phpinfo.php</a><br>
+で確認できます。
+		</li>
+		</ul>
+		</li>
+
+		<li>MySQLストレージエンジンを、MyISAMからInnoDBに切り替える方法
+		<ul class="description">
+		<li>
+MyHome Portalでは、MySQLのストレージエンジンはMyISAMを使っています。<br>
+MySQLの代表的なストレージエンジンには、MyISAMとInnoDBがありますが、<br>
+【漢(オトコ)のコンピュータ道：MyISAMからInnoDBへ切り替えるときの注意点】<br>
+<a href="http://nippondanji.blogspot.com/2009/02/myisaminnodb.html" target="_blank">http://nippondanji.blogspot.com/2009/02/myisaminnodb.html</a><br>
+によれば、MyISAMの欠点として以下のものが上げられています。<br>
+・トランザクション対応ではない。 <br>
+・クラッシュセーフではない。 <br>
+・更新と参照が入り乱れた場合の同時実行性能がよくない。 <br>
+・テーブルが大きく（数億行とか）なるとINSERTの性能が劣化する。<br>
+2番目の「クラッシュセーフではない」というのが一番気になるとところです。<br>
+</li>
+<li>
+ということで、MyHome PortalのストレージエンジンをInnoDBにしたい方のための簡単な手順を以下に書きます。<br>
+<font color=red>なお、トラブルが発生してもサポートできませんので、あくまでも自己責任でお願いいたします。事前にMyISAMの状態でバックアップをとっておいてください。</font><br>
+以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+</li>
+<li>1.XAMPPは初期状態では、InnoDBが使えませんので、InnoDBを有効にする必要があります。<br>
+<font color=red>注：XAMPPのバージョンによっては、InnoDBが最初から有効になっている場合があるようです。</font><br>
+【参考：XAMPP環境でMySQLのInnoDBを有効にする】<br>
+<a href="http://code.xenophy.com/?p=127" target="_blank">http://code.xenophy.com/?p=127</a><br>
+[xamppインストールディレクトリ]/mysql/bin/my.cnf<br>
+  (例：D:\xampp\mysql\bin\my.cnf)<br>
+を以下のように編集して、MySQLを再起動します。<br>
+skip-innodbの先頭に#を頭につけてコメントアウトします。<br>
+skip-innodbの下4行のinnodb_...の頭の#を外します。<br>
+その他innodb_...は任意で設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+#skip-innodb
+innodb_data_home_dir = "D:/xampp/mysql/"
+innodb_data_file_path = ibdata1:10M:autoextend
+innodb_log_group_home_dir = "D:/xampp/mysql/"
+innodb_log_arch_dir = "D:/xampp/mysql/"
+
+# You can set .._buffer_pool_size up to 50 - 80 %
+# of RAM but beware of setting memory usage too high
+innodb_buffer_pool_size = 16M
+innodb_additional_mem_pool_size = 2M
+# Set .._log_file_size to 25 % of buffer pool size
+innodb_log_file_size = 5M
+innodb_log_buffer_size = 8M
+innodb_flush_log_at_trx_commit = 1
+innodb_lock_wait_timeout = 50
+</pre>
+コマンドプロンプトで、以下を実行してMySQLを再起動します。
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+net start mysql
+</pre>
+</li>
+<li>2.MyHome Portalの実運用データベースの更新系テーブルをInnoDBにします。<br>
+コマンドプロンプトで、以下を実行します。<br>
+「ERROR 1025 (HY000): Error on rename ...」<br>
+というエラーが出る場合があります。その場合は、以下の一連の処理を再実行します。多分2度目はエラーが出ません。
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+ALTER TABLE m_abook ENGINE=InnoDB;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_check_caption ENGINE=InnoDB;
+use _mydb_account;
+ALTER TABLE m_account ENGINE=InnoDB;
+ALTER TABLE m_friends ENGINE=InnoDB;
+ALTER TABLE m_public ENGINE=InnoDB;
+ALTER TABLE z_loginlog ENGINE=InnoDB;
+use _mydb_bbs;
+ALTER TABLE m_bbs ENGINE=InnoDB;
+ALTER TABLE m_category ENGINE=InnoDB;
+use _mydb_calendar;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_schedule ENGINE=InnoDB;
+ALTER TABLE m_todo ENGINE=InnoDB;
+use _mydb_chat;
+ALTER TABLE m_messages ENGINE=InnoDB;
+use _mydb_diary;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_marker ENGINE=InnoDB;
+ALTER TABLE m_schedule ENGINE=InnoDB;
+use _mydb_index;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_homepage ENGINE=InnoDB;
+ALTER TABLE m_oftenuse ENGINE=InnoDB;
+use _mydb_kakeibo;
+ALTER TABLE m_chokin ENGINE=InnoDB;
+ALTER TABLE m_ginkou ENGINE=InnoDB;
+use _mydb_memo;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_memo ENGINE=InnoDB;
+use _mydb_photo;
+ALTER TABLE m_convert_opt ENGINE=InnoDB;
+use _mydb_rss;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_rss ENGINE=InnoDB;
+use _mydb_sticky;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_notes ENGINE=InnoDB;
+use _mydb_study;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_category2 ENGINE=InnoDB;
+ALTER TABLE m_mycheck ENGINE=InnoDB;
+ALTER TABLE m_study ENGINE=InnoDB;
+use _mydb_svg;
+ALTER TABLE m_svg ENGINE=InnoDB;
+ALTER TABLE m_comment ENGINE=InnoDB;
+use _mydb_draw;
+ALTER TABLE m_draw ENGINE=InnoDB;
+ALTER TABLE m_comment ENGINE=InnoDB;
+use _mydb_psketch;
+ALTER TABLE m_psketch ENGINE=InnoDB;
+ALTER TABLE m_comment ENGINE=InnoDB;
+use _mydb_gpslog;
+ALTER TABLE m_gpslog ENGINE=InnoDB;
+use _mydb_zid_mgr_a;
+ALTER TABLE m_category ENGINE=InnoDB;
+ALTER TABLE m_pass ENGINE=InnoDB;
+use _mydb_zid_mgr_b;
+ALTER TABLE m_pass2 ENGINE=InnoDB;
+exit;
+</pre>
+		</li>
+		</ul>
+		</li>
+
+	</ol>
+</div>
+<br>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

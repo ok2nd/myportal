@@ -1,0 +1,725 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン2.50以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download6.html">最新(2.51以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.50&nbsp;&nbsp;(2009/12/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・全画面スライドーショーのフェードインモードを、キーボードで切り替えできるようにしました。[F]キーで切り替えられます。</li>
+	<li>変更モジュール<br>
+		・photo/slide.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.49&nbsp;&nbsp;(2009/12/28)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・全画面スライドーショーで、画像をフェードインしながら表示するようにしました。<br>
+Chrome、Safariでは、jQueryで実現していますが、IE、FirefoxではjQueryで動作しなかったので、<br>
+IEでは、以下を参考にさせていただきました。<br>
+<font color=red>※注：Ver.2.53でIE、FirefoxもjQueryで行うよう変更しました。</font><br>
+<a href="http://javascript.eweb-design.com/0814_fio.html" target="_blank">http://javascript.eweb-design.com/0814_fio.html</a><br>
+Firefoxでは、以下を参考にさせていただきました。<br>
+<a href="http://javascript123.seesaa.net/article/103705244.html" target="_blank">http://javascript123.seesaa.net/article/103705244.html</a><br>
+フェードインさせたくない場合は、実運用定義ファイルでphoto_SLIDE_FADEIN_USEを"NO"にしてください。</li>
+	<li>アルバム・スライドモードで、画像部分拡大(ルーペ)機能を追加しました。実画像サイズが表示サイズより小さい場合は、実画像サイズで表示されます。ルーペ機能には、jquery.loupe.jsを使っています。<br>
+<a href="http://jdbartlett.github.com/loupe/" target="_blank">http://jdbartlett.github.com/loupe/</a><br>
+</li>
+	<li>変更モジュール<br>
+		・photo/index.php, slide.php<br>
+		・style/original/photo.css</li>
+	<li>追加モジュール<br>
+		・scripts/jquery.loupe.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.48&nbsp;&nbsp;(2009/12/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>JPEG画像一括縮小付属の「EXIF縦位置画像回転」機能で、左右いずれの回転画像も、無条件に右回転していました。この不具合を修正しました。また、縮小処理を伴わないEXIF縦位置画像回転のみの処理も行えるようにしました。</li>
+	<li>アルバムにJPEGのEXIF情報表示機能を追加。スライドショー画像右の「EXIF情報」をクリックしてください。システム管理者用です。<br>
+<img src="images/00000239-exif.jpg"></li>
+	<li>ツールに「snowstorm.js」と「Fireworks.js」を使ったおまけを追加。「Fireworks.js」はほとんどそのままです。<br>
+<a href="http://www.schillmania.com/projects/snowstorm/" target="_blank">http://www.schillmania.com/projects/snowstorm/</a><br>
+<a href="http://www.schillmania.com/projects/fireworks/" target="_blank">http://www.schillmania.com/projects/fireworks/</a><br>
+<img src="images/ss1.jpg"><br>
+<img src="images/ch2.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, img-resize.php<br>
+		・style/original/photo.css<br>
+		・tools/index.php<br>
+		・tools/snowstorm/一式<br>
+		・tools/fireworks/一式</li>
+	<li>追加モジュール<br>
+		・photo/exif-read.php</li>
+	</div>
+
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.47&nbsp;&nbsp;(2009/12/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムで、画像の表示順序を、ファイル名順と更新日時順が選択できるようにしました。</li>
+	<li>アルバムで、表示順序がファイル名順の場合、Windowsエクスプローラと同じくアルファベットの大文字/小文字を区別しないで並び替えるようにしました。</li>
+	<li>アルバム・スライドショーで画像の下にファイル更新日時も表示するようにしました。</li>
+	<li>アルバムにファイル削除機能を追加しました。システム管理者で全画面モードでのみ使えます。<br>全画面モードで、[Delete]キーを押すと、表示されている画像ファイルを削除します。削除したファイルは該当フォルダの下に「___trash___」フォルダを作成し、そこに保管します。<br>この機能を使う場合、実運用定義ファイルで、photo_DELETE_FILE_USEを"YES"にしてください。<br>
+<pre class="command" style="font-size: 11px;">
+define("photo_DELETE_FILE_USE", "YES");
+</pre></li>
+	<li>変更モジュール<br>
+		・photo/index.php, slide.php, __define.php, __html-my-header.php<br>
+		・style/original/photo.css<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.46&nbsp;&nbsp;(2009/12/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+<p>
+<font color=red>
+「_myhome_246.zip」には不具合があります。「EXIF縦位置画像回転」機能で、撮影日が失われます。<br>
+「_myhome_246-1.zip」または最新バージョンをダウンロードしてください。
+</font>
+</p>
+
+
+	<li>PHPプログラム上のディレクトリの区切り文字をPHP定数「DIRECTORY_SEPARATOR」を使うようにしました。これでUNIX系OSでもファイル関係の機能が利用可能になるかも？</li>
+	<li>JPEG画像一括縮小に「EXIF縦位置画像回転」機能を追加しました。EXIF対応デジカメで縦位置した画像を、WindowsエクスプローラやEXIF未対応ソフトでも縦位置表示できるようになります。<br>ただ、Windowsエクスプローラのサムネイルは縦位置表示にならない場合もあります。<br>この回転処理はロスレス(無劣化)で行われますが、画像以外の何らかの属性情報が失われる可能性があります。ファイル更新日は保存されます。<br>この機能を使う場合、実運用定義ファイルでphoto_EXIF_AUTO_ROTATEを"YES"にしてください。<br>
+<pre class="command">
+define("photo_EXIF_AUTO_ROTATE", "YES");
+</pre>
+<img src="images/00000238-shukusho.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, img-view.php, img-resize.php<br>
+		・__define_common_my_sample.php<br>
+		・その他ディレクトリの区切り文字で"&yen;&yen;"を使っていたモジュール。</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.45&nbsp;&nbsp;(2009/12/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+	<li>トップINDEXのYahoo検索ができなくなっていた点を修正。Yahoo検索のURLが変更になっていたためです。<br>
+前のバージョンで、__define_index_search_my_google.phpまたは__define_index_search_my_yahoo.phpで環境設定されている場合は、
+「http://search.yahoo.co.jp/bin/search」の記述を「http://search.yahoo.co.jp/search」に置き換えてください。</li>
+	<li>アルバムで縮小画像を作るための、exec()によるIrfanView実行に「/silent」オプションを追加しました。これを付けないと、IrfanViewでエラーが発生するとプロセス「i_view32」が残ったままになってしまいます。</li>
+	<li>Windows XPでは、IrfanViewのコマンドライン実行では日本語のファイルパスが使えない可能性があります。そのため、アルバムの縮小画像生成が出来ません。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php<br>
+		・index/__define_index_search.php<br>
+		・photo/__define.php, __include-common.php, img-view.php, img-resize.php<br>
+		・__define_common_my_sample.php, __define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.44&nbsp;&nbsp;(2009/12/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+<font color=blue>MyHome Portalアルバムでの表示が初めて(表示用縮小画像生成時)で、EXIF情報により縦位置表示される画像の場合、画像の上下が切れて表示されてしまう現象が発生する場合がありますが、ブラウザで再表示(リロード)すれば直ります。<br><br></font>
+
+	<li>アルバムのJPEG画像の表示を高速化しました。JPEG画像のサイズが大きい場合、サーバーサイドで縮小画像を生成して表示する方式にしました。生成した縮小画像は、画像フォルダの下に「___small___」フォルダを生成して、その下に保管します。次回表示時点では、その画像を使って表示します。スライドショーの下の小さなサムネイル画像も別途、縮小画像を生成して、フォルダ「___thumb___」の下に保管します。</li>
+	<li>生成する縮小画像の大きさは、実運用定義ファイルで指定できます。縮小画像のサイズ指定：1200で、画像サイズ：3648×2736＆ファイルサイズ：約6MBのファイルが、画像サイズ：1200×900＆ファイルサイズ：約400KB程度になります。今までデジカメの高解像度の写真をアルバムで表示する場合、非常に重たく実用的ではありませんでしたが、かなりスムーズに動作するようになりました。
+</li>
+	<li>JPEG画像の縮小には、「IrfanView」と「IrFanView Graphic Viewer PlugIns(拡張プラグイン全DLL収録版)」を使っています。<br>
+<a href="http://www.irfanview.com/" target="_blank">http://www.irfanview.com/</a><br>
+<a href="http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html" target="_blank">http://www.forest.impress.co.jp/lib/pic/piccam/picviewer/irfanview.html</a><br>
+MyHome Portalインストールガイドの「JPEG画像の縮小機能設定（IrfanViewインストール） 」に従ってインストールしてください。</li>
+	<li>EXIFに縦位置情報を持っている場合は、IrfanViewによる縮小画像は縦位置で生成されるため、MyHome Portalアルバムでは縦位置で表示されます。</li>
+	<li>実運用定義ファイルの追記。既に前のバージョンで実運用している場合でJPEG画像の縮小機能を使う場合は、実運用定義ファイルに以下の行を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("photo_RESIZE_SIZE_SMALL", 1200);	//アルバム 縮小画像のサイズ
+define("photo_RESIZE_SIZE_THUMB", 160);	//アルバム スライド下のサムネイルサイズ
+define("photo_RESIZE_DIR_SMALL", "/___small___/");
+define("photo_RESIZE_DIR_THUMB", "/___thumb___/");
+define("photo_JPEG_RESIZE", "YES");		// JPEG画像の縮小機能を使う場合:"YES"
+</pre></li>
+
+	<li>JPEG画像の回転機能は、廃止したままとします。IrfanViewを使えば、ほぼ期待通りのJPEG画像回転が出来ることがわかりましたが、EXIFにより自動的に縦位置表示されてしまう関係で、回転機能を組み合わせると紛らわしいことになるため、廃止とします。</li>
+	<li>/___small___/、/___thumb___/、/___flv___/フォルダはアルバムディレクトリ表示から外すようにしました。</li>
+	<li>JPEG画像一括縮小ページを追加しました。フォルダ単位でアルバム表示用縮小画像とスライド・サムネイル画像を一括生成します。システム管理者用です。
+	<br><img src="images/00000238-shukusho.jpg"></li>
+	<li>変更モジュール<br>
+		・photo/index.php, slide.php, img-view.php<br>
+		・__define_abook_pdf_my_sample.php</li>
+	<li>追加モジュール<br>
+		・photo/img-resize.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.43&nbsp;&nbsp;(2009/12/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>Ver.2.42で追加したJPEG画像回転機能に問題があるため、画像回転機能を除いたバージョンです。</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.42&nbsp;&nbsp;(2009/12/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+
+<font color=red>画像の回転機能に問題があるため、2.42のリリースを停止します。画像の回転機能を使わないでください。</font><br>
+
+<font color=#CD853F>画像回転における具体的な問題点は、以下のようなものです。<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://ok2nd.blog87.fc2.com/blog-entry-169.html" target="_blank">→ 関連ブログ記事：JPEG画像のロスレス(無劣化)回転</a><br>
+画像データの形式について理解できていないので、素人的な記述になります。<br>
+例として、Panasonic LUMIXで縦位置で撮影した画像は、Windowsエクスプローラでは縦位置表示されませんが、ソフトによっては、例えばFastStone Image Viewerでは撮影時のまま縦位置で表示されます。<br>
+
+この画像をMyHome Portalで回転すると、MyHome Portal上およびWindowsエクスプローラ上では回転して縦位置表示されます。しかし、FastStone Image Viewerでは元々撮影時を正しく反映して縦位置表示されていたものが回転して横位置で表示されてしまいます。<br>
+
+この画像をIrfanView(コマンドラインベース)等でリサイズすると、横位置画像になってしまいます。つまり、WindowsエクスプローラやMyHome Portalでは縦位置表示されていたものが、リサイズすると横位置画像になってしまうということです。<br>
+この問題により、画像回転機能は廃止しました。<br>
+</font>
+
+	<li>システム内の動画プレビューという表現を動画再生という表現に変えました。</li>
+	<li>アルバム・スライドショーで、mpg,mov,m2tsの動画再生ができるようにしました。<br>
+	ffmpegを使って、FLVに変換して表示します。変換したFLVファイルは、サブディレクトリ「/___flv___/」の下に格納します。</li>
+	<li>アルバムに、mpg,mov,m2ts動画のFLV一括変換ツールを追加しました。システム管理者のみ、利用できます。
+<br><img src="images/00000216-convert.jpg"></li>
+
+<strike>
+	<li>アルバムでJPEG画像の回転ができるようにしました。右90度、左90度の回転ができます。システム管理者のみ使用できます。全画面モードでもキー操作で可能です。キー「P」で右回転、キー「O」で左回転します。<br>
+</strike>
+
+	<li>実運用定義ファイルの修正。既に前のバージョンで実運用している場合は、実運用定義ファイルの以下の部分を修正してください。ただし、mpg,mov,m2tsの動画再生をしない場合は、photo_VIDEO_PREVIEW_EXTから外してください。
+<pre class="command" style="font-size: 11px;">
+define("photo_VIDEO_PREVIEW_EXT", "flv,mp4,mp3,wmv,mpg,mov,m2ts");
+</pre>
+</li>
+	<li>実運用定義ファイルの追記。既に前のバージョンで実運用している場合は、実運用定義ファイルに以下の行を追加してください。ffmpegによるFLV変換では画質劣化します。以下のFFMPEG_CONVERT_OPTIONを変えることで、改善できるかもしれません。
+<pre class="command" style="font-size: 11px;">
+define("VIDEO_PREVIEW_CONVERT", "mpg,mov,m2ts");
+define("VIDEO_PREVIEW_CONVERT_FLV_DIR", "/___flv___/");
+define("FFMPEG_CONVERT_OPTION_MPG", "-vcodec flv");
+define("FFMPEG_CONVERT_OPTION_MOV", "-f flv -vcodec flv -r 25 -b 900 -s qvga -acodec libmp3lame -ar 44100 -ab 64k");
+define("FFMPEG_CONVERT_OPTION_M2TS", "-ar 44100 -b 700k");
+</pre>
+</li>
+	<li>ツールに、ページ内に雪を降らせられるjQueryプラグイン「jSnow」を使ったページを追加。降らせる文字や色などを変えられるページも作りました。
+	<a href="http://phpspot.org/blog/archives/2009/12/jqueryjsnow.html" target="_blank">http://phpspot.org/blog/archives/2009/12/jqueryjsnow.html</a><br>
+	<a href="http://www.dummwiam.com/jSnow" target="_blank">http://www.dummwiam.com/jSnow</a>
+<br><img src="images/00000236-snow.jpg">
+<br><img src="images/merry.jpg">
+<br><img src="images/00000236-opt.jpg">
+</li>
+	<li>jquery.jsのバージョンを1.3.2にしました。
+	  ただ、住所録一覧の都道府県選択のプルダウンで使用しているCustom Select「jquery.cs.js」が1.3.2では正常表示されないので、1.2.6を使用するようにしています。</li>
+	<li>_myhome/.htaccessに、「Options -Indexes」(ディレクトリのファイル一覧表示禁止)を追記しました。ディレクトリ_myhomeにはindex.phpが在るので、この記述が無くても実際は問題ないのですが、実運用環境設定ディレクトリ「/htdocs/_myhome_myset/」には必要ですので、「/htdocs/_myhome_myset/の下の.htaccessには、「Options -Indexes」を必ず追記してください。また、「/htdocs/_attach/」にも、.htaccessをコピーしてください。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php<br>
+		・photo/index.php, slide.php, video-view.php<br>
+		・tools/index.php<br>
+		・abook/__html-my-header.php<br>
+		・scripts/jquery.js<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・photo/video-convert.php, img-rotate.php<br>
+		・tools/jSnow/一式<br>
+		・tools/icon/snow.gif</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.41&nbsp;&nbsp;(2009/12/13)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録の「葉書宛名書き」で、印刷位置の微調整をしました。</li>
+	<li>住所録の「葉書宛名書き」で、差出人の連名を指定できるようにしました。<br>
+	<font color=red>既に前のバージョンで実運用している場合は、住所録定義ファイル「__define_abook_pdf_my.php」の中身を「__define_abook_pdf_my_sample.php」で差し替えてください。</font>
+	<br><img src="images/renmei.jpg"></li>
+	<li>変更モジュール<br>
+		・abook/__define-pdf.php, do-proc.php, list-my-template.php<br>
+		・__define_abook_pdf_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.40&nbsp;&nbsp;(2009/12/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録の一覧で、「電話・EMail表示なし」を選択できるようにしました。住所が見やすくなります。
+	<br><img src="images/abook.jpg"></li>
+	<li>変更モジュール<br>
+		・abook/list.php, list-my-template.php, list-my-add-filter.php<br>
+		・style/original/abook.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.39&nbsp;&nbsp;(2009/12/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・スライドショーで、オートプレイの間隔、動画時間分割の分割数をcookie保存するようにしました。</li>
+	<li>アルバム・スライドショー、掲示板、メモで、MP4も動画プレビューできるようにしました。</li>
+	<li><font color=red>Adobe Flash Playerが最新のバージョンでないと、MP4プレビューができない可能性があります。最新のバージョンにしてください。</font></li>
+	<li>既に前のバージョンで実運用している場合は、実運用定義ファイルの以下の部分を修正してください。
+<pre class="command" style="font-size: 11px;">
+define("IS_VIDEO_EXT", "avi,flv,mpg,mov,swf,wmv,m2ts,mp4");
+define("IS_VIDEO_MIME","video/x-msvideo,video/x-flv,video/mpeg,video/quicktime,application/x-shockwave-flash,video/x-ms-wmv,video/avc,video/mp4");
+define("GET_URL_FILE_TYPE_SELECTS_tools", "jpeg,jpg,gif,png,wmv,flv,avi,mpg,mp4,mov,swf,zip,lzh");
+</pre>
+</li>
+	<li>既に前のバージョンで実運用している場合は、実運用定義ファイルに以下の1行を追加してください。
+<pre class="command" style="font-size: 11px;">
+define("VIDEO_PREVIEW_WMV", "wmv");
+</pre>
+</li>
+	<li>変更モジュール<br>
+		・__define_common_my_sample.php<br>
+		・__common__/__define_common.php, include-common-all.php, include-common-html.php<br>
+		・photo/index.php, slide.php, video-view.php<br>
+		・scripts/JWPlayer/movie_preview.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.38&nbsp;&nbsp;(2009/12/10)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・スライドショー、掲示板、メモのFLV,WMV動画プレビューを自動再生スタートにしました。</li>
+	<li>アルバム・スライドショーの全画面モードでも、FLV,WMV動画プレビューができるようにしました。</li>
+	<li>アルバム・サムネイルとスライドショーの切り替え時に、先頭ページに戻らずに、現在の画像が表示できる範囲でページ遷移するようにしました。</li>
+	<li>アルバム・スライドショー下部の10個のサムネイルのうち、現在メインで表示中のものにブルーの枠を付けました。</li>
+	<li>アルバム・スライドショーのFLV,WMV動画プレビューの画像枠の縦横比率を3:4にしました。</li>
+	<li>アルバム・サムネイルで現在のページ数以外に枚数表示もするようにしました。</li>
+	<li>変更モジュール<br>
+		・photo/__define.php, index.php, slide.php<br>
+		・__common__/include-common-html.php<br>
+		・scripts/JWPlayer/movie_preview.js<br>
+		・style/original/photo.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.37&nbsp;&nbsp;(2009/12/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバム・スライドショーのFLVプレビューが、ファイル名やパス名に日本語が含まれているとエラーになってプレビューできなかった問題を修正しました。(掲示板、メモに関しては、アップロードファイル名に日本語が含まれているとFLVプレビューできません。)</li>
+	<li>アルバム・スライドショーの下に表示される10枚のサムネイルを、残りが10枚以下の場合は最後から10枚を表示するようにしました。</li>
+	<li>FLVプレビュー用のJW FLV Playerをバージョン5にしました。</li>
+	<li>変更モジュール<br>
+		・photo/index.php, video-view.php<br>
+		・scripts/JWPlayer/movie_preview.js<br>
+		・photo/player-viral.swf, yt.swf<br>
+		・bbs/player-viral.swf, yt.swf<br>
+		・memo/player-viral.swf, yt.swf</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.36&nbsp;&nbsp;(2009/12/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>XAMPP1.7.2以降では「short_open_tag」のデフォルト値の関係で、YouTube等の外部コンテンツを組み込む場合、組み込み用ファイルを置くディレクトリにも、「php_flag short_open_tag On」を記述した「.htaccess」が必要です。</li>
+	  インストール手順の「メインコンテンツの追加・削除」に「.htaccess」に関する記述を追加しました。<br>
+	<li>天気出現率のデータに1件間違ったデータがあることが判明。<br>
+	  沖縄県(c_kenid=47)の「2000/10/19」の日付けが「2000/0/19」になっていました。<br>
+	  <font color=red>既に前のバージョンで実運用している場合は、以下の手順で、テーブル「m_weather」を修正してください。MySQL管理者ユーザーrootのパスワードを「kanri789」として説明します。<br></font>
+		■ サンプルデータベースの例 (Windowsの場合、コマンドプロンプトから実行。)<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _db_calendar;
+update m_weather set c_date = '2000/10/19' where c_date = '2000/0/19';
+exit;
+</pre>
+		■ 実運用データベースの例 (Windowsの場合、コマンドプロンプトから実行。)<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_calendar;
+update m_weather set c_date = '2000/10/19' where c_date = '2000/0/19';
+exit;
+</pre>
+	</li>
+	<li>カレンダーに天気グラフを追加しました。都道府県別の月平均天気出現率と月平均気温をグラフ表示します。<br>
+	  グラフ生成には、Highchartsを使っています。<br>
+		<a href="http://www.highcharts.com/" target="_blank">http://www.highcharts.com/</a>
+	<br><img src="images/00000235-wg1.jpg">
+	<br><img src="images/00000235-wg2.jpg"></li><br>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-common-html.php, include-common-mp-list.php<br>
+		・calendar/_contents-header.php, _my_calendar.php<br>
+		・style/original/weather.css<br>
+		・実運用サンプル/天気出現率.csv<br>
+		・z_db_backup/_db_calendar.bk.txt</li>
+	<li>追加モジュール<br>
+		・calendar/weather-graph.php<br>
+		・scripts/excanvas.compiled.js<br>
+		・scripts/Highcharts/一式</li>
+		</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.35&nbsp;&nbsp;(2009/12/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>XAMPP 1.7.2で「short_open_tag」のデフォルト値がOffになったことへの対策として、_myhome直下に「.htaccess」を置き、「php_flag short_open_tag On」を記述しました。<br>
+	【short_open_tagについて】<br>
+	short_open_tagがonの場合、PHPの記述を"&lt;?php"の代わりに"&lt;?"で囲む方法が許されるが、offでは許されない。<br>
+	"&lt;?php"が"&lt;?"になっている箇所全てを直せば良いのですが、値を直接挿入する箇所では全て"&lt;?="の方法で記述しており、これを全て修正するのはリスクがありそうなので、「.htaccess」による「php_flag short_open_tag On」で回避することにしました。</li>
+	<li>アルバムスライドショーで、動画の時間分割サムネイル表示時にファイル名と動画再生時間を表示するようにしました。 </li>
+	<li>アルバムで、上位デイレクトリの表示を非表示にも出来るようにしました。</li>
+	<li>「INDEX」のリスト形式表示時に、Webサイトのキャプチャ画像を非表示にも出来るようにしました。</li>
+	<li>変更モジュール<br>
+		・index/list.php, list-my-template.php<br>
+		・photo/index.php<br>
+		・style/original/photo.css</li>
+	<li>追加モジュール<br>
+		・.htaccesss</li>
+			</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.34&nbsp;&nbsp;(2009/12/04)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>アルバムスライドショーの画像サイズ変更をサーバーサイドでなく、JavaScriptで行うようにしました。これにより、画像サイズ変更が、サーバーからの画像データの再取得なしに、スムーズに行えます。</li>
+	<li>アルバムで、表示しているディレクトリの上位デイレクトリも表示するようにしました。これにより、同じ階層のディレクトリの写真/画像を順番に閲覧しやすくなりました。</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-html.php<br>
+		・photo/index.php<br>
+		・scripts/JWPlayer/movie_preview.js<br>
+		・style/original/photo.css</li>
+			</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.33&nbsp;&nbsp;(2009/12/02)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>システムをWindows以外のOS上に載せやすいように、ファイルシステムの文字コードを定義ファイルで変更できるようにしました。<br>
+<pre class="command" style="font-size: 11px;">
+define("_SYSTEM_FILE_ENCODING", "SJIS-win");
+</pre>
+</li>
+	<li>アルバムで、動画を時間分割して、サムネイル表示できる機能を追加しました。分割数やサイズも選択できます。
+	<br><img src="images/00000234-timeline.jpg"></li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-all.php<br>
+		・calendar/_my_calendar.php<br>
+		・photo/多数<br>
+		・tools/多数<br>
+		・setup-sample.php, __define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.32&nbsp;&nbsp;(2009/12/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>住所録の「電子メール宛名」機能で、mailto:の複数メールアドレスの結合文字として、Outlook用の";"を定義ファイルで設定できるようにしました。
+<pre class="command" style="font-size: 11px;">
+define("MAILTO_CONCATENATE_CHR", ",");
+</pre>
+</li>
+	<li>掲示板、メモ、アルバムでWMVをFLV同様にプレビューできるようにしました。<br>
+WMVプレビューには、JW WMV Playerを使用。<br>
+<a href="http://www.longtailvideo.com/players/jw-wmv-player/" target="_blank">http://www.longtailvideo.com/players/jw-wmv-player/</a>
+</li>
+	<li>FLVプレビュー用のJW FLV Playerをバージョン4.6にしました。</li>
+	<li>アルバム、<strike>掲示板、メモ</strike>、ツールの(簡易)ファイルマネージャー等でファイル名にシングルクォート(')が含まれている場合の不具合を修正。<br>
+	<font color=red>掲示板、メモ等でアップロードファイル名にシングルクォート(')が含まれている場合は、ファイル名が化けるなどの不具合が発生します。</font></li>
+	<li>カレンダーで、平均気温の他に、最高気温、最低気温の表示もできるようにしました。</li>
+	<li>気温の色分け区分を増やしました。</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-html.php, include-common-all.php<br>
+		・abook/do-proc.php<br>
+		・bbs/view.php, __define.php, player.swf, yt.swf<br>
+		・memo/list-my-template.php, __define.php, player.swf, yt.swf<br>
+		・calendar/__define.php, __include-weather.php, _my_calendar.php<br>
+		・calendar/month.php, year.php, weather-map.php<br>
+		・photo/__define.php, index.php, slide.php, img-view.php<br>
+		・photo/video-jpeg.php, video-view.php, jigsaw.php<br>
+		・tools/多数<br>
+		・scripts/JWPlayer/swfobject.js<br>
+		・style/original/weather.css, map-japan-weather.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・bbs/wmvplayer.xaml<br>
+		・memo/wmvplayer.xaml<br>
+		・photo/wmvplayer.xaml<br>
+		・scripts/JWPlayer/wmvplayer.js, silverlight.js</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.31&nbsp;&nbsp;(2009/11/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーの年間カレンダーを1024×768のディスプレイで全体が表示できるように微調整。</li>
+	<li>カレンダーに全国の都道府県別平均気温表示機能を追加。天気出現率と同じく、月間、年間カレンダーでの表示の他、日本地図での日付別の平均気温表示もできます。
+	<br><img src="images/00000233-weather4.jpg"></li>
+	<li>変更モジュール<br>
+		・calendar/__define.php, _my_calendar.php,__include-weather.php<br>
+		・calendar/year.php, month.php, weather-map.php<br>
+		・style/original/calendar.css, weather.css, map-japan-weather.css<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.30&nbsp;&nbsp;(2009/11/24)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>カレンダーの天気出現率地図を、1024×768のディスプレイで地図全体が表示できるように微調整。</li>
+	<li>変更モジュール<br>
+		・calendar/weather-map.php<br>
+		・style/original/map-japan-weather.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.29&nbsp;&nbsp;(2009/11/21)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>サンプルDBセットアップ「setup-sample.php」の修正。<br>
+	mysqli_multi_query()では、長いSQL文を実行するとエラーになるようなので、exec()を使用する方法に変更。</li>
+	<li>ツールに「HTML テキスト抽出 複数一括」を追加。<br>
+複数のURLから一括してテキスト抽出します。<br>
+テーブルデータ出力時のセパレータ（区切り文字）を指定できます。デフォルトはスペースです。カンマ(,)にすることで、CSVとしての利用が容易になります。<br>
+テーブルデータ出力時に、行単位に先頭に文字を付加することもできます。CSV利用時に、共通のキーを付加したい場合に使えます。<br>
+テーブルのみに限定して抽出もできます。（ただし、階層構造には未対応です。）<br>
+テーブルサイズを指定サイズ以上のものに限定することもできます。
+	<br><img src="images/00000231-gethtml.jpg">
+	</li>
+	<li>カレンダーに、天気出現率機能追加。<br>
+カレンダーで、天気出現率を表示します。天気出現率とは、過去30年間の大気現象や日降水量、日平均雲量から割り出したものです。<br>
+月間、年間カレンダーで、各日の都道府県別の天気出現率を基にした出現率の高い天気を表示します。主に都道府県庁所在地の天気出現率を基にしています。北海道は主な支庁の都市を表示します。佐渡、伊豆大島、輪島の天気出現率も表示します。<br>
+日付別の天気出現率の日本地図表示もできます。指定日の日本全体の天気の傾向が読み取れます。<br>
+天気出現率は、「みんなの知識【ちょっと便利帳】」のものを使わせていただきました。<br>
+<a href="http://www.benricho.org/weather_ratio/" target="_blank">http://www.benricho.org/weather_ratio/</a><br>
+天気アイコンは、「素材のプチッチ」のものを使わせていただきました。<br>
+<a href="http://putiya.com/4risuto2.html" target="_blank">http://putiya.com/4risuto2.html</a>
+	</li>
+	<li>
+	<font color=red>既に前のバージョンで実運用の場合は、以下の手順で、テーブル「m_weather」と「r_kenmei」を追加してください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。</font><br>
+
+	<font color=blue>【サンプルDBの場合】</font><br>
+<ol style="margin: 0 0 0 0; padding: 0 0 0 20px;">
+<li>コマンド・プロンプトで次を実行します。<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_calendar < _db_calendar_add_m_weather.txt
+</pre></li>
+<li> 次に、「MySQL管理ツール」で、「実運用サンプル/天気出現率.csv」を、「_db_calendar」のテーブル「m_weather」にインポートしてください。</li>
+<li>同じく、「実運用サンプル/都道府県_for_カレンダー.csv」を、「_db_calendar」のテーブル「r_kenmei」にインポートしてください。</li>
+<li>コマンド・プロンプトで次を実行します。<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_calendar < create_view_db_calendar.txt
+</pre></li>
+</ol>
+
+	<font color=blue>【実運用DBの場合】</font><br>
+<ol style="margin: 0 0 0 0; padding: 0 0 0 20px;">
+<li>コマンド・プロンプトで次を実行します。<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_calendar < _db_calendar_add_m_weather.txt
+</pre></li>
+<li> 次に、「MySQL管理ツール」で、「実運用サンプル/天気出現率.csv」を、「_mydb_calendar」のテーブル「m_weather」にインポートしてください。</li>
+<li>同じく、「実運用サンプル/都道府県_for_カレンダー.csv」を、「_mydb_calendar」のテーブル「r_kenmei」にインポートしてください。</li>
+<li>コマンド・プロンプトで次を実行します。<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_calendar < create_view_mydb_calendar.txt
+</pre></li>
+</ol>
+
+	<br><img src="images/00000232-weather1.jpg">
+	<br><img src="images/00000232-weather2.jpg">
+	<br><img src="images/00000232-weather3.jpg">
+</li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php<br>
+		・abook/map-japan.php<br>
+		・calendar/多数<br>
+		・db_tool/csv-import.php, mysql-table-list.php<br>
+		・tools/index.php, html-text-mail.php, colorpicker.php<br>
+		・tools/refresh_web/colorpicker/ColorPicker.js<br>
+		・setup-sample.php<br>
+		・style/original/calendar.css, map-japan.css<br>
+		・z_db_backup/create_view_db_calendar.txt, create_view_mydb_calendar.txt, _db_calendar.bk.txt</li>
+	<li>追加モジュール<br>
+		・calendar/weather-map.php, __html-my-header-weather-map.php, __include-weather.php<br>
+		・tools/html-text-multi.php<br>
+		・style/original/weather.css<br>
+		・icon/weather/天気アイコン<br>
+		・z_db_backup/_db_calendar_add_m_weather.txt<br>
+		・実運用サンプル/天気出現率.csv, 都道府県_for_カレンダー.csv</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.28&nbsp;&nbsp;(2009/11/10)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>テキストをHTML表示する時に、スペース(" ")を、"&amp;nbsp;"に置き換えていたのを止めました。英文表示で自動改行がされなくなるため。</li>
+	<li>「メモ」に翻訳機能追加。メモ本文を各国語に翻訳できます。一覧表示全体または個々のメモを翻訳できます。文単位で翻訳します。<br>
+原文の言語は自動判別しますので、日本語から英語や各国語、または英語など各国語から日本語への翻訳ができます。<br>
+OSとブラウザの環境によっては、中国語や韓国語などは、正しい文字が表示されず文字化けする可能性があります。<br>
+翻訳には、Google AJAX Language APIを使用しています。<br>
+＜Google AJAX Language API＞<br>
+	<a href="http://code.google.com/intl/ja/apis/ajaxlanguage/documentation/" target="_blank">http://code.google.com/intl/ja/apis/ajaxlanguage/documentation/</a><br>
+	<img src="images/00000230-tarns.jpg"></li>
+	<li>変更モジュール<br>
+		・__common__/include-common-all.php, include-common-html.php<br>
+		・memo/list.php, list-my-template.php<br>
+		・style/original/memo.css</li>
+	<li>追加モジュール<br>
+		・memo/translate-google.php, __html-my-header-translate.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.27&nbsp;&nbsp;(2009/11/08)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>月間カレンダーの右に表示される年間カレンダーにマウスを載せるとカレンダーが消えてしまう不具合を修正。(CSSのfloat:left;を除去)</li>
+	<li>ツール「(簡易) 預貯金管理」の名義フィルタに削除したデータの名義が残ってしまう不具合があったのを修正。ビュー「v_keiyakusha」の定義に不備があったため。</li>
+	<li>
+	<font color=red>既に前のバージョンで実運用の場合は、以下の手順で、_db_kakeiboまたは_mydb_kakeiboのビューを再定義してください。MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。</font><br>
+	【サンプルDBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_kakeibo < create_view_db_kakeibo.txt
+</pre>
+	【実運用DBの場合】<br>
+<pre class="command" style="font-size: 11px;">
+D:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_kakeibo < create_view_mydb_kakeibo.txt
+</pre>
+	</li>
+	<li>変更モジュール<br>
+		・style/original/calendar.css<br>
+		・z_db_backup/create_view_db_kakeibo.txt, create_view_mydb_kakeibo.txt, _db_kakeibo.bk.txt</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.2.26&nbsp;&nbsp;(2009/11/07)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+			<ul class="memo">
+	<li>ページ全体のbodyの横幅の定義をCSSファイルでなく、実運用定義ファイルで指定できるように変更。<br>
+実運用定義ファイルのPAGE_BODY_STYLEで定義してください。max-widthを外せば100%指定になります。<br>
+<pre class="command" style="font-size: 11px;">
+define("PAGE_BODY_STYLE", "max-width: 980px;");
+</pre>
+	</li>
+	<li>変更モジュール<br>
+		・__common__/__define_common.php, include-common-html.php<br>
+		・abook/map-japan.php<br>
+		・calendar/maps-alone.php<br>
+		・style/original/common.css, rss.css, calendar.css<br>
+		・__define_common_my_sample.phpp</li>
+	</div>
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download4.html">
+		<span style="font-size: 120%;">→→→　バージョン2.25以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

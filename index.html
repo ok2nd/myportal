@@ -1,0 +1,290 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="個人または家族で使える自宅用のWebポータルシステム「MyHome Portal」をオープンソース/フリーソフトとして公開しています。">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal （個人向けWebポータル）</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html" id="page_navi_current">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+<div class="paragraph">
+
+
+<p style="color:red;margin: 0 0 0 20px;font-size :110%;">2016/08/02以降、バージョンアップしていません。Webサービス利用している機能など、一部は正常動作しません。</p>
+
+
+<p id="message">
+個人または家族で使える自宅用のWebポータルシステム<span style="font-weight: bold;">「MyHome Portal」</span>を<span style="font-weight: bold;">オープンソース/フリーソフト</span>として公開しています。<br>
+「<b>ホームページインデックス(ブックマーク)＆検索</b>」「<b>付箋</b>」「<b>カレンダー(スケジューラ)</b>」「<b>旅行記</b>」「<b>ToDo</b>」「<b>掲示板</b>」「<b>RSSリーダー</b>」「<b>メモ</b>」「<b>フォトアルバム</b>」「<b>学習</b>」「<b>住所録＋PDF葉書宛名書き(OneToOneメール機能付)</b>」「<b>メール(一括受信)</b>」「<b>SVGお絵かき</b>」「<b>ペン画</b>」「<b>チャット(Chat)</b>」「<b>ID・パスワード管理</b>」の他、「<b>Google Maps & Earth</b>」「<b>GPSログ(GPX)ビューワ</b>」「<b>預貯金管理</b>」「<b>縦計だけの表計算</b>」「<b>HTML URL抽出&ファイルダウンロード</b>」「<b>テキスト縦書き表示 </b>」「<b>Excel to グラフ</b>」「<b>ソースコード表示&編集＋ファイルマネージャー </b>」「<b>MySQL管理ツール</b>」「<b>ファイル暗号化/復号化</b>」「<b>タイマーアラート</b>」などのツールを含んでいます。<br>
+トップページではブログパーツ貼り付けもできます。カレンダーでは、天気出現率表示や天気出現率地図機能もあります。カレンダーとGoogleマップの連携もできます。カレンダーとアルバムの連携もできます。アルバムでは動画サムネイルやFLV,MP4,WMV,MPG,MOV,M2TS(AVCHD)動画再生、時間分割サムネイル表示などもできます。掲示板ではWYSISWYG入力、FLV,MP4,WMV動画再生、お絵かきもできます。住所録では、日本百名山や世界遺産のGoogleマップ & Earth表示機能もあります。<br>
+jQuery Mobileを使ったスマートフォン(iPhone,Android端末)用のカレンダースケジュール表示、RSSリーダー、チャットのモジュールもあります。<br>
+<span style="font-weight: bold;">Apache/PHP/MySQL(XAMPP)</span>を使っています。<br>
+<a href="install.html">インストール手順</a>に従ってインストールすれば、自宅PCで自分や家族用Webポータルを立ち上げできます。Apache/PHP/MySQLやシステム開発に興味のない方もお試しください。<br>
+最新バージョンを、<a href="download.html">ダウンロード</a>からダウンロードしてください。<br>
+<!--<br>
+Apache/PHP/MySQLを使わない、HTML/JavaScriptだけの自宅用簡易Webポータルページ<span style="font-weight: bold;">「MyIndex」</span>も提供しています。<a href="tools.html">ツール</a>からダウンロードして使ってください。-->
+</p>
+<p style="color:#f00;">
+※ ブログのサーバーを移転したため、以下の説明文内のブログ記事へのリンクは有効ではありません。
+</p>
+</div>
+<div class="paragraph">
+	<h3>コンセプト</h3>
+		<ul class="detail">
+			<li>自宅でポータルとして使えるシステム。(家庭内グループウェア)</li>
+			<li>データはインターネット上ではなく、ローカルPCまたはローカルサーバに保管。</li>
+			<li>初級、中級プログラマにも理解可能なシステム。</li>
+			<li>PHP、SQL、JavaScriptの知識だけで理解可能なシステム。</li>
+			<li>PHPの良さを生かしたHTMLインラインコーディング。(なるべくprint文を使わない。)</li>
+			<li>ブラックボックスの少ないシステム。</li>
+			<li>オブジェクト指向型プログラミングを使わない。手続き型(関数型)プログラミングを採用。</li>
+			<li>MVCを使わない。</li>
+			<li>フレームワークに頼らないシステム。</li>
+			<li>テキストエディタ以外の開発ツールを必要としない。</li>
+		</ul>
+</div>
+<div class="paragraph">
+	<h3>対象者</h3>
+		<ul class="detail">
+			<li>自分または家族専用のWebポータルサイトが作りたい。</li>
+			<li>Webポータルサイトをインターネット上ではなく、ローカルPCまたは自宅サーバーで立ち上げたい。</li>
+			<li>日常的に良く使う機能が、個々のアプリケーションを起動せずに、ブラウザの中で出来たらうれしい。</li>
+			<li>スケジュールその他自分の個人情報をインターネット上に置きたくない。</li>
+			<li>パスワードなどのID情報をインターネット上に置きたくない。</li>
+			<li>Webプログラム開発初心者。</li>
+			<li>プログラミングを仕事でなく、趣味でやりたい。</li>
+			<ul class="detail">
+				<li>オブジェクト指向が苦手。</li>
+				<li>MVCは面倒。</li>
+				<li>システム全体を把握したい。(ブラックボックスは少ない方が良い。)</li>
+				<li>フレームワークを使いたくない。(PHP、SQL、JavaScriptだけで開発したい。)</li>
+			</ul>
+		</ul>
+</div>
+<div class="paragraph">
+	<h3>機能</h3>
+	<ul class="detail">
+		<li><b>MyHome Portal トップページ：自宅ポータル</b><br>
+			Google,Yahoo他使用頻度の高いサイトの検索ボタンとブックマーク(リンク集)を集めたポータルトップページです。ブックマーク(リンク集)は、ユーザー単位に各自が登録できます。ネット上の任意のブログパーツを貼ることもできます。<br>
+			ホームページのイメージサムネイル表示もできます。<br>
+			よく使いそうなサイトの検索ボタンもあります。掲示板やカレンダーの一部も合わせて表示できます。<br>
+
+			<a href="images/index-kube-big.png" target="_blank"><img src="images/index-kube.jpg" border=0 /></a><br>
+			<!--<img src="images/00000153-115.jpg" border=0 /><br>-->
+			<img src="images/index-x.jpg" border=0 /><br>
+			<img src="images/00000227-index-thumb.jpg"><br></li>
+		<li><b>付箋</b><br>
+			ポスト・イットのような感じでメモを貼り付けられます。
+			<br><img src="images/00000249-sticky.jpg">
+			</li>
+		<li><b>カレンダー（スケジューラー）</b><br>
+			月間、年間、一覧表示ができるカレンダーです。カレンダーに、アイコンや写真をを貼り付けたりできます。アルバムフォルダとの連動もできます。アイコンは自分の好きなものを登録できます。スケジュールの地名からGoogleマップ検索や経路検索もできます。年間旅行先マップ等の作成もできます。天気出現率表示や天気出現率地図機能もあります。<br>
+			<img src="images/00000157-109.jpg" border=0 /><br>
+			<img src="images/00000158-133.jpg" border=0 /><br>
+			<img src="images/00000165-116.jpg" border=0 /><br>
+			<img src="images/00000163-map1.jpg" border=0 /><br>
+			<img src="images/00000232-weather3.jpg" border=0 /></li>
+		<li><b>旅行記</b><br>
+			旅行の行き先の地点をGoogleマップでマーカー表示できます。
+			<br><img src="images/00000241-diary2.jpg">
+			</li>
+		<li><b>掲示板</b><br>
+			MyHome Portalユーザー全員共有の掲示板です。WYSIWYGエディタでHTML投稿できます。<br>
+			FLV,MP4,WMV動画再生やお絵かきもできます。<br>
+			<img src="images/145-1.jpg" border=0 /><br>
+			<img src="images/145-2.jpg" border=0 /><br>
+			<img src="images/00000196-156-1.jpg" border=0 /></li>
+		<li><b>RSSリーダー</b><br>
+		ユーザーが任意に登録したRSS記事一覧ができます。
+			<img src="images/148.jpg" border=0 /></li>
+		<li><b>メモ</b><br>
+		ユーザー単位にメモを登録し、検索などができます。
+			<img src="images/00000166-200.jpg" border=0 /><br>
+			<img src="images/00000230-tarns.jpg" border=0 /></li>
+		<li><b>アルバム（写真のサムネイル表示＆スライドショー表示）</b>
+(<a href="http://ok2nd.blog87.fc2.com/blog-entry-199.html" target="_blank">ブログ記事</a>)<br>
+			サーバーのローカルディスクの任意のフォルダの写真を表示できます。2種類のサムネイル表示とスライドショータイプの表示ができます。全画面表示のオートプレイのスライドショーもできます。FLVやM2TSを含む動画のサムネイル表示もできます。FLV,MP4,WMV,MPG,MOV,M2TS(AVCHD)動画の再生もできます。動画の時間分割サムネイル表示もできます。デジカメで撮影したEXIF縦位置情報をもった画像は自動的に縦表示できます(環境設定が必要です)。<br><a href="http://hashi4.civil.tohoku.ac.jp/soft/node43.html" target="_blank">ImageMagick</a>を使った画像編集もできます。ImageMagickのGUIインターフェースとしても利用できます。<br>
+			<img src="images/00000169-220.jpg" border=0 /><br>
+			<img src="images/00000213-230.jpg" border=0 /><br>
+			<img src="images/00000214-240.jpg" border=0 /><br>
+			<img src="images/00000215-slide.jpg" border=0 /><br>
+			<img src="images/00000169-video1.jpg" border=0 /><br>
+			<img src="images/00000234-timeline.jpg" border=0 /><br>
+			<img src="images/00000260-cnv-3.jpg" border=0 /></li>
+		<li><b>学習</b><br>
+			任意の問題集を登録して、自学習に使えます。<br>
+			<img src="images/00000207-study3.jpg">
+			</li>
+		<li><b>住所録</b><br>
+			選択した名簿の宛名書きをしたPDF葉書を作成できます。<br>
+			GoogleマップやGoogle Earthとの連動もできます。日本百名山や世界遺産をサンプルデータとして登録しています。<br>
+			<img src="images/00000219-a01.jpg" border=0 ><br>
+			<img src="images/00000221-a03.jpg" border=0 /><br>
+			<img src="images/00000228-m1.jpg" border=0 /><br>
+			<img src="images/00000229-wh3.jpg" border=0 /><br>
+			</li>
+		<li><b>GPSログ View</b><br>
+			GPSログ(GPXファイル)をアップロードして、Google Mapsでルート表示ができます。<br>
+			写真をルートマップの中に表示することも出来ます。JPEGに書き込まれているGPS情報を使う方法と、写真の撮影時間から撮影場所を特定する方法を選択できます。<br>
+			<img src="images/gpslog-map-chart.jpg" border=0 /><br>
+			<img src="images/00000290-gpslog-photo.jpg" border=0 /><br>
+			</li>
+		<li><b>SVGお絵かき</b><br>
+			SVG-editを使ったお絵かきができます。<br>
+			SVG画像はデータベースに登録し、サムネイル表示等ができます。<br>
+			<img src="images/00000264-svg-edit.jpg" border=0 /><br>
+			<img src="images/00000265-svg-list.jpg" border=0 /><br>
+			</li>
+		<li><b>ペン画</b><br>
+			万年筆、マーカーペン、スプレーガンタッチの絵が描けます。背景の紙のテクスチャも変更できます。<br>
+			<img src="images/00000271-draw-1.jpg" border=0 /><br>
+			<img src="images/00000271-draw-2.jpg" border=0 /><br>
+			</li>
+		<li><b>チャット</b><br>
+			MyHome Portalユーザー全員参加型のチャット(Chat)です。<br>
+			MyHome Portalトップページに最新の投稿を表示することもできます。<br>
+			チャット入力ページでは、表示件数や投稿の経過時間を指定できます。<br>
+			<img src="images/00000195-155-2.jpg">
+			</li>
+		<li><b>ID（パスワード）管理</b><br>
+			インターネット上の各サイトのIDやパスワードを管理できます。<br>
+			<img src="images/id-manager.jpg" border=0 /></li>
+		<li><b>ユーザー管理</b><br>
+			MyHome Portalのユーザー管理ができます。ユーザー単位で、情報の公開(閲覧許可,書込許可)/非公開を設定できます。
+			<img src="images/00000173-280.jpg" border=0 /><br>
+			<img src="images/00000174-300.jpg" border=0 /></li>
+		<li><b>おまけツール</b></li>
+		<ul class="requirements_script">
+			<li>(簡易) 預貯金管理&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-92.html" target="_blank">ブログ記事</a>)<br>
+				<img src="images/00000200-chokin.jpg" border=0 /></li>
+			<li>Google Maps & Earth&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-114.html" target="_blank">ブログ記事</a>)</li>
+			<li>Google Maps & Earth (複数地点/マーカー付)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-117.html" target="_blank">ブログ記事</a>)</li>
+			<li>Yahoo ホームページ対訳 (指定したURLのホームページとYahoo翻訳で翻訳したページを左右に並べて表示)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-422.html" target="_blank">ブログ記事</a>) <br><img src="images/00000297-yahoo-translate.jpg" border=0></li>
+
+
+
+			<li>HTML テキスト抽出&メール送信&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-96.html" target="_blank">ブログ記事</a>)</li>
+			<li>HTML URL抽出&ファイルダウンロード(画像、動画ダウンローダー)</li>
+			<li>Excel to グラフ by Bluff&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-75.html" target="_blank">ブログ記事</a>)</li>
+			<li>Excel to グラフ by HTML5&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-75.html" target="_blank">ブログ記事</a>)</li>
+			<li>縦計だけの表計算</li>
+			<li>ホームページのモノトーン表示 (<a href="http://ok2nd.web.fc2.com/tools/monotone-page.html" target="_blank">サンプル</a>)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-32.html" target="_blank">ブログ記事</a>)</li>
+			<li>ホームページの拡大縮小表示 (<a href="http://ok2nd.web.fc2.com/tools/zoom-page.html" target="_blank">サンプル</a>)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-32.html"" target="_blank">ブログ記事</a>)</li>
+			<li>テキスト縦書き表示 (<a href="http://ok2nd.blog87.fc2.com/blog-entry-32.html" target="_blank">ブログ記事</a>)</li>
+			<li>MySQL管理ツール(データベース/テーブル/データ一覧/Excelインポート)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-91.html" target="_blank">ブログ記事</a>)</li>
+			<li>実運用環境バックアップツール</li>
+			<li>ファイルマネージャー(暗号化/復号化付き)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-116.html" target="_blank">ブログ記事</a>)</li>
+			<li>PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー &nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-74.html" target="_blank">ブログ記事</a>)</li>
+			<li>HTML テーブル CSSスタイル シミュレーション (<a href="http://ok2nd.web.fc2.com/tools/table-layout.html" target="_blank">サンプル</a>)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-51.html" target="_blank">ブログ記事</a>)</li>
+			<li>HTML カラーチャート (<a href="http://ok2nd.web.fc2.com/tools/color-chart.html" target="_blank">サンプル</a>)&nbsp;(<a href="http://ok2nd.blog87.fc2.com/blog-entry-21.html" target="_blank">ブログ記事</a>)</li>
+			<li>Photoshop-like JavaScript Color Picker</li>
+
+			<li>physicSketch (物理エンジンを使った物体落下シミュレーションゲーム)
+			(<a href="http://ok2nd.blog87.fc2.com/blog-entry-278.html" target="_blank">ブログ記事</a>)(<a href="http://ok2nd.blog87.fc2.com/blog-entry-279.html" target="_blank">ブログ記事</a>)<br><img src="images/00000272-physicSketch1.jpg" border=0 /></li>
+
+		</ul>
+	</ul>
+</div>
+<div class="paragraph">
+	<h3>特徴・補足</h3>
+		<ul class="detail">
+			<li>自宅で個人や家族で使えるシステムを目指して作りました。家庭内LANでの利用を想定しています。</li>
+			<li>少人数の会社のイントラでの利用も可能かもしれません。セキュリティ対策は万全ではないので、スケジュール共有など機能を限定して利用願います。</li>
+			<li>ユーザー登録など、インターネット上での利用を想定した機能も付けています。ただし、セキュリティ等保障はできませんので、インターネット上での実利用は、自己責任にてお願いいたします。あくまで、LAN内またはPC単体での利用を想定しています。</li>
+			<li>認証機能付きです。</li>
+			<li>簡単なユーザー管理機能もあります。</li>
+			<li>ユーザー単位で他のユーザーに対して参照・書込の権限設定ができます。</li>
+			<li>レコード単位での非公開の設定もできます。</li>
+			<li>ただし、システム管理者はデータベースを直接見ることで全ての情報を参照ができてしまいますので、悪用しないように。</li>
+			<li>カレンダーのスケジュール入力では、HTML入力ができます。アイコンやカラータグ挿入ボタン＆HTMLプレビュー機能もあります。独自の仕様です。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-37.html" target="_blank">関連ブログ記事</a>)
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-41.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>ToDoやカレンダースケジュールを携帯電話等のメールアドレス宛に送信できます。</li>
+			<li>ID管理では、二重の認証が必要なしくみにしています。</li>
+			<li>ID管理では、パスワードを独自の方式で暗号化しています。ID情報は、2つのデータベースに分割して保存します。
+				暗号化のキーと2つのデータベースを別々にバックアップすれば、バックアップデータ一式を盗られない限り、実被害は受けにくいと思っています。</li>
+			<li>簡単なログ機能も付けています。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-44.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>簡単なシステム管理者機能も付けています。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-42.html" target="_blank">関連ブログ記事</a>)
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-48.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>コンテンツを追加しやすい構造にしています。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-66.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>ページ分割有りの一覧形式のページを簡単に作れる共有ライブラリを用意しています。一覧形式での編集もできます。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-5.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>一覧形式の表示部分のみを、独自のphpソースに置き換えられます。</li>
+			<li>Ajaxも一部で利用しています。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-11.html" target="_blank">関連ブログ記事</a>)
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-27.html" target="_blank">関連ブログ記事</a>)
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-28.html" target="_blank">関連ブログ記事</a>)</li>
+			<li>スマートフォン(iPhone,Android端末)用のカレンダースケジュール表示、RSSリーダー、チャットも作ってみました。実機での検証はしていません。セキュリティ等保障はできませんので、インターネット上での実利用は、自己責任にてお願いいたします。
+				(<a href="http://ok2nd.blog87.fc2.com/blog-entry-263.html" target="_blank">関連ブログ記事</a>)(<a href="http://ok2nd.blog87.fc2.com/blog-entry-265.html" target="_blank">関連ブログ記事</a>)
+		<br><img src="images/iphone.jpg" border=0 width="160" />
+		<img src="images/mobile-rss.jpg" border=0 width="160" />
+		<img src="images/mobile-chat.jpg" border=0 width="160" /></li>
+		</ul>
+</div>
+<div class="paragraph">
+	<h3>ライセンス</h3>
+	<ul class="detail">
+		<li>フリーソフト/オープンソースとします。</li>
+		<li>GPLライセンスに準拠します。</li>
+	</ul>
+	<ul class="requirements_detail">
+		<li>* 商用/非商用に関わらず、自由に利用可。</li>
+		<li>* 商用/非商用に関わらず、自由に修正可。</li>
+		<li>* 商用/非商用に関わらず、自由に再配布可。</li>
+		<li>* ただし、商用利用では、使用している各ライブラリのライセンスにご注意ください。</li>
+		<li>* ただし、ReadMe-original.txtおよびCopyrightは消さないでください。</li>
+		<li>* 感想、バグ報告、改善や機能追加のアイデアなどをEmailでお知らせいただけるとうれしいです。<br>
+		&nbsp;&nbsp;返信がすぐにできないかもしれませんが、ご了承ください。</li>
+	</ul>
+</div>
+<div class="paragraph">
+	<h3>コンタクト</h3>
+		<ul class="contact">
+			<li>Email： <a href="mailto:m.ok.2nd@gmail.com">m.ok.2nd@gmail.com</a></li>
+		</ul>
+</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

@@ -1,0 +1,706 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Language" content="ja">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="author" content="ok.2nd">
+<meta name="description" content="MyHome Portal">
+<meta name="keywords" content="php mysql javascript">
+<link rel="stylesheet" href="style/homepage.css" type="text/css">
+<link rel="stylesheet" href="style/guide.css" type="text/css">
+<title>MyHome Portal 変更履歴</title>
+</head>
+<body>
+<div id="page_body">
+<div id="page_header">
+	<div id="page_title">
+		<h1>MyHome Portal 変更履歴</h1>
+	</div>
+	<div id="page_navi">
+		<ul>
+			<li><a href="index.html">トップ</a></li>
+			<li><a href="overview.html">利用ガイド</a></li>
+			<li><a href="requirements.html">動作環境</a></li>
+			<li><a href="install.html">インストール</a></li>
+			<li><a href="download.html" id="page_navi_current">ダウンロード</a></li>
+			<li><a href="tools.html">おまけ</a></li>
+			<li><a href="link.html">リンク</a></li>
+			<li><a href="contact.html">コンタクト</a></li>
+			<li><a href="http://ok2nd.hatenablog.com/" target="_blank">→ブログ</a></li>
+		</ul>
+	</div>
+</div>
+<div id="page_contents">
+<!-- ************************************************************************************** -->
+	<div class="paragraph">
+		<p style="margin: 15px 0 15px 50px;">
+		<span style="font-size: 120%; color: red;">以下は、バージョン4.14以前の履歴です。</span>
+		&nbsp;&nbsp;<a href="download10.html">最新(4.15以降)の履歴に戻る</a>
+		</p>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.14&nbsp;&nbsp;(2012/02/19)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「住所録」の「世界遺産」のデータを更新しました。2011年までの世界遺産が登録されています。
+<br><img src="images/wh-2011-j.jpg" style="margin:2px 20px"></li>
+	<li>「実運用サンプル」フォルダにCSVファイルとして「世界遺産_2011.csv」を入れています。<br>
+	  運用済みの実運用データベースの世界遺産データを差し替える場合は、次の手順で行ってください。<br>
+	  データを差し替えると、チェック項目のチェックデータ(サンプルでは制覇のデータ)が失われますので、ご注意ください。<br>
+		1.既存のデータベースから世界遺産データを削除する。<br>
+		  コマンドプロンプトで、以下を実行する。(rootのパスワードがkanri789の場合)<br>
+		  注：id_categoryは実運用データベースの世界遺産の分類IDと同じものを指定してください。id_categoryは「住所録」の「分類編集」で確認できます。<br>
+		  事前にデータベースのバックアップをとることをお勧めします。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_abook;
+delete from m_abook where id_category = 4;
+</pre>
+		2.ツール「MySQL管理ツール」で、世界遺産_2011.csvをアップロードしてください。CSVファイルをアップロードする際は、id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</li>
+	<li>「住所録」に「桜名木」データを追加しました。<br>
+	  データは、ホームページ「名桜・古桜・一本桜」のものを使わせていただきました。<br>
+<a href="http://yutabi.cside4.com/sakura/index.html" target="_blank">http://yutabi.cside4.com/sakura/index.html</a><br>
+	  ただ、ここに登録されている緯度経度は、日本測地系というものらしく、そのままGoogle Mapsで使用すると位置がずれます。日本測地系から世界測地系に変換するには、厳密には複雑な計算式が必要らしく、県によって違う補正値も必要なようです。そこで、ホームページ「強火で進め：日本測地系から世界測地系に変換する」にあった簡易計算式で変換しました。<br>
+<a href="http://d.hatena.ne.jp/nakamura001/20080501/1209660263" target="_blank">http://d.hatena.ne.jp/nakamura001/20080501/1209660263</a><br>
+<pre class="command" style="font-size: 11px;">
+世界測緯度 = 日本測緯度 - 日本測緯度 * 0.00010695 + 日本測経度 * 0.000017464 + 0.0046017;
+世界測経度 = 日本測経度 - 日本測緯度 * 0.000046038 - 日本測経度 * 0.000083043 + 0.010040;
+</pre>
+	  多少位置がずれますが、変換前よりは近い地点を表示できるようになりました。<br>
+	  桜名称と品種について、MeCabで読み変換したものを登録しています。正しい読みになっていないものも多くあります。</li>
+	<li>「住所録」分類フィルタで、「桜名木」を選択すると専用の一覧ページが表示されます。<br>桜の名称や住所で検索できます。都道府県フィルタや住所で検索してGoogleマップの作成等ができます。例えば、「群馬県田村郡三春町」の桜マップの作成ができます。
+桜名称と品種について、MeCabで読み変換したものを登録しています。正しい読みになっていないものも多くあります。<img src="images/00000280-sakura1.jpg" style="margin:2px 20px">
+<br><img src="images/00000280-sakura2.jpg" style="margin:2px 20px"></li>
+	<li>「実運用サンプル」フォルダにCSVファイルとして「桜名木.csv」を入れています。<br>
+	  実運用データベースに、桜名木データを追加登録する場合、まず、「分類編集」で分類を「桜名木」等の名前で登録してください。<br>
+	  その上で、ツール「MySQL管理ツール」で、この「桜名木.csv」をアップロードしてください。CSVファイルをアップロードする際は、
+	  id_account、id_categoryを実運用データベースに合わせた上でアップロードしてください。</li>
+	<li>桜名木データを実運用データベースに登録した場合、桜名木の分類ID(id_category)を実運用定義ファイルで設定してください。<br>
+<pre class="command" style="font-size: 11px;">
+例）define("SAKURA_MEISHO_CATEGORY_ID", 6);
+</pre>
+桜名木データを実運用データベースに登録しない場合、実運用定義ファイルで-1を設定してください。
+<pre class="command" style="font-size: 11px;">
+例）define("SAKURA_MEISHO_CATEGORY_ID", -1);
+</pre>
+</li>
+	<li>「住所録」の分類編集一覧にid_account,id_categoryを表示するようにしました。</li>
+	<li>「住所録」一覧にGoogleマップ以外に「Google Maps API V3版」へのリンクを追加しました。</li>
+	<li>ツール「Google Maps API V3版」と「Google Maps (複数地点) API V3版 」に、マウスクリックした地点の緯度・経度と住所を表示する機能を追加。<br><img src="images/00000281-map-001.jpg" style="margin:2px 20px"></li>
+	<li>ツール「Google Maps API V3版」と「Google Maps (複数地点) API V3版 」に、Panoramioの写真を表示する機能を追加。</li>
+	<li>「カレンダー」「旅行記」「住所録」の、全画面マップに、Panoramioの写真を表示する機能を追加。<br><img src="images/00000281-map-002.jpg" style="margin:2px 20px"></li>
+	<li>ツールに「MeCab：漢字読み変換」「MeCab：漢字読み変換(CSVファイル一括)」を追加。<br>
+	  形態素解析エンジンMeCabを使って漢字の読みを変換します。正しい読みが取得できる保障はありません。<br>
+		MeCab: Yet Another Part-of-Speech and Morphological Analyzer<br>
+<a href="http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html" target="_blank">http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html</a><br>
+	  「MeCab：漢字読み変換」を使う場合は、MeCabを上記サイトからダウンロードし、実運用定義ファイルで、MeCabのインストールパスを設定してください。MeCabでインストールする辞書は「SHIFT-JIS」を前提にしています。<br>
+<pre class="command" style="font-size: 11px;">
+例：define("MECAB_EXE_PATH", "C:\Program Files\MeCab\bin\mecab.exe");
+</pre></li>
+	<li>「MeCab：漢字読み変換(CSVファイル一括)」は、CSVファイルをアップロードし、指定列の漢字を読み変換した列を追加したCSVファイルをダウンロードできます。ただし、処理時間はかなり遅いです。<br><img src="images/00000283-mecab.jpg" style="margin:2px 20px"></li>
+	<li>追加モジュール<br>
+		・abook/list-my-template-sakura-meisho.php<br>
+		・tools/mecab.php, mecab-csv.php<br>
+		・実運用サンプル/桜.csv</li>
+	<li>おもな変更モジュール<br>
+		・abook/__define.php, category.php, list.php, list-my-add-filter.php<br>
+		・abook/list-my-template.php, list-my-template-*.php<br>
+		・tools/google-maps-earth-v3.php, google-maps-earth-multi-v3.php<br>
+		・calendar/maps-include-v3.php<br>
+		・diary/__include-maps-v3.php<br>
+		・abook/maps-abook-v3.php<br>
+		・style/original/abook.css<br>
+		・実運用サンプル/世界遺産_2011.csv<br>
+		・z_db_backup/_db_abook.bk.txt<br>
+		・__define_common_my_sample.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.13&nbsp;&nbsp;(2012/02/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>すべてのコンテンツの修正画面で、「削除」の確認を、事前チェックボックスでなく、JavaScriptのwindow.confirm()で確認する方式に変更しました。</li>
+	<li>すべてのコンテンツで、&lt;input type="checkbox"&gt;と&lt;input type="radio"&gt;の項目名に&lt;label&gt;を付けて、テキスト部分をクリックしてもOn/Offが選択できるようにしました。</li>
+	<li>「アルバム」のサムネイル「頁枚数」変更で、ページがリセットされない不具合を修正。</li>
+	<li>「RSSリーダー」で、Ajax取り込み前に個々のRSS読み取り枠を空枠で用意するようにしました。</li>
+	<li>「住所録」の「電話・EMail表示なし」のOn/Offをページ遷移しない方式にしました。</li>
+	<li>「メモ」の翻訳機能を削除しました。(Google Translate API v1が廃止になっていて動作しないため。)</li>
+	<li>補足：「アルバム」のImageMagickを使った画像処理は、以前は画像ファイルのパス(ディレクトリやファイル名)に日本語が含まれていると処理できませんでしたが、ImageMagickの最新版では問題なく処理できるようです。</li>
+	<li>追加モジュール<br>
+		・rss/ajax-rss-popup.php</li>
+	<li>変更モジュール<br>
+		・photo/ajax-photo-view.php<br>
+		・rss/__include-common-rss.php, index.php, ajax-rss.php, popup-rss.php<br>
+		・abook/list-my-template.php, list-my-add-filter.php<br>
+		・その他多数。</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.12&nbsp;&nbsp;(2012/02/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「アルバム」のディレクトリ移動や画像ページ移動等の処理をAjax処理するようにしました。</li>
+	  これにより、ページ遷移がなくなり操作性がアップしました。<br>
+ただし、「フォルダ画像表示」状態では、フォルダ画像をシフトキーを押しながらクリックして別ウインドウを開く操作が出来るように、あえて通常のリンクにしています。</li>
+	<li>「アルバム」スライドモードのオートプレイを廃止しました。全画面表示では、オートプレイできます。</li>
+	<li>「アルバム」スライドモードの画像エフェクト機能を廃止しました。</li>
+	<li>「アルバム」スライドモードのルーペ機能を廃止しました。</li>
+	<li>「アルバム」にギャラリ6を追加。(IEでは正常動作しません。)<br>
+	  「FULLSCREEN BACKGROUND IMAGE SLIDESHOW WITH CSS3」を利用。<br>
+<a href="http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/" target="_blank">http://tympanus.net/codrops/2012/01/02/fullscreen-background-image-slideshow-with-css3/</a><br>
+	  demo4をベースにしています。画像がゆっくりとズームアップしながら、切り替わります。縦長画像にも対応するように調整しています。<br>
+	GAEで作成した写真共有サイト「<a href="http://2ndfoto.appspot.com/" target="_blank">2nd Foto</a>」にも追加しました。例えば、以下のページを開いて、右上の「Fullscreen Zoom」をクリックしてください。<br>
+<font color=red>※ 「2nd Foto」は、GAE無料枠で立ち上げていますので、Frontend Instance Hoursが制限時間を越えてしまってアクセスできない可能性があります。</font><br>
+<a href="http://2ndfoto.appspot.com/?user=aglzfjJuZGZvdG9yEgsSC1VzZXJBY2NvdW50GIwnDA" target="_blank">http://2ndfoto.appspot.com/?user=aglzfjJuZGZvdG9yEgsSC1VzZXJBY2NvdW50GIwnDA</a></li>
+	<li>「RSSリーダー」の個々のRSSリード処理を、Ajax非同期(async:true)で取り込むようにしました。<br>ただ、これだけでは、ブラウザがしばらく待ち状態になり、その間ページ遷移もできない状態は変わりません。Ajaxコールされる側のPHPのsession_start()コールを除いたら、レスポンスが劇的に向上しました。</li>
+	<li>追加モジュール<br>
+		・photo/ajax-photo-view.php, __include-session-variable.php<br>
+		・photo/gallery6.php<br>
+		・photo/CSS3FullscreenSlideshow/*<br>
+		・rss/ajax-rss.php</li>
+	<li>おもな変更モジュール<br>
+		・photo/__define.php, __html-my-header.php, _contents-header.php, index.php<br>
+		・rss/index.php, popup-rss.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.11&nbsp;&nbsp;(2012/01/22)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>ツール「ファイルマネージャー（暗号化/復号化付き）」と「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」の、ファイル、フォルダーのコピー、削除、リネーム等時のファイル、フォルダー一覧再表示処理をAjax処理するようにしました。</li>
+	<li>ツール「ファイルマネージャー（暗号化/復号化付き）」と「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」の、ファイル一覧のファイル名、サイズ、更新日時での並び替え処理をJavaScriptで処理する方式に変更。JavaScriptは、jQueryプラグインのTablesorterを使用。<br>
+		<a href="http://tablesorter.com/docs/" target="_blank">http://tablesorter.com/docs/</a></li>
+	<li>上記の仕様変更により、ページ遷移がなくなり、スクロール状態が保持されるため、操作性がアップしました。</li>
+	<li>ツール「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」で、ソース対象にPythonを追加しました。</li>
+	<li>ツール「PHP/JavaScript ソースコード表示&編集＋ファイルマネージャー」でソースコード編集に使用しているeditareaのバージョンを0.8.2に上げました。<br><img src="images/00000206-encode.jpg" style="margin:2px 20px">
+<br><img src="images/00000198-code-edit1.jpg" style="margin:2px 20px"></li>
+	<li>追加モジュール<br>
+		・scripts/tablesorter/*<br>
+		・tools/file-manager-ajax.php, code-file-view-ajax.php</li>
+	<li>変更モジュール<br>
+		・tools/file-***.php, folder-***.php<br>
+		・tools/code-file-view.php, code-file-view.php<br>
+		・tools/__include-common-code-file.php<br>
+		・tools/scripts/editarea/*</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.10&nbsp;&nbsp;(2012/01/16)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>ツール「ファイルマネージャー」の「複数ファイル・一括アップロード」を「jQuery-File-Upload」<br>
+		<a href="https://github.com/blueimp/jQuery-File-Upload" target="_blank">https://github.com/blueimp/jQuery-File-Upload</a><br>
+	  を使う方式に変更。(ただし、IEは前の仕様のまま)<br>
+	  Windowsデスクトップから、ドラッグ&ドロップでアップロードファイルを指定できます。
+<br><img src="images/00000206-upload-drag.jpg" style="margin:2px 20px"></li>
+	<li>NDEXトップページ検索ボタンの以下の不具合修正。<br>
+	    Yahoo検索が、URLにei=UTF-8を付けないと文字化けする。<br>
+	    Yahoo電話番号検索URL変更対応。</li>
+	<li>追加モジュール<br>
+		・tools/file-upload-drag.php, file-upload-drag-do.php<br>
+		・tools/blueimp/*</li>
+	<li>変更モジュール<br>
+		・tools/file-manager.php<br>
+		・index/__define_index_search.php<br>
+		・__common__/include-common-all.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.09&nbsp;&nbsp;(2012/01/09)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「預貯金管理」に、「ライフプラン」追加。年単位の簡易資産運用シミュレーションができます。<br>
+	  初期資産と、毎年の収入・支出を入力して、毎年の資産残高を計算し、グラフ化します。<br>
+	  「預貯金管理」データとは連動しません。<br>
+	  最大9個まで、データを保存できます。データは、HTML5のlocalStorage(Webストレージ)に保存します。<br>
+	  JavaScriptのみで実現しています。PHPサイドの実処理はありません。<br>
+	  localStorageの使用には、JavaScriptライブラリ「jStorage」を利用。<br>
+		<a href="http://www.jstorage.info/" target="_blank">http://www.jstorage.info/</a><br>
+	  SVG/VMLを使ったグラフ作成JavaScriptライブラリ「Highcharts」を利用。<br>
+		<a href="http://www.highcharts.com/" target="_blank">http://www.highcharts.com/</a>
+<br><img src="images/00000278-lifeplan.jpg" style="margin:2px 20px"></li>
+	<li>INDEXトップページのリンク先を開くウインドウの切り替え(同じウインドウ/新しいウインドウ)処理を、ページ遷移なく切り替える方式(JavaScriptで切り替え)に変更。</li>
+	<li>INDEXトップページ検索ボタンの処理を変更。検索キー入力フィールドでReturnキーを押して1個目の検索ボタン処理をするのに、
+&lt;input type="submit"&gt;ではなく、&lt;input type="button"&gt;でonkeypressでevent.keyCode===13で実行するように変更。
+<pre class="command" style="font-size: 11px;">
+&lt;input type="text" onkeypress="search_enter(event.keyCode);"&gt;
+&lt;script&gt;
+function search_enter(keyCode) {
+	if (keyCode === 13) {
+		GoogleSch();
+	}
+}
+&lt;/script&gt;
+</pre>
+定数「SEARCH_FORM_INPUT_TEXT_NAME」は不要にしました。INDEXトップページ検索ボタン定義ファイルを、<br>
+	  __define_index_search_my_google.phpまたは__define_index_search_my_yahoo.php<br>
+	  に設定している場合は、サンプルを参考に修正願います。</li>
+	<li>INDEXトップページ検索テキスト枠の予測変換(単語補完)機能が働かなくなっていたのを修正。<br>
+	  Google Suggest APIがJSONをサポートしなくなったためで、XMLで処理するように修正。</li>
+	<li>追加モジュール<br>
+		・kakeibo/lifeplan.php<br>
+		・scripts/jstorage.js<br>
+		・scripts/Highcharts/*</li>
+	<li>変更モジュール<br>
+		・kakeibo/_contents-header.php<br>
+		・study/popup.php<br>
+		・index/index.php, __define.php, __define_index_search.php, google-suggest.php<br>
+		・__common__/__define_common.php<br>
+		・__define_common_my_sample.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・blog-parts/myhome-clock.inc</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.08&nbsp;&nbsp;(2011/12/12)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+
+	<ul class="memo">
+	<li>「学習」に、ポップアップ・ウインドウを追加。小さなポップアップ・ウインドウ内で、1件ずつ質問と解答を表示します。<br>
+	「質問を隠す」/「解答を隠す」機能もあります。「●」ボタンで隠れている方を表示します。<br>
+	「Auto」ボタンにすると、自動的に順次表示します。例えば、「解答を隠す」状態で「Auto」にすると、質問を表示して一定時間後に解答を表示します。「ランダム」ボタンを押した後に「Auto」ボタンをクリックするとランダムに自動表示します。<br>
+	ポップアップ・ウインドウを、PCのデスクトップの隅において置けば、PC操作の合間に学習が出来ます。
+	<br><img src="images/00000277-study-pop.jpg" style="margin:2px 20px"></li>
+	<li>ツール「HTMLテキスト抽出 複数一括 (タグ指定)」で、データ・セパレータを指定した時に、指定した抽出タグが見つからない場合もデータ・セパレータを出力し、テーブルの列がずれないようにしました。</li>
+	<li>追加モジュール<br>
+		・study/popup.php</li>
+	<li>変更モジュール<br>
+		・study/__define.php, __html-my-header.php, _contents-header.php, mycheck.php<br>
+		・tools/html-text-multi-tag.php, index.php<br>
+		・__common__/include-common-html.php<br>
+		・style/original/study.css</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.07&nbsp;&nbsp;(2011/12/05)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「HTMLテキスト抽出 複数一括 (タグ指定)」で、任意のオプションタグ設定ボタンを追加できるようにしました。<br>ボタン追加方法の詳細は、tools/html-text-multi-tag.phpのソースに記述しています。</li>
+	<li>変更モジュール<br>
+		・tools/html-text-multi-tag.php</li>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.06&nbsp;&nbsp;(2011/12/03)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツール「HTMLテキスト抽出 複数一括 (タグ指定)」を追加しました。<br>
+	 複数のURLから一括してテキスト抽出します。任意の抽出タグを指定して、テキストを抽出します。<br>
+セパレータとしてカンマ(,)を指定することで、CSV形式にできます。抽出文字列を"で囲む(括る)ことも出来ます。CSVファイルとしてダウンロードすることも出来ます。</li>
+	<li><a href="http://gogakuru.com/" target="_blank">NHK ゴガクル</a>から、フレーズ・例文を抽出して、MyHome Portalコンテンツ「学習」にアップロードして、英会話の学習に役だてるなどできます。<br>
+フレーズ・例文集「英語が伝わる！１００のツボ」をダウンロードする例をとって、手順を簡単に説明します。<br>
+<ol style="margin-left:20px;">
+
+
+<li>まず、MyHome Portal「学習」で、カテゴリを登録します。<br>
+例えば、「カテゴリ編集」で「ゴガクル」を登録し、「サブカテゴリ編集」で「100のツボ」を登録します。</li>
+<li>「サブカテゴリ編集」でサブカテゴリIDを確認します。id2がサブカテゴリIDです。
+<br><img src="images/study-cat2.jpg" style="margin:2px 20px"></li>
+<li>「HTMLテキスト抽出 複数一括 (タグ指定) 」で、ゴガクルのURLを指定してテキスト抽出します。
+ゴガクルでは、表示件数を50件ずつに指定したURLを使います。以下のように50件ずつ4ページ分指定すると200件分ダウンロードできます。<br>
+<span style="word-break: break-all;">
+<a href="http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50" target="_blank">http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50</a><br>
+<a href="http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=2" target="_blank">http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=2</a><br>
+<a href="http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=3" target="_blank">http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=3</a><br>
+<a href="http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=4" target="_blank">http://gogakuru.com/english/phrase/tag_cloud/1847_%E8%8B%B1%E8%AA%9E%E3%81%8C%E4%BC%9D%E3%82%8F%E3%82%8B%EF%BC%81%EF%BC%91%EF%BC%90%EF%BC%90%E3%81%AE%E3%83%84%E3%83%9C.html?perPage=50&pageID=4</a><br>
+「ゴガクル・タグ設定」ボタンで、抽出タグを設定できます。「テキスト抽出」ボタンを押します。<br>
+「テーブル行先頭挿入」欄に、「学習」のサブカテゴリID「13」を指定します。<br>
+「件名/ファイル名」を適当な名前に変更して、CSVファイルをダウンロードします。<br>
+</span><img src="images/00000276-gethtml2.jpg" style="margin:2px 20px"></li>
+<li>ダウンロードしたCSVファイルに、ヘッダー行
+<pre class="command" style="font-size: 11px;">
+id_category2,c_answer,c_question
+</pre>
+を追加します。追加例。
+<pre class="command" style="font-size: 11px;">
+id_category2,c_answer,c_question
+13,"Thank you all for helping.","お疲れ様でした。"
+13,"I almost forgot.","あやうく忘れるところだった。"
+.....
+</pre>
+</li>
+<li>MyHome Portalツール「MySQL管理ツール」で、このCSVファイルをアップロードします。<br>
+データベース「_mydb_study」テーブル「m_study」を選択します。<br>
+「データ表示」画面を開き「CSVインポート」でCSVファイルをアップロードします。<br>
+アップロードデータを確認し、「このデータをインポートする」ボタンを押します。
+<br><img src="images/csv-upload.jpg" style="margin:2px 20px">
+</li>
+<li>
+MyHome Portalツール「学習」では、英語/日本語それぞれ隠すなどして、学習が出来ます。
+<br><img src="images/gogakuru.jpg" style="margin:2px 20px">
+<br><img src="images/gogakuru2.jpg" style="margin:2px 20px">
+</li>
+</ol>
+</li>
+	<li>追加モジュール<br>
+		・tools/html-text-multi-tag.php</li>
+	<li>変更モジュール<br>
+		・tools/index.php, html-text-mail.php, html-text-multi.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.05&nbsp;&nbsp;(2011/11/06)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「カレンダー(一覧表示)」「ID管理」「利用ガイド」のキーワード検索時のキーワードハイライトがPHP処理だったのを、「メモ」「旅行記」と同様にjquery.highlight.jsを使用する方式に変更しました。</li>
+	<li>主な変更モジュール<br>
+		・__common__/include-common-all.php<br>
+		・calendar/list-my-template.php<br>
+		・guide/list-my-template.php<br>
+		・id-manager/list-my-template.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.04&nbsp;&nbsp;(2011/10/31)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「メモ」「旅行記」のキーワード検索時の、キーワードハイライトをPHP処理でなく、<br>
+	  jquery.highlight.jsを使用する方式に変更しました。<br>
+	  本文にURLが入っている場合に&lt;a&gt;タグのリンクが崩れる問題が解消されました。<br>
+		≪JavaScript text higlighting jQuery plugin≫<br>
+<a href="http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html" target="_blank">http://johannburkard.de/blog/programming/javascript/highlight-javascript-text-higlighting-jquery-plugin.html</a><br>
+	  英数字の全角⇔半角、ひらがな⇔カタカナを区別しないでハイライトするための処理はPHPで行っています。</li>
+	<li>主な変更モジュール<br>
+		・__common__/include-common-all.php<br>
+		・memo/list-my-template.php<br>
+		・diary/view.php, __include-view.php, list-my-template.php, list-marker-template.php</li>
+	<li>追加モジュール<br>
+		・scripts/jquery.highlight.js</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.03&nbsp;&nbsp;(2011/10/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>「旅行記」で、マーカー地点のメモに改行が入っているとマップが表示されない不具合を修正。</li>
+	<li>主な変更モジュール<br>
+		・diary/__include-maps-v3.php, __include-maps.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.02&nbsp;&nbsp;(2011/10/17)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>「カレンダー」、「旅行記」の日付入力補助ポップアップカレンダーを、「ホームページの素」<br>
+		<a href="http://www.kanaya440.com/contents/js/calendar/" target="_blank">http://www.kanaya440.com/contents/js/calendar/</a><br>
+		のものから「WEB上手：カレンダーで日付の入力補助をする」<br>
+		<a href="http://www.web-jozu.com/javascript/calen_input.html" target="_blank">http://www.web-jozu.com/javascript/calen_input.html</a>
+		<br><img src="images/calen_inpu.gif" style="margin:2px 20px">
+<br>
+		のものに変更しました。一部修正して使っています。<br>
+		なお、実運用定義ファイルで<br>
+<pre class="command" style="font-size: 11px;">
+define("INPUT_POPUP_CALENDAR_calendar", "kanaya");
+</pre>
+		を指定することで「ホームページの素」のものを使うこともできます。「ホームページの素」のものもデザインを修正しました。		<br><img src="images/pop-cal.gif" style="margin:2px 20px"></li>
+
+	<li>「カレンダー」のデザインを一部修正。</li>
+
+	<li>「メモ」のtextarea入力で、タブの入力を可能にしました。複数行選択して、インデントをすることもできます。タブ入力には、jquery.textarea.jsを使用しています。<br>
+		<a href="http://teddevito.com/demos/textarea.html" target="_blank">http://teddevito.com/demos/textarea.html</a></li>
+	<li>「メモ」の翻訳機能が正常動作しなくなっていたのを修正。Google AJAX Language APIで、<br>
+		http://www.google.com/jsapiのコール時に、APIキーを指定すると正常動作しなくなっているようなので、APIキーを外しました。</li>
+
+	<li>「RSSリーダー」に、RSS本文も合わせて表示するポップウインドウを追加しました。右側の↑をクリックすると、ポップウインドウが開きます。「RSSリーダー」ではサーバーサイドでRSSフィードを読み取って一定時間キャッシュしていますが、今回追加したものは、クライアントサイドで、都度RSSフィードを読み取って表示します。実現には「FeedEk jQuery RSS/ATOM Feed Plugin」を使用しています。<br>
+		<a href="http://jquery-plugins.net/FeedEk/FeedEk.html" target="_blank">http://jquery-plugins.net/FeedEk/FeedEk.html</a><br><img src="images/FeedEk.jpg" style="margin:2px 20px"></li>
+
+	<li>主な変更モジュール<br>
+		・calendar/input.php, _my_calendar.php, _add_input_header.php, list-my-template.php<br>
+		・diary/input.php, _add_input_header.php<br>
+		・memo/__html-my-header-translate.php<br>
+		・rss/__define.php, _add_header_index.php<br>
+		・scripts/calendar.js<br>
+		・scripts/style/calendar.js.css<br>
+		・style/original/calendar.css<br>
+		・__define_common_my_sample.php</li>
+	<li>追加モジュール<br>
+		・calendar/_add_input_header-kanaya.php<br>
+		・diary/_add_input_header-kanaya.php<br>
+		・rss/feed.php, __include-common-rss.php<br>
+		・rss/feed/*<br>
+		・scripts/jquery.textarea.js<br>
+		・scripts/calen_input/*</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.01&nbsp;&nbsp;(2011/09/14)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>パスワードをhash()で暗号化してからCookie保存するようにしました。</li>
+	<li>ツール「テキスト縦書き表示」をChromeでも使えるようにしました。<br>
+	  縦書き表示は、IE9ではルビ付きの場合、レイアウト崩れを起こします。また、印刷が1ページだけになってしまいます。<br>
+	  Chromeでは、PDF Viewerによる印刷プレビューを無効にしないと、印刷でフォントが横向きになってしまいます。<br>
+		参考：Chrome縦書き印刷不具合の解消方法<br>
+		<a href="http://ok2nd.blog87.fc2.com/blog-entry-294.html" target="_blank">http://ok2nd.blog87.fc2.com/blog-entry-294.html</a></li>
+	<li>ツール「テキスト縦書き表示」でソース・タイプを、HTML、テキストの選択が出来るようにしました。HTML指定の場合、改行コードで改行はしません。</li>
+	<li>ツール「jSnow：お好み」で、スライダーを使ってオプション選択が出来るようにしました。slider.jsを使っています。<br>
+		<a href="http://www.frequency-decoder.com/demo/slider-revisited/" target="_blank">http://www.frequency-decoder.com/demo/slider-revisited/</a>
+<br><img src="images/00000236-opt.jpg" style="margin:2px 20px"></li>
+	<li>ツール「HTML URL抽出 & ファイルダウンロード」に、 Simple HTML DOM Parser版を追加しました。<br>
+	  Simple HTML DOM Parserを使ってHTML解析をします。<br>
+		<a href="http://simplehtmldom.sourceforge.net/" target="_blank">http://simplehtmldom.sourceforge.net/</a><br>
+	  ただし、メモリオーバーフローの可能性があります。以下のようなエラーメッセージが出ます。<br>
+		Fatal error: Allowed memory size of 33554432 bytes exhausted (tried to allocate 2496 bytes)</li>
+	<li>ツールにシステム管理者用機能として、「PHPサーバー変数($_SERVER)一覧」を追加しました。</li>
+	<li>主な変更モジュール<br>
+		・account/__include-login.php, login.php, edit-mypass.php<br>
+		・id-manager/__include-im-login.php, im-login.php<br>
+		・tools/index.php, tategaki.php, tategaki-form.php<br>
+		・tools/jSnow/input.php, opt.php<br>
+		・__common__/__define_common.php, include-common-all.php</li>
+	<li>追加モジュール<br>
+		・tools/jSnow/slider/*<br>
+		・tools/html-get-url-img-simplehtmldom.php<br>
+		・tools/simplehtmldom/*<br>
+		・tools/server-variable.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.4.00&nbsp;&nbsp;(2011/08/25)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+
+	<li>Ver.1.00リリースから約3年経過で4年目に入ったということで、Ver.4.00としました。</li>
+	<li>INDEXトップページ検索キー入力ボックスのGoogle Suggest APIを使った予測変換(単語補完)を、オフにもできるようにしました。検索キー入力ボックスの左の●をクリックしてください。jquery.autocomplete.jsを一部改造したjquery.autocomplete_my.jsを使っています。</li>
+	<li>INDEXトップページ検索キー入力ボックスのGoogle Suggest APIを使った予測変換(単語補完)プルダウンを、スクロールバーを出さずに候補10個が全て見えるようにしました。</li>
+	<li>INDEXトップページ右上の日付け表示のフォントサイズを大きくしました。</li>
+	<li>「住所録」の入力画面に住所検索機能を追加しました。住所の一部から、郵便番号と住所を検索します。<br>
+	グルーブテクノロジー株式会社の「郵便番号検索API」を利用しています。<br>
+		<a href="http://groovetechnology.co.jp/webservice/zipsearch/index.html" target="_blank">http://groovetechnology.co.jp/webservice/zipsearch/index.html</a></li>
+	<li>ツール「jSnow お好み」で、カラーピッカーが使えるようにしました。カラーピッカーは、JSColorを使っています。<br>
+<a href="http://jscolor.com/" target="_blank">http://jscolor.com/</a></li>
+	<li>主な変更モジュール<br>
+		・index/index.php, _add_header-index.php, __define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo.php<br>
+		・blog-parts/myhome-clock.inc<br>
+		・scripts/jquery.autocomplete.css<br>
+		・abook/input.php<br>
+		・tools/jSnow/input.php, opt.php
+		・style/original/index.css</li>
+	<li>追加モジュール<br>
+		・abook/zip-search.php<br>
+		・scripts/jquery.autocomplete_my.js<br>
+		・scripts/jscolor/*</li>
+	<li><font color=red>※ MyHome Portalツール「jSnow：お好み 」をGoogle App Engine 上に移植した「2nd jSnow」を作成しましたした。興味のある方はアクセスしてみてください。</font><br> 
+<a href="http://2ndjsnow.appspot.com/" target="_blank">http://2ndjsnow.appspot.com/</a><br>
+<a href="http://ok2nd.blog87.fc2.com/blog-entry-286.html" target="_blank">http://ok2nd.blog87.fc2.com/blog-entry-286.html</a><br>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.37&nbsp;&nbsp;(2011/08/18)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>INDEXトップページの検索に、Google Suggest APIを使った予測変換(単語補完)機能を組み込みました。検索キー入力ボックスでは、jquery.autocomplete.jsを使用しています。
+<br><a href="http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/" target="_blank">http://bassistance.de/jquery-plugins/jquery-plugin-autocomplete/</a>
+<br><img src="images/autocomplete.jpg" style="margin:2px 20px"></li>
+	<li>INDEXトップページのTwitter検索ボタンを、Googleリアルタイム検索がサービス停止になっているので、search.twitter.comによる検索に戻しまた。</li>
+	<li>「ID管理」のtextareaのリサイズを、カレンダー、メモ等と同じく、大小ボタンを押す方式でなく、自動リサイズ方式にしました。
+</li>
+	<li>主な変更モジュール<br>
+		・id-manager/input.php<br>
+		・index/index.php, __define_index_search.php<br>
+		・__define_index_search_my_google.php, __define_index_search_my_yahoo</li>
+	<li>追加モジュール<br>
+		・index/google-suggest.php, _add_header-index.php<br>
+		・scripts/jquery.autocomplete.js, jquery.autocomplete.css<br><br></li>
+
+	<li><font color=red>※ Google App Engine (Python) のトライアルシステムとして写真共有サイトらしきもの「2nd Foto」、Ghostwriterを使った「2nd Pen」を作成してみました。興味のある方はアクセスしてみてください。</font><br>
+<a href="http://2ndfoto.appspot.com/" target="_blank">http://2ndfoto.appspot.com/</a><br>
+<a href="http://ok2nd.blog87.fc2.com/blog-entry-280.html" target="_blank">http://ok2nd.blog87.fc2.com/blog-entry-280.html</a><br>
+<a href="http://2ndpen.appspot.com/" target="_blank">http://2ndpen.appspot.com/</a><br>
+<a href="http://ok2nd.blog87.fc2.com/blog-entry-283.html" target="_blank">http://ok2nd.blog87.fc2.com/blog-entry-283.html</a><br>
+
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.36&nbsp;&nbsp;(2011/08/01)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>ツールに、物理エンジンを使った物体落下シミュレーションゲーム(?)「physicSketch」を追加しました。画面上に図形を描くと、その図形が物理法則に従って落下します。<br>
+<a href="http://d.hatena.ne.jp/technohippy/" target="_blank">あんどうやすしさん</a>作成のJavaScriptライブラリ「physicsketch.js」「box2d.js」を使っています。Chromeで動作確認しています。<br>
+<a href="http://physicsketch.appspot.com/" target="_blank">http://physicsketch.appspot.com/</a><br>
+<a href="http://physicsketch.appspot.com/app/list" target="_blank">http://physicsketch.appspot.com/app/list</a><br>
+落下スピードを変えることもできるようにしました。<br>
+表示画面では、作成した図形をセットで次々に追加して落下させたりもできます。結合した図形がバラバラになったりして、複雑な動きが楽しめます。<br>
+<img src="images/00000272-physicSketch1.jpg" style="margin:2px 20px"><br>
+<img src="images/00000273-physicSketch2.jpg" style="margin:2px 20px"><br>
+<img src="images/00000273-physicSketch3.jpg" style="margin:2px 20px"><br>
+<img src="images/00000273-physicSketch4.jpg" style="margin:2px 20px"><br>
+<img src="images/00000274-physicSketch9.jpg" style="margin:2px 20px"><br>
+</li>
+Ver.3.36以前で既に環境を構築済みの場合は、以下の手順で「physicSketch」の環境設定をしてください。コマンドプロンプトで以下を実行してください。以下、MySQL管理者ユーザーrootのパスワードを「kanri789」、インストールドライブを「D:」として説明します。<br>
+≪サンプルデータベース作成≫
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+create database _db_psketch;
+exit
+
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _db_psketch < _db_psketch.bk.txt
+mysql -u root -pkanri789 _db_psketch < create_view_db_psketch.txt
+
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _db_psketch.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit
+</pre>
+≪実運用データベース作成＆環境設定≫<br>
+  ＊実運用データベース作成<br>
+・MySQLを一旦停止します。<br>
+<pre class="command" style="font-size: 11px;">
+net stop mysql
+</pre>
+・データベース「_db_psketch」をコピーして、実運用データベース「_mydb_psketch」を作成します。<br>
+<pre class="command" style="font-size: 11px;">
+mkdir D:\xampp\mysql\data\_mydb_psketch
+copy D:\xampp\mysql\data\_db_psketch\* D:\xampp\mysql\data\_mydb_psketch
+</pre>
+・MySQLを再起動します。<br>
+<pre class="command" style="font-size: 11px;">
+net start mysql
+</pre>
+・データベースのビューを作成します。<br>
+<pre class="command" style="font-size: 11px;">
+d:
+cd "D:\xampp\htdocs\_myhome\z_db_backup"
+mysql -u root -pkanri789 _mydb_psketch < create_view_mydb_psketch.txt
+</pre>
+・データベースのアクセス権を設定します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+GRANT SELECT,INSERT,UPDATE,DELETE ON _mydb_psketch.* TO myhome@localhost;
+FLUSH PRIVILEGES;
+exit;
+</pre>
+・サンプルデータを削除します。<br>
+<pre class="command" style="font-size: 11px;">
+mysql -u root -pkanri789
+use _mydb_psketch;
+truncate table m_psketch;
+truncate table m_comment;
+exit;
+</pre>
+  ＊実運用定義ファイル __define_common_my.phpに、以下を追加してください。<br>
+<pre class="command" style="font-size: 11px;">
+define("_DB_SCHEMA_psketch", "_mydb_psketch");
+</pre>
+</li>
+	<li>追加モジュール<br>
+	・psketch/一式<br>
+	・style/original/psketch.css<br>
+	・z_db_backup/_db_psketch.bk.txt, create_view_db_psketch.txt, create_view_mydb_psketch.txt</li>
+	<li>変更モジュール<br>
+	・tools/index.php<br>
+	・db_tool/backup-mydb.php<br>
+	・__define_common_my_sample.php, setup-sample.php, db_restore.txt.php.php, db_backup.txt.php</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<h3>MyHome Portal Ver.3.35&nbsp;&nbsp;(2011/07/27)</h3>
+			<ul class="memo_subject">
+				<li>変更点</li>
+			</ul>
+	<ul class="memo">
+	<li>住所録、旅行記、アカウント情報修正の入力画面および各コンテンツの一覧形式の「一括修正/追加/削除」画面に以下の機能を追加しました。<br>
+　・半角英数字入力欄で、全角英数字を半角に自動変換。<br>
+　・全角入力欄で、半角カナを全角に自動変換。<br>
+　・ひらがな入力欄で、カタカナをひらがなに自動変換。<br>
+　・EnterキーでTabキー同様に入力フィールド移動。<br>
+これらの機能は、以下のJavaScriptを利用しています。<br>
+《valueconvertor.js》<br>
+ヨモツネット：入力されたテキストを自動で指定の形式(半角, 全角, ひらがな, 全角カタカナ)に変換する<br>
+<a href="http://www.yomotsu.net/lab/javascripts/valueconvertor" target="_blank">http://www.yomotsu.net/lab/javascripts/valueconvertor</a><br>
+《jqKey.js》<br>
+せかにゃ～：Enter/Tab項目移動とFunctionKey制御をplugin化<br>
+<a href="http://d.hatena.ne.jp/Hidepyon/20110220/1298217228" target="_blank">http://d.hatena.ne.jp/Hidepyon/20110220/1298217228</a><br>
+以下のサイトを参考にさせていただきました。<br>
+CSS HappyLife：実装が簡単で、フォームの使い勝手を向上させるJS 3種<br>
+<a href="http://css-happylife.com/archives/2011/0630_0300.php" target="_blank">http://css-happylife.com/archives/2011/0630_0300.php</a><br>
+<img src="images/00000263-zip-in.jpg" style="margin:2px 20px"><br></li>
+	<li>変更モジュール<br>
+		・__common__/include-common-mp-list.php<br>
+		・abook/input.php, list.php<br>
+		・account/edit-myprofile.php<br>
+		・diary/input.php</li>
+	<li>追加モジュール<br>
+		・scripts/valueconvertor.js, jqKey.js</li>
+	</ul>
+	</div>
+
+	<div class="paragraph">
+		<p style="margin: 30px 0 50px 30px;"><a href="download8.html">
+		<span style="font-size: 120%;">→→→　バージョン3.34以前の履歴を見る</span>
+		</a>
+		</p>
+	</div>
+<!-- ************************************************************************************** -->
+</div>
+<div id="page_footer">
+ok.2nd
+</div>
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-6023373-1");
+pageTracker._trackPageview();
+</script>
+</body>
+</html>

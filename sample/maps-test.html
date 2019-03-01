@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>Google Maps JavaScript API v3 テスト</title>
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+var map;
+var marker;
+var current_infowin = null;
+function initialize() {
+	var latlng = new google.maps.LatLng(35.6813820, 139.7660840);
+	var myOptions = {
+		zoom: 13,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	}
+	map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	google.maps.event.addListener(map, 'click', function(event) {
+		addNewIcon(event.latLng);
+	});
+}
+function addNewIcon(latlng) {
+	if (current_infowin) {
+		current_infowin.close();
+		current_infowin = null;
+	}
+	marker = new google.maps.Marker({
+		position: latlng,
+		map: map
+	});
+	var html = '<form onsubmit="cancelMarker();return false;"><input type="submit" value="submitキャンセル" /><input type="button" onclick="cancelMarker();" value="buttonキャンセル" /></form>';
+	var infowindow = new google.maps.InfoWindow({
+		content: html
+	});
+	google.maps.event.addListener(marker, 'click', function() {
+		infowindow.open(map,marker);
+		current_infowin = infowindow;
+	});
+}
+function cancelMarker() {
+	if (current_infowin) {
+		current_infowin.close();		/* なぜか？新たなマーカーが出来てしまう */
+		current_infowin = null;
+	}
+	marker.setMap(null);
+}
+</script>
+</head>
+<body onload="initialize()">
+	<div id="map_canvas" style="width:500px; height:500px;"></div>
+</body>
+</html>
