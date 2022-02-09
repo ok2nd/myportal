@@ -53,14 +53,14 @@ w01 = window.open(url,"","toolbar=no,location=no,directories=no,status=no,menuba
 		<ul class="description">
 			<li>XAMPPを次のサイトからダウンロードしてください。インストーラタイプをダウンロードしてください。<br>
 	<a href="http://www.apachefriends.org/jp/xampp-windows.html" target="_blank">http://www.apachefriends.org/jp/xampp-windows.html</a></li>
-			<li>XAMPPの最新バージョンでも動作すると思いますが、XAMPP 1.7.2以降ではインストーラが日本語対応になっていない等、以前のバージョンとかなり違いがあるようです。可能であれば、Source Forgeから1.7.1以前をダウンロードしてインストールした方が無難かもしれません。<br>
+			<li>XAMPPの最新バージョンでも動作すると思いますが、XAMPP 1.7.2以降ではインストーラが日本語対応になっていない等、以前のバージョンとかなり違いがあるようです。<br>
 	<a href="http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/" target="_blank">http://sourceforge.net/projects/xampp/files/XAMPP%20Windows/</a><br>
 XAMPP 1.7.1<br>
 + Apache 2.2.11<br>
 + MySQL 5.1.33 (Community Server)<br>
 + PHP 5.2.9 + PEA<br>
 </li>
-<li>Windows 10 で、<b>XAMPP 1.8.3</b> で実績あり。<br>
+<li>Windows 10 で、<b>XAMPP 1.8.3</b> で実績あり。（<b>おすすめ</b>）<br>
 XAMPP 1.8.3<br>
 + Apache 2.4.10<br>
 + MySQL 5.6.20<br>
@@ -73,11 +73,11 @@ XAMPP 1.8.3<br>
 		<li>XAMPPインストール
 		<ul class="description">
 			<li>インストールディレクトリを「<b>D:\xampp</b>」として、説明します。</li>
-			<li>インストーラをダブルクリックで実行してください。</li>
-			<li>Apache, MySQLを<b>サービスとしてインストール</b>してください。</li>
-			<li>XAMPPコントロールパネルが以下のように表示されればOKです。<img src="images/xampp-1.gif"></li>
-
-
+			<li>インストーラをダブルクリックで実行してください。<br><img src="images/xampp-01.jpg"></li>
+			<li>「xampp/xampp-control.exe」のプロパティを開いて、「<b>管理者として実行</b>」するように設定します。<br><img src="images/xampp-02.jpg"></li>
+			<li>XAMPPコントロールパネルを開きます。</li>
+			<li>Apache, MySQLの<b>サービス</b>にチェックを入れて「Start」します。<br>
+<font color=red>最初、エラーが出ますが、10分程してからやり直すと正常に起動します。<br></font><img src="images/xampp-03.jpg"></li>
 			<li>「ポート80または443（SSL)はすでに利用されています。Apacheをサービスとしてインストールするのに失敗しました。」というメッセージが表示される場合は、以下のサイトが参考になります。<br>
 <a href="http://shiotani.cn/20080515xampp.html" target="_blank">XAMPPのインストール・エラーの対処方法</a></li>
 
@@ -86,7 +86,7 @@ XAMPP 1.8.3<br>
 		<li>XAMPP動作確認
 		<ul class="description">
 			<li>ブラウザで、<a href="http://localhost" target="_blank">http://localhost/</a>と入れて初期画面を表示します。表示されたページで「<b>日本語</b>」を選択します。</li>
-			<li>以下のような画面が表示されればOKです。<font color=red>最初は日本語で表示されないかもしれませんが、いつの間にか（？）日本語が表示されるようになります。</font><img src="images/xampp-2.gif"></li>
+			<li>以下のような画面が表示されればOKです。<font color=red>最初は日本語で表示されないかもしれませんが、いつの間にか（？）日本語が表示されるようになります。</font><br><img src="images/xampp-04.jpg"></li>
 		</ul>
 		</li>
 		<li>MySQL root パスワード設定
